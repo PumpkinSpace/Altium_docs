@@ -24,6 +24,7 @@ from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
 import subprocess
+import time
 # This program also requires the following installed packages:
 # pypdfocr 
 # imagemagik
@@ -40,7 +41,7 @@ import subprocess
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\Pumpkin\Battery Module (01571D)'
+starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\Pumpkin\Power Supply Board (01666A)'
 
 ##################### Function to extract the text from a PDF ##################
 # From: stackoverflow.com/questions/40031622/pdfminer-error-for-one-type-of-
@@ -454,7 +455,20 @@ readme_file.close()
 
 # move all gerbers into the desired zip archive
 shutil.make_archive(andrews_dir+'\\'+part_number, 'zip', gerbers_dir)
-shutil.rmtree(gerbers_dir) 
+attempt_count = 0
+while attempt_count < 10:
+    try:
+        shutil.rmtree(gerbers_dir) 
+        break
+    except os.error:
+        attempt_count += 1
+        time.sleep(100)
+    # end
+# end
+if attempt_count == 10:
+    print '*** Random error, restart the program ***'
+    sys.exit()
+# end
 
 ###################### Manage the Schematic and BOM files ######################
 
@@ -485,7 +499,7 @@ if no_bom:
 
 # search for a schematic document in the root directory
 for filename in root_file_list:
-    if filename.endswith('pdf') and (len(filename) > 12):
+    if filename.endswith('pdf') and (len(filename) > 12) and (filename != 'PCB Prints.pdf') and ('layers' not in filename):
         # schematic found
         no_schematic = False
         break
@@ -500,18 +514,20 @@ if no_schematic:
 
 
 # open pdf file
-schematic = pyPdf.PdfFileReader(open(starting_dir+'\\'+filename, "rb"))
-
-# write each page to a separate pdf file
-for page in xrange(schematic.numPages):
-    # add page to the output stream
-    output = pyPdf.PdfFileWriter()
-    output.addPage(schematic.getPage(page))
-    # format the filename 
-    file_name = pdf_dir + '\\' + part_number + '--' + str(page+1) + '.pdf'
-    with open(file_name, "wb") as outputStream:
-        # write the page
-        output.write(outputStream)
+with open(starting_dir+'\\'+filename, "rb") as schematic_file:
+    schematic = pyPdf.PdfFileReader(schematic_file)
+    
+    # write each page to a separate pdf file
+    for page in xrange(schematic.numPages):
+        # add page to the output stream
+        output = pyPdf.PdfFileWriter()
+        output.addPage(schematic.getPage(page))
+        # format the filename 
+        file_name = pdf_dir + '\\' + part_number + '--' + str(page+1) + '.pdf'
+        with open(file_name, "wb") as outputStream:
+            # write the page
+            output.write(outputStream)
+        # end
     # end
 # end
 
@@ -600,7 +616,11 @@ for page in xrange(layers_pdf.numPages):
     new_filename = get_filename(file_name)
     if new_filename != -1:
         # This file is desired so rename with the correct name
-        os.rename(file_name, pdf_dir + '\\' + new_filename)
+        if os.path.isfile(pdf_dir + '\\' + new_filename):
+            print '*** Error, ' + new_filename + ' already exists ***'
+        else:
+            os.rename(file_name, pdf_dir + '\\' + new_filename)
+        # end
         
     else:
         # file is not wanted so remove it
