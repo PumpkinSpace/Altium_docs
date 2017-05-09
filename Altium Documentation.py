@@ -41,7 +41,7 @@ import time
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\Pumpkin\Power Supply Board (01666A)'
+starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\QB50\Antenna Relay (90010C)'
 
 ##################### Function to extract the text from a PDF ##################
 # From: stackoverflow.com/questions/40031622/pdfminer-error-for-one-type-of-
@@ -190,7 +190,7 @@ def get_filename(path):
          and (beautify('Solder') in pdf_text)\
          and (beautify('Paste') in pdf_text)\
          and (beautify('COMPO') not in pdf_text):
-        # This is a Bottom Solder Paste file
+        # This is a Bottom Solder Paste file    
         get_filename.SPB = True
         return 'SPB0223.pdf'  
     
