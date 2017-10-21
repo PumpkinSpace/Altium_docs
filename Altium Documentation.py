@@ -25,7 +25,7 @@ from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
 import subprocess
 import time
-# This program also requires the following installed packages:
+# This program also requires the following installed packages:  
 # pypdfocr 
 # imagemagik
 # Pillow
@@ -41,7 +41,7 @@ import time
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\QB50\Antenna Relay (90010C)'
+starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\Pumpkin\Payload Interface Module REVD (01293D)'
 
 ##################### Function to extract the text from a PDF ##################
 # From: stackoverflow.com/questions/40031622/pdfminer-error-for-one-type-of-
@@ -82,7 +82,7 @@ def convert_pdf_to_txt(path):
 ########## Function to find the page number in a schematic document ############
 # Altium often outputs the PDF with the apges in the wrong order so this
 # function finds the page number on each page and returns a string of the number
-def get_page_number(path):
+def get_page_number(path, pn):
     # extract the text from a pdf page
     pdf_text = convert_pdf_to_txt(path)
     
@@ -91,9 +91,9 @@ def get_page_number(path):
     if of_index == -1:
         # if of is not found return an error
         return -1
-    elif pdf_text[of_index+5].isdigit() and (pdf_text[of_index+6] != '5'):
+    elif pdf_text[of_index-2].isdigit() and (pdf_text[of_index-1] != '5') and (pdf_text[of_index-6:of_index-1] != '94112') and (pdf_text[of_index-6:of_index-1] != pn[:-1]) and (pdf_text[of_index-4:of_index-1] != ' 01'):
         # there are two digits in the page number, return both
-        return pdf_text[of_index-2:of_index-1]
+        return pdf_text[of_index-2:of_index]
     
     else:
         # return the single digit page number
@@ -119,7 +119,6 @@ def beautify(text):
     text = text.replace('u', 'w')
     text = text.replace('f', 'r')
     text = text.replace('v', 'r')
-    text = text.replace('¦', 'a')
     return text
 # end
     
@@ -292,7 +291,7 @@ if len(gerber_file_list) < 10:
 
 # rejected file extensions
 bad_gerber_ext = ['zip', 'ods', 'xls', 'Report.Txt', '2.txt', \
-                  '4.txt', '6.txt', '8.txt', 'drc', 'html']
+                  '4.txt', '6.txt', '8.txt', 'drc', 'html', '~lock']
 
 # file extensions that represent layers
 layer_gerber_list = ['.GTL', '.GBL', '.G1', '.G2', '.G3', '.G4', '.G5', \
@@ -339,6 +338,7 @@ Readme_dictionary = {'X': '.X                      Dielectric X file            
                      'REP': '.REP			Altium Report file				ASCII\n',
                      'RUL': '.RUL			Altium .RUL file\n',		
                      'TXT': '.TXT			Altium Drill file				ASCII\n',
+                     'txt': '.txt                       Altium Pick and Place file                      ASCII\n',
                      'csv': '.CSV			Pick and Place File				ASCII\n',
                      'APR_LIB': '.APR_LIB	        Altium Aperture Library 		        Gerber\n'}
 
@@ -536,7 +536,7 @@ for i in range(1,page+2):
     old_file_name = pdf_dir + '\\' + part_number + '--' + str(i) + '.pdf'
     
     # find page number
-    page_number = get_page_number(old_file_name)
+    page_number = get_page_number(old_file_name, part_number)
     if page_number == -1:
         # Could not find a page number
         print('***   No page number found in document '+ \
