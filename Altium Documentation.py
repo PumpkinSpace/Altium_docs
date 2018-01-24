@@ -32,6 +32,7 @@ import time
 # reportlab
 # watchdog
 # pypdf2
+# ghostscript
 
 #import reportlab
 #import watchdog
@@ -41,7 +42,7 @@ import time
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\pumpkinadmin\Dropbox\Satellite\Pumpkin\Payload Interface Module REVD (01293D)'
+starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Battery Module (01571F1)'
 
 ##################### Function to extract the text from a PDF ##################
 # From: stackoverflow.com/questions/40031622/pdfminer-error-for-one-type-of-
@@ -98,7 +99,7 @@ def get_page_number(path, pn):
     else:
         # return the single digit page number
         return pdf_text[of_index-1]
-    # end
+    # end 
 # end
 
 
@@ -107,18 +108,20 @@ def get_page_number(path, pn):
 # This function performs sustitutions of common miss-readings to enhance
 # performance. New errors should be added here as the are encountered
 def beautify(text):
+    text = ''.join(text.split())
     text = text.lower()
-    text = text.replace('u', 'w')
-    text = text.replace('1', 'l')
-    text = text.replace('i', 'l')
-    text = text.replace('n', 'r')
-    text = text.replace('0', 'o')
-    text = text.replace('j', 'l')
-    text = text.replace('g', 'y')
-    text = text.replace('h', 'a')
-    text = text.replace('u', 'w')
-    text = text.replace('f', 'r')
-    text = text.replace('v', 'r')
+    text = ''.join([c for c in text if c.isalnum()])
+    #text = text.replace('u', 'w')
+    #text = text.replace('1', 'l')
+    #text = text.replace('i', 'l')
+    #text = text.replace('n', 'r')
+    #text = text.replace('0', 'o')
+    #text = text.replace('j', 'l')
+    #text = text.replace('g', 'y')
+    #text = text.replace('h', 'a')
+    #text = text.replace('u', 'w')
+    #text = text.replace('f', 'r')
+    #text = text.replace('v', 'r')
     return text
 # end
     
@@ -127,7 +130,7 @@ def beautify(text):
 # extract the text from a OCRed pdf and see if certain substrings are present
 # within that text to determine the correct file name
 def get_filename(path):
-    pdf_text = beautify(''.join(convert_pdf_to_txt(path).split()))
+    pdf_text = beautify(convert_pdf_to_txt(path))
     if (beautify('number') in pdf_text)\
        and (beautify('Drill') in pdf_text):
         # This is a Mechanical Drawing file
@@ -204,14 +207,49 @@ def get_filename(path):
     elif ((beautify('Layer') in pdf_text) or (beautify('Plane') in pdf_text)) \
          and (beautify('COMPO') not in pdf_text):
         # This is a Layer Artwork file
-        name = 'ART' + format(get_filename.layer, '02') + '.pdf'
+        #name = 'ART' + format(get_filename.layer, '02') + '.pdf'
         get_filename.layer += 1
-        return name
+        #return name
+        return get_layer_number(pdf_text)
     
     else:
         return -1
     # end
 # end
+
+def get_layer_number(page_text):
+    if (beautify('Layer 1') in page_text):
+        return 'ART01.pdf'
+    
+    elif (beautify('Layer 2') in page_text):
+        return 'ART02.pdf'
+    
+    elif (beautify('Layer 3') in page_text):
+        return 'ART03.pdf'
+    
+    elif (beautify('Layer 4') in page_text):
+        return 'ART04.pdf'
+
+    elif (beautify('Layer 5') in page_text):
+        return 'ART05.pdf'
+    
+    elif (beautify('Layer 6') in page_text):
+        return 'ART06.pdf'
+
+    elif (beautify('Layer 7') in page_text):
+        return 'ART07.pdf'
+    
+    elif (beautify('Layer 8') in page_text):
+        return 'ART08.pdf'
+    
+    else:
+        print "this layer did not get named"
+        print beautify('Layer 1')
+        return "unnamed layer"
+    #end if
+#end def
+                
+    
 
 part_list = starting_dir.split('(')
 part_number = part_list[1][:-1]
@@ -229,6 +267,8 @@ if os.path.exists(andrews_dir):
 os.makedirs(andrews_dir)
 
 ############################### Altium Files ###################################
+
+print 'Moving Altium Files...'
 
 # create directory for the altium files
 altium_dir = andrews_dir + '\Altium Files'
@@ -257,7 +297,11 @@ for filename in root_file_list:
     # end
 # end
 
+print 'Complete! \n'
+
 ##################### Move desired Gerber Files to directory ###################
+
+print 'Moving Gerber Files...'
         
 # find project Outputs folder
 for filename in root_file_list:
@@ -290,7 +334,7 @@ if len(gerber_file_list) < 10:
 # end 
 
 # rejected file extensions
-bad_gerber_ext = ['zip', 'ods', 'xls', 'Report.Txt', '2.txt', \
+bad_gerber_ext = ['zip', 'ods', 'xls', 'xlsx', 'Report.Txt', '2.txt', \
                   '4.txt', '6.txt', '8.txt', 'drc', 'html', '~lock']
 
 # file extensions that represent layers
@@ -314,7 +358,11 @@ for filename in gerber_file_list:
     # end
 # end
 
+print 'Complete! \n'
+
 ############################# Create Readme file ###############################
+
+print 'Generating Readme File...'
 
 # Dictionary of lines that can be added to Readme file
 Readme_dictionary = {'X': '.X                      Dielectric X file                               Gerber\n',
@@ -470,6 +518,8 @@ if attempt_count == 10:
     sys.exit()
 # end
 
+print 'Complete! \n'
+
 ###################### Manage the Schematic and BOM files ######################
 
 # create the PDF Directory
@@ -480,6 +530,8 @@ os.makedirs(pdf_dir)
 no_schematic = True
 no_bom = True
 
+print 'Moving BOM...'
+
 # search for BOM in project outputs folder
 for filename in gerber_file_list:
     if filename.endswith('xls'):
@@ -489,6 +541,13 @@ for filename in gerber_file_list:
         no_bom = False
         break
     # end
+    elif filename.endswith('xlsx'):
+        # BOM found
+        shutil.copyfile(outputs_dir + '\\' + filename, \
+                        pdf_dir + '\\' + part_number + '_BOM.xlsx')
+        no_bom = False
+        break
+    # end    
 # end   
 
 if no_bom:
@@ -496,6 +555,10 @@ if no_bom:
     print('***   No BOM was found in project outputs   ***')
     sys.exit()
 # end
+
+print 'Complete! \n'
+
+print 'Finding Schematic Document...'
 
 # search for a schematic document in the root directory
 for filename in root_file_list:
@@ -512,10 +575,13 @@ if no_schematic:
     sys.exit()
 # end
 
+print 'Reading the Schematic file...'
 
 # open pdf file
 with open(starting_dir+'\\'+filename, "rb") as schematic_file:
     schematic = pyPdf.PdfFileReader(schematic_file)
+    
+    
     
     # write each page to a separate pdf file
     for page in xrange(schematic.numPages):
@@ -531,6 +597,7 @@ with open(starting_dir+'\\'+filename, "rb") as schematic_file:
     # end
 # end
 
+print 'Renaming the PDFs...'
 # rename the pdfs with the correct filenames
 for i in range(1,page+2):
     old_file_name = pdf_dir + '\\' + part_number + '--' + str(i) + '.pdf'
@@ -549,8 +616,11 @@ for i in range(1,page+2):
               part_number + '-' + page_number + '.pdf')
 # end
 
+print 'Complete! \n'
+
 ################## Create the PDF files for each Gerber layer ##################
 
+print 'Starting OCR on Layers file...'
 # Find the layers.pdf file
 if ('Layers.pdf' not in root_file_list) and ('layers.pdf' not in root_file_list) and ('PCB Prints.pdf' not in root_file_list):
     # Could not find layers.pdf
@@ -574,8 +644,9 @@ shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
 cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], cwd=ocr_dir)
 cmd.wait()
 
-# line breaks following OCR output
-print '\n\n'
+print 'Complete! \n'
+
+print 'Renaming the layer PDFs...'
 
 # return OCR file from OCR directory and clean the OCR directory
 os.remove(ocr_dir +'\\layers.pdf')
@@ -675,6 +746,10 @@ if (get_filename.SPT == False):
     no_warnings = False
 # end
 
+print 'Complete! \n'
+
+print 'Constructing Archive...'
+
 # create archives and remove un-needed directorys
 shutil.make_archive(andrews_dir+'\\'+part_number+ 'PD', 'zip', pdf_dir)
 shutil.rmtree(pdf_dir) 
@@ -683,7 +758,7 @@ shutil.make_archive(starting_dir+'\\'+part_number+'_Folder', 'zip', andrews_dir)
 shutil.rmtree(andrews_dir, ignore_errors=True)
 
 # indicate completion
-print '\n*** Directory has been generated successfully ***'
+print '\n*** Directory ' + part_number + '_Folder.zip' + ' has been generated successfully ***'
 if not no_warnings:
     print '\n*** Warnings were raised so please reveiw ***'
 # end
