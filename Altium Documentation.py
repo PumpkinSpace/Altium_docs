@@ -647,7 +647,7 @@ if exe_OCR:
     shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
     
     # perform OCR on the layers pdf and wait for it to complete
-    cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir)
+    cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir, shell=True)
     
 else:
     
