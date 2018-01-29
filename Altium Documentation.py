@@ -42,7 +42,13 @@ import time
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Battery Module (01571F1)'
+starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Payload Interface Module REVD (01293D)'
+
+exe_OCR = False
+
+if exe_OCR:
+    ocr_dir = os.getcwd()
+# end if
 
 ##################### Function to extract the text from a PDF ##################
 # From: stackoverflow.com/questions/40031622/pdfminer-error-for-one-type-of-
@@ -636,12 +642,23 @@ if ('PCB Prints.pdf' in root_file_list):
     os.rename(starting_dir+'\\PCB Prints.pdf', starting_dir+'\\layers.pdf')
 # end
 
-# copy the layers pdf into the ocr directory to allow ocr to be performed
-ocr_dir = 'C:\\Python27\\Lib\\site-packages\\pypdfocr'
-shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
+if exe_OCR:
+    # copy the layers pdf into the ocr directory to allow ocr to be performed
+    shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
+    
+    # perform OCR on the layers pdf and wait for it to complete
+    cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir)
+    
+else:
+    
+    # copy the layers pdf into the ocr directory to allow ocr to be performed
+    ocr_dir = 'C:\\Python27\\Lib\\site-packages\\pypdfocr'
+    shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
+    
+    # perform OCR on the layers pdf and wait for it to complete
+    cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], cwd=ocr_dir)
+# end if
 
-# perform OCR on the layers pdf and wait for it to complete
-cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], cwd=ocr_dir)
 cmd.wait()
 
 print 'Complete! \n'
