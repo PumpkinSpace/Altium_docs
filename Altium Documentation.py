@@ -42,9 +42,9 @@ import time
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Payload Interface Module REVD (01293D)'
+starting_dir = 'C:\Users\djwnz\Dropbox\Satellite\pumpkin\Payload Interface Module REVD (01293D)'
 
-exe_OCR = False
+exe_OCR = True
 
 if exe_OCR:
     ocr_dir = os.getcwd()
@@ -647,7 +647,8 @@ if exe_OCR:
     shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
     
     # perform OCR on the layers pdf and wait for it to complete
-    cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir)
+    cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir, shell=True)
+    cmd.wait()
     
 else:
     
@@ -657,9 +658,8 @@ else:
     
     # perform OCR on the layers pdf and wait for it to complete
     cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], cwd=ocr_dir)
+    cmd.wait()
 # end if
-
-cmd.wait()
 
 print 'Complete! \n'
 
