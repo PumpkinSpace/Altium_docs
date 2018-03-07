@@ -25,6 +25,7 @@ from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
 import subprocess
 import time
+import datetime
 # This program also requires the following installed packages:  
 # pypdfocr 
 # imagemagik
@@ -42,7 +43,7 @@ import time
 
 #################### Change this for each implementation #######################
 # directory where the Circuit board files are stored
-starting_dir = 'C:\Users\djwnz\Dropbox\Satellite\pumpkin\Payload Interface Module REVD (01293D)'
+starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Radio Host Module 2 (01847A)'
 
 exe_OCR = True
 
@@ -93,6 +94,28 @@ def get_page_number(path, pn):
     # extract the text from a pdf page
     pdf_text = convert_pdf_to_txt(path)
     
+    if 'ASSY' in pdf_text:
+        assy_blocks = pdf_text.split('case')
+        if len(assy_blocks) != 3:
+            print "*** Warning, potential errors in ASSY_REV blocks. ***"
+        # end if
+        
+        list_1 = assy_blocks[2].split('.')
+        
+        while ((assy_blocks[1][0].isalpha() == False) and (assy_blocks[1] != '')):
+            assy_blocks[1] = assy_blocks[1][1:]
+        # end while
+        
+        list_0 = assy_blocks[1].split('.')
+        
+        if len(list_0) != len(list_1):
+            print "*** Warning, potential errors in ASSY_REV blocks. ***"
+        # end if        
+        
+        print list_0
+        print list_1
+        
+    
     # find the location of the of string that separates the page numers
     of_index = pdf_text.rfind(' of ')
     if of_index == -1:
@@ -118,8 +141,8 @@ def beautify(text):
     text = text.lower()
     text = ''.join([c for c in text if c.isalnum()])
     #text = text.replace('u', 'w')
-    #text = text.replace('1', 'l')
-    #text = text.replace('i', 'l')
+    text = text.replace('1', 'l')
+    text = text.replace('i', 'l')
     #text = text.replace('n', 'r')
     #text = text.replace('0', 'o')
     #text = text.replace('j', 'l')
@@ -272,6 +295,9 @@ if os.path.exists(andrews_dir):
 # create temporary directory in which to place all of the files needed
 os.makedirs(andrews_dir)
 
+# create list to load file modified dates into
+modified_dates = []
+
 ############################### Altium Files ###################################
 
 print 'Moving Altium Files...'
@@ -282,7 +308,7 @@ os.makedirs(altium_dir)
 
 # desired file extensions
 altium_ext = ['Outjob', 'cam', 'PrjPcb', 'PrjPcbStructure', \
-              'PcbDoc', 'SchDoc', 'Harness']
+              'PcbDoc', 'SchDoc', 'Harness', 'Outjob']
 
 # get file list of root directory
 root_file_list = os.listdir(starting_dir)
@@ -294,6 +320,7 @@ for filename in root_file_list:
         if filename.endswith(ext):
             # This file is desired to copy it across
             shutil.copyfile(starting_dir+'\\'+filename, altium_dir+'\\'+filename)
+            modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\'+filename)]
         # end
     # end
     
@@ -341,7 +368,7 @@ if len(gerber_file_list) < 10:
 
 # rejected file extensions
 bad_gerber_ext = ['zip', 'ods', 'xls', 'xlsx', 'Report.Txt', '2.txt', \
-                  '4.txt', '6.txt', '8.txt', 'drc', 'html', '~lock']
+                  '4.txt', '6.txt', '8.txt', 'drc', 'html', '~lock', '_Previews']
 
 # file extensions that represent layers
 layer_gerber_list = ['.GTL', '.GBL', '.G1', '.G2', '.G3', '.G4', '.G5', \
@@ -414,13 +441,16 @@ new_readme_lines = []
 # list of extensions already used to prevent repeats
 extensions_used = []
 
+# warning catcher
+no_warnings = True
+
 # Iterate through every file
 for filename in gerber_file_list:
     
     # reject unwanted file extensions
     good_filename = True
     for ext in bad_gerber_ext:
-        if filename.endswith(ext):
+        if filename.endswith(ext) and ("Pick Place" not in filename):
             # is not wanted
             good_filename = False
         # end
@@ -429,6 +459,7 @@ for filename in gerber_file_list:
     if good_filename:
         # add wanted extensions to list
         shutil.copyfile(outputs_dir+'\\'+filename, gerbers_dir+'\\'+filename)
+        modified_dates = modified_dates + [os.path.getmtime(outputs_dir+'\\'+filename)]
         
         # get file extension
         filename_list = filename.split('.')
@@ -502,6 +533,19 @@ for layer in range(2,layers+1):
     # end
 # end
 
+# check for pick and place files
+file_found = False
+for line in Readme_lines:
+    if ("Pick and Place" in line):
+        file_found = True
+    # end
+# end
+
+if not file_found:
+    print '*** WARNING no pick and place file found ***'
+    no_errors = False
+# end
+
 # open and write to tex file for readme
 readme_file = open(gerbers_dir+'\\'+'README'+str(layers)+'.TXT', 'w')
 readme_file.writelines(Readme_lines)
@@ -544,13 +588,18 @@ for filename in gerber_file_list:
         # BOM found
         shutil.copyfile(outputs_dir + '\\' + filename, \
                         pdf_dir + '\\' + part_number + '_BOM.xls')
+        modified_dates = modified_dates + [os.path.getmtime(outputs_dir+'\\'+filename)]
+        
         no_bom = False
         break
     # end
     elif filename.endswith('xlsx'):
         # BOM found
+        print '*** WARNING old BOM format ***'
+        no_warnings = False        
         shutil.copyfile(outputs_dir + '\\' + filename, \
                         pdf_dir + '\\' + part_number + '_BOM.xlsx')
+        modified_dates = modified_dates + [os.path.getmtime(outputs_dir+'\\'+filename)]
         no_bom = False
         break
     # end    
@@ -564,13 +613,39 @@ if no_bom:
 
 print 'Complete! \n'
 
+print 'Moving ASSY REV Document...'
+
+no_assy = True
+
+# search for ASSY_REV document in root folder
+for filename in root_file_list:
+    if filename.endswith('xlsx'):
+        # ASSY REV doc found
+        shutil.copyfile(starting_dir+'\\'+filename, \
+                        pdf_dir + '\\' + part_number + '_ASSY_REV.xlsx')
+        modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\'+filename)]
+        no_assy = False
+        break
+    # end   
+# end   
+
+if no_assy:
+    # No ASSY REV doc was found
+    print '*** WARNING no ASSY_REV document was found *** \n'
+    no_warnings = False  
+    
+else:
+    print 'Complete! \n'
+# end
+
 print 'Finding Schematic Document...'
 
 # search for a schematic document in the root directory
 for filename in root_file_list:
-    if filename.endswith('pdf') and (len(filename) > 12) and (filename != 'PCB Prints.pdf') and ('layers' not in filename):
+    if filename.lower().endswith('pdf') and (len(filename) > 12) and (filename != 'PCB Prints.pdf') and ('layers' not in filename):
         # schematic found
         no_schematic = False
+        modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\'+filename)]
         break
     # end
 # end
@@ -586,8 +661,6 @@ print 'Reading the Schematic file...'
 # open pdf file
 with open(starting_dir+'\\'+filename, "rb") as schematic_file:
     schematic = pyPdf.PdfFileReader(schematic_file)
-    
-    
     
     # write each page to a separate pdf file
     for page in xrange(schematic.numPages):
@@ -632,15 +705,19 @@ if ('Layers.pdf' not in root_file_list) and ('layers.pdf' not in root_file_list)
     # Could not find layers.pdf
     print('***   No layers.pdf or PCB Prints.pdf file found  ***')
     sys.exit()      
-# end
+# end if
 
 if ('Layers.pdf' in root_file_list):
+    modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\Layers.pdf')]
     os.rename(starting_dir+'\\Layers.pdf', starting_dir+'\\layers.pdf')
-# end
 
-if ('PCB Prints.pdf' in root_file_list):
+elif ('PCB Prints.pdf' in root_file_list):
+    modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\PCB Prints.pdf')]
     os.rename(starting_dir+'\\PCB Prints.pdf', starting_dir+'\\layers.pdf')
-# end
+
+else:
+    modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\layers.pdf')]
+# end if
 
 if exe_OCR:
     # copy the layers pdf into the ocr directory to allow ocr to be performed
@@ -717,7 +794,6 @@ for page in xrange(layers_pdf.numPages):
 # end
 
 # Generate warnings for pecuiliar outputs
-no_warnings = True
 if (get_filename.layer % 2 == 0) or (get_filename.layer != (layers + 1)):
     print '*** WARNING wrong number of layers printed ***'
     no_warnings = False
@@ -764,6 +840,66 @@ if (get_filename.SPT == False):
 # end
 
 print 'Complete! \n'
+
+print 'Zipping Step File...'
+
+step_file_found = False
+
+# search for step file
+for filename in root_file_list:
+    if filename.endswith('.step'):
+        # step file has been found
+        
+        modified_dates = modified_dates + [os.path.getmtime(starting_dir+'\\'+filename)]
+        
+        # make a folder to put the step file in temporarily
+        step_dir = starting_dir + '\\step_temp'
+        if os.path.exists(step_dir):
+            shutil.rmtree(step_dir)
+        # end
+        
+        # create temporary directory in which to place all of the files needed
+        os.makedirs(step_dir)    
+        
+        # copy file into temp directory
+        shutil.copy(starting_dir+'\\'+filename, step_dir +'\\'+part_number+'.step')
+        
+        # make archive
+        shutil.make_archive(starting_dir+'\\'+part_number+'_step', 'zip', step_dir)
+        shutil.rmtree(step_dir, ignore_errors=True)        
+        
+        step_file_found = True
+    # end if
+# end for
+
+if not step_file_found:
+    print '*** WARNING No step file found ***'
+    no_warnings = False    
+# end if
+        
+print 'Complete! \n'
+
+# find the oldest and newest files used.
+
+min_time = modified_dates[0]
+max_time = modified_dates[0]
+
+for time in modified_dates:
+    if time < min_time:
+        min_time = time
+        
+    elif time > max_time:
+        max_time = time
+    # end if
+# end for
+
+# detect old files
+if ((max_time - min_time) > 600):
+    # there is more than 10 mins between the oldest and youngest file dates
+    early_date = datetime.datetime.fromtimestamp(min_time).strftime('%Y-%m-%d %H:%M:%S')
+    print '*** WARNING possibly delivering old files, date ' + early_date + ' ***'
+    no_warnings = False
+# end if
 
 print 'Constructing Archive...'
 
