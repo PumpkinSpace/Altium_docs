@@ -1,0 +1,73 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Manufacturer 1~String~Manufacturer 1~100|Field=Manufacturer Part Number 1~String~Manufacturer Part Number 1~100|Field=Quantity~Integer~Quantity~100|Field=Supplier 1~String~Supplier 1~100|Field=Supplier Part Number 1~String~Supplier Part Number 1~100|Field=Supplier Subtotal 1~Float~Supplier Subtotal 1~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~ADCS Interface Module 2 REVB.PrjPcb|ReportField=ProjectFullPath~C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\ADCS Interface Module 2 (01845B)\ADCS Interface Module 2 REVB.PrjPcb|ReportField=Title~DNP BOM For Project [ADCS Interface Module 2 REVB.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~233|ReportField=ReportTime~5:02:10 PM|ReportField=ReportDate~6/03/2018|ReportField=ReportDateTime~6/03/2018 5:02:10 PM|ReportField=OutputName~DNP BOM|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=AssemblyNumber~710-01846|ReportField=PartNumber~705-01845|ReportField=ProjectRevision~B|ReportField=ProjectTitle~ADCS Interface Module 2|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=ConfigurationParameters~|ReportField=ConfiguratorName~|ReportField=CurrentDate~6/03/2018|ReportField=CurrentTime~10:38:30 AM|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\ADCS Interface Module 2 (01845B)\AIM2 - Top Sheet REVB.SchDoc|ReportField=DocumentName~AIM2 - Top Sheet REVB.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~DJW|ReportField=Engineer~|ReportField=ImagePath~|ReportField=IsUserConfigurable~|ReportField=ModifiedDate~22/02/2018|ReportField=Organization~|ReportField=ProjectName~ADCS Interface Module 2 REVB.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~12|ReportField=Time~|ReportField=Title~Top Sheet|ReportField=VersionControl_RevNumber~|ReportField=PageSetup~Record=PageOptions:CenterHorizontal=True:CenterVertical=True:PrintScale=0.72:XCorrection=1.00:YCorrection=1.00:PrintKind=1:BorderSize=5000000:LeftOffset=0:BottomOffset=0:Orientation=2:PaperLength=1000:PaperWidth=1000:Scale=100:PaperSource=7:PrintQuality=600:MediaType=1:DitherType=10:PrintScaleMode=1:PaperKind=Letter:PaperIndex=1|ReportField=DataSourceFileName~ADCS Interface Module 2 REVB.PrjPcb|ReportField=DataSourceFullPath~C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\ADCS Interface Module 2 (01845B)\ADCS Interface Module 2 REVB.PrjPcb
+1|1uF|Capacitor 1uF 0805 X7R 25V 10%|C1, C3, C4, C5, C13, C14, C35, C36, C45, C46, C50, C51, C67|TDK Corporation|CGA4J3X7R1E105K125AB|13|Digi-Key|445-5687-1-ND|2.223
+2|100nF|Capacitor 100nF 0603 X7R 50V 5%|C2, C6, C7, C8, C9, C10, C11, C12, C15, C16, C17, C18, C19, C20, C21, C22, C23, C25, C26, C28, C32, C34, C40, C41, C42, C43, C44, C52, C53, C54, C55, C56, C57, C58, C60, C61, C62, C63, C65, C66, C69, C70, C71, C72, C73|KEMET|C0603C104J5RACTU|45|Digi-Key|399-7844-1-ND|14.715
+3|4.7uF|Capacitor 4.7uF 0805 X7R 35V 10%|C24, C37, C38, C39|TDK Corporation|CGA4J1X7R1V475K125AE|4|Digi-Key|445-172479-1-ND|3.24
+4|10uF|Capacitor 10uF 6032 TANT 16V 10%|C27, C31, C47, C48, C49, C59|KEMET|T491C106K016AT|6|Digi-Key|399-3732-1-ND|3.66
+5|27pF|Capacitor 27pF 0402 NP0 50V 1%|C29, C30|Murata Electronics North America|GRM1555C1H270FA01D|2|Digi-Key|490-6223-1-ND|0.2
+6|850pF|Capacitor 850pF 0603 100V|C33|Knowles Dielectric Labs|C06BL851X-1UN-X0T|1|Digi-Key|1761-1075-1-ND|3.57
+7|10nF|Capacitor 10nF 0805 X7R 50V 5%|C64|AVX Corporation|08055C103JAT2A|1|Digi-Key|478-3768-1-ND|0.19
+8|2.2uF|Capacitor 2.2uF 0805 X7R 35V 10%|C68|TDK Corporation|CGA4J1X7R1V225K125AE|1|Digi-Key|445-8787-1-ND|0.53
+9|BAT54C|Diode Pair common cathode|D1|STMicroelectronics|BAT54CFILM|1|Digi-Key|497-3786-1-ND|0.36
+10|UDZS3.3B|Diode 3.3V zener|D2|Rohm Semiconductor|UDZVTE-173.3B|1|Digi-Key|UDZVTE-173.3BCT-ND|0.29
+11|CurrentFootprint|Header PC/104 52-pin|H1, H2|Samtec Inc.|ESQ-126-37-G-D|2|Digi-Key|SAM9323-ND|18
+12|TMM-105-06-L-D-SM-A|Header 5x2 TH 2mm pitch|H4, H5, H8|Samtec Inc.|TMM-105-06-L-D-SM-A|3|Digi-Key|SAM12979-ND|6.09
+13|TW-13-06-L-D-390-SM-A|Header 13x2 TH 2mm pitch|H10, H11|SAMTEC|TW-13-06-L-D-390-SM-A|2|Newark|73X0656|13.18
+14|ZX62RD-AB-5P8|Header USB Micro AB|J231.1, J231.2, J238.1, J238.2|Hirose Electric Co Ltd|ZX62RD-AB-5P8|4|Digi-Key|H11611CT-ND|0
+15|SFW4R-2STE1LF|Header Flex Connector 4 pin, top side|J232, J234|Amphenol FCI|SFW4R-2STE1LF|2|Digi-Key|609-1884-1-ND|1.58
+16|A29100-009|Header Omnetics A29100-009|J233|Omnetics|A29100-009|1|||
+17|SFW6R-1STE1LF|Header Flex Connector 6 pin, bottom side|J235|Amphenol FCI|SFW6R-1STE1LF|1|Digi-Key|609-1889-1-ND|0.97
+18|MMCX|Header MMCX Through-hole vertical|J236, J239|Molex, LLC|0734151472|2|Digi-Key|WM9481-ND|8.26
+19|UFL Connector|UFL Connector|J237|Hirose Electric Co Ltd|U.FL-R-SMT-1(10)|1|Digi-Key|H11891CT-ND|1.31
+20|MCX|Header MCX Through-hole vertical|J240|Samtec Inc.|MCX-J-P-H-ST-TH1|1|Digi-Key|SAM8944-ND|4.23
+21|Jumper|Jumper 0805 2 pos|JP1, JP2|Panasonic Electronic Components|ERJ-6GEY0R00V|2|Digi-Key|P0.0ACT-ND|0.2
+22|TSW-102-22-L-S-RA|Header 2x1 RA TH raised|JP3|Samtec Inc.|TSW-102-22-L-S-RA|1|Digi-Key|TSW-102-22-L-S-RA-ND|0.26
+23|Jumper|Jumper 0805 1 pos|JP4|Panasonic Electronic Components|ERJ-6GEY0R00V|1|Digi-Key|P0.0ACT-ND|0.1
+24|300ohm @ 100MHz|Ferrite Bead 300ohm @ 100MHz|L1, L3|Wurth Electronics Inc.|742792641|2|Digi-Key|732-1592-1-ND|0.34
+25|90ohm @100MHz|Choke Common-mode 90ohm @ 100MHz|L2, L4|Wurth Electronics Inc.|744232090|2|Digi-Key|732-1469-1-ND|2.46
+26|ELK-E220FA|Filter LC 100MHz|LC1, LC2, LC3, LC4, LC5|Panasonic Electronic Components|ELK-E220FA|5|Digi-Key|P9871DKR-ND|2.55
+27|LED-RG|LED Red, Green 0805|LED0, LED1, LED2, LED3|Kingbright|APHBM2012SURKCGKC|4|Digi-Key|754-1093-1-ND|2.32
+28|LED-G-0805|LED Green 0805|LED5, LED6, LED9|Lite-On Inc.|LTST-C170KGKT|3|Digi-Key|160-1414-1-ND|1.14
+29|LED-O-0805|LED Orange 0805|LED7|Lite-On Inc.|LTST-C170KFKT|1|Digi-Key|160-1413-1-ND|0.31
+30|LED-R-0805|LED Red 0805|LED8|Lite-On Inc.|LTST-C170KRKT|1|Digi-Key|160-1415-1-ND|0.35
+31|MMBT2222|Transistor NPN|Q1, Q2|ON Semiconductor|MMBT2222ALT1G|2|Digi-Key|MMBT2222ALT1GOSCT-ND|0.24
+32|100K|Resistor 100K 0805 0.5W 1%|R1, R2, R8, R10, R11, R13, R35, R38, R48, R57, R59, R60, R61, R64, R69, R72, R73, R74, R82|Panasonic Electronic Components|ERJ-P06F1003V|19|Digi-Key|P16060CT-ND|3.021
+33|4.7K|Resistor 4.7K 0805 0.125W 1%|R3, R5, R31, R33, R58, R75|Yageo|RC0805FR-074K7L|6|Digi-Key|311-4.70KCRCT-ND|0.6
+34|200R|Resistor 200R 0805 0.125W 1%|R6, R9|Yageo|RC0805FR-07200RL|2|Digi-Key|311-200CRCT-ND|0.2
+35|510R|Resistor 470K 0805 0.125W 1%|R7|Yageo|RC0805FR-07470KL|1|Digi-Key|311-470KCRCT-ND|0.1
+36|0R|Resistor 0R 0805 0.125W|R12, R14, R23, R24, R34, R36, R37, R47, R62, R63|Panasonic Electronic Components|ERJ-6GEY0R00V|10|Digi-Key|P0.0ACT-ND|0.58
+37|100R|Resistor 100R 0805 0.125W 1%|R15, R16, R50|Panasonic Electronic Components|ERJ-6ENF1000V|3|Digi-Key|P100CCT-ND|0.3
+38|0R|Resistor 0R 0805 0.125W|R17, R18, R19, R20, R21, R22|Panasonic Electronic Components|ERJ-6GEY0R00V|6|Digi-Key|P0.0ACT-ND|0.6
+39|12K|Resistor 12K 0603 0.1W 1%|R25|Panasonic Electronic Components|ERJ-3EKF1202V|1|Digi-Key|P12.0KHCT-ND|0.1
+40|10K|Resistor 10K 0805 0.125W 1%|R26, R27, R28, R66, R67, R70, R79, R?|Yageo|RC0805FR-0710KL|8|Digi-Key|311-10.0KCRCT-ND|0.8
+41|2.2K|Resistor 2.2K 0805 0.125W 1%|R29|Yageo|RC0805FR-072K2L|1|Digi-Key|311-2.20KCRCT-ND|0.1
+42|220R|Resistor 220R 0805 0.125W 1%|R30, R32, R56, R65, R77, R78, R80, R81|Panasonic Electronic Components|ERJ-6ENF2200V|8|Digi-Key|P220CCT-ND|0.8
+43|470K|Resistor 470K 0805 0.125W 0.1%|R39, R40, R41, R42|Panasonic Electronic Components|ERA-6AEB474V|4|Digi-Key|P470KDACT-ND|1.44
+44|200K|Resistor 200K 0805 0.125W 1%|R43, R44|Panasonic Electronic Components|ERJ-6ENF2003V|2|Digi-Key|P200KCCT-ND|0.2
+45|680R|Resistor 470K 0805 0.125W 1%|R45, R46|Yageo|RC0805FR-07680RL|2|Digi-Key|311-680CRCT-ND|0.2
+46|6.04K|Resistor 6.04K 0805 0.125W 0.1%|R49|Panasonic Electronic Components|ERA-6AEB6041V|1|Digi-Key|P6.04KDACT-ND|0.36
+47|130R|Resistor 130R 0805 0.125W 1%|R51|Yageo|RC0805FR-07130RL|1|Digi-Key|311-130CRCT-ND|0.1
+48|1K|Resistor 1K 0805 0.125W 1%|R52|Panasonic Electronic Components|ERJ-6ENF1001V|1|Digi-Key|P1.00KCCT-ND|0.1
+49|1K|Resistor 1K 0805 0.125W 1%|R53, R76|Panasonic Electronic Components|ERJ-6ENF1001V|2|Digi-Key|P1.00KCCT-ND|0.2
+50|1.5K|Resistor 1.5K 0805 0.125W 1%|R54, R55|Panasonic Electronic Components|ERJ-6ENF1501V|2|Digi-Key|P1.50KCCT-ND|0.2
+51|150R|Resistor 150R 0805 0.125W 1%|R68, R71|Panasonic Electronic Components|ERJ-6ENF1500V|2|Digi-Key|P150CCT-ND|0.2
+52|LTC4415EMSE#PBF|IC Driver Dual Idewal Diode|U2, U17|Linear Technology/Analog Devices|LTC4415EMSE#PBF|2|Digi-Key|LTC4415EMSE#PBF-ND|12.82
+53|MAX4525LEUB+|IC Analog Switch DPDT|U3|Maxim Integrated|MAX4525LEUB+|1|Digi-Key|MAX4525LEUB+-ND|1.58
+54|TPS3838K33|IC Supervisor Reset|U4, U26|Texas Instruments|TPS3838K33DBVR|2|Digi-Key|296-26956-1-ND|4.54
+55|ADG707BRUZ|IC Multiplexer 2x 8:1|U5, U19|Analog Devices Inc.|ADG707BRUZ|2|Digi-Key|ADG707BRUZ-ND|13.56
+56|SN74LVC1T45DBVR|IC Logic Isolator 1 channel|U6, U7, U20, U21, U31|Texas Instruments|SN74LVC1T45DBVR|5|Digi-Key|296-16843-1-ND|3
+57|LP38690DTX-3.3|Regulator 3.3V LDO|U8, U14|Texas Instruments|LP38690DTX-3.3/NOPB|2|Digi-Key|LP38690DTX-3.3/NOPBCT-ND|3.26
+58|SRV05-4L-TP|IC ESD protection 4 input|U9, U13, U15, U16, U18|Micro Commercial Co|SRV05-4L-TP|5|Digi-Key|SRV05-4L-TPMSCT-ND|5.05
+59|FT4232HL|IC FTDI 4 port controller|U10|FTDI, Future Technology Devices International Ltd|FT4232HL-REEL|1|Digi-Key|768-1026-1-ND|8.75
+60|93LC56BT-I/OT|IC Memory EEPROM 2Kbit|U11|Microchip Technology|93LC56BT-I/OT|1|Digi-Key|93LC56BT-I/OTCT-ND|0.28
+61|OEM719|GPS Reciever|U12|Samtec Inc.|CLT-110-02-G-D-A|1|Digi-Key|SAM12500-ND|4.13
+62|MAX890|IC Power Monitor|U22|Maxim Integrated|MAX890LESA+|1|Digi-Key|MAX890LESA+-ND|3.36
+63|MCP1700T3302|Regulator 3.3V LDO|U23|Microchip Technology|MCP1700T-3302E/TT|1|Digi-Key|MCP1700T3302ETTCT-ND|0.39
+64|PIC24EP256MC206|IC Processor 16 bit|U24|Microchip Technology|PIC24EP256MC206-I/PT|1|Digi-Key|PIC24EP256MC206-I/PT-ND|3.86
+65|PCA9515DP|IC Translator I2C|U25|NXP USA Inc.|PCA9515DP,118|1|Digi-Key|568-1034-1-ND|1.5
+66|SN74LVC1G32DBVR|IC Logic OR 1 channel|U27|Texas Instruments|SN74LVC1G32DBVR|1|Digi-Key|296-9847-1-ND|0.36
+67|TPS3813|IC Supervisor Watchdog|U28|Texas Instruments|TPS3813K33DBVT|1|Digi-Key|296-10920-1-ND|2.31
+68|SN74LVC1G08DBVR|IC Logic AND 2 input|U29|Texas Instruments|SN74LVC1G08DBVR|1|Digi-Key|296-11601-1-ND|0.43
+69|TPS70933DBVR|Regulator 3.3 V LDO|U30|Texas Instruments|TPS70933DBVR|1|Digi-Key|296-35483-1-ND|1.17
+70|PIC10LF322T-E/OT|IC Processor 8 bit|U32|Microchip Technology|PIC10LF322T-E/OT|1|Digi-Key|PIC10LF322T-E/OTCT-ND|0.63
+71|MC74HCT595ADTR2G|IC Shift Register|U33|ON Semiconductor|MC74HCT595ADTR2G|1|Digi-Key|MC74HCT595ADTR2GOSCT-ND|0.46
+72|FQ1200007|Crystal 12MHz|Y1|Diodes Incorporated|FQ1200007|1|Digi-Key|FQ1200007CT-ND|0.72

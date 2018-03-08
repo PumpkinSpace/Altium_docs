@@ -1,0 +1,36 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: AIM2 REVB.GBR   6/03/2018  5:01:36 PM
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTL                TOP Copper                              
+.GP1                Internal Plane 2                        
+.G1                 Inner Layer 1                           
+.GP2                Internal Plane 4                        
+.GP3                Internal Plane 3                        
+.G2                 Inner Layer 2                           
+.GP4                Internal Plane 1                        
+.GBL                BOT Copper                              
+.GTP                Top Paste                               
+.GTO                Top Overlay                             
+.GTS                Top Solder                              
+.GBS                Bottom Solder                           
+.GBO                Bottom Overlay                          
+.GBP                Bottom Paste                            
+.GKO                Keep-Out Layer                          
+.GM1                Mechanical 1                            
+.GM2                Mechanical 2                            
+.GM13               Mechanical 13                           
+.GM15               Mechanical 15                           
+.1                  Dielectric 1                            
+.2                  Dielectric 3                            
+.3                  Dielectric 2                            
+.GML                Multi-Layer                             
+.4                  Dielectric 5                            
+.5                  Dielectric 4                            
+.6                  Dielectric 7                            
+.7                  Dielectric 6                            
+------------------------------------------------------------------------------------------

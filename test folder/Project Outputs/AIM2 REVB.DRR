@@ -1,0 +1,39 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: AIM2 REVB.PcbDoc   6/03/2018  5:01:38 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : TOP Copper to BOT Copper
+ASCII RoundHoles File : AIM2 REVB.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             319       PTH        46.79inch (1188.51mm)
+T2      20mil (0.5mm)                                             Round             89        PTH        31.03inch (788.07mm)
+T3      20mil (0.508mm)                                           Round             201       PTH        36.91inch (937.41mm)
+T4      26mil (0.66mm)                                            Round             6         PTH        4.52inch (114.70mm)
+T5      30mil (0.762mm)                                           Round             2         PTH        0.63inch (15.99mm)
+T6      33mil (0.84mm)                                            Round             10        PTH        3.20inch (81.28mm)
+T7      37mil (0.94mm)                                            Round             11        PTH        13.22inch (335.68mm)
+T8      39mil (1mm)                                               Round             2         PTH        0.10inch (2.54mm)
+T9      40mil (1.02mm)                                            Round             104       PTH        13.53inch (343.75mm)
+T10     43mil (1.1mm)                                             Round             1         PTH        0.00inch (0.00mm)
+T11     55mil (1.4mm)                                             Round             4         PTH        0.60inch (15.24mm)
+T12     65mil (1.651mm)                                           Round             4         PTH        10.05inch (255.39mm)
+T13     70mil (1.78mm)                                            Round             2         PTH        0.27inch (6.86mm)
+T14     125mil (3.175mm)                                          Round             4         PTH        11.30inch (287.12mm)
+T15     134mil (3.404mm)                                          Round             2         PTH        2.00inch (50.80mm)
+T16     165mil (4.191mm)                                          Round             4         PTH        5.25inch (133.32mm)
+T17     200mil (5.08mm)                                           Round             1         PTH        0.00inch (0.00mm)
+T18     34mil (0.864mm)                                           Round             20        NPTH       1.50inch (37.98mm)
+T19     47mil (1.19mm)                                            Round             10        NPTH       5.22inch (132.56mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              796
+
+Two holes at same point : 4
+-----------------------
+796,-255
+620,-255
+544,-132
+872,-132
+
+Total Processing Time (hh:mm:ss) : 00:00:00

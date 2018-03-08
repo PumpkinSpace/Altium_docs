@@ -1,0 +1,10 @@
+Output: DNP BOM
+Type  : BOM
+From  : Project [ADCS Interface Module 2 REVB.PrjPcb]
+   Generated File[DNP BOM-ADCS Interface Module 2 REVB.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 5:02:21 PM On 6/03/2018
