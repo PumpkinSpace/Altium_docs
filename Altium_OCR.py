@@ -3,16 +3,58 @@ import sys
 import shutil
 import subprocess
 import pyPdf
+import threading
+from functools import partial
+import time
+import Altium_helpers
+import pdfminer
+from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
+from pdfminer.converter import TextConverter
+from pdfminer.layout import LAParams
+from pdfminer.pdfpage import PDFPage
+from cStringIO import StringIO
+
+# This program also requires the following installed packages:  
+# pypdfocr 
+# imagemagik
+# Pillow
+# reportlab
+# watchdog
+# pypdf2
+# ghostscript
+#import reportlab
+#import watchdog
+#import PyPDF2
 
 
 def get_OCR_dir(exe_OCR):
     if exe_OCR:
-        return os.getcwd()
+        return 'C:\\Pumpkin\\Altium_docs'
         
     else:
         return 'C:\\Python27\\Lib\\site-packages\\pypdfocr'
     # end if
 # end def
+
+def log_error(get = False):
+    if get:
+        return log_error.no_errors
+    
+    else:
+        log_error.no_errors = False
+    # end if
+# end def
+log_error.no_errors = True
+
+def log_warning(get = False):
+    if get:
+        return log_warning.no_warnings
+    
+    else:
+        log_warning.no_warnings = False
+    # end if
+# end def
+log_warning.no_warnings = True
 
 def adjust_layer_filename(starting_dir):
     
@@ -23,8 +65,9 @@ def adjust_layer_filename(starting_dir):
         and ('layers.pdf' not in root_file_list) 
         and ('PCB Prints.pdf' not in root_file_list)):
         # Could not find layers.pdf
-        print('***   No layers.pdf or PCB Prints.pdf file found  ***')
-        sys.exit()      
+        print('***  Error: No layers.pdf or PCB Prints.pdf file found  ***')
+        log_error()
+        return None
     # end if
     
     if ('Layers.pdf' in root_file_list):
@@ -45,7 +88,7 @@ def adjust_layer_filename(starting_dir):
 def get_filename_init():
     # define static variables for the get_filename function
     # to facilitate the generation of warnings
-    get_filename.layer = 1
+    get_filename.layer = 0
     get_filename.MECHDWG = False
     get_filename.ADB = False
     get_filename.ADT = False
@@ -57,6 +100,42 @@ def get_filename_init():
     get_filename.SPB = False
     get_filename.SPT = False
 # end def
+
+##################### Function to extract the text from a PDF ##################
+# From: stackoverflow.com/questions/40031622/pdfminer-error-for-one-type-of-
+#       pdfs-too-many-vluae-to-unpack
+# Courtesy of Chianti5
+def convert_pdf_to_txt(path):
+    # create a PDF resource manager object that stores shared resources
+    rsrcmgr = PDFResourceManager()
+    retstr = StringIO()
+    codec = 'utf-8'
+    
+    # set parameters for analysis
+    laparams = LAParams()
+    device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
+    fp = file(path, 'rb')
+    interpreter = PDFPageInterpreter(rsrcmgr, device)
+    password = ""
+    maxpages = 0
+    caching = True
+    pagenos=set()
+
+    # process each page in the pdf
+    for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, \
+                                  password=password,caching=caching, \
+                                  check_extractable=True):
+        interpreter.process_page(page)
+    # end
+
+    # extract the text
+    text = retstr.getvalue()
+
+    fp.close()
+    device.close()
+    retstr.close()
+    return text
+# end
     
 ############ Function to detemine the correct name of a PDF layer file #########
 # extract the text from a OCRed pdf and see if certain substrings are present
@@ -64,7 +143,7 @@ def get_filename_init():
 def get_filename(path):
     pdf_text = beautify(convert_pdf_to_txt(path))
     if (beautify('number') in pdf_text)\
-       and (beautify('Drill') in pdf_text):
+       and (beautify('round') in pdf_text):
         # This is a Mechanical Drawing file
         get_filename.MECHDWG = True
         return 'MECHDWG.pdf'
@@ -166,8 +245,9 @@ def beautify(text):
     #text = text.replace('g', 'y')
     #text = text.replace('h', 'a')
     #text = text.replace('u', 'w')
-    #text = text.replace('f', 'r')
-    #text = text.replace('v', 'r')
+    text = text.replace('f', 'r')
+    text = text.replace('\'', '')
+    
     return text
 # end def
 
@@ -204,13 +284,21 @@ def get_layer_number(page_text):
     #end if
 #end def
 
-def split_OCR_pages(starting_dir, ocr_dir):
-    # return OCR file from OCR directory and clean the OCR directory
-    os.remove(ocr_dir +'\\layers.pdf')
-    shutil.move(ocr_dir +'\\layers_ocr.pdf', starting_dir +'\\layers_ocr.pdf')
+def split_OCR_pages(starting_dir):
     
-    # read the OCR'ed file
-    layers_pdf = pyPdf.PdfFileReader(open(starting_dir+'\\layers_ocr.pdf', "rb"))
+    try:
+        # read the OCR'ed file
+        layers_pdf = pyPdf.PdfFileReader(open(starting_dir+'\\layers_ocr.pdf', "rb"))
+        
+    except:
+        print '***  Error: Could not open layers_ocr.pdf ***'
+        log_error()
+        return None
+    # end try
+    
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+    
+    get_filename_init()
     
     # write each page to a separate pdf file
     for page in xrange(layers_pdf.numPages):
@@ -230,12 +318,13 @@ def split_OCR_pages(starting_dir, ocr_dir):
         new_filename = get_filename(file_name)
         if new_filename != -1:
             # This file is desired so rename with the correct name
-            if os.path.isfile(pdf_dir + '\\' + new_filename):
-                print '*** Error, ' + new_filename + ' already exists ***'
-                
-            else:
+            try:
                 os.rename(file_name, pdf_dir + '\\' + new_filename)
-            # end if
+                
+            except:
+                print '*** Error, ' + new_filename + ' already exists ***'
+                log_error()
+            # end try
             
         else:
             # file is not wanted so remove it
@@ -244,90 +333,168 @@ def split_OCR_pages(starting_dir, ocr_dir):
     # end for
 # end def
 
-def check_OCR_outputs(no_warnings):
+def check_OCR_outputs(num_layers):
     # Generate warnings for pecuiliar outputs
-    if (get_filename.layer % 2 == 0) or (get_filename.layer != (layers + 1)):
+    if (get_filename.layer != num_layers):
         print '*** WARNING wrong number of layers printed ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.MECHDWG == False):
         print '*** WARNING No MECHDWG file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.ADB == False):
         print '*** WARNING No ADB file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.ADT == False):
         print '*** WARNING No ADT file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.SST == False):
         print '*** WARNING No SST file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.SMT == False):
         print '*** WARNING No SMT file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.SSB == False):
         print '*** WARNING No SSB file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.SMB == False):
         print '*** WARNING No SMB file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.DD == False):
         print '*** WARNING No DD file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.SPB == False): 
         print '*** WARNING No SPB file output ***'
-        no_warnings = False
+        log_warning()
     # end
     if (get_filename.SPT == False):
         print '*** WARNING No SPT file output ***'
-        no_warnings = False
+        log_warning()
     # end    
-    
-    
-def perform_Altium_OCR(no_errors, no_warnings, exe_OCR, starting_dir):
-    
-    print 'Starting OCR on Layers file...'
-    
-    modified_dates = [adjust_layer_filename(starting_dir)]
-    
+# end def
+
+def run_OCR(starting_dir, exe_OCR, silence = True):
     # start the OCR on the layers file
-    orc_dir = get_OCR_dir(exe_OCR)
+    ocr_dir = get_OCR_dir(exe_OCR)
     if exe_OCR:
         # copy the layers pdf into the ocr directory to allow ocr to be performed
         shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
         
-        # perform OCR on the layers pdf
-        cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir, shell=True)
+        if silence:
+            with open(os.devnull, 'w') as out:
+                # perform OCR on the layers pdf
+                cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], 
+                                       cwd=ocr_dir, shell=True, 
+                                       stdout=out, stderr=out)    
+            # end with
+        
+        else:
+            # perform OCR on the layers pdf
+            cmd = subprocess.Popen(['pypdfocr.exe', 'layers.pdf'], cwd=ocr_dir, shell=True)
+        # end if
+        
+        # wait for analysis to complete
+        cmd.wait()
         
     else:
         
         # copy the layers pdf into the ocr directory to allow ocr to be performed
         shutil.copy(starting_dir+'\\layers.pdf', ocr_dir +'\\layers.pdf')
         
-        # perform OCR on the layers pdf
-        cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], cwd=ocr_dir)
+        if silence:
+            with open(os.devnull, 'w') as out:
+                # perform OCR on the layers pdf
+                cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], 
+                                       cwd=ocr_dir, stdout=out, stderr=out)   
+            # end with
+        
+        else:        
+            # perform OCR on the layers pdf
+            cmd = subprocess.Popen(['python', 'pypdfocr.py', 'layers.pdf'], 
+                                   cwd=ocr_dir)
+        # end if
+        
+        # wait for analysis to complete
+        cmd.wait()
+        
+        try:
+            # return OCR file from OCR directory and clean the OCR directory
+            os.remove(ocr_dir +'\\layers.pdf')
+            shutil.move(ocr_dir +'\\layers_ocr.pdf', starting_dir +'\\layers_ocr.pdf')      
+            
+        except:
+            pass
     # end if
     
-    # wait for analysis to complete
-    cmd.wait()
+# end def
     
-    print 'Complete! \n'
     
-    print 'Renaming the layer PDFs...'
+def perform_Altium_OCR(exe_OCR, starting_dir, num_layers, silence = True):
     
-    split_OCR_pages(starting_dir, ocr_dir)
+    print '\tStarting OCR on Layers file...'
     
-    check_OCR_outputs(no_warnings)
+    modified_dates = [adjust_layer_filename(starting_dir)]
     
-    print 'Complete! \n'
+    # initialise the OCR thread
+    #ocr_thread = threading.Thread(target = run_OCR, args=(starting_dir, exe_OCR, silence))
+    
+    # start the thread
+    #ocr_thread.start()  
+    
+    # wait for the thread to complete
+    #ocr_thread.join()
+    
+    run_OCR(starting_dir, exe_OCR, silence)
+    
+    if not os.path.isfile(starting_dir +'\\layers_ocr.pdf'):
+        log_error()
+        print '*** Error: OCR was unsuccessful ***'
+        return None, None
+    # end if
+    
+    print '\tComplete!'
+    
+    print '\tRenaming the layer PDFs...'
+    
+    split_OCR_pages(starting_dir)
+    
+    check_OCR_outputs(num_layers)
+    
+    print 'Complete!\n'
     
     return modified_dates
 #end def
+
+def test():
+    """
+    Test code for this module.
+    """
+    
+    if not Altium_helpers.clear_output(os.getcwd() + '\\test folder'):
+        log_error()
+    # end if
+    
+    perform_Altium_OCR(False, os.getcwd() + '\\test folder', 8)
+    
+    print [log_error(get=True), log_warning(get=True)]
+    
+    #no_errors = True
+    #no_warnings = True
+    #perform_Altium_OCR(no_errors, no_warnings, True, os.getcwd() + '\\test folder', 8)
+    
+    #print [no_errors, no_warnings]    
+    
+#end def
+
+if __name__ == '__main__':
+    # if this code is not running as an imported module run test code
+    test()
+# end if
