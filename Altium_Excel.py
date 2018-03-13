@@ -1,9 +1,39 @@
+#!/usr/bin/env python
+###########################################################################
+#(C) Copyright Pumpkin, Inc. All Rights Reserved.
+#
+#This file may be distributed under the terms of the License
+#Agreement provided with this software.
+#
+#THIS FILE IS PROVIDED AS IS WITH NO WARRANTY OF ANY KIND,
+#INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND
+#FITNESS FOR A PARTICULAR PURPOSE.
+###########################################################################
+"""
+@package Altium_Excel.py
+
+Package that manages excel files in the Altium Documentation Module.
+"""
+
+__author__ = 'David Wright (david@asteriaec.com)'
+__version__ = '0.2.0' #Versioning: http://www.python.org/dev/peps/pep-0386/
+
+
+#
+# -------
+# Imports
+
 import xlrd
 import os
 import openpyxl
 from openpyxl.styles.borders import Border, Side
 from openpyxl import Workbook
 import Altium_helpers
+
+#
+# -------
+# Constants
+
 
 thin_border = Border(left=Side(style='thin'), 
                      right=Side(style='thin'), 
@@ -24,52 +54,243 @@ bom_comment_col = 2
 
 is_test = False
 
+#
+# ----------------
+# Public Functions 
+
+
 def log_error(get = False):
+    """
+    Function to log errors within this module.
+
+    @param[in]    get:        True  = return no_errors without logging an error
+                              False = log an error and return nothing (bool)
+    @attribute    no_errors:  Whether there have been no errors logged
+    @return       (bool)      True  = no errors have been logged.
+                              False = Errors have been logged.
+    """  
+    
+    # determine which action to take
     if get:
+        # return the state
         return log_error.no_errors
     
     else:
+        # log an error
         log_error.no_errors = False
     # end if
 # end def
+
+# set the initial value
 log_error.no_errors = True
 
+
 def log_warning(get = False):
+    """
+    Function to log warnings within this module.
+
+    @param[in] get:          True  = return no_warnings without logging a warning
+                             False = log a warning and return nothing (bool)
+    @attribute no_warnings:  Whether there have been no errors logged
+    @return    (bool)        True  = no errors have been logged.
+                             False = Errors have been logged.
+    """    
+    
+    # determine which action to take
     if get:
+        # return the state
         return log_warning.no_warnings
     
     else:
+        # log a warning
         log_warning.no_warnings = False
     # end if
 # end def
+
+# set the initial value
 log_warning.no_warnings = True
 
 
+def set_assy_options(starting_dir, list_0, list_1):
+    """
+    Function to set the assembly rev options in the ASSY_REV document based on 
+    what was read from the schematic pages.
 
-def extract_items(cell):
-    cell_string = repr(cell).strip('text:u\'')
-    cell_list = cell_string.split(', ')
-    return cell_list
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[in]   list_0            List of options corresponding to binary 0 
+                                   selections (list of stings).
+    @param[in]   list_0            List of options corresponding to binary 0 
+                                   selections (list of stings).
+    @return      (bool)            True if this function is successful.
+    """      
+    
+    # open the assy_rev document
+    [assy_filename, assy_doc, assy_sheet] = open_assy_rev(starting_dir, 'Options')    
+    
+    # check that it got what it wanted
+    if assy_sheet == None:
+        return False
+    # end if
+    
+    # empty the options sheet to restore it to it's initial state
+    for j in range(2,assy_sheet.max_row+1):
+        assy_sheet.cell(j,2).value = ' '
+        assy_sheet.cell(j,3).value = 'No corresponding Assembly Revision'
+    # end for
+    
+    # fill the sheet with the options extracted from the pdf
+    for i in range(0,len(list_0)):
+        assy_sheet.cell(i+2,2).value = list_0[i]
+        assy_sheet.cell(i+2,3).value = list_1[i]
+    # end for
+    
+    # save the file
+    assy_doc.active = 0
+    assy_doc.save(starting_dir + '\\' + assy_filename)
+    
+    # close the doc
+    assy_doc.close()
+    
+    # return successful
+    return True
 # end def
+    
+    
+def construct_assembly_doc(starting_dir):
+    """
+    Function to build the BOM page of the ASSY_REV doc based on the BOMs 
+    exported from Altium.
 
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @return      (datetime)        The modified date of the BOM
+    @return      (datetime)        The modified date of the DNP bom
+    """       
+    
+    # find output directory
+    output_dir = Altium_helpers.get_output_dir(starting_dir)
+    
+    # if this failed log an error
+    if not log_error(get=True):
+        return None, None
+    # end if
+
+    # initialise BOM column arrays
+    bom_d_list = []
+    bom_pn_list = []
+    dnp_d_list = []
+    dnp_pn_list = []
+    
+    # fill the BOM column arrays
+    [bom_doc, bom_date] = get_bom_lists(starting_dir, bom_d_list, bom_pn_list)
+    [dnp_doc, dnp_date] = get_bom_lists(starting_dir, dnp_d_list, dnp_pn_list, 
+                                        DNP=True)
+    
+    # if this is a test print the lists
+    if is_test:
+        for i in bom_d_list: print i
+        print '\n'
+        for i in dnp_d_list: print i
+        print '\n'
+    # end if
+    
+    # if getting the BOM lists threw an error then exit
+    if not log_error(get=True):
+        return None, None
+    # end if    
+
+    # initialise the DNP component list
+    comp_dnp_list = []
+    
+    # iternate through the part numbers in the total list
+    for index in range(0,len(dnp_pn_list)):
+        if dnp_pn_list[index] not in bom_pn_list:
+            # if the part number is not present in the list of only placed
+            # then move all such parts to the DNP list
+            comp_dnp_list.append(dnp_d_list[index])
+            
+            # empty the placed list
+            dnp_d_list[index] = []
+            
+        else:
+            # the part number is present in the placed list so check every designator
+            designator_list = []
+            
+            # find the designator list in the other BOM
+            bom_index = bom_pn_list.index(dnp_pn_list[index])
+            
+            # check each designator
+            for designator in dnp_d_list[index]:
+                # compare to the other list
+                if designator not in bom_d_list[bom_index]:
+                    # it is not found so add the componant to the dnp list
+                    designator_list.append(designator)
+                    
+                    # remove the designator from this list
+                    dnp_d_list[index].remove(designator)
+                # end if
+            # end for
+            
+            # add to the dnp list
+            comp_dnp_list.append(designator_list)
+        # end if 
+    # end for
+    
+    # if this is a test then print the lists
+    if is_test:
+        for i in comp_dnp_list: print i
+        print '\n'
+        for i in dnp_d_list: print i
+        print '\n'        
+    # end if
+    
+    # fill the assy rev document with these lists.
+    fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc)
+    
+    # return the modified dates
+    return bom_date, dnp_date
+#end def
+
+
+#
+# ----------------
+# Private Functions 
 
 def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
+    """
+    Function to extract the designator and part number lists from a BOM.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[out]  d_list:           The list to add the found designator lists to
+                                   (list of lists of strings).
+    @param[out]  pn_list:          The list to add the found part number lists to
+                                   (list of lists of strings).
+    @param[in]   DNP:              True  = look in the DNP BOM
+                                   False = look in the regular BOM
+                                   (bool)
+    @return      (worksheet)       The BOM sheet that was opened.
+    @return      (datetime)        The modification date of the BOM.
+    """      
     
     # find output directory
     output_dir = Altium_helpers.get_output_dir(starting_dir)
     
     filename = ''
     
-    # find two BOM docs.
+    # find the BOM docs.
     for name in os.listdir(output_dir):
         if DNP == True and name.startswith('DNP'):
             filename = name
             
-        elif DNP == False and name.endswith('.xls') and not name.startswith('DNP'):
+        elif (DNP == False and name.endswith('.xls') and 
+              not name.startswith('DNP')):
             filename = name
         # end if
     # end for  
     
+    # no file was found so log the appropraite error
     if filename == '':
         if DNP:
             print '***  Error: no DNP BOM found ***'
@@ -87,7 +308,6 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
     # end if
     
     try:
-        
         # get the BOM date
         date = os.path.getmtime(output_dir + '\\' + filename)
         
@@ -100,58 +320,55 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
         return None, None
     # end try
     
+    # extract the required information
     for row in range(bom_header_rows, doc.nrows):
         # find the part number in the BOM Doc.
         pn_list.append(extract_items(doc.cell(row,bom_pn_col)))
         d_list.append(extract_items(doc.cell(row,bom_d_col)))
     # end for    
     
+    # return information
     return doc, date
 # end def
 
-def open_assy_rev(starting_dir, sheet = 'BOM'):
-    # find assy_rev document
-    assy_filename = ''
+
+def extract_items(cell):
+    """
+    Function to extract text from a worksheet cell.
+
+    @param[in]   cell:              The cell to get the data from (cell).
+    @return      (list of strings)  The extracted information.
+    """      
+    # extract the text
+    cell_string = repr(cell).strip('text:u\'')
     
-    for filename in os.listdir(starting_dir):
-        if ('ASSY' in filename) and ('REV' in filename):
-            assy_filename = filename
-        # end if
-    # end for
+    # split the list into sub parts
+    cell_list = cell_string.split(', ')
     
-    if assy_filename == '':
-        print '***  Error: no ASSY_REV doc found ***'
-        
-        return None, None, None
-    # end if    
-        
-    try:
-        # open the assy_rev document
-        assy_doc = openpyxl.load_workbook(starting_dir + '\\' + assy_filename)
-        
-    except:
-        print '***  Error: ASSY_REV doc could not be opened ***'
-    
-        return None, None, None      
-    # end try
-    
-    try:
-        # open the BOM sheet
-        bom_sheet = assy_doc[sheet]
-        
-    except:
-        print '***  Error: ASSY_REV doc is invlaid ***'
-    
-        return None, None, None       
-    # end try
-    
-    return assy_filename, assy_doc, bom_sheet
+    # return the list
+    return cell_list
 # end def
 
+
 def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
+    """
+    Function to populate the ASSY_REV document with the extracted BOM 
+    information.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[in]   dnp_d_list:       The list of components to place
+                                   (list of lists of strings).
+    @param[in]   comp_dnp_list:    The list of components not to place
+                                   (list of lists of strings).
+    @param[in]   dnp_doc:          The BOM that provides all the other 
+                                   information (worksheet)
+    """ 
     
+    # open the ASSY_REV document and extract the BOM sheet
     [assy_filename, assy_doc, bom_sheet] = open_assy_rev(starting_dir, 'BOM')    
     
+    # check that what was requested was returned
     if bom_sheet == None:
         log_error()
         return None
@@ -160,8 +377,10 @@ def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
     # empty bom and remove borders to reset it to empty state
     for i in range(1,bom_sheet.max_row+1):
         for j in range(1,bom_sheet.max_column+1):
+            # empty the cell
             bom_sheet.cell(i,j).value = ''
             
+            # remove borders
             if i > bom_header_rows:
                 bom_sheet.cell(i,j).border = no_border
             #end if
@@ -212,118 +431,62 @@ def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
     assy_doc.active = 0
     assy_doc.save(starting_dir + '\\' + assy_filename)
     
+    # close the file
     assy_doc.close()
-
 # end def
 
-def set_assy_options(starting_dir, list_0, list_1):
-    
-    [assy_filename, assy_doc, assy_sheet] = open_assy_rev(starting_dir, 'Options')    
-    
-    if assy_sheet == None:
-        return False
-    # end if
-    
-    # empty the options sheet to restore it to it's initial state
-    for j in range(2,assy_sheet.max_row+1):
-        assy_sheet.cell(j,2).value = ' '
-        assy_sheet.cell(j,3).value = 'No corresponding Assembly Revision'
-    # end for
-    
-    # fill the sheet with the options extracted from the pdf
-    for i in range(0,len(list_0)):
-        assy_sheet.cell(i+2,2).value = list_0[i]
-        assy_sheet.cell(i+2,3).value = list_1[i]
-    # end for
-    
-    # save the file
-    assy_doc.active = 0
-    assy_doc.save(starting_dir + '\\' + assy_filename)
-    
-    assy_doc.close()
-    
-    return True
-# end def
-    
-def construct_assembly_doc(starting_dir):
-    
-    # find output directory
-    output_dir = Altium_helpers.get_output_dir(starting_dir)
-    
-    if not log_error(get=True):
-        return None
-    # end if
 
-    # initialise BOM column arrays
-    bom_d_list = []
-    bom_pn_list = []
-    dnp_d_list = []
-    dnp_pn_list = []
+def open_assy_rev(starting_dir, sheet = 'BOM'):
+    """
+    Function to open the ASSY_REV document and return the desired sheet.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[in]   sheet:            The name of the desired sheet in the document
+                                   (string).
+    @return      (string)          The filename of the document.
+    @return      (workbook)        The workbook that was opened.
+    @return      (worksheet)       The requested sheet in the document.
+    """     
+    # find assy_rev document
+    assy_filename = ''
     
-    # fill the BOM column arrays
-    [bom_doc, bom_date] = get_bom_lists(starting_dir, bom_d_list, bom_pn_list)
-    [dnp_doc, dnp_date] = get_bom_lists(starting_dir, dnp_d_list, dnp_pn_list, DNP=True)
+    for filename in os.listdir(starting_dir):
+        if ('ASSY' in filename) and ('REV' in filename):
+            assy_filename = filename
+        # end if
+    # end for
     
-    if is_test:
-        for i in bom_d_list: print i
-        print '\n'
-        for i in dnp_d_list: print i
-        print '\n'
-    # end if
-    
-    if not log_error(get=True):
-        return None
+    if assy_filename == '':
+        print '***  Error: no ASSY_REV doc found ***'
+        
+        return None, None, None
     # end if    
+        
+    try:
+        # open the assy_rev document
+        assy_doc = openpyxl.load_workbook(starting_dir + '\\' + assy_filename)
+        
+    except:
+        print '***  Error: ASSY_REV doc could not be opened ***'
+    
+        return None, None, None      
+    # end try
+    
+    try:
+        # open the BOM sheet
+        bom_sheet = assy_doc[sheet]
+        
+    except:
+        print '***  Error: ASSY_REV doc is invlaid ***'
+    
+        return None, None, None       
+    # end try
+    
+    # return all desired information
+    return assy_filename, assy_doc, bom_sheet
+# end def
 
-    # initialise the DNP component list
-    comp_dnp_list = []
-    
-    # iternate through the part numbers in the total list
-    for index in range(0,len(dnp_pn_list)):
-        if dnp_pn_list[index] not in bom_pn_list:
-            # if the part number is not present in the list of only placed
-            # then move all such parts to the DNP list
-            comp_dnp_list.append(dnp_d_list[index])
-            
-            # empty the placed list
-            dnp_d_list[index] = []
-            
-        else:
-            # the part number is present in the placed list so check every designator
-            designator_list = []
-            
-            # find the designator list in the other BOM
-            bom_index = bom_pn_list.index(dnp_pn_list[index])
-            
-            # check each designator
-            for designator in dnp_d_list[index]:
-                # compare to the other list
-                if designator not in bom_d_list[bom_index]:
-                    # it is not found so add the componant to the dnp list
-                    designator_list.append(designator)
-                    
-                    # remove the designator from this list
-                    dnp_d_list[index].remove(designator)
-                # end if
-            # end for
-            
-            # add to the dnp list
-            comp_dnp_list.append(designator_list)
-            
-        # end if 
-    # end for
-    
-    if is_test:
-        for i in comp_dnp_list: print i
-        print '\n'
-        for i in dnp_d_list: print i
-        print '\n'        
-    # end if
-    
-    fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc)
-    
-    return bom_date, dnp_date
-#end def
 
 def test():
     """
