@@ -116,7 +116,7 @@ def adjust_layer_filename(starting_dir):
 
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).
-    @return       (datetime)       The modification of the layers pdf. 
+    @return       (mod_date)       The modification of the layers pdf. 
     """      
     
     # get the root file list
@@ -134,15 +134,18 @@ def adjust_layer_filename(starting_dir):
     
     # get the modification date of the file and then re-name it if need be
     if ('Layers.pdf' in root_file_list):
-        mod_date = os.path.getmtime(starting_dir+'\\Layers.pdf')
+        mod_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Layers.pdf'), 
+                                           'layers.pdf')
         os.rename(starting_dir+'\\Layers.pdf', starting_dir+'\\layers.pdf')
     
     elif ('PCB Prints.pdf' in root_file_list):
-        mod_date = os.path.getmtime(starting_dir+'\\PCB Prints.pdf')
+        mod_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\PCB Prints.pdf'),
+                                           'layers.pdf')
         os.rename(starting_dir+'\\PCB Prints.pdf', starting_dir+'\\layers.pdf')
     
     else:
-        mod_date = os.path.getmtime(starting_dir+'\\layers.pdf')
+        mod_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\layers.pdf'),
+                                           'layers.pdf')
     # end if  
     
     return mod_date
@@ -231,7 +234,7 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
                                     engine (bool).
     @param[in]  with_threads:       Split OCR and page renaming into threads for
                                     execution (bool).
-    @return     (list of datetimes) The modification dates of the files used.
+    @return     (list of mod_dates) The modification dates of the files used.
     """     
     
     print 'Starting OCR on Layers file...'
@@ -463,7 +466,7 @@ def OCR_thread(starting_dir, exe_OCR, filename, queue, silence = True):
         
     except:
         queue.put(False)
-        print '*** Error: OCR was unsuccessful ***'
+        print '*** Error: OCR was unsuccessful on ' + filename + ' ***'
         return None
     # end try 
     

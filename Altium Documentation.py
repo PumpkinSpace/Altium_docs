@@ -33,7 +33,7 @@ if __name__ == '__main__':
     os.chdir(starting_dir)
     
     # attempt to clear previous files from the directory
-    if not Altium_helpers.clear_output(starting_dir):
+    if not Altium_helpers.clear_output(starting_dir, exe_OCR):
         print '*** Error: Previous output could not be deleted ***'
     # end if
     

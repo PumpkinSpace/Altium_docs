@@ -27,6 +27,35 @@ import os
 import shutil
 import datetime
 import Altium_Files
+import Altium_OCR
+
+#
+#
+# ----------------
+# Classes
+
+class mod_date:
+    """ 
+    Class to store a files modification information.
+    
+    @attribute     date:     The modification date of the file (datetime).
+    @attribute     text:     Text associated with this modification date 
+                             (string).
+    """
+    def __init__(self, modified_date, filename):
+        """
+        Initialise the mod_date class
+        
+        @param[in]     modified_date:   The date the file was last modified 
+                                        (datetime).
+        @param[in]     filename:        Test associated with this file, usually 
+                                        the filename (string).
+        """
+        self.date = modified_date
+        self.text = filename
+    # end def
+# end class
+
 
 #
 # ----------------
@@ -142,13 +171,14 @@ def get_gerbers_dir(starting_dir):
 #end def
     
         
-def clear_output(starting_dir):
+def clear_output(starting_dir, exe_OCR):
     """
     Function to delete all remnants of previously executed iterations of this
     code to create a clean slate.
 
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).
+    @param[in]    exe_OCR:         Whether or not to use the .exe for OCR (bool).
     @return       (bool)           True  = no errors occurred in this function,
                                    False = errors occurred in this function
     """       
@@ -205,6 +235,24 @@ def clear_output(starting_dir):
         # end try
     # end if
     
+    # get file list of the ocr directory
+    ocr_dir = Altium_OCR.get_OCR_dir(exe_OCR)
+    ocr_list = os.listdir(ocr_dir)
+    
+    # search through the files for previous ocr inputs and outputs
+    for filename in ocr_list:
+        if filename.endswith('.pdf'):
+            # this is a previous file so delete it
+            try:
+                os.remove(ocr_dir + '//' + filename)
+                
+            except:
+                print '***  Error: Could not remove previous ocr_files  ***\n\n'
+                return False       
+            # end try
+        # end if
+    # end for
+    
     # If this code is reached then no errors occurred
     return True
 # end def
@@ -223,20 +271,20 @@ def check_modified_dates(modified_dates):
     """
     
     # initialise the limiting dates
-    min_time = modified_dates[0]
-    max_time = modified_dates[0]
+    min_time = modified_dates[0].date
+    max_time = modified_dates[0].date
     
     # iterate through the dates storing max and min values
-    for time in modified_dates:
+    for date in modified_dates:
         # ignore missing dates
-        if time != None:
-            if time < min_time:
+        if date != None:
+            if date.date < min_time:
                 # new minimum time
-                min_time = time
+                min_time = date.date
                 
-            elif time > max_time:
+            elif date.date > max_time:
                 # new maximum time
-                max_time = time
+                max_time = date.date
             # end if
         # end if
     # end for
@@ -244,10 +292,17 @@ def check_modified_dates(modified_dates):
     # detect old files
     if ((max_time - min_time) > 600):
         # there is more than 10 mins between the oldest and youngest file dates
-        early_date = datetime.datetime.fromtimestamp(min_time)
-        formatted_date = early_date.strftime('%Y-%m-%d %H:%M:%S')
-        print '*** WARNING possibly delivering old files, date ' + \
-              formatted_date + ' ***'
+        print '*** WARNING possibly delivering old files ***'
+        
+        # print all filenames that are old and their dates.
+        for date in modified_dates:
+            if (max_time - date.date) > 600:
+                early_date = datetime.datetime.fromtimestamp(date.date)
+                formatted_date = early_date.strftime('%Y-%m-%d at %H:%M:%S')                
+                print '\t' + date.text + ' modified on ' + formatted_date
+            # end if
+        # end for
+        
         return False
     # end if
     

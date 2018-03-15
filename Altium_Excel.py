@@ -29,6 +29,7 @@ import openpyxl
 from openpyxl.styles.borders import Border, Side
 from openpyxl import Workbook
 import Altium_helpers
+import Altium_Files
 
 #
 # -------
@@ -271,7 +272,7 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
                                    False = look in the regular BOM
                                    (bool)
     @return      (worksheet)       The BOM sheet that was opened.
-    @return      (datetime)        The modification date of the BOM.
+    @return      (mod_date)        The modification date of the BOM.
     """      
     
     # find output directory
@@ -309,7 +310,8 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
     
     try:
         # get the BOM date
-        date = os.path.getmtime(output_dir + '\\' + filename)
+        date = Altium_helpers.mod_date(os.path.getmtime(output_dir + '\\' + filename),
+                                       filename)
         
         # open the BOM sheet
         doc = xlrd.open_workbook(output_dir + '\\' + filename).sheet_by_index(0)
@@ -431,6 +433,23 @@ def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
     assy_doc.active = 0
     assy_doc.save(starting_dir + '\\' + assy_filename)
     
+    # extract just the BOM
+    for sheet in assy_doc.sheetnames:
+        if sheet != 'BOM':
+            sheet_doc = assy_doc[sheet]
+            assy_doc.remove(sheet_doc)
+        # end if
+    # end for
+    
+    # get pdf directory
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+    
+    # get part numner
+    part_number = Altium_Files.get_part_number(starting_dir)
+    
+    # save the file as just the BOM
+    assy_doc.save(pdf_dir + '//' + part_number + ' digikey order.xlsx')
+        
     # close the file
     assy_doc.close()
 # end def

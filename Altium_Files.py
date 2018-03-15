@@ -169,7 +169,7 @@ def move_Altium_files(starting_dir):
 
     @param[in]   starting_dir:        The Altium project directory (full path) 
                                       (string).
-    @return      (list of datetimes)  List of the modification dates of the 
+    @return      (list of mod_dates)  List of the modification dates of the 
                                       Altium files
     """       
     print 'Moving Altium Files...'
@@ -201,7 +201,8 @@ def move_Altium_files(starting_dir):
                     log_error()
                 # end try
                 
-                modified_dates.append(os.path.getmtime(starting_dir+'\\'+filename))
+                modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename),
+                                                               filename))
             # end if
         # end for
     # end for
@@ -228,7 +229,7 @@ def move_gerbers(starting_dir):
 
     @param[in]   starting_dir:        The Altium project directory (full path) 
                                       (string).
-    @return      (list of datetimes)  List of the modification dates of the 
+    @return      (list of mod_dates)  List of the modification dates of the 
                                       Gerbers.
     @return      (int)                The number of layers in the design.
     """    
@@ -301,8 +302,8 @@ def move_gerbers(starting_dir):
                                             part_number + '_BOM.xls')
                     
                     # get it's modification date
-                    modified_dates.append(os.path.getmtime(outputs_dir + '\\' +\
-                                                           filename))    
+                    modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(outputs_dir + '\\' +\
+                                                           filename), filename))    
                 # end if
             
             else:
@@ -317,8 +318,8 @@ def move_gerbers(starting_dir):
                 # end try
                 
                 # get the modification date of the file
-                modified_dates.append(os.path.getmtime(outputs_dir+'\\'+ \
-                                                       filename))     
+                modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(outputs_dir+'\\'+ \
+                                                       filename), filename))     
             # end if
         # end if
     # end for
@@ -356,7 +357,7 @@ def move_documents(starting_dir, exe_OCR, layers):
     @param[in]   exe_OCR:             Whether to use the .exe file for OCR 
                                       conversion (bool).
     @param[in]   layers:              The number of layers in the PCB (int).
-    @return      (list of datetimes)  Modification dates of the documents.
+    @return      (list of mod_dates)  Modification dates of the documents.
     """     
     
     # find the Schematic and BOM documents
@@ -455,7 +456,8 @@ def zip_step_file(starting_dir):
             # step file has been found
             
             # get it's modification date
-            modified_date = os.path.getmtime(starting_dir+'\\'+filename)
+            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
+                                                    filename)
             
             # Shrinking the step file would happen here....
             
@@ -525,7 +527,8 @@ def move_xps(starting_dir):
             xps_file = filename
             
             # store it's modification date
-            modified_date = os.path.getmtime(starting_dir+'\\'+filename)
+            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
+                                                    filename)
         # end if
     # end for
     
@@ -569,7 +572,7 @@ def manage_schematic(starting_dir, with_threads = False):
     @param[in]   starting_dir:        The Altium project directory (full path) 
                                       (string).
     @param[in]   with_threads:        Use threads for this process (bool).
-    @return      (datetime)           Modification dates of the schematic.
+    @return      (mod_date)           Modification dates of the schematic.
     """     
     print 'Finding Schematic Document...'
     
@@ -593,7 +596,8 @@ def manage_schematic(starting_dir, with_threads = False):
             ('layers' not in filename)):
             # schematic found
             no_schematic = False
-            modified_date = os.path.getmtime(starting_dir+'\\'+filename)
+            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename),
+                                                    filename)
             break
         # end
     # end
@@ -813,7 +817,8 @@ def move_bom(starting_dir):
             # BOM found
             shutil.copyfile(outputs_dir + '\\' + filename, \
                            pdf_dir + '\\' + part_number + '_BOM.xls')
-            modified_dates.append(os.path.getmtime(outputs_dir+'\\'+filename))
+            modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(outputs_dir+'\\'+filename),
+                                                          filename))
             
             no_bom = False
             break
