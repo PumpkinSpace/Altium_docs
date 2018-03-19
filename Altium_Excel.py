@@ -25,6 +25,7 @@ __version__ = '0.2.0' #Versioning: http://www.python.org/dev/peps/pep-0386/
 
 import xlrd
 import os
+import shutil
 import openpyxl
 from openpyxl.styles.borders import Border, Side
 from openpyxl import Workbook
@@ -58,6 +59,19 @@ is_test = False
 #
 # ----------------
 # Public Functions 
+
+def set_directory(directory):
+    """
+    Function to set the initial directory of the executing code
+
+    @param[in]    directory:  The directory to set.
+    @attribute    path:       The path that has been set
+    """    
+    set_directory.path = directory
+# end def
+
+# set the initial value
+set_directory.path = os.getcwd()
 
 
 def log_error(get = False):
@@ -252,6 +266,32 @@ def construct_assembly_doc(starting_dir):
     # return the modified dates
     return bom_date, dnp_date
 #end def
+
+
+def copy_assy_rev(starting_dir):
+    """
+    Function to open copy the master ASSY_REV document to the root folder.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    """ 
+    
+    # if the ASSY_REV document already exists then delete it
+    for filename in os.listdir(starting_dir):
+        if ('ASSY' in filename) and ('REV' in filename):
+            os.remove(starting_dir + '\\' + filename)
+        # end if
+    # end for    
+    
+    try:
+        shutil.copyfile(set_directory.path + '\\ASSY REV.xlsx',
+                        starting_dir + '\\ASSY REV.xlsx')
+    
+    except:
+        print '*** Error: could not copy master ASSY REV document ***'
+        log_error()
+    # end try
+# end def
 
 
 #

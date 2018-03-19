@@ -29,6 +29,9 @@ if __name__ == '__main__':
     # installed pypdfocr
     exe_OCR = False
     
+    # store the execution directory
+    Altium_Excel.set_directory(os.getcwd())
+    
     # go to desired working directory
     os.chdir(starting_dir)
     
@@ -39,6 +42,9 @@ if __name__ == '__main__':
     
     # warning racker
     no_warnings = False
+    
+    # move master ASSY REV document
+    Altium_Excel.copy_assy_rev(starting_dir)
     
     # create list to load file modified dates into.
     modified_dates = []

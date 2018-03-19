@@ -588,6 +588,7 @@ def manage_schematic(starting_dir, with_threads = False):
     # get the part number
     part_number = get_part_number(starting_dir)    
     
+    no_schematic = True    
     # search for a schematic document in the root directory
     for filename in root_file_list:
         if (filename.lower().endswith('pdf') and 
@@ -606,7 +607,7 @@ def manage_schematic(starting_dir, with_threads = False):
         # No schematic was found
         print('***   Error: No Schematic Document was found   ***')
         log_error()
-        return None, None
+        return None
     # end
     
     print '\tReading the Schematic file...'
@@ -634,7 +635,7 @@ def manage_schematic(starting_dir, with_threads = False):
     except:
         print('***   Error: Could not open schematic document   ***')
         log_error()
-        return None, None        
+        return None        
     # end try
     
     print '\tComplete!'
