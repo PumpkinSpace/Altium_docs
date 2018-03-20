@@ -23,7 +23,7 @@ if __name__ == '__main__':
     
     #################### Change this for each implementation #######################
     # directory where the Circuit board files are stored
-    starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\ADCS Interface Module 2 (01845B)'
+    starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\SupMCU Test Board (01856A)'
     
     # should the executable be used to perform OCR, otherwise use the 
     # installed pypdfocr

@@ -774,10 +774,10 @@ def beautify(text):
     text = ''.join([c for c in text if c.isalnum()])
     
     # letter replacement
-    #text = text.replace('u', 'w')
+    text = text.replace('5', 's')
     text = text.replace('1', 'l')
     text = text.replace('i', 'l')
-    #text = text.replace('n', 'r')
+    text = text.replace('p', 'r')
     #text = text.replace('0', 'o')
     #text = text.replace('j', 'l')
     #text = text.replace('g', 'y')
@@ -937,7 +937,7 @@ def test():
     Test code for this module.
     """
     
-    if not Altium_helpers.clear_output(os.getcwd() + '\\test folder'):
+    if not Altium_helpers.clear_output(os.getcwd() + '\\test folder', False):
         log_error()
     # end if
     
