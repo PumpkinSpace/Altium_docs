@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pumpkin-bom-manipulation",
+  "private_key_id": "e03a7790b73bfea007eaca6e96be7bb547b911cf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC35+kW6Gy+WT2c\nmh6it0h5/L2qKdCH1qPsbdLh00y2EzIgQiCCjuTPUzeapu1c7XVRcKDFefs2p2G3\n/KpByKYqqNkOAZgCi4riO7iSun8yzEoD5JPYaAGtOJfZAwKCMVfBR1JhfPP5yjUq\nqncIuxfcbcUSWMlerKtIZR2Aa6q0ldwV8WyKxEyUjWRv6lU7BK0ln1iy3NlEjx8L\n0WF1XX1sOuBBwhWJ58n1Ld6EAE1ftfvCSPINduvjB4BC+kCi8wHiJnCpyd7tsDMn\n4jU6qoVEFtdfIB0qye9245387bwe2Kyj22792xgrs1eBA2DCI1vVN/orwdZL4/0V\n0R7Az6mJAgMBAAECggEAQ3dyJOPGhPxDJJDLvWDk10+3mtX1OOguwd02WH9GbKNV\nJ81qlMrsOPzr8LHdcVJx0Bsz9848sTutlyw7n5+HCi5gVomSJRjhLga/uyBs6otU\neeIgtOrO9qfE2SmIAZAtg+vw1m/bJ1+dqpXXzl2orsacXhMxaKiKu6fQr1yQRuf1\n7Ni5TktajscYkxa2pGqCmHkjGIuwR85YLklTP3G7dsKp6qd/ItQzRqoaRF0tiUD8\ntqGk/Pce5/aRgUmFpwmUa7BR2cs1wkORo8RJFO4umG8y1Db+UQTd8Lc07DjkVvby\nQmSL4u3W78lAyI9bPZr65dxXyt5k1zkh9WZLPJ4+qwKBgQDj9PI3DOthaKN5GzKW\njaS+REAzJJs4SKIBbSAS2Y0f5utFrlwtTZsM7VnCDJ3NlXEF2BMgFEkOd1IJE5bT\nEqsgSLD4iQpSsv4uQTIO/QNzZ/KtgXeXAG3DOwb9Zw+rQjtNF8lOb07RO1tgT7jo\n8Jh8NCIaKyQZLqTsS5P/cCP80wKBgQDOh6q2LO7T/WcIWX1/tGfvUS0xFzSaZKVo\nfRPQnvHQ/w/elHgXLaO0CjnBhLdmi31YsCN6Y3xZ73L8fe6CpUf3hTsU4OMoqBOt\nM8H7EoKcg7VDhysDPsO+lk2CMoPC2MdKkT4NP032VAgfS1AJ+eJ6d1EcyziB/Fbu\nQ52krg1WswKBgQCs0MHf4jd//WgRJAFSCcffRra1DwdtwAKxuh0arTtD+Dhc9zaC\nUdc+EaJ+bjoj5StuFsVJCJfqE6NppiQtmHWLYBBqGtpsn637OwnMOxwmnaNozkHv\nhC+yVkmSSlOire9vHp1KjS/fh3Raq5WvYtb3Mj64QAR54ta9HP7yI/3kaQKBgFhN\nANvq0iGo0ghr2pBjHZzgZCX8+eyY42+NKo+jpVfp9WsAp2ehh8BOLutiRtd9BBaL\nGGAXcO8yxULWxMbuy5o0SFJg5D5Zvi/rVSB3hYhNd45rmCRHDYHK2VC1MEh6Tpq/\nBny7eCW9P8vBc3MQd5hMs01QRdStgq1UE255TBKpAoGATK6FseCGoxKSazl6MX8n\neaNBR6561quYPiH63Gp2RNvV60rkEBLv/wFNkJ91HZJzFW3HxDSw9MTVrj1EkT8Q\n8hsRd5VzbJJD5VKiSOnY4RA531p/3oXDWw2YbU3Mw5Klxjs7bvS3pxLzyrd+WK+0\nfEGxiOyVAaWl3fJZdsiltvk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "manipulate-spreadsheets@pumpkin-bom-manipulation.iam.gserviceaccount.com",
+  "client_id": "116402255507218273316",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/manipulate-spreadsheets%40pumpkin-bom-manipulation.iam.gserviceaccount.com"
+}

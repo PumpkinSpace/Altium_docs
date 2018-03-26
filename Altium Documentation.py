@@ -19,18 +19,40 @@ if __name__ == '__main__':
     import Altium_Excel
     import Altium_helpers
     import Altium_Files
+    import sys
     
+    # check to see if this cript is being executed with 2 command line arguments
+    if len(sys.argv) != 3:
+        # It has not so use the hard coded values
+        
+        #################### Change this for each implementation #######################
+        # directory where the Circuit board files are stored
+        starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Inhibit Test Board (01664C)'    
+        
+        # should the executable be used to perform OCR, otherwise use the 
+        # installed pypdfocr
+        exe_OCR = False     
+        
+        # store the execution directory
+        Altium_Excel.set_directory(os.getcwd())        
     
-    #################### Change this for each implementation #######################
-    # directory where the Circuit board files are stored
-    starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\SupMCU Test Board (01856A)'
-    
-    # should the executable be used to perform OCR, otherwise use the 
-    # installed pypdfocr
-    exe_OCR = False
-    
-    # store the execution directory
-    Altium_Excel.set_directory(os.getcwd())
+    else:
+        # this is being executed from the command line so extract the starting 
+        # directory
+        starting_dir = sys.argv[1]
+        
+        # now extract the OCR execution type
+        if sys.argv[2] == 'True':
+            exe_OCR = True
+            
+        else:
+            exe_OCR = False
+        # end if 
+        
+        # store the execution directory
+        directory = '\\'.join(sys.argv[0].split('\\')[:-1])
+        Altium_Excel.set_directory(directory)        
+    # end if
     
     # go to desired working directory
     os.chdir(starting_dir)
