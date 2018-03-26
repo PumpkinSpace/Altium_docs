@@ -49,6 +49,9 @@ coverage.xml
 *.mo
 *.pot
 
+#Google Credentials
+*.json
+
 # Django stuff:
 *.log
 local_settings.py

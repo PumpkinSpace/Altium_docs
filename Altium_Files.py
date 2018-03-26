@@ -697,7 +697,9 @@ def manage_schematic(starting_dir, with_threads = False):
     
     if not found_mod_doc(get=True):
         print('***   Warning: No Modification information found in schematic   ***')
+        Altium_Excel.set_assy_options(starting_dir, [], [])
         log_warning()
+        
     # end if    
     
     print 'Complete! \n'    
