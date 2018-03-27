@@ -27,16 +27,6 @@ import gspread
 import os
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
-from pydrive.auth import ServiceAccountCredentials
-
-
-#
-# -------
-# Public Functions
-
-import httplib2
-
-from apiclient import discovery
 from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
@@ -47,6 +37,19 @@ try:
 except ImportError:
     flags = None
 
+
+#
+# -------
+# Public Functions
+
+
+
+
+
+
+#
+# -------
+# Private Functions
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -114,22 +117,6 @@ def authorise_google_sheet():
     return gc
 # end def
 
-
-folder = '1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV'
-filekey = '101OUsGfmhATnClCmyXC54kGcfUMoizxiulZEWxcqS0A'
-filename = 'Test_BOM'
-
-#textfile = drive.CreateFile()
-#textfile.SetContentFile('test.txt')
-#textfile.Upload()
-
-#drive.CreateFile({'id':textfile['id']}).GetContentFile('test.txt')
-
-#drive.auth.service.files().copy(fileId=filekey,
-                                #body={"parents": [{"kind": "drive#fileLink",
-                                              #"id": folder}], 'title': filename}).execute()
-
-
 def open_bom(drive, gsheet, new_filename):
     
     # get the list of all the files in the BOM folder
@@ -154,9 +141,21 @@ def open_bom(drive, gsheet, new_filename):
 # end def
 
 
-drive = authorise_google_drive()
-gsheet = authorise_google_sheet()
-value = open_bom(drive, gsheet, 'Test_BOM')
+def test():
+    """
+    Test code for this module.
+    """
+    
+    # authorize google drive and google sheet APIs
+    drive = authorise_google_drive()
+    gsheet = authorise_google_sheet()
+    
+    # open a 
+    sheet = open_bom(drive, gsheet, 'Test_BOM')
+# end def
 
-next
 
+if __name__ == '__main__':
+    # if this code is not running as an imported module run test code
+    test()
+# end if
