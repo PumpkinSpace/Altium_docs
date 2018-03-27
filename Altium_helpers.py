@@ -295,7 +295,7 @@ def check_modified_dates(modified_dates):
         print '*** WARNING possibly delivering old files ***'
         
         # print all filenames that are old and their dates.
-        for date in modified_dates:
+        for date in [d for d in modified_dates if d != None]:
             if (max_time - date.date) > 600:
                 early_date = datetime.datetime.fromtimestamp(date.date)
                 formatted_date = early_date.strftime('%Y-%m-%d at %H:%M:%S')                

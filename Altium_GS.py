@@ -37,12 +37,9 @@ try:
 except ImportError:
     flags = None
 
-
 #
 # -------
 # Public Functions
-
-
 
 
 

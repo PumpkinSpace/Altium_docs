@@ -699,7 +699,6 @@ def manage_schematic(starting_dir, with_threads = False):
         print('***   Warning: No Modification information found in schematic   ***')
         Altium_Excel.set_assy_options(starting_dir, [], [])
         log_warning()
-        
     # end if    
     
     print 'Complete! \n'    
@@ -1113,6 +1112,7 @@ def extract_assy_info(pdf_text, starting_dir):
     if len(list_0) != len(list_1):
         print "*** Warning, missmatched ASSY_REV blocks ***"
         log_warning()
+        return None
     # end if        
     
     # insert the gathered information into the ASSY_REV document
