@@ -34,44 +34,129 @@ from pydrive.auth import ServiceAccountCredentials
 # -------
 # Public Functions
 
-def get_GS_credentials(prog_dir):
+import httplib2
+
+from apiclient import discovery
+from oauth2client import client
+from oauth2client import tools
+from oauth2client.file import Storage
+
+try:
+    import argparse
+    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+except ImportError:
+    flags = None
+
+
+def get_credentials():
+    """Gets valid user credentials from storage.
+
+    If nothing has been stored, or if the stored credentials are invalid,
+    the OAuth2 flow is completed to obtain the new credentials.
+
+    Returns:
+        Credentials, the obtained credential.
     """
-    Function to retreive credentials for accessing google sheets.
-
-    @param[in]   prog_dir:            The folder in which this code was executed 
-                                      (full path) (string).
-    @return      (credentials)        Modification dates of the schematic.
-    """    
     
-    scope = ['https://spreadsheets.google.com/feeds',
-             'https://www.googleapis.com/auth/drive']
+    # If modifying these scopes, delete your previously saved credentials
+    # at ~/.credentials/sheets.googleapis.com-python-quickstart.json
+    #SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
+    SCOPES = ['https://spreadsheets.google.com/feeds',
+              'https://www.googleapis.com/auth/drive']
+    CLIENT_SECRET_FILE = 'client_secret.json'
+    APPLICATION_NAME = 'Altium_GS'
+    
+    # find the User directory and create a credentials directory within it
+    # if one does not already exist
+    home_dir = os.path.expanduser('~')
+    credential_dir = os.path.join(home_dir, '.credentials')
+    if not os.path.exists(credential_dir):
+        os.makedirs(credential_dir)
+    # end if
+    
+    # create the file to store the credentials in
+    credential_path = os.path.join(credential_dir,
+                                   'sheets.googleapis.com-python-quickstart.json')
+    store = Storage(credential_path)
+    credentials = store.get()
+    
+    # update credentials if needed
+    if not credentials or credentials.invalid:
+        flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
+        flow.user_agent = APPLICATION_NAME
+        credentials = tools.run_flow(flow, store, flags)
+        print('Storing credentials to ' + credential_path)
+    # end if
+    
+    return credentials
+#end def
 
-    return ServiceAccountCredentials.from_json_keyfile_name('Pumpkin BOM manipulation-e03a7790b73b.json', scope)
+
+def authorise_google_drive():
+    # create the authorization object
+    gauth = GoogleAuth()
+    
+    # load the credentials
+    gauth.credentials = get_credentials()
+    
+    # authorize
+    gauth.Authorize()
+    
+    # use that authorization to open the drive
+    drive = GoogleDrive(gauth)   
+    
+    return drive
 # end def
 
-gc = gspread.authorize(get_GS_credentials(os.getcwd()))
+def authorise_google_sheet():
+    gc = gspread.authorize(get_credentials())
+    
+    return gc
+# end def
 
-gauth = GoogleAuth()
-gauth.credentials = (get_GS_credentials(os.getcwd()))
-gauth.Authorize()
-drive = GoogleDrive(gauth)
 
 folder = '1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV'
 filekey = '101OUsGfmhATnClCmyXC54kGcfUMoizxiulZEWxcqS0A'
 filename = 'Test_BOM'
 
-textfile = drive.CreateFile()
-textfile.SetContentFile('test.txt')
-textfile.Upload()
+#textfile = drive.CreateFile()
+#textfile.SetContentFile('test.txt')
+#textfile.Upload()
 
-drive.CreateFile({'id':textfile['id']}).GetContentFile('test.txt')
+#drive.CreateFile({'id':textfile['id']}).GetContentFile('test.txt')
 
-drive.auth.service.files().copy(fileId=filekey,
-                                body={"parents": [{"kind": "drive#fileLink",
-                                              "id": folder}], 'title': filename}).execute()
-
-#spread = gc.open_by_key('101OUsGfmhATnClCmyXC54kGcfUMoizxiulZEWxcqS0A')
+#drive.auth.service.files().copy(fileId=filekey,
+                                #body={"parents": [{"kind": "drive#fileLink",
+                                              #"id": folder}], 'title': filename}).execute()
 
 
+def open_bom(drive, gsheet, new_filename):
+    
+    # get the list of all the files in the BOM folder
+    file_list = drive.ListFile({'q': "'1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV' in parents and trashed=false"}).GetList()
+    
+    # convert this list to a useable dictionary
+    file_dict = {i.get('title').encode('ascii', 'ignore'): i.get('id').encode('ascii', 'ignore') for i in file_list}
+    
+    # check to see if the file we want to edit is already there
+    if file_dict.has_key(new_filename):
+        # it is so return it opened
+        return gsheet.open_by_key(file_dict[new_filename])
+    
+    else:
+        # it is not so copy the master file to create it
+        new_sheet = drive.auth.service.files().copy(fileId='1ZCsUHbq6u5djKq659IaI-8rGAfTSbFEjbOaxvYuMSAE',
+                                                    body={"parents": [{"kind": "drive#fileLink",
+                                                                       "id": folder}], 
+                                                          'title': new_filename}).execute()    
+        # return the new file opened
+        return gsheet.open_by_key(new_sheet['id'])
+# end def
 
+
+drive = authorise_google_drive()
+gsheet = authorise_google_sheet()
+value = open_bom(drive, gsheet, 'Test_BOM')
+
+next
 
