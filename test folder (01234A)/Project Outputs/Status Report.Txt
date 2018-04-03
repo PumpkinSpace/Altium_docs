@@ -1,0 +1,10 @@
+Output: DNP BOM
+Type  : BOM
+From  : Project [Battery Bus Interface REVB.PrjPcb]
+   Generated File[DNP BOM-Battery Bus Interface REVB.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 9:41:16 AM On 4/04/2018

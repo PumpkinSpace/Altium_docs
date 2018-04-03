@@ -1,0 +1,4 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+J167       DF13A_4P          -422.544mil   1352.362mil   -422.544mil   1417.322mil   -348.725mil   1287.401mil  B        180.00 DF13-4P-1.25H(50)
+

@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 9:01:06 AM On 4/04/2018
+
+Output: Export STEP
+Type  : ExportSTEP
+From  : PCB Document [Battery Bus Interface REVB.PcbDoc]
+   Generated File[Battery Bus Interface REVB.step]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 9:01:14 AM On 4/04/2018

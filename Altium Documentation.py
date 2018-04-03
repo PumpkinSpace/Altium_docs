@@ -14,11 +14,7 @@
 if __name__ == '__main__':
     
     # Required imports
-    import os
-    import Altium_OCR
-    import Altium_Excel
-    import Altium_helpers
-    import Altium_Files
+    import os 
     import sys
     
     if len(sys.argv) != 3:
@@ -30,14 +26,22 @@ if __name__ == '__main__':
         # installed pypdfocr
         exe_OCR = False
         
+        src_path = os.getcwd()+'\\src\\'
+        sys.path.insert(1, src_path)
+        import Altium_Excel        
+        
         # store the execution directory
         Altium_Excel.set_directory(os.getcwd())
         
     else:
         # this code is running from the command line
         
+        dir_path = '\\'.join(sys.argv[0].split('\\')[:-1])
+        sys.path.insert(1, dir_path + '\\src\\')
+        import Altium_Excel          
+        
         # the first argument is the full path of the script
-        Altium_Excel.set_directory('\\'.join(sys.argv[0].split('\\')[:-1]))
+        Altium_Excel.set_directory(dir_path)
         
         # the second argument is the directory this had been called from
         starting_dir = sys.argv[1]
@@ -50,6 +54,10 @@ if __name__ == '__main__':
             exe_OCR = False
         # end if
     # end if
+    
+    import Altium_OCR
+    import Altium_helpers
+    import Altium_Files    
     
     # go to desired working directory
     os.chdir(starting_dir)

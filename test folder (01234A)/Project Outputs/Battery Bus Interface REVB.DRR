@@ -1,0 +1,23 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Battery Bus Interface REVB.PcbDoc   4/04/2018  9:41:12 AM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Battery Bus Interface REVB.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      12mil (0.3mm)                                             Round             1         PTH        0.00inch (0.00mm)
+T2      20mil (0.5mm)                                             Round             13        PTH        3.79inch (96.21mm)
+T3      26mil (0.65mm)                                            Round             28        PTH        2.58inch (65.50mm)
+T4      37mil (0.94mm)                                            Round             4         PTH        2.84inch (72.08mm)
+T5      40mil (1.02mm)                                            Round             104       PTH        11.95inch (303.46mm)
+T6      87mil (2.2mm)                                             Round             4         PTH        2.10inch (53.30mm)
+T7      125mil (3.175mm)                                          Round             4         PTH        11.30inch (287.10mm)
+T8      126mil (3.2mm)                                            Round             6         PTH        6.91inch (175.48mm)
+T9      35mil (0.9mm)                                             Round             2         NPTH       0.23inch (5.89mm)
+T10     39mil (1mm)                                               Round             9         NPTH       2.47inch (62.77mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              175
+
+Total Processing Time (hh:mm:ss) : 00:00:00
