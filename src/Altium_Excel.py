@@ -33,7 +33,7 @@ from openpyxl.styles.borders import Border, Side
 from openpyxl import Workbook
 import Altium_helpers
 import Altium_Files
-#import Altium_GS
+import Altium_GS
 
 #
 # -------
@@ -629,8 +629,8 @@ def test():
     """
     Test code for this module.
     """
-    Altium_helpers.clear_output(os.getcwd() + '\\test folder')
-    construct_assembly_doc(os.getcwd() + '\\test folder')
+    Altium_helpers.clear_output('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (01234A)', True)
+    construct_assembly_doc('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (01234A)')
     
     if not log_error(get=True):
         print '*** ERRORS OCCURRED***'

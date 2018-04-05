@@ -44,7 +44,32 @@ except ImportError:
 # Classes
     
 class assembly_info:
-    def __init__(self, starting_dir):
+    """
+    Object to house all of the bom information to be loaded into the google sheet
+
+    @attribute   is_blocking          access control boolean, True if the object
+                                      is being used by another task (bool).
+    @attribute   list_0               list of '0' value assembly optinos (list).
+    @attribute   list_1               list of '1' value assembly options (list).
+    @attribute   designators          list of lists of designators (list).
+    @attribute   dnp_designators      list of lists of dnp designators (list).
+    @attribute   descriptions         list of component descriptions (list).
+    @attribute   quantities           list of component quantities (list).
+    @attribute   manufacturers        list of component manufacturers (list).
+    @attribute   manufacturer_pns     list of manufacturer part numbers (list).
+    @attribute   suppliers            list of component suppliers (list).
+    @attribute   supplier_pns         list of supplier part numbers (list).
+    @attribute   sub_manufacturer_pns list of substitute manufacturer part 
+                                      numbers (list).
+    @attribute   sub_supplier_pns     list of substitute supplier part numbers
+                                      (list).
+    @attribute   subtotals            list of subtotal prices (list).
+    """    
+    
+    def __init__(self):
+        """
+        Initialise all of the attributes.
+        """        
         self.is_blocking = False
         self.list_0 = []
         self.list_1 = []
@@ -60,6 +85,32 @@ class assembly_info:
         self.sub_supplier_pns = []
         self.subtotals = []
     # end def
+    
+    def is_free(self):
+        """
+        Determine if the object is available for access.
+        
+        @return    (bool)     True if the object is free for access
+        """         
+        return not self.is_blocking
+    # end def
+    
+    def __enter__(self):
+        """
+        Enter the object and take ownership.
+        """        
+        if self.is_blocking:
+            raise Exception('Race condition on access, access has already been claimed')
+        # end if
+        self.is_blocking = True
+    # end def
+    
+    def __exit__(self):
+        """
+        Exit the object and relinquish ownership.
+        """         
+        self.is_blocking = False
+    #end def
 # end class
 
 
@@ -67,27 +118,66 @@ class assembly_info:
 # -------
 # Public Functions
 
+def populate_online_bom(prog_dir, part_number, assy_info):
+    """
+    Populates a BOM in the Pumpkin google drive the the appropriate information 
+    for this project.
+
+    @param:    prog_dir       The full path that the program is running from
+                              (string).
+    @param:    part_number    The part number of the BOM to write to (string).
+    @param:    assy_info      The information to populate the BOM with 
+                              (assembly_info).
+    """    
+    
+    # determine the scr directory path
+    src_dir = prog_dir + '\\src'
+    
+    # attempt to authorize the google credentials
+    try:
+        # authorize google drive and google sheet APIs
+        drive = authorise_google_drive(src_dir)
+        gsheet = authorise_google_sheet(src_dir)
+    
+    except:
+        print '*** Error: Failed to Authorize google credentials, no BOM uploaded'
+        return None
+    # end try
+    
+    # create the name of the BOM from the part number and open it.
+    bom_name = '705-' + part_number
+    online_bom = open_bom(drive, gsheet, bom_name)
+#end def
+    
     
 #
 # -------
 # Private Functions
 
-def get_credentials():
-    """Gets valid user credentials from storage.
+def get_credentials(src_dir):
+    """
+    Gets valid user credentials from storage.
 
     If nothing has been stored, or if the stored credentials are invalid,
     the OAuth2 flow is completed to obtain the new credentials.
-
-    Returns:
-        Credentials, the obtained credential.
+    
+    @param:    src_dir        The path of the folder containing the credentials 
+                              file (string).
+    @return:   (credentials)  User account credentials for google drive.
     """
+    
+    # find the credentials file.
+    for filename in os.listdir(src_dir):
+        if filename.endswith('.json'):
+            CLIENT_SECRET_FILE = src_dir + '\\' + filename
+        # end if
+    # end for
     
     # If modifying these scopes, delete your previously saved credentials
     # at ~/.credentials/sheets.googleapis.com-python-quickstart.json
     #SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly'
     SCOPES = ['https://spreadsheets.google.com/feeds',
               'https://www.googleapis.com/auth/drive']
-    CLIENT_SECRET_FILE = 'client_secret.json' #TODO change to look for a .json file rather than having a hardcoded name
     APPLICATION_NAME = 'Altium_GS'
     
     # find the User directory and create a credentials directory within it
@@ -112,21 +202,28 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     # end if
     
+    # refresh credentials if they are expired
+    if credentials.access_token_expired:
+        credentials.refresh(httplib2.Http())
+    # end if    
+    
     return credentials
 #end def
 
 
-def authorise_google_drive():
+def authorise_google_drive(src_dir):
+    """
+    Authorizes access to google drive.
+
+    @param:  src_dir                The full path of the folder containing the 
+                                    credentials file (string).
+    @return: (pydrive.GoogleDrive)  Object for accessing the google drive.
+    """    
     # create the authorization object
     gauth = GoogleAuth()
     
     # load the credentials
-    gauth.credentials = get_credentials()
-    
-    # refresh credentials if they are expired
-    if gauth.credentials.access_token_expired:
-        gauth.credentials.refresh(httplib2.Http())
-    # end if
+    gauth.credentials = get_credentials(src_dir)
     
     # authorize
     gauth.Authorize()
@@ -137,13 +234,33 @@ def authorise_google_drive():
     return drive
 # end def
 
-def authorise_google_sheet():
-    gc = gspread.authorize(get_credentials())
+
+def authorise_google_sheet(src_dir):
+    """
+    Authorizes access to google sheets.
+
+    @param:    src_dir             The full path of the folder containing the 
+                                   credentials file (string).
+    @return:   (gspread.gspread)   Object for accessing google sheets.
+    """    
+    
+    #authenticate the gspread object
+    gc = gspread.authorize(get_credentials(src_dir))
     
     return gc
 # end def
 
+
 def open_bom(drive, gsheet, new_filename):
+    """
+    Opens a Bill of materials from the google drive.
+
+    @param:    drive             Authenticated google drive object 
+                                 (pydrive.GoogleDrive).
+    @param:    gsheet            Authenticated gspread object (gspread.gspread).
+    @param:    new_filename      The filename of the new BOM (string).
+    @return:   (gspread.gsheet)  google sheet object for modification.
+    """ 
     
     # get the list of all the files in the BOM folder
     file_list = drive.ListFile({'q': "'1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV' in parents and trashed=false"}).GetList()
@@ -172,9 +289,11 @@ def test():
     Test code for this module.
     """
     
+    src_dir = os.getcwd()
+    
     # authorize google drive and google sheet APIs
-    drive = authorise_google_drive()
-    gsheet = authorise_google_sheet()
+    drive = authorise_google_drive(src_dir)
+    gsheet = authorise_google_sheet(src_dir)
     
     # open a 
     sheet = open_bom(drive, gsheet, 'Test_BOM')
