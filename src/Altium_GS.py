@@ -31,6 +31,7 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 import httplib2
+import time
 
 try:
     import argparse
@@ -38,6 +39,7 @@ try:
 except ImportError:
     flags = None
 
+max_assy_rev = 24
 
 #
 # -------
@@ -105,7 +107,7 @@ class assembly_info:
         self.is_blocking = True
     # end def
     
-    def __exit__(self):
+    def __exit__(self, type, value, traceback):
         """
         Exit the object and relinquish ownership.
         """         
@@ -130,6 +132,7 @@ def populate_online_bom(prog_dir, part_number, assy_info):
                               (assembly_info).
     """    
     
+    print 'Updating the google sheet BOM...'
     # determine the scr directory path
     src_dir = prog_dir + '\\src'
     
@@ -147,12 +150,126 @@ def populate_online_bom(prog_dir, part_number, assy_info):
     # create the name of the BOM from the part number and open it.
     bom_name = '705-' + part_number
     online_bom = open_bom(drive, gsheet, bom_name)
+    
+    # open the options worksheet
+    options = online_bom.worksheet("Options")
+    
+    # find the headers for the columns
+    header_row = options.find("0 value").row
+    col_0 = options.find("0 value").col
+    col_1 = options.find("1 value").col
+    
+    #read cell array
+    cells = options.range(header_row+1, min(col_0, col_1), 
+                          options.row_count, max(col_0, col_1))
+    
+    # edit cell array
+    for cell in cells:
+        if (cell.row <= len(assy_info.list_0)+header_row):
+            # cell has an assy_rev associated with it
+            if cell.col == col_0:
+                cell.value = assy_info.list_0[cell.row-header_row-1]
+                
+            elif cell.col == col_1:
+                cell.value = assy_info.list_1[cell.row-header_row-1]
+            # end if   
+        # end if
+    # end for
+    
+    options.update_cells(cells)
+    
+    # open the bom sheet
+    bom = online_bom.worksheet("PCBA Components")
+    
+    # find the header row
+    header_row = bom.find("Item").row
+    col_headers = bom.row_values(header_row)
+    
+    cells = bom.range(header_row+1, 1, max(header_row + len(assy_info.designators), bom.row_count), len(col_headers))
+    
+    for cell in cells:
+        i = cell.col
+        j = cell.row-header_row
+        
+        if j-1 >= len(assy_info.designators):
+            cell.value = ''
+        
+        elif col_headers[i-1] == "Item":
+            cell.value = j
+            
+        elif col_headers[i-1] == 'Qty':
+            cell.value = assy_info.quantities[j-1]
+            
+        elif col_headers[i-1] == 'Reference Designator':
+            cell.value = ', '.join(assy_info.designators[j-1])
+            
+        elif col_headers[i-1] == 'Description':
+            cell.value = assy_info.descriptions[j-1]
+
+        elif col_headers[i-1] == 'DNP':
+            cell.value = ', '.join(assy_info.dnp_designators[j-1])
+            
+        elif col_headers[i-1] == 'Manufacturer':
+            cell.value = assy_info.manufacturers[j-1]
+                
+        elif col_headers[i-1] == 'MPN':
+            cell.value = assy_info.manufacturer_pns[j-1]
+
+        elif col_headers[i-1] == 'Supplier':
+            cell.value = assy_info.suppliers[j-1]
+            
+        elif col_headers[i-1] == 'SPN':
+            cell.value = assy_info.supplier_pns[j-1]
+
+        elif col_headers[i-1] == 'SubSPN':
+            cell.value = assy_info.sub_supplier_pns[j-1]
+            
+        elif col_headers[i-1] == 'Ext. Cost (USD)':
+            cell.value = assy_info.subtotals[j-1]
+        # end if
+    # end for
+    
+    bom.update_cells(cells)
+                            
+    print 'Complete!\n'
+    return True
 #end def
     
     
 #
 # -------
 # Private Functions
+
+def write_cell(sheet, row, col, value):
+    """
+    Updates a single cell in the google sheet and catches the write quota 
+    exception and will re-attempt until it is successful.
+
+    @param:    sheet          The gsheet object to write to (gspread.gsheet).
+    @param:    row            The row index within the sheet (int).
+    @param:    col            The column index within the sheet (int).
+    @param:    value          What to write to the cell (string).
+    """    
+    no_write = True
+    while no_write:
+        # the write has not yet been successful
+        try:
+            # attempt to write to the cell
+            sheet.update_cell(row, col, value)
+            no_write = False
+            
+        except gspread.v4.exceptions.APIError as e:
+            # if the error was not due to write group expiry the throw the error
+            if 'WriteGroup' not in str(e):
+                raise e
+            # end if
+            
+            # wait for a second to see if the token has renewed.
+            time.sleep(1)
+        #end try
+    #end while
+#end def
+
 
 def get_credentials(src_dir):
     """
@@ -290,6 +407,7 @@ def test():
     """
     
     src_dir = os.getcwd()
+    prog_dir = '\\'.join(src_dir.split('\\')[:-1])
     
     # authorize google drive and google sheet APIs
     drive = authorise_google_drive(src_dir)
@@ -297,6 +415,20 @@ def test():
     
     # open a 
     sheet = open_bom(drive, gsheet, 'Test_BOM')
+    
+    assy_info = assembly_info()
+    
+    if assy_info.is_free:
+        with assy_info:
+            assy_info.list_0 = ['item 1', 'item 2']
+            assy_info.list_1 = ['item 3', 'item 4']
+            populate_online_bom(prog_dir, 'Test_BOM', assy_info)
+        #end with
+    # end if
+    
+    
+    
+    
 # end def
 
 

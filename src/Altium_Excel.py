@@ -165,7 +165,7 @@ def set_assy_options(starting_dir, list_0, list_1):
     # end if
     
     # empty the options sheet to restore it to it's initial state
-    for j in range(2,assy_sheet.max_row+1):
+    for j in range(2,Altium_GS.max_assy_rev+1):
         assy_sheet.cell(j,2).value = ' '
         assy_sheet.cell(j,3).value = 'No corresponding Assembly Revision'
     # end for
@@ -279,6 +279,17 @@ def construct_assembly_doc(starting_dir):
     # fill the assy rev document with these lists.
     fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc)
     
+    # extract all information from the ASSY_REV document
+    assy_data = extract_assy_rev(starting_dir)
+    
+    # use that data to fill the online BOM
+    if Altium_GS.populate_online_bom(set_directory.path, 
+                                     Altium_Files.get_part_number(starting_dir), 
+                                     assy_data) == None:
+        log_error()
+    #end if
+        
+    
     # return the modified dates
     return bom_date, dnp_date
 #end def
@@ -333,18 +344,30 @@ def extract_assy_rev(starting_dir):
     # end if
     
     # extract all information from the BOM
-    for i in range(bom_header_rows,bom_sheet.max_row+1):
-        output_data.designators.append(bom_sheet.cell(i,BOM_cols['Designator']).value.split(', '))
-        output_data.dnp_designators.append(bom_sheet.cell(i,BOM_cols['DNP']).value.split(', '))
-        output_data.descriptions.append(bom_sheet.cell(i,BOM_cols['Description']).value)
-        output_data.quantities.append(bom_sheet.cell(i,BOM_cols['Quantity']).value)
-        output_data.manufacturers.append(bom_sheet.cell(i,BOM_cols['Manufacturer']).value)
-        output_data.manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Manufacturer_pn']).value)
-        output_data.sub_manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer_pn']).value)
-        output_data.sub_supplier_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier_pn']).value)
-        output_data.suppliers.append(bom_sheet.cell(i,BOM_cols['Supplier']).value)
-        output_data.supplier_pns.append(bom_sheet.cell(i,BOM_cols['Supplier_pn']).value)
-        output_data.subtotals.append(bom_sheet.cell(i,BOM_cols['Subtotal']).value)
+    for i in range(bom_header_rows+1,bom_sheet.max_row+1):
+        if bom_sheet.cell(i,BOM_cols['Designator']+1).value != None:
+            output_data.designators.append(bom_sheet.cell(i,BOM_cols['Designator']+1).value.split(', '))
+            
+        else:
+            output_data.designators.append([])
+        # end if
+        
+        if bom_sheet.cell(i,BOM_cols['DNP']+1).value != None:
+            output_data.dnp_designators.append(bom_sheet.cell(i,BOM_cols['DNP']+1).value.split(', '))
+            
+        else:
+            output_data.dnp_designators.append([])
+        # end if
+        
+        output_data.descriptions.append(bom_sheet.cell(i,BOM_cols['Description']+1).value)
+        output_data.quantities.append(bom_sheet.cell(i,BOM_cols['Quantity']+1).value)
+        output_data.manufacturers.append(bom_sheet.cell(i,BOM_cols['Manufacturer']+1).value)
+        output_data.manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Manufacturer_pn']+1).value)
+        output_data.sub_manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer_pn']+1).value)
+        output_data.sub_supplier_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier_pn']+1).value)
+        output_data.suppliers.append(bom_sheet.cell(i,BOM_cols['Supplier']+1).value)
+        output_data.supplier_pns.append(bom_sheet.cell(i,BOM_cols['Supplier_pn']+1).value)
+        output_data.subtotals.append(bom_sheet.cell(i,BOM_cols['Subtotal']+1).value)
     # end for
     
     # close the file
@@ -360,9 +383,9 @@ def extract_assy_rev(starting_dir):
     # end if    
     
     # extract all of the Assembly Rev information
-    for i in range(2,option_sheet.max_rows+1):
+    for i in range(2,option_sheet.max_row+1):
         output_data.list_0.append(option_sheet.cell(i,2).value)
-        output_date.list_1.append(option_sheet.cell(i,3).value)
+        output_data.list_1.append(option_sheet.cell(i,3).value)
     # end for
     
     # close the file
