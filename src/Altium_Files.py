@@ -149,6 +149,9 @@ def log_warning(get = False):
     # end if
 # end def
 
+# set the initial value
+log_warning.no_warnings = True
+
 
 def get_part_number(starting_dir):
     """

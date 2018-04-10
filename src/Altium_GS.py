@@ -32,12 +32,8 @@ from oauth2client import tools
 from oauth2client.file import Storage
 import httplib2
 import time
+import argparse
 
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
 
 max_assy_rev = 24
 
@@ -119,6 +115,49 @@ class assembly_info:
 #
 # -------
 # Public Functions
+
+def upload_zip(starting_dir, prog_dir):
+    """
+    Uploads the generated .zip file to the google dirve folder.
+
+    @param:    starting_dir   The full path of the Altium Folder (string).
+    @param:    prog_dir       The full path that the program is running from
+                              (string).
+    """    
+    print '\nUploading to google drive...'
+    file_list = os.listdir(starting_dir)
+    
+    for filename in file_list:
+        if filename.endswith('Folder.zip'):
+            break
+        # end if
+    # end for
+    
+    # authorize google drive API
+    drive = authorise_google_drive(prog_dir + '\\src')    
+    
+    # get the list of all the files in the BOM folder
+    file_list = drive.ListFile({'q': "'1vDTz6N-1QbUlkbb7QrFj082YUpkIRZFL' in parents and trashed=false"}).GetList()
+    
+    # convert this list to a useable dictionary
+    file_dict = {i.get('title').encode('ascii', 'ignore'): i for i in file_list}
+    
+    # check to see if the file we want to edit is already there, if so delete it
+    if file_dict.has_key(filename):
+        # it is so return it opened
+        file_dict[filename].Delete()
+    # end if
+    
+    # create the file and upload it
+    zip_file = drive.CreateFile({'title': filename, 
+                                 'parents': [{'kind':'drive#fileLink', 
+                                              'id': '1vDTz6N-1QbUlkbb7QrFj082YUpkIRZFL'}]})
+    zip_file.SetContentFile(starting_dir + '\\' + filename)
+    zip_file.Upload()
+    
+    print 'Complete!\n'
+# end def    
+    
 
 def populate_online_bom(prog_dir, part_number, assy_info):
     """
@@ -310,6 +349,7 @@ def get_credentials(src_dir):
                                    'sheets.googleapis.com-python-quickstart.json')
     store = Storage(credential_path)
     credentials = store.get()
+    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
     
     # update credentials if needed
     if not credentials or credentials.invalid:

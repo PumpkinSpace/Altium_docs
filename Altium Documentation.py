@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\SupMCU Test Board (01856A)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\BM2 Test Board (01660B)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -28,7 +28,8 @@ if __name__ == '__main__':
         
         src_path = os.getcwd()+'\\src\\'
         sys.path.insert(1, src_path)
-        import Altium_Excel        
+        import Altium_Excel 
+        import Altium_GS
         
         # store the execution directory
         Altium_Excel.set_directory(os.getcwd())
@@ -38,16 +39,17 @@ if __name__ == '__main__':
         
         dir_path = '\\'.join(sys.argv[0].split('\\')[:-1])
         sys.path.insert(1, dir_path + '\\src\\')
-        import Altium_Excel          
+        import Altium_Excel    
+        import Altium_GS
         
         # the first argument is the full path of the script
         Altium_Excel.set_directory(dir_path)
         
         # the second argument is the directory this had been called from
-        starting_dir = sys.argv[1]
+        starting_dir = sys.argv.pop(1)
         
         # the third argument indicated which OCR tool to use
-        if sys.argv[2] == 'True':
+        if sys.argv.pop(1) == 'True':
             exe_OCR = True
             
         else:
@@ -57,7 +59,7 @@ if __name__ == '__main__':
     
     import Altium_OCR
     import Altium_helpers
-    import Altium_Files    
+    import Altium_Files   
     
     # go to desired working directory
     os.chdir(starting_dir)
@@ -95,22 +97,25 @@ if __name__ == '__main__':
     # find the oldest and newest files used.
     no_warnings = Altium_helpers.check_modified_dates(modified_dates)
     
-    # construct the final zip file and remove un-needed directories
-    Altium_helpers.construct_root_archive(starting_dir)
-    
     # check for warnings
     if not (no_warnings and 
             Altium_Excel.log_warning(get=True) and 
             Altium_OCR.log_warning(get=True) and 
             Altium_Files.log_warning(get=True)):
         print '\n*** Warnings were raised so please reveiw ***'
+        raw_input('When the warnings have been reviewed/recitified press ENTER to continue')
     # end if
+    
+    # construct the final zip file and remove un-needed directories
+    Altium_helpers.construct_root_archive(starting_dir)    
     
     # check for errors
     if not (Altium_Excel.log_error(get=True) and 
             Altium_OCR.log_error(get=True) and 
             Altium_Files.log_error(get=True)):
         print '\n*** Errors occurred so please reveiw ***'
-    # end if
-    
+
+    else:
+        # no errors so upload zip file.
+        Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)
 # end if
