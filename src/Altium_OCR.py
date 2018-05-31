@@ -57,7 +57,6 @@ import multiprocessing
 # ----------------
 # Public Functions 
 
-
 def log_error(get = False):
     """
     Function to log errors within this module.
@@ -275,6 +274,47 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
     
     return modified_dates
 #end def
+
+
+def check_DRC(starting_dir):
+    """
+    Checks the design rule check output PDF t see if there are any errors
+
+    @param:    starting_dir   The full path of the Altium Folder (string).
+    @return:   (mod_date)     The modification date of the Design Rule Check
+    """  
+    print '\nChecking the Design Rule Check...'
+    file_list = os.listdir(starting_dir)
+    
+    
+    if 'DRC.PDF' not in file_list:
+        print '*** Error: No design rule check has been completed ***'
+        print file_list
+        log_error()
+        return None
+    # end if
+    
+    # get the modification date of the file
+    DRC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\DRC.PDF'), 
+                                       'DRC.pdf')
+    
+    # extract text and remove whitespace
+    DRC_text = "".join(convert_pdf_to_txt(starting_dir+'\\DRC.PDF').split())
+    
+    print DRC_text
+    
+    if 'Warnings0' not in DRC_text:
+        print '*** Warning: Warnings were raised during Altium DRC ***'
+        log_warning()
+    # end if
+    
+    if 'Violations0' not in DRC_text:
+        print '*** Warning: Rule Violations were found during Altium DRC ***'
+        log_warning()
+    # end if
+    
+    return DRC_date
+# end def
 
 
 #

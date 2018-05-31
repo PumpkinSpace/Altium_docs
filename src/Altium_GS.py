@@ -111,7 +111,7 @@ class assembly_info:
         Exit the object and relinquish ownership.
         """         
         self.is_blocking = False
-    #end def
+    # end def
 # end class
 
 
