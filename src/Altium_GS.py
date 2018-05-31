@@ -81,6 +81,7 @@ class assembly_info:
         self.supplier_pns = []
         self.sub_manufacturer_pns = []
         self.sub_supplier_pns = []
+        self.sub_suppliers = []
         self.subtotals = []
     # end def
     
@@ -101,6 +102,8 @@ class assembly_info:
             raise Exception('Race condition on access, access has already been claimed')
         # end if
         self.is_blocking = True
+        
+        return self
     # end def
     
     def __exit__(self, type, value, traceback):
@@ -256,6 +259,9 @@ def populate_online_bom(prog_dir, part_number, assy_info):
 
         elif col_headers[i-1] == 'Supplier':
             cell.value = assy_info.suppliers[j-1]
+            
+        elif col_headers[i-1] == 'Sub Supplier':
+            cell.value = assy_info.sub_suppliers[j-1]            
             
         elif col_headers[i-1] == 'SPN':
             cell.value = assy_info.supplier_pns[j-1]

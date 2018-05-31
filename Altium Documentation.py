@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\BM2 Test Board (01660B)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Battery Switch Module (01575D0)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -117,5 +117,6 @@ if __name__ == '__main__':
 
     else:
         # no errors so upload zip file.
-        Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)
+        pass
+        #Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)
 # end if

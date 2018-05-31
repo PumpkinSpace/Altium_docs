@@ -60,6 +60,7 @@ BOM_cols =  {'Designator': 0,
              'Manufacturer_pn': 5,
              'Sub_Manufacturer_pn' : 6,
              'Sub_Supplier_pn': 7,
+             'Sub_Supplier' : 6,
              'Supplier': 8,
              'Supplier_pn': 9,
              'Subtotal': 10}
@@ -365,6 +366,7 @@ def extract_assy_rev(starting_dir):
         output_data.manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Manufacturer_pn']+1).value)
         output_data.sub_manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer_pn']+1).value)
         output_data.sub_supplier_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier_pn']+1).value)
+        output_data.sub_suppliers.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier']+1).value)
         output_data.suppliers.append(bom_sheet.cell(i,BOM_cols['Supplier']+1).value)
         output_data.supplier_pns.append(bom_sheet.cell(i,BOM_cols['Supplier_pn']+1).value)
         output_data.subtotals.append(bom_sheet.cell(i,BOM_cols['Subtotal']+1).value)
