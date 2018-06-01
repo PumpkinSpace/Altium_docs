@@ -278,7 +278,7 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
 
 def check_DRC(starting_dir):
     """
-    Checks the design rule check output PDF t see if there are any errors
+    Checks the design rule check output PDF to see if there are any errors
 
     @param:    starting_dir   The full path of the Altium Folder (string).
     @return:   (mod_date)     The modification date of the Design Rule Check
@@ -287,21 +287,18 @@ def check_DRC(starting_dir):
     file_list = os.listdir(starting_dir)
     
     
-    if 'DRC.PDF' not in file_list:
+    if 'Design Rules Check.PDF' not in file_list:
         print '*** Error: No design rule check has been completed ***'
-        print file_list
         log_error()
         return None
     # end if
     
     # get the modification date of the file
-    DRC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\DRC.PDF'), 
-                                       'DRC.pdf')
+    DRC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Design Rules Check.PDF'), 
+                                       'Design Rules Check.PDF')
     
     # extract text and remove whitespace
-    DRC_text = "".join(convert_pdf_to_txt(starting_dir+'\\DRC.PDF').split())
-    
-    print DRC_text
+    DRC_text = "".join(convert_pdf_to_txt(starting_dir+'\\Design Rules Check.PDF').split())
     
     if 'Warnings0' not in DRC_text:
         print '*** Warning: Warnings were raised during Altium DRC ***'
@@ -313,7 +310,49 @@ def check_DRC(starting_dir):
         log_warning()
     # end if
     
+    print 'Complete!\n'
+    
     return DRC_date
+# end def
+
+
+def check_ERC(starting_dir):
+    """
+    Checks the electrical rule check output PDF to see if there are any errors
+
+    @param:    starting_dir   The full path of the Altium Folder (string).
+    @return:   (mod_date)     The modification date of the Electrical Rule Check
+    """  
+    print '\nChecking the Electrical Rule Check...'
+    file_list = os.listdir(starting_dir)
+    
+    
+    if 'Electrical Rules Check.PDF' not in file_list:
+        print '*** Error: No electrical rule check has been completed ***'
+        log_error()
+        return None
+    # end if
+    
+    # get the modification date of the file
+    ERC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Electrical Rules Check.PDF'), 
+                                       'Electrical Rules Check.PDF')
+    
+    # extract text and remove whitespace
+    ERC_text = "".join(convert_pdf_to_txt(starting_dir+'\\Electrical Rules Check.PDF').split())
+    
+    if 'Warning' in ERC_text:
+        print '*** Warning: Warnings were raised during Altium ERC ***'
+        log_warning()
+    # end if
+    
+    if 'Error' in ERC_text:
+        print '*** Warning: Rule Violations were found during Altium ERC ***'
+        log_warning()
+    # end if
+    
+    print 'Complete!\n'
+    
+    return ERC_date
 # end def
 
 
@@ -819,7 +858,7 @@ def beautify(text):
     text = text.replace('1', 'l')
     text = text.replace('i', 'l')
     text = text.replace('p', 'r')
-    #text = text.replace('0', 'o')
+    text = text.replace('0', 'o')
     #text = text.replace('j', 'l')
     #text = text.replace('g', 'y')
     #text = text.replace('h', 'a')

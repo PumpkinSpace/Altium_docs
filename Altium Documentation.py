@@ -78,8 +78,11 @@ if __name__ == '__main__':
     # create list to load file modified dates into.
     modified_dates = []
     
-    #check the design rule check document
+    # check the design rule check document
     modified_dates.append(Altium_OCR.check_DRC(starting_dir))
+    
+    # check the electrical rule check document
+    modified_dates.append(Altium_OCR.check_ERC(starting_dir))    
     
     # Move all of the Altium files into their folder
     modified_dates.extend(Altium_Files.move_Altium_files(starting_dir))
