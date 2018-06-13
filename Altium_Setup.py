@@ -190,6 +190,42 @@ except:
     sys.exit()
 # end try  
 
+print "checking for Tesseract"
+
+try:
+    cmd = subprocess.check_output(['tesseract', '-v'])
+    print "\tTesseract is already installed\n"
+    
+except:
+    print '\tTesseract is not installed or is not on the system PATH'
+    print '\tgo to https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-setup-3.05.01.exe'
+    raw_input()
+# end try
+
+print "checking for ImageMagick"
+
+try:
+    cmd = subprocess.check_output(['magick'])
+    print "\tImageMagick is already installed\n"
+    
+except:
+    print '\tImageMagick is not installed or is not on the system PATH'
+    print '\tgo to https://www.imagemagick.org/download/binaries/ImageMagick-7.0.8-0-Q16-x64-dll.exe'
+    raw_input()
+# end try
+
+print "checking for GhostScript"
+
+try:
+    cmd = subprocess.check_output(['gswin32c', '-h'])
+    print "\tGhostScript is already installed\n"
+    
+except:
+    print '\tGhostScript is not installed or is not on the system PATH'
+    print '\tgo to https://www.ghostscript.com/download/gsdnld.html'
+    raw_input()
+# end try
+
 print 'Dependancy check successful'
 
 #
@@ -197,6 +233,7 @@ print 'Dependancy check successful'
 # Test the OCR executable
 
 print '\nTesting OCR\n'
+sys.stdout.flush()
 ocr_dir = os.getcwd() + '\\OCR'
 filename = ocr_dir + '\\Instructions.pdf'
 
