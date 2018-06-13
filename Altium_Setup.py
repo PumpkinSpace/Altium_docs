@@ -196,7 +196,7 @@ print 'Dependancy check successful'
 # ----------------
 # Test the OCR executable
 
-print '\nTesting OCR'
+print '\nTesting OCR\n'
 ocr_dir = os.getcwd() + '\\OCR'
 filename = ocr_dir + '\\Instructions.pdf'
 
@@ -211,12 +211,12 @@ cmd.wait()
 try:
     os.remove(filename)
     os.remove(ocr_dir + '\\Instructions_ocr.pdf')
-    print "OCR test was successful"
+    print "\n\tOCR test was successful"
     
 except:
-    print 'OCR test was unsuccessful'
-    print 'please copy the output from this script and email to david@asteriaec.com'
-    print 'please also ensure that there are no .pdf files in the OCR directory'
+    print '\n\tOCR test was unsuccessful'
+    print '\tplease copy the output from this script and email to david@asteriaec.com'
+    print '\tplease also ensure that there are no .pdf files in the OCR directory'
     raw_input()
     sys.exit()
 # end try
@@ -225,7 +225,7 @@ except:
 # ----------------
 # Create the batch file to run the code
 
-print '\nGenerating Batch file'
+print '\nGenerating Batch file\n'
 # lines to write to batch file
 batch_lines = ['C:\\Python27\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" True\n',
                'Pause']
@@ -242,6 +242,6 @@ with open(batch_file,'w') as batch:
     batch.writelines(batch_lines)
 #end with
 
-shutil.copy(batch_file, os.getcwd() + '\\test folder\\Deliverable.bat')
+shutil.copy(batch_file, os.getcwd() + '\\test folder (01234A)\\Deliverable.bat')
 
 print 'Successful'
