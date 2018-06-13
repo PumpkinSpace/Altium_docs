@@ -29,153 +29,164 @@ import shutil
 # ----------------
 # Install required dependancies
 
-print 'Checking dependancies\n'
+print "Checking dependancies\n"
 
-# check the pip installer framework
+print "checking the pip installer framework"
 try:
     import pip
-    print "pip is already installed"
+    pip.main(['install', 'pyopenssl', 'ndg-httpsclient', 'pyasn1'])
+    print "\tpip is already installed\n"
     
 except:
-    print "installing pip"
+    print "\tinstalling pip"
     inst = subprocess.Popen(['C:\\Python27\python.exe', os.getcwd() + '\\src\\get-pip.py'])
     inst.wait()
     try:
         import pip
-        print "install successful"
+        
+        print "\tinstall successful\n"
         
     except:
-        print "install unsuccessful! go to https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation"
+        print "\tinstall unsuccessful! go to https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation"
+        raw_input()
         sys.exit()
     # end try
 # end try
    
-# check the .xls reader
+print "checking the .xls reader"
 try:
     import xlrd
-    print "xlrd is already installed"
+    print "\txlrd is already installed\n"
 
 except:
-    print "installing xlrd"
+    print "\tinstalling xlrd\n"
     pip.main(['install', 'xlrd'])
     try:
         import xlrd
-        print "install successful"
+        print "\n\tinstall successful\n"
         
     except:
-        print "install unsuccessful! go to https://github.com/python-excel/xlrd"
+        print "\n\tinstall unsuccessful! go to https://github.com/python-excel/xlrd"
+        raw_input()
         sys.exit()
     # end try        
 # end try
   
-# check the .xlsx reader/writer 
+print "checking the .xlsx reader/writer"
 try:
     import openpyxl  
-    print "openpyxl is already installed"
+    print "\topenpyxl is already installed\n"
 
 except:
-    print "installing openpyxl"
+    print "\tinstalling openpyxl\n"
     pip.main(['install', 'openpyxl'])
     try:
         import openpyxl
-        print "installation successful"
+        print "\n\tinstallation successful\n"
         
     except:
-        print "install unsuccessful! go to https://openpyxl.readthedocs.io/en/stable/"
+        print "\n\tinstall unsuccessful! go to https://openpyxl.readthedocs.io/en/stable/"
+        raw_input()
         sys.exit()
     # end try          
 # end try
 
-# check the pdf reader
+print "checking the pdf reader"
 try:
     import pyPdf
-    print "pyPdf is already installed"
+    print "\tpyPdf is already installed\n"
     
 except:
-    print "to install pypdf go to http://pybrary.net/pyPdf/pyPdf-1.13.win32.exe"
+    print "\tto install pypdf go to http://pybrary.net/pyPdf/pyPdf-1.13.win32.exe"
+    raw_input()
     sys.exit()
 # end try
 
-# check the google sheet modifier   
+print "checking the google sheet modifier"
 try:
     import gspread
-    print "gspread is already installed"
+    print "\tgspread is already installed\n"
     
 except:
-    print "installing gspread"
+    print "\tinstalling gspread\n"
     pip.main(['install', 'gspread'])
     try:
         import gspread
-        print "installation successful"
+        print "\n\tinstallation successful\n"
         
     except:
-        print "install unsuccessful! go to https://github.com/burnash/gspread"
+        print "\n\tinstall unsuccessful! go to https://github.com/burnash/gspread"
+        raw_input()
         sys.exit()
     # end try
 # end try  
  
-# check the google drive client 
+print "checking the google drive client" 
 try:
     import pydrive
-    print "pydrive is already installed"
+    print "\tpydrive is already installed\n"
     
 except:
-    print "installing pydrive"
+    print "\tinstalling pydrive\n"
     pip.main(['install', 'pydrive'])
     try:
         import pydrive
-        print "installation successful"
+        print "\n\tinstallation successful\n"
         
     except:
-        print "install unsuccessful! go to http://pythonhosted.org/PyDrive/"
+        print "\n\tinstall unsuccessful! go to http://pythonhosted.org/PyDrive/"
+        raw_input()
         sys.exit()
     # end try
 # end try    
     
-# check the google authentication tool
+print "checking the google authentication tool"
 try:
     import oauth2client
-    print "oauth2client is already installed"
+    print "\toauth2client is already installed\n"
     
 except:
-    print "installing oauth2client"
+    print "\tinstalling oauth2client\n"
     pip.main(['install', '--upgrade', 'oauth2client'])
     try:
         import oauth2client
-        print "installation successful"
+        print "\n\tinstallation successful\n"
         
     except:
-        print "install unsuccessful! go to https://github.com/google/oauth2client/"
+        print "\n\tinstall unsuccessful! go to https://github.com/google/oauth2client/"
+        raw_input()
         sys.exit()
     # end try
 # end try    
 
-# check the argument parser
+print "checking the argument parser"
 try:
     import argparse
-    print "argparse is already installed"
+    print "\targparse is already installed\n"
     
 except:
-    print "installing argparse"
+    print "\tinstalling argparse\n"
     pip.main(['install', 'argparse'])
     try:
         import argparse
-        print "installation successful"
+        print "\n\tinstallation successful\n"
         
     except:
-        print "install unsuccessful! go to https://pypi.python.org/pypi/argparse"
+        print "\n\tinstall unsuccessful! go to https://pypi.python.org/pypi/argparse"
+        raw_input()
         sys.exit()
     # end try
 # end try         
 
-# check the pdf mining tool
+print "checking the pdf mining tool"
 try:
     import pdfminer
-    print "pdfminer is already installed"
+    print "\tpdfminer is already installed\n"
     
 except:
-    print 'pdfminer is not installed'
-    print 'go to https://github.com/euske/pdfminer and follow the instructions to install'
+    print '\tpdfminer is not installed'
+    print '\tgo to https://github.com/euske/pdfminer and follow the instructions to install'
+    raw_input()
     sys.exit()
 # end try  
 
@@ -206,6 +217,7 @@ except:
     print 'OCR test was unsuccessful'
     print 'please copy the output from this script and email to david@asteriaec.com'
     print 'please also ensure that there are no .pdf files in the OCR directory'
+    raw_input()
     sys.exit()
 # end try
 
