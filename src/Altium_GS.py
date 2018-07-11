@@ -37,6 +37,8 @@ import argparse
 
 max_assy_rev = 24
 
+BOM_TEMPLATE_KEY = '1BZkbVMP741pOVWVwJmrh_eax_7kRtmDlvPcFPEm8y90'
+
 #
 # -------
 # Classes
@@ -162,7 +164,7 @@ def upload_zip(starting_dir, prog_dir):
 # end def    
     
 
-def populate_online_bom(prog_dir, part_number, assy_info):
+def populate_online_bom(prog_dir, part_number, assy_number, assy_info):
     """
     Populates a BOM in the Pumpkin google drive the the appropriate information 
     for this project.
@@ -170,6 +172,7 @@ def populate_online_bom(prog_dir, part_number, assy_info):
     @param:    prog_dir       The full path that the program is running from
                               (string).
     @param:    part_number    The part number of the BOM to write to (string).
+    @param:    assy_number    The assembly number of the BOM to write to (string).
     @param:    assy_info      The information to populate the BOM with 
                               (assembly_info).
     """    
@@ -190,7 +193,7 @@ def populate_online_bom(prog_dir, part_number, assy_info):
     # end try
     
     # create the name of the BOM from the part number and open it.
-    bom_name = '705-' + part_number
+    bom_name = assy_number + '/' + part_number
     online_bom = open_bom(drive, gsheet, bom_name)
     
     # open the options worksheet
@@ -438,7 +441,7 @@ def open_bom(drive, gsheet, new_filename):
     
     else:
         # it is not so copy the master file to create it
-        new_sheet = drive.auth.service.files().copy(fileId='1ZCsUHbq6u5djKq659IaI-8rGAfTSbFEjbOaxvYuMSAE',
+        new_sheet = drive.auth.service.files().copy(fileId=BOM_TEMPLATE_KEY,
                                                     body={"parents": [{"kind": "drive#fileLink",
                                                                        "id": '1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV'}], 
                                                           'title': new_filename}).execute()    

@@ -167,6 +167,48 @@ def get_part_number(starting_dir):
     return part_list[1][:-1]    
 # end def
 
+def set_assembly_number(starting_dir):
+    """
+    Function to prompt the user for the assembly number and then store it.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    """       
+    
+    not_valid = 1
+    while (not_valid == 1):
+        assy_number = raw_input("Please enter the project assembly Number : 710-")
+        
+        if (len(assy_number) == 5) and assy_number.isdigit():
+            set_assembly_number.assy_number = assy_number
+            not_valid = 0
+        
+        else:
+            print "that is not a valid Assembly Number!"
+        # end if 
+    # end while
+# end def
+
+# set the initial value
+set_assembly_number.assy_number = None
+
+def get_assembly_number(starting_dir):
+    """
+    Function to prompt the user for the assembly number and then store it.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    """       
+    
+    if (set_assembly_number.assy_number == None):
+        print "*** Error: No Assembly Number has been set ***"
+        log_error()
+        
+    else:
+        return set_assembly_number.assy_number
+    # end if 
+# end def
+
 
 def move_Altium_files(starting_dir):
     """
@@ -206,6 +248,20 @@ def move_Altium_files(starting_dir):
                     log_error()
                 # end try
                 
+                if (ext == 'PrjPcb'):
+                    # this is the project file which creates the pdf filename
+                    # so move the similarly named pdf file
+                    pdf_filename = filename.split('.')[0] + '.pdf'
+                    
+                    try:
+                        shutil.copyfile(starting_dir+'\\'+pdf_filename, altium_dir+'\\'+pdf_filename)  
+                        
+                    except:
+                        print '*** Error: could not move ' + pdf_filename + ' ***'
+                        log_error()
+                    # end try   
+                # end if
+                
                 modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename),
                                                                filename))
             # end if
@@ -214,13 +270,21 @@ def move_Altium_files(starting_dir):
     
     # zip the resulting folder and remove the temporary directory
     try:
-        shutil.make_archive(andrews_dir+'\\Altium Files', 'zip', altium_dir)
-        shutil.rmtree(altium_dir)     
+        shutil.make_archive(andrews_dir+'\\Altium Files', 'zip', altium_dir)  
         
     except:
         print '*** Error: could not create Altium files.zip ***'
         log_error()
     # end try
+    
+    try:
+        shutil.rmtree(altium_dir)     
+        
+    except:
+        print '*** Error: could not remove Altium Files folder ***'
+        log_error()
+    # end try
+    
     
     print 'Complete! \n'    
     
@@ -560,11 +624,23 @@ def move_xps(starting_dir):
     # copy file into temp directory
     shutil.copy(starting_dir+'\\'+xps_file, xps_dir +'\\'+part_number + '.' + xps_ext)
 
-    # make archive
-    shutil.make_archive(andrews_dir+'\\'+part_number+'_xps', 'zip', xps_dir)
+    try:
+        # make archive
+        shutil.make_archive(andrews_dir+'\\'+part_number+'_xps', 'zip', xps_dir)
+        
+    except:
+        print('***   Error: could not zip .xps file ***')
+        log_error()     
+    # end try        
+            
+    try:
+        # delete temp directory
+        shutil.rmtree(xps_dir, ignore_errors=True)     
     
-    # delete temp directory
-    shutil.rmtree(xps_dir, ignore_errors=True)     
+    except:
+        print('***   Error: could not remove temporary xps folder file ***')
+        log_error()     
+    # end try        
     
     return modified_date
 # end def

@@ -273,14 +273,18 @@ def check_modified_dates(modified_dates):
     """
     
     # initialise the limiting dates
-    min_time = modified_dates[0].date
-    max_time = modified_dates[0].date
+    min_time = 0
+    max_time = 0
     
     # iterate through the dates storing max and min values
     for date in modified_dates:
         # ignore missing dates
         if date != None:
-            if date.date < min_time:
+            if (min_time == 0):
+                min_time = date.date
+                max_time = date.date      
+
+            elif date.date < min_time:
                 # new minimum time
                 min_time = date.date
                 
@@ -292,13 +296,13 @@ def check_modified_dates(modified_dates):
     # end for
     
     # detect old files
-    if ((max_time - min_time) > 600):
+    if ((max_time - min_time) > 1200):
         # there is more than 10 mins between the oldest and youngest file dates
         print '*** WARNING possibly delivering old files ***'
         
         # print all filenames that are old and their dates.
         for date in [d for d in modified_dates if d != None]:
-            if (max_time - date.date) > 600:
+            if (max_time - date.date) > 1200:
                 early_date = datetime.datetime.fromtimestamp(date.date)
                 formatted_date = early_date.strftime('%Y-%m-%d at %H:%M:%S')                
                 print '\t' + date.text + ' modified on ' + formatted_date
@@ -318,7 +322,7 @@ def construct_root_archive(starting_dir):
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).   
     """    
-    print 'Constructing Archive...'
+    print '\nConstructing Archive...'
     
     # get the project part number
     part_number = Altium_Files.get_part_number(starting_dir)
@@ -334,6 +338,6 @@ def construct_root_archive(starting_dir):
     shutil.rmtree(andrews_dir, ignore_errors=True)
     
     # indicate completion
-    print '\n*** Directory ' + part_number + '_Folder.zip' + \
+    print '*** Directory ' + part_number + '_Folder.zip' + \
           ' has been generated successfully ***'
 # end def

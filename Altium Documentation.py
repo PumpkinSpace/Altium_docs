@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Satellite\Pumpkin PCBs\Battery Switch Module (01575D0)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Battery Module (01571F1)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -69,11 +69,14 @@ if __name__ == '__main__':
         print '*** Error: Previous output could not be deleted ***'
     # end if
     
-    # warning racker
+    # warning tracker
     no_warnings = False
     
-    # move master ASSY REV document
-    Altium_Excel.copy_assy_rev(starting_dir)
+    # request the Assembly number
+    Altium_Files.set_assembly_number(starting_dir)
+    
+    # move master ASSY Config document
+    Altium_Excel.copy_assy_config(starting_dir)
     
     # create list to load file modified dates into.
     modified_dates = []
@@ -123,6 +126,6 @@ if __name__ == '__main__':
 
     else:
         # no errors so upload zip file.
-        pass
+        print "\nUploading of Project information to the Google Drive is disabled"
         #Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)
 # end if

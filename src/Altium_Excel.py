@@ -145,7 +145,7 @@ log_warning.no_warnings = True
 
 def set_assy_options(starting_dir, list_0, list_1):
     """
-    Function to set the assembly rev options in the ASSY_REV document based on 
+    Function to set the assembly rev options in the ASSY Config document based on 
     what was read from the schematic pages.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
@@ -157,8 +157,8 @@ def set_assy_options(starting_dir, list_0, list_1):
     @return      (bool)            True if this function is successful.
     """      
     
-    # open the assy_rev document
-    [assy_filename, assy_doc, assy_sheet] = open_assy_rev(starting_dir, 'Options')    
+    # open the assy config document
+    [assy_filename, assy_doc, assy_sheet] = open_assy_config(starting_dir, 'Options')    
     
     # check that it got what it wanted
     if assy_sheet == None:
@@ -168,7 +168,7 @@ def set_assy_options(starting_dir, list_0, list_1):
     # empty the options sheet to restore it to it's initial state
     for j in range(2,Altium_GS.max_assy_rev+1):
         assy_sheet.cell(j,2).value = ' '
-        assy_sheet.cell(j,3).value = 'No corresponding Assembly Revision'
+        assy_sheet.cell(j,3).value = 'No corresponding Assembly Configuration'
     # end for
     
     # fill the sheet with the options extracted from the pdf
@@ -191,7 +191,7 @@ def set_assy_options(starting_dir, list_0, list_1):
     
 def construct_assembly_doc(starting_dir):
     """
-    Function to build the BOM page of the ASSY_REV doc based on the BOMs 
+    Function to build the BOM page of the ASSY Config doc based on the BOMs 
     exported from Altium.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
@@ -277,15 +277,16 @@ def construct_assembly_doc(starting_dir):
         print '\n'        
     # end if
     
-    # fill the assy rev document with these lists.
+    # fill the assy config document with these lists.
     fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc)
     
-    # extract all information from the ASSY_REV document
-    assy_data = extract_assy_rev(starting_dir)
+    # extract all information from the ASSY Config document
+    assy_data = extract_assy_config(starting_dir)
     
     # use that data to fill the online BOM
     if Altium_GS.populate_online_bom(set_directory.path, 
-                                     Altium_Files.get_part_number(starting_dir), 
+                                     Altium_Files.get_part_number(starting_dir),
+                                     Altium_Files.get_assembly_number(starting_dir),
                                      assy_data) == None:
         log_error()
     #end if
@@ -296,33 +297,33 @@ def construct_assembly_doc(starting_dir):
 #end def
 
 
-def copy_assy_rev(starting_dir):
+def copy_assy_config(starting_dir):
     """
-    Function to open copy the master ASSY_REV document to the root folder.
+    Function to open copy the master ASSY Config document to the root folder.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
                                    (string).
     """ 
     
-    # if the ASSY_REV document already exists then delete it
+    # if the ASSY Config document already exists then delete it
     for filename in os.listdir(starting_dir):
-        if ('ASSY' in filename) and ('REV' in filename):
+        if ('ASSY' in filename) and (('Config' in filename) or ('REV' in filename)):
             os.remove(starting_dir + '\\' + filename)
         # end if
     # end for    
     
     try:
-        shutil.copyfile(set_directory.path + '\\src\\ASSY REV.xlsx',
-                        starting_dir + '\\ASSY REV.xlsx')
+        shutil.copyfile(set_directory.path + '\\src\\ASSY Config.xlsx',
+                        starting_dir + '\\ASSY Config.xlsx')
     
     except:
-        print '*** Error: could not copy master ASSY REV document ***'
+        print '*** Error: could not copy master ASSY Config document ***'
         log_error()
     # end try
 # end def
 
 
-def extract_assy_rev(starting_dir):
+def extract_assy_config(starting_dir):
     """
     Function to extract all of the salient information from the Assembly 
     Revision Document.
@@ -335,8 +336,8 @@ def extract_assy_rev(starting_dir):
     # define container to return
     output_data = Altium_GS.assembly_info()
     
-    # open the ASSY_REV document and extract the BOM sheet
-    [assy_filename, assy_doc, bom_sheet] = open_assy_rev(starting_dir, 'BOM')    
+    # open the ASSY config document and extract the BOM sheet
+    [assy_filename, assy_doc, bom_sheet] = open_assy_config(starting_dir, 'BOM')    
     
     # check that what was requested was returned
     if bom_sheet == None:
@@ -375,8 +376,8 @@ def extract_assy_rev(starting_dir):
     # close the file
     assy_doc.close()    
     
-    # open the ASSY_REV document and extract the BOM sheet
-    [assy_filename, assy_doc, option_sheet] = open_assy_rev(starting_dir, 'Options')   
+    # open the ASSY Config document and extract the BOM sheet
+    [assy_filename, assy_doc, option_sheet] = open_assy_config(starting_dir, 'Options')   
     
     # check that what was requested was returned
     if option_sheet == None:
@@ -497,7 +498,7 @@ def extract_items(cell):
 
 def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
     """
-    Function to populate the ASSY_REV document with the extracted BOM 
+    Function to populate the ASSY Config document with the extracted BOM 
     information.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
@@ -510,8 +511,8 @@ def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
                                    information (worksheet)
     """ 
     
-    # open the ASSY_REV document and extract the BOM sheet
-    [assy_filename, assy_doc, bom_sheet] = open_assy_rev(starting_dir, 'BOM')    
+    # open the ASSY Config document and extract the BOM sheet
+    [assy_filename, assy_doc, bom_sheet] = open_assy_config(starting_dir, 'BOM')    
     
     # check that what was requested was returned
     if bom_sheet == None:
@@ -598,9 +599,9 @@ def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
 # end def
 
 
-def open_assy_rev(starting_dir, sheet = 'BOM'):
+def open_assy_config(starting_dir, sheet = 'BOM'):
     """
-    Function to open the ASSY_REV document and return the desired sheet.
+    Function to open the ASSY Config document and return the desired sheet.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
                                    (string).
@@ -610,27 +611,27 @@ def open_assy_rev(starting_dir, sheet = 'BOM'):
     @return      (workbook)        The workbook that was opened.
     @return      (worksheet)       The requested sheet in the document.
     """     
-    # find assy_rev document
+    # find assy config document
     assy_filename = ''
     
     for filename in os.listdir(starting_dir):
-        if ('ASSY' in filename) and ('REV' in filename):
+        if ('ASSY' in filename) and ('Config' in filename):
             assy_filename = filename
         # end if
     # end for
     
     if assy_filename == '':
-        print '***  Error: no ASSY_REV doc found ***'
+        print '***  Error: no ASSY Config doc found ***'
         
         return None, None, None
     # end if    
         
     try:
-        # open the assy_rev document
+        # open the assy config document
         assy_doc = openpyxl.load_workbook(starting_dir + '\\' + assy_filename)
         
     except:
-        print '***  Error: ASSY_REV doc could not be opened ***'
+        print '***  Error: ASSY Config doc could not be opened ***'
     
         return None, None, None      
     # end try
@@ -640,7 +641,7 @@ def open_assy_rev(starting_dir, sheet = 'BOM'):
         bom_sheet = assy_doc[sheet]
         
     except:
-        print '***  Error: ASSY_REV doc is invlaid ***'
+        print '***  Error: ASSY Config doc is invlaid ***'
     
         return None, None, None       
     # end try
