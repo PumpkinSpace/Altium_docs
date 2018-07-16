@@ -167,48 +167,6 @@ def get_part_number(starting_dir):
     return part_list[1][:-1]    
 # end def
 
-def set_assembly_number(starting_dir):
-    """
-    Function to prompt the user for the assembly number and then store it.
-
-    @param[in]   starting_dir:     The Altium project directory (full path) 
-                                   (string).
-    """       
-    
-    not_valid = 1
-    while (not_valid == 1):
-        assy_number = raw_input("Please enter the project assembly Number : 710-")
-        
-        if (len(assy_number) == 5) and assy_number.isdigit():
-            set_assembly_number.assy_number = assy_number
-            not_valid = 0
-        
-        else:
-            print "that is not a valid Assembly Number!"
-        # end if 
-    # end while
-# end def
-
-# set the initial value
-set_assembly_number.assy_number = None
-
-def get_assembly_number(starting_dir):
-    """
-    Function to prompt the user for the assembly number and then store it.
-
-    @param[in]   starting_dir:     The Altium project directory (full path) 
-                                   (string).
-    """       
-    
-    if (set_assembly_number.assy_number == None):
-        print "*** Error: No Assembly Number has been set ***"
-        log_error()
-        
-    else:
-        return set_assembly_number.assy_number
-    # end if 
-# end def
-
 
 def move_Altium_files(starting_dir):
     """
@@ -405,7 +363,7 @@ def move_gerbers(starting_dir):
     # move all gerbers into the desired zip archive
     try:
         shutil.make_archive(andrews_dir+'\\'+part_number, 'zip', gerbers_dir)
-        shutil.rmtree(gerbers_dir, ignore_errors=True) 
+        shutil.rmtree(gerbers_dir) 
     except:
         print '*** Error: could not create gerber.zip archive ***'
         log_error()
@@ -548,8 +506,14 @@ def zip_step_file(starting_dir):
             # make archive
             shutil.make_archive(andrews_dir+'\\'+part_number+'_step', 'zip', step_dir)
             
-            # delete the temp directory
-            shutil.rmtree(step_dir, ignore_errors=True)        
+            try:
+                # delete the temp directory
+                shutil.rmtree(step_dir)       
+                
+            except:
+                print '*** WARNING: Could not delete temporary step directory ***'
+                log_warning()     
+            # end try
             
             step_file_found = True
         # end if
@@ -635,7 +599,7 @@ def move_xps(starting_dir):
             
     try:
         # delete temp directory
-        shutil.rmtree(xps_dir, ignore_errors=True)     
+        shutil.rmtree(xps_dir)     
     
     except:
         print('***   Error: could not remove temporary xps folder file ***')
@@ -1180,6 +1144,12 @@ def extract_assy_info(pdf_text, starting_dir):
     
     # split the third block into it's parts
     list_1 = assy_blocks[2].split(';')[:-1]
+    
+    if list_1 == []:
+        print "*** Warning, ASSY_Config information is empty ***"
+        log_warning()
+        return None        
+    # end if
     
     # remove garbage
     while ((assy_blocks[1][0].isalpha() == False) and (assy_blocks[1] != '')):

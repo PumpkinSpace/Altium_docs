@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Battery Module (01571F1)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Balancer RBF Check (01955A0)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -71,9 +71,6 @@ if __name__ == '__main__':
     
     # warning tracker
     no_warnings = False
-    
-    # request the Assembly number
-    Altium_Files.set_assembly_number(starting_dir)
     
     # move master ASSY Config document
     Altium_Excel.copy_assy_config(starting_dir)

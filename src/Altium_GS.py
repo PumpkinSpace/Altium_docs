@@ -164,7 +164,7 @@ def upload_zip(starting_dir, prog_dir):
 # end def    
     
 
-def populate_online_bom(prog_dir, part_number, assy_number, assy_info):
+def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info):
     """
     Populates a BOM in the Pumpkin google drive the the appropriate information 
     for this project.
@@ -193,7 +193,7 @@ def populate_online_bom(prog_dir, part_number, assy_number, assy_info):
     # end try
     
     # create the name of the BOM from the part number and open it.
-    bom_name = assy_number + '/' + part_number
+    bom_name = assy_number + '/' + part_number + revision
     online_bom = open_bom(drive, gsheet, bom_name)
     
     # open the options worksheet
@@ -277,6 +277,30 @@ def populate_online_bom(prog_dir, part_number, assy_number, assy_info):
         # end if
     # end for
     
+    bom.update_cells(cells)
+    
+    # open the ECO sheet
+    bom = online_bom.worksheet("ECOs")    
+    
+    # get the cells to load data into
+    cells = bom.range(1, 1, 1, 6)
+    
+    # load the relevant data into the correct place
+    for cell in cells:
+        i = cell.col
+        
+        if (i == 2):
+            cell.value = '705-' + part_number
+            
+        elif (i == 4):
+            cell.value = assy_number
+            
+        elif (i ==6):
+            cell.value = revision
+        # end if
+    # end for
+    
+    # upload the data
     bom.update_cells(cells)
                             
     print 'Complete!\n'
