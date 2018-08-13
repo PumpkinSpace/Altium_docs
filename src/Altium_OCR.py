@@ -237,34 +237,157 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
     @return     (list of mod_dates) The modification dates of the files used.
     """     
     
-    print 'Starting OCR on Layers file...'
-    
-    # correct the filename opf the layers pdf if required
+    # correct the filename of the layers pdf if required
     modified_dates = [adjust_layer_filename(starting_dir)]
     
     # initialise the filename checker variables
-    get_filename_init()    
+    get_filename_init()  
     
-    # determine execution type
-    if with_threads:
-        # run OCR as threads
-        thread_OCR_init(starting_dir, exe_OCR, silence)
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+    
+    if ocr_is_required(starting_dir):
         
-    else:
-        # run OCR on the layers pdf
-        run_OCR(starting_dir, exe_OCR, silence)
+        print 'Starting OCR on Layers file...'
         
-        # if OCR did not return the right pdf then it must have failed
-        if not os.path.isfile(starting_dir +'\\layers_ocr.pdf'):
-            log_error()
-            print '*** Error: OCR was unsuccessful ***'
-            return None, None
+        # determine execution type
+        if with_threads:
+            # run OCR as threads
+            thread_OCR_init(starting_dir, exe_OCR, silence)
+            
+        else:
+            # run OCR on the layers pdf
+            run_OCR(starting_dir, exe_OCR, silence)
+            
+            # if OCR did not return the right pdf then it must have failed
+            if not os.path.isfile(starting_dir +'\\layers_ocr.pdf'):
+                log_error()
+                print '*** Error: OCR was unsuccessful ***'
+                return None, None
+            # end if
+            
+            print '\tRenaming the layer PDFs...'
+            
+            # split the OCR pdf into multiple pages and then rename the appropriately
+            split_OCR_pages(starting_dir)
         # end if
+    
+    else:
         
-        print '\tRenaming the layer PDFs...'
+        print 'Splitting Layers file without OCR...'
         
-        # split the OCR pdf into multiple pages and then rename the appropriately
-        split_OCR_pages(starting_dir)
+        # open pdf file and split into pages
+        try:
+            with open(starting_dir+'\\layers.pdf', "rb") as layers_file:
+                layers_pdf = pyPdf.PdfFileReader(layers_file)
+                
+                # write each page to a separate pdf file
+                for page in xrange(layers_pdf.numPages):
+                    # add page to the output stream
+                    output = pyPdf.PdfFileWriter()
+                    output.addPage(layers_pdf.getPage(page))
+                    # format the filename 
+                    file_name = pdf_dir + '\\layer--' + str(page+1) + '.pdf'
+                    
+                    with open(file_name, "wb") as outputStream:
+                        # write the page
+                        output.write(outputStream)
+                    # end with
+                # end for
+            # end with
+            
+        except:
+            print('***   Error: Could not open Layers.pdf document   ***')
+            log_error()
+            return None        
+        # end try
+        
+        print '\tComplete!'
+        
+        print '\tRenaming the PDFs...'
+        
+        # rename the sheets with threads or without
+        if with_threads:
+            # initialise list of threads
+            thread_list = []
+            
+            thread_queue = multiprocessing.Queue()
+            
+            # start a thread to rename each page
+            for i in range(1,page+2):
+                # define the thread to perform the writing
+                thread = multiprocessing.Process(name=('renaming-' + str(i)),
+                                                 target = rename_layer, 
+                                                 args=(starting_dir,i,thread_queue))
+                # start the thread
+                thread.start()
+                
+                thread_list.append(thread)
+            # end for       
+            
+            # wait for all the threads to finish
+            while any([t.is_alive() for t in thread_list]):
+                time.sleep(0.01)
+            # end while
+            
+            # read all data from the queue
+            thread_data = []
+            
+            # retrieve data from the queue until empty
+            while True:
+                try:
+                    thread_data.append(thread_queue.get(block=False))
+                
+                except:
+                    break
+            # end while
+                               
+            if any([q == False for q in thread_data]):
+                # an error occurred
+                log_error()
+            # end if
+            
+            for name in [item for item in thread_data if (type(item) == str)]:
+                if name == 'MECHDWG.pdf':
+                    get_filename.MECHDWG = True
+            
+                elif name == 'ADB0230.pdf':
+                    get_filename.ADB = True
+            
+                elif name ==  'ADT0127.pdf':
+                    get_filename.ADT = True
+            
+                elif name == 'SST0126.pdf':
+                    get_filename.SST = True
+            
+                elif name == 'SMT0125.pdf':
+                    get_filename.SMT = True
+        
+                elif name == 'SSB0229.pdf':
+                    get_filename.SSB = True
+            
+                elif name == 'SMB0223.pdf':
+                    get_filename.SMB = True
+            
+                elif name == 'DD0124.pdf':
+                    get_filename.DD = True
+        
+                elif name == 'SPB0223.pdf':
+                    get_filename.SPB = True
+            
+                elif name == 'SPT0123.pdf':
+                    get_filename.SPT = True
+            
+                elif name.startswith('ART'):
+                    get_filename.layer += 1
+                # end if
+            # end for            
+            
+        else:
+            # rename the pdfs with the correct filenames
+            for i in range(1,page+2):
+                rename_layer(starting_dir, i)
+            # end for
+        # end if        
     # end if
     
     # check the output files to ensure there is nothing wrong
@@ -273,7 +396,7 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
     print '\tComplete!\nComplete!\n'
     
     return modified_dates
-#end def
+# end def  
 
 
 def check_DRC(starting_dir):
@@ -359,6 +482,67 @@ def check_ERC(starting_dir):
 #
 # ----------------
 # Private Functions 
+
+def rename_layer(starting_dir, sheet_number, queue = None):
+    """
+    Function to rename a layer document based on information contained within 
+    it.
+
+    @param[in]   starting_dir:        The Altium project directory (full path) 
+                                      (string).
+    @param[in]   sheet_number:        The number of the sheet to rename (int)
+    @param[out]  queue:               The queue to return data to if running
+                                      as a thread (Queue).
+    """  
+    # get the pdf directory
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+       
+    old_filename = pdf_dir + '\\layer--' + \
+        str(sheet_number) + '.pdf'
+            
+    # find new name
+    new_filename = get_filename(old_filename, queue)
+    
+    if (new_filename != None):       
+        # rename the file
+        try:
+            os.rename(old_filename, pdf_dir + '\\' + new_filename)
+            
+        except:
+            print('***   Error: Could rename pdf document   ***')
+            
+            if queue == None:
+                log_error()
+                
+            else:
+                queue.put(False)
+            # end if
+        # end try
+        
+    else:
+        os.remove(old_filename)
+    # end if
+# end def
+
+
+def ocr_is_required(starting_dir):
+    """
+    Checks to see if the layers pdf has embedded text. if it doesn't then 
+    OCR is required.
+
+    @param:    starting_dir   The full path of the Altium Folder (string).
+    @return:   (boolean)      True if there is no embedded text.
+    """
+    
+    layers_text = convert_pdf_to_txt(starting_dir+'\\layers.pdf')
+    try:
+        return not ('layer' in layers_text.lower())
+    
+    except:
+        return False
+    # end try
+# end def
+
 
 def thread_OCR_init(starting_dir, exe_OCR, silence = True):
     """
@@ -477,6 +661,7 @@ def thread_OCR_init(starting_dir, exe_OCR, silence = True):
         elif name.startswith('ART'):
             get_filename.layer += 1
         # end if
+    # end for
 # end def
         
         
@@ -956,39 +1141,39 @@ def check_OCR_outputs(num_layers):
         log_warning()
     # end
     if (get_filename.ADB == False):
-        print '*** WARNING No ADB file output ***'
+        print '*** WARNING No ADB0230 file output ***'
         log_warning()
     # end
     if (get_filename.ADT == False):
-        print '*** WARNING No ADT file output ***'
+        print '*** WARNING No ADT0127 file output ***'
         log_warning()
     # end
     if (get_filename.SST == False):
-        print '*** WARNING No SST file output ***'
+        print '*** WARNING No SST0126 file output ***'
         log_warning()
     # end
     if (get_filename.SMT == False):
-        print '*** WARNING No SMT file output ***'
+        print '*** WARNING No SMT0125 file output ***'
         log_warning()
     # end
     if (get_filename.SSB == False):
-        print '*** WARNING No SSB file output ***'
+        print '*** WARNING No SSB0229 file output ***'
         log_warning()
     # end
     if (get_filename.SMB == False):
-        print '*** WARNING No SMB file output ***'
+        print '*** WARNING No SMB0223 file output ***'
         log_warning()
     # end
     if (get_filename.DD == False):
-        print '*** WARNING No DD file output ***'
+        print '*** WARNING No DD0124 file output ***'
         log_warning()
     # end
     if (get_filename.SPB == False): 
-        print '*** WARNING No SPB file output ***'
+        print '*** WARNING No SPB0223 file output ***'
         log_warning()
     # end
     if (get_filename.SPT == False):
-        print '*** WARNING No SPT file output ***'
+        print '*** WARNING No SPT0123 file output ***'
         log_warning()
     # end    
 # end def

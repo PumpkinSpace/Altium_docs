@@ -1,0 +1,96 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+% 'BasicFonts': class PDFDictionary 
+1 0 obj
+% The standard fonts dictionary
+<< /F1 2 0 R >>
+endobj
+% 'F1': class PDFType1Font 
+2 0 obj
+% Font Helvetica
+<< /BaseFont /Helvetica
+ /Encoding /WinAnsiEncoding
+ /Name /F1
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page1': class PDFPage 
+3 0 obj
+% Page dictionary
+<< /Contents 7 0 R
+ /MediaBox [ 0
+ 0
+ 792
+ 612 ]
+ /Parent 6 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R4': class PDFCatalog 
+4 0 obj
+% Document Root
+<< /Outlines 8 0 R
+ /PageMode /UseNone
+ /Pages 6 0 R
+ /Type /Catalog >>
+endobj
+% 'R5': class PDFInfo 
+5 0 obj
+<< /Author (anonymous)
+ /CreationDate (D:20180724164809-12'00')
+ /Creator (pypdfocr)
+ /Keywords ()
+ /Producer (ReportLab PDF Library - www.reportlab.com)
+ /Subject (unspecified)
+ /Title (layer--7_1.html) >>
+endobj
+% 'R6': class PDFPages 
+6 0 obj
+% page tree
+<< /Count 1
+ /Kids [ 3 0 R ]
+ /Type /Pages >>
+endobj
+% 'R7': class PDFStream 
+7 0 obj
+% page stream
+<< /Filter [ /ASCII85Decode
+ /FlateDecode ]
+ /Length 465 >>
+stream
+Gaua=gIfC<&;KW]I>>@4_(da6*."Za'Ef$>!odWS>uoSO#IACd'nfV2@+s&UVTh'uS,"iCY3sfbpIg%c![ece`)*%U"9lp_S<ps:mlT5e9-GI2KSYfW9>C>;`bDne]3$`_Xq(<aJ"32`_*_?a;VlrZL2q6)SG;F^ato9W#//\156sq(I0:/!)PnXlXPP;WifL"AUF,h\p%n0f?J^+C9LV400gtNI,HH]O4dR]%%][+d-V*euAB&.Ip0:PC!mDO!jqe7:UJE5\2In"R2Ir/Ue96GhAqi=D]Pu+AF11X7c;rfDfucB:%E]F&CiX?O$!D4$+tM85ZbaI)Qc7*-=hN-C[4Qk[a?F'4-+h9&T+e(-Pas.E*%/:Z2[^j1pI_Fl2+a\#%$Qj_LZ",phQ!,GJ+>Su6Z69$Ut@CYZ"p,(bcALe\^?)3S7_Xe6cp1V=#;,Dk-k_+0c:Gmh'[$gE)c~>endstream
+endobj
+% 'R8': class PDFOutlines 
+8 0 obj
+<< /Count 0
+ /Type /Outlines >>
+endobj
+xref
+0 9
+0000000000 65535 f
+0000000113 00000 n
+0000000209 00000 n
+0000000372 00000 n
+0000000639 00000 n
+0000000773 00000 n
+0000001029 00000 n
+0000001134 00000 n
+0000001741 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
+ [(p\244\301Y\273\244\312?!\005N\366\364\373\234\275) (p\244\301Y\273\244\312?!\005N\366\364\373\234\275)] 
+
+ /Info 5 0 R
+ /Root 4 0 R
+ /Size 9 >>
+startxref
+1792
+%%EOF

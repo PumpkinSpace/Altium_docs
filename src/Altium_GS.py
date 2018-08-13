@@ -33,6 +33,7 @@ from oauth2client.file import Storage
 import httplib2
 import time
 import argparse
+import datetime
 
 
 max_assy_rev = 24
@@ -84,6 +85,7 @@ class assembly_info:
         self.sub_manufacturer_pns = []
         self.sub_supplier_pns = []
         self.sub_suppliers = []
+        self.sub_manufacturer = []
         self.subtotals = []
     # end def
     
@@ -272,6 +274,12 @@ def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info)
         elif col_headers[i-1] == 'SubSPN':
             cell.value = assy_info.sub_supplier_pns[j-1]
             
+        elif col_headers[i-1] == 'SubMPN':
+            cell.value = assy_info.sub_manufacturer_pns[j-1]     
+            
+        elif col_headers[i-1] == 'Sub Manufacturer':
+            cell.value = assy_info.sub_manufacturer[j-1]            
+            
         elif col_headers[i-1] == 'Ext. Cost (USD)':
             cell.value = assy_info.subtotals[j-1]
         # end if
@@ -458,19 +466,46 @@ def open_bom(drive, gsheet, new_filename):
     # convert this list to a useable dictionary
     file_dict = {i.get('title').encode('ascii', 'ignore'): i.get('id').encode('ascii', 'ignore') for i in file_list}
     
+    # get the modified date of the BOM template
+    temp_file = drive.CreateFile({'id': BOM_TEMPLATE_KEY})
+    template_mod_date = temp_file['modifiedDate']   
+    
+    create_new_bom = True
+    
     # check to see if the file we want to edit is already there
     if file_dict.has_key(new_filename):
-        # it is so return it opened
-        return gsheet.open_by_key(file_dict[new_filename])
+        
+        # get the modified date of the BOM and the last modifier
+        temp_file = drive.CreateFile({'id': file_dict[new_filename]})
+        bom_mod_date = temp_file['modifiedDate']
+        bom_modifier = temp_file['lastModifyingUser']['displayName']
+        
+        # if the BOM was modified more recently than the template
+        # or I was not the modifier then update the BOM rather than deleting it
+        if ((template_mod_date < bom_mod_date) or (bom_modifier != 'David Wright')):
+            # it is so return it opened
+            print '\t Updating the ' + new_filename + ' google sheet'
+            create_new_bom = False
+            return gsheet.open_by_key(file_dict[new_filename])  
+        
+        else:
+            # the file is out of date so delete it
+            print '\t Deleting the out of date ' + new_filename + ' google sheet'
+            temp_file.Trash()
+        # end if
+    # end if
     
-    else:
+    if create_new_bom:
         # it is not so copy the master file to create it
         new_sheet = drive.auth.service.files().copy(fileId=BOM_TEMPLATE_KEY,
                                                     body={"parents": [{"kind": "drive#fileLink",
                                                                        "id": '1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV'}], 
                                                           'title': new_filename}).execute()    
+        print '\t Creating the ' + new_filename + ' google sheet'
+        
         # return the new file opened
         return gsheet.open_by_key(new_sheet['id'])
+    # end if
 # end def
 
 

@@ -58,12 +58,13 @@ BOM_cols =  {'Designator': 0,
              'Quantity': 3,
              'Manufacturer': 4,
              'Manufacturer_pn': 5,
-             'Sub_Manufacturer_pn' : 6,
-             'Sub_Supplier_pn': 7,
-             'Sub_Supplier' : 6,
-             'Supplier': 8,
-             'Supplier_pn': 9,
-             'Subtotal': 10}
+             'Supplier': 6,
+             'Supplier_pn': 7,
+             'Sub_Manufacturer': 8, 
+             'Sub_Manufacturer_pn' : 9,
+             'Sub_Supplier' : 10,
+             'Sub_Supplier_pn': 11,
+             'Subtotal': 12}
 
 bom_d_col = 0
 bom_dnp_col = 1
@@ -365,6 +366,7 @@ def extract_assy_config(starting_dir):
         output_data.descriptions.append(bom_sheet.cell(i,BOM_cols['Description']+1).value)
         output_data.quantities.append(bom_sheet.cell(i,BOM_cols['Quantity']+1).value)
         output_data.manufacturers.append(bom_sheet.cell(i,BOM_cols['Manufacturer']+1).value)
+        output_data.sub_manufacturer.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer']+1).value)
         output_data.manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Manufacturer_pn']+1).value)
         output_data.sub_manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer_pn']+1).value)
         output_data.sub_supplier_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier_pn']+1).value)
@@ -436,7 +438,12 @@ def set_assembly_number(doc):
     # get revision
     cell_string = repr(doc.cell(0,6)).split('\'')[1]
     
-    if (cell_string[0].isalpha() and cell_string[1].isdigit()):
+    if (cell_string[0].isalpha() and (len(cell_string) == 1)):
+        # single character rev
+        set_assembly_number.revision = (cell_string + '0')
+        
+    elif (cell_string[0].isalpha() and cell_string[1].isdigit()):
+        # character and number rev
         set_assembly_number.revision = cell_string
         
     else:

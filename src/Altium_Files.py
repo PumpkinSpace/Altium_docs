@@ -449,6 +449,8 @@ def move_documents(starting_dir, exe_OCR, layers):
     shutil.make_archive(andrews_dir+'\\'+get_part_number(starting_dir)+ \
                         'PD', 'zip', pdf_dir)
     
+    time.sleep(0.1)
+    
     # remove the temp directory
     shutil.rmtree(pdf_dir)     
     
@@ -505,6 +507,8 @@ def zip_step_file(starting_dir):
             
             # make archive
             shutil.make_archive(andrews_dir+'\\'+part_number+'_step', 'zip', step_dir)
+            
+            time.sleep(0.1)
             
             try:
                 # delete the temp directory
@@ -595,7 +599,9 @@ def move_xps(starting_dir):
     except:
         print('***   Error: could not zip .xps file ***')
         log_error()     
-    # end try        
+    # end try    
+    
+    time.sleep(0.1)
             
     try:
         # delete temp directory
@@ -634,32 +640,38 @@ def manage_schematic(starting_dir, with_threads = False):
     part_number = get_part_number(starting_dir)    
     
     no_schematic = True    
+    pdf_filename = ''
     # search for a schematic document in the root directory
     for filename in root_file_list:
-        if (filename.lower().endswith('pdf') and 
-            (len(filename) > 12) and 
-            (filename != 'PCB Prints.pdf') and 
-            ('layers' not in filename)):
-            # schematic found
-            no_schematic = False
-            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename),
-                                                    filename)
+        if (filename.endswith('PrjPcb')):
+            # this is the project file which creates the pdf filename
+            # so move the similarly named pdf file
+            pdf_filename = filename.split('.')[0] + '.pdf'
+            
+            try:            
+                modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+pdf_filename),
+                                                                    pdf_filename)                
+                no_schematic = False
+                
+            except:
+                pass
+            # end try
             break
-        # end
-    # end
+        # end if
+    # end for
     
     if no_schematic:
         # No schematic was found
         print('***   Error: No Schematic Document was found   ***')
         log_error()
         return None
-    # end
+    # end if
     
     print '\tReading the Schematic file...'
     
     # open pdf file and split into pages
     try:
-        with open(starting_dir+'\\'+filename, "rb") as schematic_file:
+        with open(starting_dir+'\\'+pdf_filename, "rb") as schematic_file:
             schematic = pyPdf.PdfFileReader(schematic_file)
             
             # write each page to a separate pdf file
