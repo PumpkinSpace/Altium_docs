@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Quad SupMCU Module (01957A0)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\GSIM Power Test (01966A0)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr

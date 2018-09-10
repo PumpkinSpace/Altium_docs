@@ -643,7 +643,7 @@ def manage_schematic(starting_dir, with_threads = False):
     pdf_filename = ''
     # search for a schematic document in the root directory
     for filename in root_file_list:
-        if (filename.endswith('PrjPcb')):
+        if (filename.endswith('PrjPcb')) or (filename.endswith('PrjPCB')):
             # this is the project file which creates the pdf filename
             # so move the similarly named pdf file
             pdf_filename = filename.split('.')[0] + '.pdf'
@@ -1108,25 +1108,33 @@ def get_page_number(path, pn, starting_dir):
     page_number = ''
         
     # find the location of the of string that separates the page numers
-    of_index = pdf_text.rfind(' of ')
-    if of_index == -1:
+    of_indicies = [m.start() for m in re.finditer(' of ', pdf_text)]
+    if of_indicies == []:
         # if of is not found return an error
         page_number = 'error'
         
-    elif (pdf_text[of_index-2].isdigit() and 
-          (pdf_text[of_index-1] != '5') and 
-          (pdf_text[of_index-6:of_index-1] != '94112') and 
-          (pdf_text[of_index-6:of_index-1] != pn[:-1]) and 
-          (pdf_text[of_index-4:of_index-1] != ' 01')):
-        # there are two digits in the page number, return both
-        page_number = pdf_text[of_index-2:of_index]
-    
     else:
-        # return the single digit page number
-        page_number = pdf_text[of_index-1]
+        for of_index in of_indicies:
+            if (pdf_text[of_index-2].isdigit() and 
+                  (pdf_text[of_index-1] != '5') and 
+                  (pdf_text[of_index-6:of_index-1] != '94112') and 
+                  (pdf_text[of_index-6:of_index-1] != pn[:-1]) and 
+                  (pdf_text[of_index-4:of_index-1] != ' 01')):
+                # there are two digits in the page number, return both
+                page_number = pdf_text[of_index-2:of_index]
+            
+            elif pdf_text[of_index-1].isdigit():
+                # return the single digit page number
+                page_number = pdf_text[of_index-1]
+            # end if
+        # end for
     # end if
     
-    if not page_number.isdigit():
+    if page_number == '':
+        print '*** Error: No page number could be found ***'
+        log_error()
+        
+    elif not page_number.isdigit():
         print '*** Error: ' + page_number + ' is not a valid page number ***'
         log_error()
     # end if
