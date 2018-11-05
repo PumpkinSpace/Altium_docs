@@ -408,6 +408,9 @@ def move_documents(starting_dir, exe_OCR, layers):
     # move the xps file
     modified_dates.append(move_xps(starting_dir))
     
+    # move the 3D pdf file
+    modified_dates.append(move_3D_pdf(starting_dir))
+    
     # get the file list for the starting directory
     root_file_list = os.listdir(starting_dir)
     
@@ -537,6 +540,54 @@ def zip_step_file(starting_dir):
 #
 # ----------------
 # Private Functions 
+
+def move_3D_pdf(starting_dir):
+    """
+    Function to move the 3D pdf file to the pdf directory.
+
+    @param[in]   starting_dir:        The Altium project directory (full path) 
+                                      (string).
+    @return      (datetime)           Modification date of the xps file.
+    """      
+    
+    # get the file list of the root directory
+    root_file_list = os.listdir(starting_dir)
+    
+    # get andrews direstory
+    andrews_dir = Altium_helpers.get_Andrews_dir(starting_dir)
+    
+    # initialise variables
+    pdf_file = ''
+    modified_date = None
+    
+    # search through the file list fot the xps file
+    for filename in root_file_list:
+        if filename.startswith("3D PDF"):
+            # store the filename
+            pdf_file = filename
+            
+            # store it's modification date
+            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
+                                                    filename)
+        # end if
+    # end for
+    
+    if pdf_file == '':
+        print '*** Warning: no 3D pdf file found ***'
+        log_warning()
+        return None
+    # end if
+    
+    # define the xps directory
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+    
+    # copy file into temp directory
+    shutil.copy(starting_dir+'\\'+pdf_file, pdf_dir +'\\'+pdf_file)
+    
+    time.sleep(0.1)
+    
+    return modified_date
+# end def
 
 def move_xps(starting_dir):
     """
