@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\GSIM Power Test (01966A0)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Linear EPS (00337E0)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -59,7 +59,8 @@ if __name__ == '__main__':
     
     import Altium_OCR
     import Altium_helpers
-    import Altium_Files   
+    import Altium_Files  
+    import time
     
     # go to desired working directory
     os.chdir(starting_dir)
@@ -79,19 +80,19 @@ if __name__ == '__main__':
     modified_dates = []
     
     # check the design rule check document
-    modified_dates.append(Altium_OCR.check_DRC(starting_dir))
+    #modified_dates.append(Altium_OCR.check_DRC(starting_dir))
     
     # check the electrical rule check document
-    modified_dates.append(Altium_OCR.check_ERC(starting_dir))    
+    #modified_dates.append(Altium_OCR.check_ERC(starting_dir))    
     
     # Move all of the Altium files into their folder
-    modified_dates.extend(Altium_Files.move_Altium_files(starting_dir))
+    #modified_dates.extend(Altium_Files.move_Altium_files(starting_dir))
     
     # Move the gerber files and create a readme file for them
     [gerber_dates, layers] = Altium_Files.move_gerbers(starting_dir)
     
     # add the gerber modified dates to the list
-    modified_dates.extend(gerber_dates)
+    #modified_dates.extend(gerber_dates)
     
     # move all of the other documents
     modified_dates.extend(Altium_Files.move_documents(starting_dir, 

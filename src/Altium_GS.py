@@ -190,7 +190,7 @@ def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info)
         gsheet = authorise_google_sheet(src_dir)
     
     except:
-        print '*** Error: Failed to Authorize google credentials, no BOM uploaded'
+        print '*** Error: Failed to Authorize google credentials, no BOM uploaded\n'
         return None
     # end try
     

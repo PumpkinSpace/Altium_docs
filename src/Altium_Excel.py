@@ -419,6 +419,9 @@ def set_assembly_number(doc):
     if cell_string.startswith('710-'):
         set_assembly_number.assy_number = cell_string.split('-')[1]
         
+    elif cell_string.startswith('711-'):
+        set_assembly_number.assy_number = cell_string.split('-')[1]        
+        
     else:
         print "*** Error: no assembly number found in BOM Doc ***"
         log_error()

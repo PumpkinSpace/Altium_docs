@@ -433,10 +433,12 @@ def move_documents(starting_dir, exe_OCR, layers):
             break
         # end   
     # end    
-    
+
+    start_time = time.time()
     # perform OCR on the layers pdf file   
     #modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers))
     modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers, with_threads=True))
+    print (time.time()-start_time)
     
     
     # check for errors and warnings following OCR
@@ -452,7 +454,7 @@ def move_documents(starting_dir, exe_OCR, layers):
     shutil.make_archive(andrews_dir+'\\'+get_part_number(starting_dir)+ \
                         'PD', 'zip', pdf_dir)
     
-    time.sleep(0.1)
+    time.sleep(0.5)
     
     # remove the temp directory
     shutil.rmtree(pdf_dir)     
@@ -693,11 +695,12 @@ def manage_schematic(starting_dir, with_threads = False):
     no_schematic = True    
     pdf_filename = ''
     # search for a schematic document in the root directory
+    
     for filename in root_file_list:
-        if (filename.endswith('PrjPcb')) or (filename.endswith('PrjPCB')):
+        if (filename.startswith('Schematic.')):
             # this is the project file which creates the pdf filename
             # so move the similarly named pdf file
-            pdf_filename = filename.split('.')[0] + '.pdf'
+            pdf_filename = filename
             
             try:            
                 modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+pdf_filename),
@@ -710,6 +713,27 @@ def manage_schematic(starting_dir, with_threads = False):
             break
         # end if
     # end for
+    
+    # if the document was not found, look for it the old way
+    if no_schematic:    
+        for filename in root_file_list:
+            if (filename.endswith('PrjPcb')) or (filename.endswith('PrjPCB')):
+                # this is the project file which creates the pdf filename
+                # so move the similarly named pdf file
+                pdf_filename = filename.split('.')[0] + '.pdf'
+                
+                try:            
+                    modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+pdf_filename),
+                                                                        pdf_filename)                
+                    no_schematic = False
+                    
+                except:
+                    pass
+                # end try
+                break
+            # end if
+        # end for
+    # end if
     
     if no_schematic:
         # No schematic was found
@@ -762,16 +786,16 @@ def manage_schematic(starting_dir, with_threads = False):
             # define the thread to perform the writing
             thread = multiprocessing.Process(name=('renaming-' + str(i)),
                                              target = rename_sheet, 
-                                             args=(starting_dir,i,thread_queue))
+                                             args=(starting_dir, i, thread_queue))
             # start the thread
             thread.start()
             
             thread_list.append(thread)
-        # end for       
+        # end for   
         
         # wait for all the threads to finish
         while any([t.is_alive() for t in thread_list]):
-            time.sleep(0.01)
+            time.sleep(0.1)
         # end while
         
         # read all data from the queue
@@ -1142,7 +1166,6 @@ def get_page_number(path, pn, starting_dir):
     @return      (bool)            True is this page is the assembly revision 
                                    page. False otherwise
     """        
-    
     # extract the text from a pdf page
     pdf_text = Altium_OCR.convert_pdf_to_txt(path)
     

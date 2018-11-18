@@ -171,6 +171,15 @@ def get_filename_init():
     get_filename.SPT = False
 # end def
 
+def convert_pdf_to_txt_fast(path):
+    start_time = time.time()
+    with open(path, "rb") as pdf_file:
+        text = pdftotext.PDF(pdf_file)
+    print text[0]    
+    print (time.time()-start_time)
+    return text[0] 
+
+
 
 def convert_pdf_to_txt(path):
     """
@@ -199,16 +208,16 @@ def convert_pdf_to_txt(path):
     maxpages = 0
     caching = True
     pagenos=set()
+    text = []
 
     # process each page in the pdf
     for page in PDFPage.get_pages(fp, pagenos, maxpages=maxpages, \
                                   password=password,caching=caching, \
                                   check_extractable=True):
         interpreter.process_page(page)
+        # extract the text
+        text.append(retstr.getvalue())
     # end
-
-    # extract the text
-    text = retstr.getvalue()
 
     # close all files
     fp.close()
@@ -216,7 +225,7 @@ def convert_pdf_to_txt(path):
     retstr.close()
     
     # return the text
-    return text
+    return text[0]
 # end
     
     
@@ -248,6 +257,8 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
     if ocr_is_required(starting_dir):
         
         print 'Starting OCR on Layers file...'
+        print '\t*** Warning: probably using an outdated outJob file. ***'
+        log_warning()
         
         # determine execution type
         if with_threads:
@@ -280,23 +291,38 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
             with open(starting_dir+'\\layers.pdf', "rb") as layers_file:
                 layers_pdf = pyPdf.PdfFileReader(layers_file)
                 
-                # write each page to a separate pdf file
-                for page in xrange(layers_pdf.numPages):
-                    # add page to the output stream
-                    output = pyPdf.PdfFileWriter()
-                    output.addPage(layers_pdf.getPage(page))
-                    # format the filename 
-                    file_name = pdf_dir + '\\layer--' + str(page+1) + '.pdf'
-                    
-                    with open(file_name, "wb") as outputStream:
-                        # write the page
-                        output.write(outputStream)
-                    # end with
-                # end for
+                with open(starting_dir+'\\Layers with Text.PDF', "rb") as layers_text_file:
+                    layers_text_pdf = pyPdf.PdfFileReader(layers_text_file)                
+                
+                    # write each page to a separate pdf file
+                    for page in xrange(layers_pdf.numPages):
+                        # open the output stream
+                        output = pyPdf.PdfFileWriter()
+                        
+                        # add the layers page to the output stream.
+                        output.addPage(layers_pdf.getPage(page))
+                        # format the filename 
+                        file_name = pdf_dir + '\\layer--' + str(page+1) + '.pdf'
+                        
+                        with open(file_name, "wb") as outputStream:
+                            # write the page
+                            output.write(outputStream)
+                        # end with
+                        
+                        # add the layer text pdf page to the output stream
+                        output.addPage(layers_text_pdf.getPage(page))
+                        # format the filename 
+                        file_name = pdf_dir + '\\layer_text--' + str(page+1) + '.pdf'
+                        
+                        with open(file_name, "wb") as outputStream:
+                            # write the page
+                            output.write(outputStream)
+                        # end with                        
+                    # end for
             # end with
             
         except:
-            print('***   Error: Could not open Layers.pdf document   ***')
+            print('***   Error: Could not open Layers.pdf or Layers with Text.PDF document   ***')
             log_error()
             return None        
         # end try
@@ -326,7 +352,7 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
             
             # wait for all the threads to finish
             while any([t.is_alive() for t in thread_list]):
-                time.sleep(0.01)
+                time.sleep(0.1)
             # end while
             
             # read all data from the queue
@@ -339,6 +365,9 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
                 
                 except:
                     break
+                #end try
+                
+                time.sleep(0.1)
             # end while
                                
             if any([q == False for q in thread_data]):
@@ -494,14 +523,24 @@ def rename_layer(starting_dir, sheet_number, queue = None):
     @param[out]  queue:               The queue to return data to if running
                                       as a thread (Queue).
     """  
-    # get the pdf directory
+    # get the pdf directory     
     pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
-       
-    old_filename = pdf_dir + '\\layer--' + \
-        str(sheet_number) + '.pdf'
-            
-    # find new name
-    new_filename = get_filename(old_filename, queue)
+    
+    
+    old_filename = pdf_dir + '\\layer--' + str(sheet_number) + '.pdf'    
+    
+    # check to see if text information is stored in a separate file
+    if os.path.isfile(pdf_dir + '\\layer_text--' + str(sheet_number) + '.pdf'):
+        # it is do get the filename from that document
+        new_filename = get_filename(pdf_dir + '\\layer_text--' + str(sheet_number) + '.pdf', queue)
+        
+        # delete the text file
+        os.remove(pdf_dir + '\\layer_text--' + str(sheet_number) + '.pdf')
+        
+    else:
+        # find new name from the file itself.
+        new_filename = get_filename(old_filename, queue)
+    # end if 
     
     if (new_filename != None):       
         # rename the file
@@ -534,6 +573,19 @@ def ocr_is_required(starting_dir):
     @return:   (boolean)      True if there is no embedded text.
     """
     
+    file_list = os.listdir(starting_dir)
+    for filename in file_list:
+        if filename.startswith('Layers with Text'):
+            return False
+        # end if
+    # end for
+    
+    # if we make it here then the file was not found
+    return True
+    
+    """
+    OLD CODE
+    
     layers_text = convert_pdf_to_txt(starting_dir+'\\layers.pdf')
     try:
         return not ('layer' in layers_text.lower())
@@ -541,6 +593,7 @@ def ocr_is_required(starting_dir):
     except:
         return False
     # end try
+    """
 # end def
 
 
@@ -607,7 +660,7 @@ def thread_OCR_init(starting_dir, exe_OCR, silence = True):
     
     # wait for all the threads to finish
     while any([t.is_alive() for t in thread_list]):
-        time.sleep(0.01)
+        time.sleep(0.1)
     # end while
     
     # read all data from the queue
@@ -620,6 +673,9 @@ def thread_OCR_init(starting_dir, exe_OCR, silence = True):
         
         except:
             break
+        # end try
+        
+        time.sleep(0.1)
     # end while
     
     if any([q == False for q in thread_data]):
