@@ -9,6 +9,11 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
+import multiprocessing
+import os
+
+
+
 
 def convert_pdf_to_txt(path):
     """
@@ -62,22 +67,147 @@ def converter_by_james(path):
 # end
 
 
+def split_pages(pdf_path, pdf_prefix):
+    page_list = []
+    # split the pdf into pages
+    with open(pdf_path, "rb") as schematic_file:
+        schematic = pyPdf.PdfFileReader(schematic_file)
+        
+        # write each page to a separate pdf file
+        for page in xrange(schematic.numPages):
+            # add page to the output stream
+            output = pyPdf.PdfFileWriter()
+            output.addPage(schematic.getPage(page))
+            # format the filename 
+            file_name = pdf_prefix + '-' + str(page+1) + '.pdf'
+            
+            with open(file_name, "wb") as outputStream:
+                # write the page
+                output.write(outputStream)
+            # end with
+            page_list.append(file_name)
+        # end for
+    # end with   
+    return page_list
+# end def
 
+def cleanup_pdfs(pdf_list):
+    for filename in pdf_list:
+        os.remove(filename)
+    # end for
+# end def    
+    
+
+def create_process_threads(process, arg_list):
+    thread_list = []
+    for arg in arg_list:
+        # define the thread to perform the writing
+        thread = multiprocessing.Process(name=('renaming-' + str(i)),
+                                         target = process, 
+                                         args=arg)
+        # start the thread
+        thread.start()
+        
+        thread_list.append(thread)
+    # end for   
+    
+    # wait for all the threads to finish
+    while any([t.is_alive() for t in thread_list]):
+        time.sleep(0.1)
+    # end while    
 # test code
-start_time = time.time()
-old_text = convert_pdf_to_txt('00337E0-8.pdf')
-old_time = start_time - time.time()
 
-start_time = time.time()
-new_text = converter_by_james('00337E0-8.pdf')
-new_time = start_time - time.time()
+# blocking for multiprocessing
+if __name__ == '__main__':
 
-print "The new converter is " + str(100*(old_time-new_time)/old_time) + "% faster"
-
-if 'Modification' not in new_text:
-    print "However the new converter is missing important text information in the PDF"
+    print "Single page test"
+    start_time = time.time()
+    old_text = convert_pdf_to_txt('00337E0-8.pdf')
+    old_time = time.time() - start_time
     
-else:
-    print "The new converter appears to be parsing the file correctly"
+    start_time = time.time()
+    new_text = converter_by_james('00337E0-8.pdf')
+    new_time = time.time() - start_time
+    
+    print "\told_time = " + str(old_time) + "s, new_time = " + str(new_time) + "s"
+    print "\tThe new converter is " + str(100*(old_time-new_time)/old_time) + "% faster"
+    
+    if 'Modification' not in new_text:
+        print "\tHowever the new converter is missing important text information in the PDF"
+        
+    else:
+        print "\tThe new converter appears to be parsing the file correctly"
+    # end if
+    
+    
+    
+    print "\nSchematic - single thread test"
+    start_time = time.time()
+    old_text = convert_pdf_to_txt('Schematic.pdf')
+    old_time = time.time() - start_time
+    
+    start_time = time.time()
+    new_text = converter_by_james('Schematic.pdf')
+    new_time = time.time() - start_time
+    
+    print "\told_time = " + str(old_time) + "s, new_time = " + str(new_time) + "s"
+    print "\tThe new converter is " + str(100*(old_time-new_time)/old_time) + "% faster"
+    
+    
+    
+    
+    print "\nSchematic - multi thread test"
+    
+    page_list = split_pages('Schematic.pdf', 'page')
+    arg_list = [(i,) for i in page_list]
+    
+    start_time = time.time()  
+    create_process_threads(convert_pdf_to_txt, arg_list)
+    old_time = time.time() - start_time
+    
+    start_time = time.time()
+    create_process_threads(converter_by_james, arg_list)
+    new_time = time.time() - start_time
+    
+    cleanup_pdfs(page_list)
+    
+    print "\told_time = " + str(old_time) + "s, new_time = " + str(new_time) + "s"
+    print "\tThe new converter is " + str(100*(old_time-new_time)/old_time) + "% faster"
+    
+
+    
+    
+    #print "\nLayers - single thread test"
+    #start_time = time.time()
+    #old_text = convert_pdf_to_txt('Layers with Text.PDF')
+    #old_time = time.time() - start_time
+    
+    #start_time = time.time()
+    #new_text = converter_by_james('Layers with Text.PDF')
+    #new_time = time.time() - start_time
+    
+    #print "\told_time = " + str(old_time) + "s, new_time = " + str(new_time) + "s"
+    #print "\tThe new converter is " + str(100*(old_time-new_time)/old_time) + "% faster"
+    
+    
+    
+    
+    print "\nLayers - multi thread test"
+    
+    page_list = split_pages('Layers with Text.PDF', 'layer')
+    arg_list = [(i,) for i in page_list]
+    
+    start_time = time.time()  
+    create_process_threads(convert_pdf_to_txt, arg_list)
+    old_time = time.time() - start_time
+    
+    start_time = time.time()
+    create_process_threads(converter_by_james, arg_list)
+    new_time = time.time() - start_time
+    
+    cleanup_pdfs(page_list)
+    
+    print "\told_time = " + str(old_time) + "s, new_time = " + str(new_time) + "s"
+    print "\tThe new converter is " + str(100*(old_time-new_time)/old_time) + "% faster"    
+    
 # end if
-    

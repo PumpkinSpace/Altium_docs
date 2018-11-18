@@ -171,16 +171,6 @@ def get_filename_init():
     get_filename.SPT = False
 # end def
 
-def convert_pdf_to_txt_fast(path):
-    start_time = time.time()
-    with open(path, "rb") as pdf_file:
-        text = pdftotext.PDF(pdf_file)
-    print text[0]    
-    print (time.time()-start_time)
-    return text[0] 
-
-
-
 def convert_pdf_to_txt(path):
     """
     Function to extract the text from a pdf that contains embedded text.
@@ -286,6 +276,7 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
         
         print 'Splitting Layers file without OCR...'
         
+        
         # open pdf file and split into pages
         try:
             with open(starting_dir+'\\layers.pdf', "rb") as layers_file:
@@ -326,6 +317,8 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
             log_error()
             return None        
         # end try
+        
+        
         
         print '\tComplete!'
         
@@ -529,6 +522,7 @@ def rename_layer(starting_dir, sheet_number, queue = None):
     
     old_filename = pdf_dir + '\\layer--' + str(sheet_number) + '.pdf'    
     
+    start_time = time.time()
     # check to see if text information is stored in a separate file
     if os.path.isfile(pdf_dir + '\\layer_text--' + str(sheet_number) + '.pdf'):
         # it is do get the filename from that document
@@ -541,6 +535,8 @@ def rename_layer(starting_dir, sheet_number, queue = None):
         # find new name from the file itself.
         new_filename = get_filename(old_filename, queue)
     # end if 
+    
+    print (time.time() - start_time)
     
     if (new_filename != None):       
         # rename the file
@@ -821,9 +817,11 @@ def get_filename(path, queue = None):
     @param[out] queue:      Queue to write output to in threading operations 
                             (Queue).
     @return     (string)    The correct filename for that file.
-    """      
+    """   
+    start_time = time.time()
     # extract the text from the pdf
     pdf_text = beautify(convert_pdf_to_txt(path))
+    print (time.time() - start_time)
     
     # look for certain substrings to determin the correct filename
     if (beautify('number') in pdf_text)\

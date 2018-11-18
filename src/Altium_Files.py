@@ -393,23 +393,20 @@ def move_documents(starting_dir, exe_OCR, layers):
     # create required directories
     andrews_dir = Altium_helpers.get_Andrews_dir(starting_dir)
     pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
-    
-    # move the BOM
-    # this is now done by move_gerbers()
-    # modified_dates = move_bom(starting_dir)
-    
+       
     # manage the schematic document
     # modified_dates = [manage_schematic(starting_dir)]
-    modified_dates = [manage_schematic(starting_dir, with_threads = True)]
+    #modified_dates = [manage_schematic(starting_dir, with_threads = True)]
+    modified_dates = []
     
     # construct the assembly doc
-    modified_dates.extend(Altium_Excel.construct_assembly_doc(starting_dir))
+    #modified_dates.extend(Altium_Excel.construct_assembly_doc(starting_dir))
     
     # move the xps file
-    modified_dates.append(move_xps(starting_dir))
+    #modified_dates.append(move_xps(starting_dir))
     
     # move the 3D pdf file
-    modified_dates.append(move_3D_pdf(starting_dir))
+    #modified_dates.append(move_3D_pdf(starting_dir))
     
     # get the file list for the starting directory
     root_file_list = os.listdir(starting_dir)
