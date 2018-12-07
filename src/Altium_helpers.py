@@ -36,6 +36,35 @@ import Altium_OCR
 # ----------------
 # Classes
 
+class Logger(object):
+    def __init__(self, filename):
+        self.terminal = sys.stdout
+        self.log = open(filename, "w")
+        # write a header to the log file
+        self.log.write("=========   Deliverable Log   ===========\n")
+        project_string = "Project: \t" + filename.split('\\')[-2] + '\n'
+        self.log.write(project_string)
+        time_string = "Created at: \t" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\n\n'
+        self.log.write(time_string)
+    # end def
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)  
+    # end def
+
+    def flush(self):
+        #this flush method is needed for python 3 compatibility.
+        #this handles the flush command by doing nothing.
+        #you might want to specify some extra behavior here.
+        pass    
+    # end def
+    
+    def close(self):
+        self.log.close()
+# end class
+
+
 class mod_date:
     """ 
     Class to store a files modification information.
@@ -322,7 +351,7 @@ def construct_root_archive(starting_dir):
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).   
     """    
-    print '\nConstructing Archive...'
+    print '\n\nConstructing Archive...'
     
     # get the project part number
     part_number = Altium_Files.get_part_number(starting_dir)
@@ -330,8 +359,10 @@ def construct_root_archive(starting_dir):
     # get the path to Andrews directory
     andrews_dir = get_Andrews_dir(starting_dir)
     
+    zip_filename = part_number + '_Folder'
+    
     # make the .zip archive
-    shutil.make_archive(starting_dir+'\\'+part_number+'_Folder', 
+    shutil.make_archive(starting_dir+'\\'+zip_filename, 
                         'zip', andrews_dir)
     
     # remove the left over folder
@@ -340,4 +371,7 @@ def construct_root_archive(starting_dir):
     # indicate completion
     print '*** Directory ' + part_number + '_Folder.zip' + \
           ' has been generated successfully ***'
+    
+    zip_filename = zip_filename + '.zip'
+    return zip_filename
 # end def
