@@ -195,7 +195,7 @@ def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info)
     # end try
     
     # create the name of the BOM from the part number and open it.
-    bom_name = assy_number + '/' + part_number + revision
+    bom_name = part_number + '/' + assy_number + revision
     online_bom = open_bom(drive, gsheet, bom_name)
     
     # open the options worksheet

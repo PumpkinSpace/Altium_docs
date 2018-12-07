@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Linear EPS (00337E0)'
+        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Battery Module 1 (01571A0)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -61,6 +61,11 @@ if __name__ == '__main__':
     import Altium_helpers
     import Altium_Files  
     import time
+    import zipfile
+    
+    # direct all output to a log file as well
+    log_filename = starting_dir + '\\Deliverable_log.txt'
+    sys.stdout = Altium_helpers.Logger(log_filename)
     
     # go to desired working directory
     os.chdir(starting_dir)
@@ -74,25 +79,26 @@ if __name__ == '__main__':
     no_warnings = False
     
     # move master ASSY Config document
+    
     Altium_Excel.copy_assy_config(starting_dir)
     
     # create list to load file modified dates into.
     modified_dates = []
     
     # check the design rule check document
-    #modified_dates.append(Altium_OCR.check_DRC(starting_dir))
+    modified_dates.append(Altium_OCR.check_DRC(starting_dir))
     
     # check the electrical rule check document
-    #modified_dates.append(Altium_OCR.check_ERC(starting_dir))    
+    modified_dates.append(Altium_OCR.check_ERC(starting_dir))    
     
     # Move all of the Altium files into their folder
-    #modified_dates.extend(Altium_Files.move_Altium_files(starting_dir))
+    modified_dates.extend(Altium_Files.move_Altium_files(starting_dir))
     
     # Move the gerber files and create a readme file for them
     [gerber_dates, layers] = Altium_Files.move_gerbers(starting_dir)
     
     # add the gerber modified dates to the list
-    #modified_dates.extend(gerber_dates)
+    modified_dates.extend(gerber_dates)
     
     # move all of the other documents
     modified_dates.extend(Altium_Files.move_documents(starting_dir, 
@@ -114,7 +120,7 @@ if __name__ == '__main__':
     # end if
     
     # construct the final zip file and remove un-needed directories
-    Altium_helpers.construct_root_archive(starting_dir)    
+    zip_filename = Altium_helpers.construct_root_archive(starting_dir)    
     
     # check for errors
     if not (Altium_Excel.log_error(get=True) and 
@@ -126,4 +132,17 @@ if __name__ == '__main__':
         # no errors so upload zip file.
         print "\nUploading of Project information to the Google Drive is disabled"
         #Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)
+    # end if
+    
+    print "\nDeliverable generation is complete"
+    
+    # close the log file
+    sys.stdout.close()
+    
+    # add log file to zip
+    zip_file = zipfile.ZipFile(starting_dir + '\\' + zip_filename, 'a')
+    zip_file.write(log_filename, os.path.basename(log_filename))
+    zip_file.close()
+    
 # end if
+

@@ -264,8 +264,9 @@ except:
 
 print '\nGenerating Batch file\n'
 # lines to write to batch file
-batch_lines = ['C:\\Python27\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" True\n',
-               'Pause']
+batch_lines = ['@echo off',
+               'C:\\Python27\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" False\n',
+               'timeout 10']
 
 # path of batch file
 batch_file = os.getcwd() + '\\Deliverable.bat'

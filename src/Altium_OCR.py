@@ -217,6 +217,117 @@ def convert_pdf_to_txt(path):
     # return the text
     return text[0]
 # end
+
+def bypass_Altium_OCR(starting_dir, num_layers, 
+                       silence = True):
+    """
+    Function to perform OCR on the layers pdf and then extract the text from 
+    them and split and rename the pages accordingly.
+
+    @param[in]  starting_dir:       The Altium project directory (full path) 
+                                    (string).    
+    @param[in]  num_layers:         The number of layers in the PCB (int).
+    @param[in]  silence:            Whether to silence the output of the OCR 
+                                    engine (bool).
+    @return     (list of mod_dates) The modification dates of the files used.
+    """     
+
+    # correct the filename of the layers pdf if required
+    modified_dates = []
+
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+    
+    file_list = os.listdir(starting_dir+'\\PDF')
+    
+    print "Moving PDF documents without OCR"
+    
+    layer_count = 0
+    
+    for filename in file_list:
+        modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\PDF\\' + filename), 
+                                                              filename))        
+        if filename.startswith("layers."):
+            # split the layers file into its pages and write them to the output
+            with open(starting_dir+'\\PDF\\layers.pdf', "rb") as layers_file:
+                layers_pdf = pyPdf.PdfFileReader(layers_file)                
+
+                # write each page to a separate pdf file
+                for page in xrange(layers_pdf.numPages):
+                    # open the output stream
+                    output = pyPdf.PdfFileWriter()
+
+                    # add the layers page to the output stream.
+                    output.addPage(layers_pdf.getPage(page))
+                    # format the filename 
+                    file_name = pdf_dir + '\\ART%02d.pdf' % (page+1)
+
+                    with open(file_name, "wb") as outputStream:
+                        # write the page
+                        output.write(outputStream)
+                        layer_count += 1
+                    # end with                     
+                # end for
+        # end with            
+            
+        elif (('Check' not in filename) and ('layer' not in filename) and ('MOD' not in filename)):
+            shutil.copy(starting_dir+'\\PDF\\'+ filename, pdf_dir + '//' + filename)
+        # end if
+    # end for
+    
+    # check outputs
+    # get a list of filenames without extensions
+    file_list = [f_name.split('.')[0] for f_name in os.listdir(pdf_dir)]
+    
+    # Generate warnings for pecuiliar outputs
+    if (layer_count != num_layers):
+        print '\t*** WARNING wrong number of layers printed ***'
+        log_warning()
+    # end
+    if ("MECHDWG" not in file_list):
+        print '\t*** WARNING No MECHDWG file output ***'
+        log_warning()
+    # end
+    if ("ADB0230" not in file_list):
+        print '\t*** WARNING No ADB0230 file output ***'
+        log_warning()
+    # end
+    if ("ADT0127" not in file_list):
+        print '\t*** WARNING No ADT0127 file output ***'
+        log_warning()
+    # end
+    if ("SST0126" not in file_list):
+        print '\t*** WARNING No SST0126 file output ***'
+        log_warning()
+    # end
+    if ("SMT0125" not in file_list):
+        print '\t*** WARNING No SMT0125 file output ***'
+        log_warning()
+    # end
+    if ("SSB0229" not in file_list):
+        print '\t*** WARNING No SSB0229 file output ***'
+        log_warning()
+    # end
+    if ("SMB0223" not in file_list):
+        print '\t*** WARNING No SMB0223 file output ***'
+        log_warning()
+    # end
+    if ("DD0124" not in file_list):
+        print '\t*** WARNING No DD0124 file output ***'
+        log_warning()
+    # end
+    if ("SPB0223" not in file_list): 
+        print '\t*** WARNING No SPB0223 file output ***'
+        log_warning()
+    # end
+    if ("SPT0123" not in file_list):
+        print '\t*** WARNING No SPT0123 file output ***'
+        log_warning()
+    # end      
+
+    print 'Complete!\n'
+
+    return modified_dates
+# end def  
     
     
 def perform_Altium_OCR(exe_OCR, starting_dir, num_layers, 
@@ -317,8 +428,6 @@ def perform_Altium_OCR(exe_OCR, starting_dir, num_layers,
             log_error()
             return None        
         # end try
-        
-        
         
         print '\tComplete!'
         
@@ -429,21 +538,43 @@ def check_DRC(starting_dir):
     @return:   (mod_date)     The modification date of the Design Rule Check
     """  
     print '\nChecking the Design Rule Check...'
-    file_list = os.listdir(starting_dir)
     
+    DRC_text = ''
     
-    if 'Design Rules Check.PDF' not in file_list:
-        print '*** Error: No design rule check has been completed ***'
-        log_error()
-        return None
+    if os.path.isdir(starting_dir + '//PDF'):
+        # get the file list of the root directory
+        file_list = os.listdir(starting_dir + '//PDF')   
+        
+        if 'Design Rules Check.PDF' not in file_list:
+            print '*** Error: No design rule check has been completed ***'
+            log_error()
+            return None
+        # end if
+        
+        # get the modification date of the file
+        DRC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\PDF\\Design Rules Check.PDF'), 
+                                           'Design Rules Check.PDF')
+        
+        # extract text and remove whitespace
+        DRC_text = "".join(convert_pdf_to_txt(starting_dir+'\\PDF\\Design Rules Check.PDF').split())        
+        
+    else:
+        # get the file list of the root directory
+        file_list = os.listdir(starting_dir)
+        
+        if 'Design Rules Check.PDF' not in file_list:
+            print '*** Error: No design rule check has been completed ***'
+            log_error()
+            return None
+        # end if
+        
+        # get the modification date of the file
+        DRC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Design Rules Check.PDF'), 
+                                           'Design Rules Check.PDF')
+        
+        # extract text and remove whitespace
+        DRC_text = "".join(convert_pdf_to_txt(starting_dir+'\\Design Rules Check.PDF').split())        
     # end if
-    
-    # get the modification date of the file
-    DRC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Design Rules Check.PDF'), 
-                                       'Design Rules Check.PDF')
-    
-    # extract text and remove whitespace
-    DRC_text = "".join(convert_pdf_to_txt(starting_dir+'\\Design Rules Check.PDF').split())
     
     if 'Warnings0' not in DRC_text:
         print '*** Warning: Warnings were raised during Altium DRC ***'
@@ -455,7 +586,7 @@ def check_DRC(starting_dir):
         log_warning()
     # end if
     
-    print 'Complete!\n'
+    print 'Complete!'
     
     return DRC_date
 # end def
@@ -469,21 +600,42 @@ def check_ERC(starting_dir):
     @return:   (mod_date)     The modification date of the Electrical Rule Check
     """  
     print '\nChecking the Electrical Rule Check...'
-    file_list = os.listdir(starting_dir)
+    DRC_text = ''
     
-    
-    if 'Electrical Rules Check.PDF' not in file_list:
-        print '*** Error: No electrical rule check has been completed ***'
-        log_error()
-        return None
+    if os.path.isdir(starting_dir + '//PDF'):
+        # get the file list of the root directory
+        file_list = os.listdir(starting_dir + '//PDF')   
+        
+        if 'Electrical Rules Check.PDF' not in file_list:
+            print '*** Error: No electrical rule check has been completed ***'
+            log_error()
+            return None
+        # end if
+        
+        # get the modification date of the file
+        ERC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\PDF\\Electrical Rules Check.PDF'), 
+                                           'Electrical Rules Check.PDF')
+        
+        # extract text and remove whitespace
+        ERC_text = "".join(convert_pdf_to_txt(starting_dir+'\\PDF\\Electrical Rules Check.PDF').split())       
+        
+    else:
+        # get the file list of the root directory
+        file_list = os.listdir(starting_dir)
+        
+        if 'Electrical Rules Check.PDF' not in file_list:
+            print '*** Error: No electrical rule check has been completed ***'
+            log_error()
+            return None
+        # end if
+        
+        # get the modification date of the file
+        ERC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Electrical Rules Check.PDF'), 
+                                           'Electrical Rules Check.PDF')
+        
+        # extract text and remove whitespace
+        ERC_text = "".join(convert_pdf_to_txt(starting_dir+'\\Electrical Rules Check.PDF').split())     
     # end if
-    
-    # get the modification date of the file
-    ERC_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\Electrical Rules Check.PDF'), 
-                                       'Electrical Rules Check.PDF')
-    
-    # extract text and remove whitespace
-    ERC_text = "".join(convert_pdf_to_txt(starting_dir+'\\Electrical Rules Check.PDF').split())
     
     if 'Warning' in ERC_text:
         print '*** Warning: Warnings were raised during Altium ERC ***'

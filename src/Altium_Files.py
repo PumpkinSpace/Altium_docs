@@ -396,17 +396,16 @@ def move_documents(starting_dir, exe_OCR, layers):
        
     # manage the schematic document
     # modified_dates = [manage_schematic(starting_dir)]
-    #modified_dates = [manage_schematic(starting_dir, with_threads = True)]
-    modified_dates = []
+    modified_dates = [manage_schematic(starting_dir, with_threads = True)]
     
     # construct the assembly doc
-    #modified_dates.extend(Altium_Excel.construct_assembly_doc(starting_dir))
+    modified_dates.extend(Altium_Excel.construct_assembly_doc(starting_dir))
     
     # move the xps file
-    #modified_dates.append(move_xps(starting_dir))
+    modified_dates.append(move_xps(starting_dir))
     
     # move the 3D pdf file
-    #modified_dates.append(move_3D_pdf(starting_dir))
+    modified_dates.append(move_3D_pdf(starting_dir))
     
     # get the file list for the starting directory
     root_file_list = os.listdir(starting_dir)
@@ -431,12 +430,15 @@ def move_documents(starting_dir, exe_OCR, layers):
         # end   
     # end    
 
-    start_time = time.time()
-    # perform OCR on the layers pdf file   
-    #modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers))
-    modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers, with_threads=True))
-    print (time.time()-start_time)
-    
+    if os.path.isdir(starting_dir + '\\PDF'):
+        # split the PDF documents without OCR or text reading
+        modified_dates.extend(Altium_OCR.bypass_Altium_OCR(starting_dir, layers))
+        
+    else:
+        # perform OCR on the layers pdf file   
+        #modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers))
+        modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers, with_threads=True))
+    # end if
     
     # check for errors and warnings following OCR
     if not (Altium_OCR.log_error(get=True) and Altium_Excel.log_error(get=True)):
@@ -454,7 +456,13 @@ def move_documents(starting_dir, exe_OCR, layers):
     time.sleep(0.5)
     
     # remove the temp directory
-    shutil.rmtree(pdf_dir)     
+    try:
+        shutil.rmtree(pdf_dir)   
+    
+    except:
+        print "*** Warning could not delete pdf directory from deliverable ***"
+        log_warning()
+    # end try
     
     return modified_dates
 # end def
@@ -549,9 +557,6 @@ def move_3D_pdf(starting_dir):
     @return      (datetime)           Modification date of the xps file.
     """      
     
-    # get the file list of the root directory
-    root_file_list = os.listdir(starting_dir)
-    
     # get andrews direstory
     andrews_dir = Altium_helpers.get_Andrews_dir(starting_dir)
     
@@ -559,29 +564,59 @@ def move_3D_pdf(starting_dir):
     pdf_file = ''
     modified_date = None
     
-    # search through the file list fot the xps file
-    for filename in root_file_list:
-        if filename.startswith("3D PDF"):
-            # store the filename
-            pdf_file = filename
-            
-            # store it's modification date
-            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
-                                                    filename)
-        # end if
-    # end for
-    
-    if pdf_file == '':
-        print '*** Warning: no 3D pdf file found ***'
-        log_warning()
-        return None
-    # end if
-    
     # define the xps directory
-    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
+    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)    
     
-    # copy file into temp directory
-    shutil.copy(starting_dir+'\\'+pdf_file, pdf_dir +'\\'+pdf_file)
+    if os.path.isdir(starting_dir + '//PDF'):
+        # get the file list of the root directory
+        root_file_list = os.listdir(starting_dir + '\\PDF')   
+        
+        # search through the file list fot the xps file
+        for filename in root_file_list:
+            if filename.startswith("3D PDF"):
+                # store the filename
+                pdf_file = filename
+                
+                # store it's modification date
+                modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\PDF\\'+filename), 
+                                                        filename)
+            # end if
+        # end for
+        
+        if pdf_file == '':
+            print '*** Warning: no 3D pdf file found ***'
+            log_warning()
+            return None
+        # end if
+        
+        # copy file into temp directory
+        shutil.copy(starting_dir+'\\PDF\\'+pdf_file, pdf_dir +'\\'+pdf_file)        
+        
+    else:
+        # get the file list of the root directory
+        root_file_list = os.listdir(starting_dir)
+        
+        # search through the file list fot the xps file
+        for filename in root_file_list:
+            if filename.startswith("3D PDF"):
+                # store the filename
+                pdf_file = filename
+                
+                # store it's modification date
+                modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
+                                                        filename)
+            # end if
+        # end for
+        
+        if pdf_file == '':
+            print '*** Warning: no 3D pdf file found ***'
+            log_warning()
+            return None
+        # end if
+        
+        # copy file into temp directory
+        shutil.copy(starting_dir+'\\'+pdf_file, pdf_dir +'\\'+pdf_file)        
+    # end if
     
     time.sleep(0.1)
     
@@ -693,31 +728,88 @@ def manage_schematic(starting_dir, with_threads = False):
     pdf_filename = ''
     # search for a schematic document in the root directory
     
-    for filename in root_file_list:
-        if (filename.startswith('Schematic.')):
-            # this is the project file which creates the pdf filename
-            # so move the similarly named pdf file
-            pdf_filename = filename
-            
-            try:            
-                modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+pdf_filename),
-                                                                    pdf_filename)                
-                no_schematic = False
-                
-            except:
-                pass
-            # end try
-            break
-        # end if
-    # end for
-    
-    # if the document was not found, look for it the old way
-    if no_schematic:    
+    # check if Altium is doing th work for us.
+    if os.path.isdir(starting_dir + '\\PDF'):
+        # replace the root_file_list
+        root_file_list = os.listdir(starting_dir + '\\PDF')
+        
         for filename in root_file_list:
-            if (filename.endswith('PrjPcb')) or (filename.endswith('PrjPCB')):
+            if (filename.startswith('Schematic.')):
                 # this is the project file which creates the pdf filename
                 # so move the similarly named pdf file
-                pdf_filename = filename.split('.')[0] + '.pdf'
+                pdf_filename = filename
+                
+                try:            
+                    modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir + '\\PDF\\'+pdf_filename),
+                                                                        pdf_filename)                
+                    no_schematic = False
+                    
+                except:
+                    pass
+                # end try
+                break
+            # end if
+        # end for 
+        
+        if no_schematic:
+            # No schematic was found
+            print('***   Error: No Schematic Document was found   ***')
+            log_error()
+            return None
+        # end if
+        
+        print '\tReading the Schematic file...'
+        
+        # open pdf file and split into pages
+        try:
+            with open(starting_dir + '\\PDF\\'+pdf_filename, "rb") as schematic_file:
+                schematic = pyPdf.PdfFileReader(schematic_file)
+                
+                # write each page to a separate pdf file
+                for page in xrange(schematic.numPages):
+                    # add page to the output stream
+                    output = pyPdf.PdfFileWriter()
+                    output.addPage(schematic.getPage(page))
+                    # format the filename 
+                    file_name = pdf_dir + '\\' + part_number + '-' + str(page+1) + '.pdf'
+                    
+                    with open(file_name, "wb") as outputStream:
+                        # write the page
+                        output.write(outputStream)
+                    # end with
+                # end for
+            # end with
+            
+        except:
+            print('***   Error: Could not open schematic document   ***')
+            log_error()
+            return None        
+        # end try
+        
+        print '\tComplete!'
+        
+        print '\tExtracting Modification Information...'
+        
+        if os.path.isfile(starting_dir + '\\PDF\\MOD.pdf'):
+            # extract the text from a pdf page
+            pdf_text = Altium_OCR.convert_pdf_to_txt(starting_dir + '\\PDF\\MOD.pdf')
+            
+            # check to see if this document is the Assembly revision document
+            if 'ASSY' in pdf_text:
+                # if it is, extract that information and process it
+                extract_assy_info(pdf_text, starting_dir)
+                found_mod_doc()
+            # end if
+        # end if
+        
+        print '\tComplete!'
+        
+    else:
+        for filename in root_file_list:
+            if (filename.startswith('Schematic.')):
+                # this is the project file which creates the pdf filename
+                # so move the similarly named pdf file
+                pdf_filename = filename
                 
                 try:            
                     modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+pdf_filename),
@@ -730,106 +822,126 @@ def manage_schematic(starting_dir, with_threads = False):
                 break
             # end if
         # end for
-    # end if
-    
-    if no_schematic:
-        # No schematic was found
-        print('***   Error: No Schematic Document was found   ***')
-        log_error()
-        return None
-    # end if
-    
-    print '\tReading the Schematic file...'
-    
-    # open pdf file and split into pages
-    try:
-        with open(starting_dir+'\\'+pdf_filename, "rb") as schematic_file:
-            schematic = pyPdf.PdfFileReader(schematic_file)
-            
-            # write each page to a separate pdf file
-            for page in xrange(schematic.numPages):
-                # add page to the output stream
-                output = pyPdf.PdfFileWriter()
-                output.addPage(schematic.getPage(page))
-                # format the filename 
-                file_name = pdf_dir + '\\' + part_number + '--' + str(page+1) + '.pdf'
-                
-                with open(file_name, "wb") as outputStream:
-                    # write the page
-                    output.write(outputStream)
-                # end with
+        
+        # if the document was not found, look for it the old way
+        if no_schematic:    
+            for filename in root_file_list:
+                if (filename.endswith('PrjPcb')) or (filename.endswith('PrjPCB')):
+                    # this is the project file which creates the pdf filename
+                    # so move the similarly named pdf file
+                    pdf_filename = filename.split('.')[0] + '.pdf'
+                    
+                    try:            
+                        modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+pdf_filename),
+                                                                            pdf_filename)                
+                        no_schematic = False
+                        
+                    except:
+                        pass
+                    # end try
+                    break
+                # end if
             # end for
-        # end with
-        
-    except:
-        print('***   Error: Could not open schematic document   ***')
-        log_error()
-        return None        
-    # end try
-    
-    print '\tComplete!'
-    
-    print '\tRenaming the PDFs...'
-    
-    # rename the sheets with threads or without
-    if with_threads:
-        # initialise list of threads
-        thread_list = []
-        
-        thread_queue = multiprocessing.Queue()
-        
-        # start a thread to rename each page
-        for i in range(1,page+2):
-            # define the thread to perform the writing
-            thread = multiprocessing.Process(name=('renaming-' + str(i)),
-                                             target = rename_sheet, 
-                                             args=(starting_dir, i, thread_queue))
-            # start the thread
-            thread.start()
-            
-            thread_list.append(thread)
-        # end for   
-        
-        # wait for all the threads to finish
-        while any([t.is_alive() for t in thread_list]):
-            time.sleep(0.1)
-        # end while
-        
-        # read all data from the queue
-        thread_data = []
-        
-        # retrieve data from the queue until empty
-        while True:
-            try:
-                thread_data.append(thread_queue.get(block=False))
-            
-            except:
-                break
-        # end while
-                
-        if any([q == True for q in thread_data]):
-            # mod doc found
-            found_mod_doc()
         # end if
         
-        if any([q == False for q in thread_data]):
-            # an error occurred
+        if no_schematic:
+            # No schematic was found
+            print('***   Error: No Schematic Document was found   ***')
             log_error()
+            return None
         # end if
         
-    else:
-        # rename the pdfs with the correct filenames
-        for i in range(1,page+2):
-            rename_sheet(starting_dir, i)
-        # end for
-    # end if
+        print '\tReading the Schematic file...'
+        
+        # open pdf file and split into pages
+        try:
+            with open(starting_dir+'\\'+pdf_filename, "rb") as schematic_file:
+                schematic = pyPdf.PdfFileReader(schematic_file)
+                
+                # write each page to a separate pdf file
+                for page in xrange(schematic.numPages):
+                    # add page to the output stream
+                    output = pyPdf.PdfFileWriter()
+                    output.addPage(schematic.getPage(page))
+                    # format the filename 
+                    file_name = pdf_dir + '\\' + part_number + '--' + str(page+1) + '.pdf'
+                    
+                    with open(file_name, "wb") as outputStream:
+                        # write the page
+                        output.write(outputStream)
+                    # end with
+                # end for
+            # end with
+            
+        except:
+            print('***   Error: Could not open schematic document   ***')
+            log_error()
+            return None        
+        # end try
+        
+        print '\tComplete!'
+        
+        print '\tRenaming the PDFs...'
+        
+        # rename the sheets with threads or without
+        if with_threads:
+            # initialise list of threads
+            thread_list = []
+            
+            thread_queue = multiprocessing.Queue()
+            
+            # start a thread to rename each page
+            for i in range(1,page+2):
+                # define the thread to perform the writing
+                thread = multiprocessing.Process(name=('renaming-' + str(i)),
+                                                 target = rename_sheet, 
+                                                 args=(starting_dir, i, thread_queue))
+                # start the thread
+                thread.start()
+                
+                thread_list.append(thread)
+            # end for   
+            
+            # wait for all the threads to finish
+            while any([t.is_alive() for t in thread_list]):
+                time.sleep(0.1)
+            # end while
+            
+            # read all data from the queue
+            thread_data = []
+            
+            # retrieve data from the queue until empty
+            while True:
+                try:
+                    thread_data.append(thread_queue.get(block=False))
+                
+                except:
+                    break
+            # end while
+                    
+            if any([q == True for q in thread_data]):
+                # mod doc found
+                found_mod_doc()
+            # end if
+            
+            if any([q == False for q in thread_data]):
+                # an error occurred
+                log_error()
+            # end if
+            
+        else:
+            # rename the pdfs with the correct filenames
+            for i in range(1,page+2):
+                rename_sheet(starting_dir, i)
+            # end for
+        # end if
+    # end if    
     
     if not found_mod_doc(get=True):
         print('***   Warning: No Modification information found in schematic   ***')
         Altium_Excel.set_assy_options(starting_dir, [], [])
         log_warning()
     # end if    
-    
     print 'Complete! \n'    
     
     return modified_date
