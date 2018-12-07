@@ -285,8 +285,9 @@ def construct_assembly_doc(starting_dir):
     
     # use that data to fill the online BOM
     if Altium_GS.populate_online_bom(set_directory.path, 
-                                     Altium_Files.get_part_number(starting_dir),
-                                     Altium_Files.get_assembly_number(starting_dir),
+                                     get_assembly_number('PART'),
+                                     get_assembly_number('ASSY'),
+                                     get_assembly_number('REV'),
                                      assy_data) == None:
         log_error()
     #end if
@@ -402,6 +403,92 @@ def extract_assy_config(starting_dir):
 # ----------------
 # Private Functions 
 
+def set_assembly_number(doc):
+    """
+    Function to prompt the user for the assembly number and then store it.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    """       
+    
+    # get the assembly number
+    cell_string = repr(doc.cell(1,4)).split('\'')[1]
+    
+    if cell_string.startswith('710-'):
+        set_assembly_number.assy_number = cell_string.split('-')[1]
+        
+    else:
+        print "*** Error: no assembly number found in BOM Doc ***"
+        log_error()
+    # end if
+    
+    # get part number
+    cell_string = repr(doc.cell(0,4)).split('\'')[1]
+    
+    if cell_string.startswith('705-'):
+        set_assembly_number.part_number = cell_string.split('-')[1]
+        
+    else:
+        print "*** Error: no part number found in BOM Doc ***"
+        log_error()
+    # end if   
+    
+    # get revision
+    cell_string = repr(doc.cell(0,6)).split('\'')[1]
+    
+    if (cell_string[0].isalpha() and cell_string[1].isdigit()):
+        set_assembly_number.revision = cell_string
+        
+    else:
+        print "*** Error: no revision found in BOM Doc ***"
+        log_error()
+    # end if    
+# end def
+
+# set the initial value
+set_assembly_number.assy_number = None
+set_assembly_number.part_number = None
+set_assembly_number.revision = None
+
+def get_assembly_number(specific_number = 'ASSY'):
+    """
+    Function to prompt the user for the assembly number and then store it.
+    """       
+    
+    if (specific_number == 'ASSY'):
+        if (set_assembly_number.assy_number == None):
+            print "*** Error: No Assembly Number has been set ***"
+            log_error()
+            
+        else:
+            return set_assembly_number.assy_number
+        # end if 
+        
+    elif (specific_number == 'PART'):
+        if (set_assembly_number.part_number == None):
+            print "*** Error: No Part Number has been set ***"
+            log_error()
+            
+        else:
+            return set_assembly_number.part_number
+        # end if    
+        
+    elif (specific_number == 'REV'):
+        if (set_assembly_number.revision == None):
+            print "*** Error: No Revision has been set ***"
+            log_error()
+            
+        else:
+            return set_assembly_number.revision
+        # end if  
+        
+    else:
+        print "*** Error: Invalid input to function ***"
+        log_error()
+    # end if
+# end def
+
+
 def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
     """
     Function to extract the designator and part number lists from a BOM.
@@ -471,7 +558,13 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
         # find the part number in the BOM Doc.
         pn_list.append(extract_items(doc.cell(row,BOM_cols['Manufacturer_pn'])))
         d_list.append(extract_items(doc.cell(row,BOM_cols['Designator'])))
-    # end for    
+    # end for   
+    
+    if (DNP == True):
+        # extract the assembly number from the BOM
+        set_assembly_number(doc)
+    # end if
+        
     
     # return information
     return doc, date

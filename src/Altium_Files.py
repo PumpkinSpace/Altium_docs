@@ -167,48 +167,6 @@ def get_part_number(starting_dir):
     return part_list[1][:-1]    
 # end def
 
-def set_assembly_number(starting_dir):
-    """
-    Function to prompt the user for the assembly number and then store it.
-
-    @param[in]   starting_dir:     The Altium project directory (full path) 
-                                   (string).
-    """       
-    
-    not_valid = 1
-    while (not_valid == 1):
-        assy_number = raw_input("Please enter the project assembly Number : 710-")
-        
-        if (len(assy_number) == 5) and assy_number.isdigit():
-            set_assembly_number.assy_number = assy_number
-            not_valid = 0
-        
-        else:
-            print "that is not a valid Assembly Number!"
-        # end if 
-    # end while
-# end def
-
-# set the initial value
-set_assembly_number.assy_number = None
-
-def get_assembly_number(starting_dir):
-    """
-    Function to prompt the user for the assembly number and then store it.
-
-    @param[in]   starting_dir:     The Altium project directory (full path) 
-                                   (string).
-    """       
-    
-    if (set_assembly_number.assy_number == None):
-        print "*** Error: No Assembly Number has been set ***"
-        log_error()
-        
-    else:
-        return set_assembly_number.assy_number
-    # end if 
-# end def
-
 
 def move_Altium_files(starting_dir):
     """

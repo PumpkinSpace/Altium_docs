@@ -72,9 +72,6 @@ if __name__ == '__main__':
     # warning tracker
     no_warnings = False
     
-    # request the Assembly number
-    Altium_Files.set_assembly_number(starting_dir)
-    
     # move master ASSY Config document
     Altium_Excel.copy_assy_config(starting_dir)
     
