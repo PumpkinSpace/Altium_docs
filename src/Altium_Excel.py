@@ -419,12 +419,9 @@ def set_assembly_number(doc):
     if cell_string.startswith('710-'):
         set_assembly_number.assy_number = cell_string.split('-')[1]
         
-<<<<<<< HEAD
-=======
     elif cell_string.startswith('711-'):
         set_assembly_number.assy_number = cell_string.split('-')[1]        
         
->>>>>>> 26e8e774aaf40706219634cbf79ddc6c29588ec2
     else:
         print "*** Error: no assembly number found in BOM Doc ***"
         log_error()
@@ -444,16 +441,12 @@ def set_assembly_number(doc):
     # get revision
     cell_string = repr(doc.cell(0,6)).split('\'')[1]
     
-<<<<<<< HEAD
-    if (cell_string[0].isalpha() and cell_string[1].isdigit()):
-=======
     if (cell_string[0].isalpha() and (len(cell_string) == 1)):
         # single character rev
         set_assembly_number.revision = (cell_string + '0')
         
     elif (cell_string[0].isalpha() and cell_string[1].isdigit()):
         # character and number rev
->>>>>>> 26e8e774aaf40706219634cbf79ddc6c29588ec2
         set_assembly_number.revision = cell_string
         
     else:

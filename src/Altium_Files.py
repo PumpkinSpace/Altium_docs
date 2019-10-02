@@ -208,16 +208,39 @@ def move_Altium_files(starting_dir):
                 
                 if (ext == 'PrjPcb'):
                     # this is the project file which creates the pdf filename
-                    # so move the similarly named pdf file
-                    pdf_filename = filename.split('.')[0] + '.pdf'
+                    # so move the similarly named pdf file if there is no pdf directory
                     
-                    try:
-                        shutil.copyfile(starting_dir+'\\'+pdf_filename, altium_dir+'\\'+pdf_filename)  
+                    if os.path.isdir(starting_dir + '\\PDF'):
+                        new_file_list = os.listdir(starting_dir + '\\PDF')
                         
-                    except:
-                        print '*** Error: could not move ' + pdf_filename + ' ***'
-                        log_error()
-                    # end try   
+                        for new_filename in new_file_list:
+                            if (filename.startswith('Schematic.')):     
+                                pdf_filename = new_filename
+                                
+                                try:            
+                                    modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir + '\\PDF\\'+pdf_filename),
+                                                                                        pdf_filename)      
+                                    shutil.copyfile(starting_dir+'\\PDF\\'+pdf_filename, altium_dir+'\\'+pdf_filename) 
+                                    
+                                except:
+                                        print '*** Error: could not move ' + pdf_filename + ' ***'
+                                        log_error()
+                                # end try
+                            # end if
+                        # end for
+                    
+                    else:
+                    
+                        pdf_filename = filename.split('.')[0] + '.pdf'
+                        
+                        try:
+                            shutil.copyfile(starting_dir+'\\'+pdf_filename, altium_dir+'\\'+pdf_filename)  
+                            
+                        except:
+                            print '*** Error: could not move ' + pdf_filename + ' ***'
+                            log_error()
+                        # end try   
+                    # end if
                 # end if
                 
                 modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename),

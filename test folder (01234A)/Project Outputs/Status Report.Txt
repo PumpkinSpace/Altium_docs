@@ -1,10 +1,10 @@
-Output: DNP BOM
-Type  : BOM
-From  : Project [Battery Bus Interface REVB.PrjPcb]
-   Generated File[DNP BOM-Battery Bus Interface REVB.xls]
+Output: Test Point Report
+Type  : Test Points
+From  : PCB Document [Battery Bus Interface REVB.PcbDoc]
+   Generated File[Assembly Testpoint Report for Battery Bus Interface REVB.csv]
 
 
 Files Generated   : 1
 Documents Printed : 0
 
-Finished Output Generation At 9:41:16 AM On 4/04/2018
+Finished Output Generation At 9:06:38 AM On 3/10/2019

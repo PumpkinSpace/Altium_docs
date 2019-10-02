@@ -42,7 +42,7 @@ class Logger(object):
         self.log = open(filename, "w")
         # write a header to the log file
         self.log.write("=========   Deliverable Log   ===========\n")
-        project_string = "Project: \t" + filename.split('\\')[-2] + '\n'
+        project_string = "Project: \t\t" + filename.split('\\')[-2] + '\n'
         self.log.write(project_string)
         time_string = "Created at: \t" + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + '\n\n'
         self.log.write(time_string)

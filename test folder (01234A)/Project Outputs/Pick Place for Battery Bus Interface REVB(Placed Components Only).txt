@@ -1,4 +1,14 @@
-Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+Altium Designer Pick and Place Locations
+C:\Pumpkin\Altium_docs\test folder (01234A)\.\Project Outputs\Pick Place for Battery Bus Interface REVB(Placed Components Only).txt
 
-J167       DF13A_4P          -422.544mil   1352.362mil   -422.544mil   1417.322mil   -348.725mil   1287.401mil  B        180.00 DF13-4P-1.25H(50)
+========================================================================================================================
+File Design Information:
 
+Date:       03/10/19
+Time:       09:06
+Revision:   45a400d589b867649059dd9dfce3fd99632bec78
+Variant:    Placed Components Only
+Units used: mil
+
+Designator Comment           Layer       Footprint Center-X(mil) Center-Y(mil) Rotation Description            
+J167       DF13-4P-1.25H(50) BottomLayer DF13A_4P  -422.544      1352.362      180      "Header DF13-RA 4-Pin" 

@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\Users\Asteria\Dropbox\Pumpkin PCBs\Battery Module 1 (01571A0)'
+        starting_dir = 'C:\\Pumpkin\\Altium_docs\\test folder (01234A)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr

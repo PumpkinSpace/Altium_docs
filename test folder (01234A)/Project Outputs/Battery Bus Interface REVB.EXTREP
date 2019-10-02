@@ -1,24 +1,24 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: Battery Bus Interface REVB.GBR   4/04/2018  9:41:11 AM
+Gerber File Extension Report For: Battery Bus Interface REVB.GBR   3/10/2019  9:06:31 AM
 ------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------
 Layer Extension     Layer Description                      
 ------------------------------------------------------------------------------------------
+.GTO                Top Overlay                             
+.GTP                Top Paste                               
+.GTS                Top Solder                              
 .GTL                Top Layer                               
 .GBL                Bottom Layer                            
-.GTP                Top Paste                               
-.GTO                Top Overlay                             
-.GTS                Top Solder                              
 .GBS                Bottom Solder                           
-.GBO                Bottom Overlay                          
 .GBP                Bottom Paste                            
-.GKO                Keep-Out Layer                          
+.GBO                Bottom Overlay                          
 .GM1                Mechanical 1                            
 .GM2                Mechanical 2                            
 .GM13               Mechanical 13                           
 .GM15               Mechanical 15                           
-.GML                Multi-Layer                             
+.GKO                Keep-Out Layer                          
 .1                  Dielectric 1                            
+.GML                Multi-Layer                             
 ------------------------------------------------------------------------------------------
