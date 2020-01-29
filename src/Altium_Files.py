@@ -754,9 +754,7 @@ def manage_schematic(starting_dir, with_threads = False):
         root_file_list = os.listdir(starting_dir + '\\PDF')
         
         for filename in root_file_list:
-            if (filename.startswith('Schematic.')):
-                # this is the project file which creates the pdf filename
-                # so move the similarly named pdf file
+            if ('Schematic.' in filename):
                 pdf_filename = filename
                 
                 try:            
