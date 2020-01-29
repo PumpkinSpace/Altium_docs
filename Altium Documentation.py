@@ -20,7 +20,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\\Pumpkin\\Altium_docs\\test folder (01234A)'
+        starting_dir = 'C:\\Pumpkin\\Altium_docs\\test folder (02190A)'
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
@@ -48,16 +48,15 @@ if __name__ == '__main__':
         # the second argument is the directory this had been called from
         starting_dir = sys.argv.pop(1)
         
-        # the third argument indicated which OCR tool to use
-        if sys.argv.pop(1) == 'True':
-            exe_OCR = True
-            
-        else:
-            exe_OCR = False
-        # end if
+        # check for additional depricated elements from old code to clear the buffer
+        try:
+            sys.argv.pop(1)
+        except:
+            pass
+        # end try
     # end if
     
-    import Altium_OCR
+    import Altium_PDF
     import Altium_helpers
     import Altium_Files  
     import time
@@ -71,7 +70,7 @@ if __name__ == '__main__':
     os.chdir(starting_dir)
     
     # attempt to clear previous files from the directory
-    if not Altium_helpers.clear_output(starting_dir, exe_OCR):
+    if not Altium_helpers.clear_output(starting_dir):
         print '*** Error: Previous output could not be deleted ***'
     # end if
     
@@ -86,10 +85,10 @@ if __name__ == '__main__':
     modified_dates = []
     
     # check the design rule check document
-    modified_dates.append(Altium_OCR.check_DRC(starting_dir))
+    modified_dates.append(Altium_PDF.check_DRC(starting_dir))
     
     # check the electrical rule check document
-    modified_dates.append(Altium_OCR.check_ERC(starting_dir))    
+    modified_dates.append(Altium_PDF.check_ERC(starting_dir))    
     
     # Move all of the Altium files into their folder
     modified_dates.extend(Altium_Files.move_Altium_files(starting_dir))
@@ -101,8 +100,7 @@ if __name__ == '__main__':
     modified_dates.extend(gerber_dates)
     
     # move all of the other documents
-    modified_dates.extend(Altium_Files.move_documents(starting_dir, 
-                                                      exe_OCR, layers))
+    modified_dates.extend(Altium_Files.move_documents(starting_dir, layers))
     
     # zip the step file
     modified_dates.append(Altium_Files.zip_step_file(starting_dir))
@@ -113,7 +111,7 @@ if __name__ == '__main__':
     # check for warnings
     if not (no_warnings and 
             Altium_Excel.log_warning(get=True) and 
-            Altium_OCR.log_warning(get=True) and 
+            Altium_PDF.log_warning(get=True) and 
             Altium_Files.log_warning(get=True)):
         print '\n*** Warnings were raised so please reveiw ***'
         raw_input('When the warnings have been reviewed/recitified press ENTER to continue')
@@ -124,7 +122,7 @@ if __name__ == '__main__':
     
     # check for errors
     if not (Altium_Excel.log_error(get=True) and 
-            Altium_OCR.log_error(get=True) and 
+            Altium_PDF.log_error(get=True) and 
             Altium_Files.log_error(get=True)):
         print '\n*** Errors occurred so please reveiw ***'
 

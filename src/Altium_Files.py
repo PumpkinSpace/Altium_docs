@@ -31,7 +31,7 @@ import Altium_helpers
 import shutil
 import pyPdf
 import re
-import Altium_OCR
+import Altium_PDF
 import threading
 import multiprocessing
 import time
@@ -398,14 +398,12 @@ def move_gerbers(starting_dir):
 # end def
 
 
-def move_documents(starting_dir, exe_OCR, layers):
+def move_documents(starting_dir, layers):
     """
     Function to move all the documents to the deliverable directory.
 
     @param[in]   starting_dir:        The Altium project directory (full path) 
                                       (string).
-    @param[in]   exe_OCR:             Whether to use the .exe file for OCR 
-                                      conversion (bool).
     @param[in]   layers:              The number of layers in the PCB (int).
     @return      (list of mod_dates)  Modification dates of the documents.
     """     
@@ -418,7 +416,6 @@ def move_documents(starting_dir, exe_OCR, layers):
     pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
        
     # manage the schematic document
-    # modified_dates = [manage_schematic(starting_dir)]
     modified_dates = [manage_schematic(starting_dir, with_threads = True)]
     
     # construct the assembly doc
@@ -455,20 +452,20 @@ def move_documents(starting_dir, exe_OCR, layers):
 
     if os.path.isdir(starting_dir + '\\PDF'):
         # split the PDF documents without OCR or text reading
-        modified_dates.extend(Altium_OCR.bypass_Altium_OCR(starting_dir, layers))
+        modified_dates.extend(Altium_PDF.manage_Altium_PDFs(starting_dir, layers))
         
     else:
-        # perform OCR on the layers pdf file   
-        #modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers))
-        modified_dates.extend(Altium_OCR.perform_Altium_OCR(exe_OCR, starting_dir, layers, with_threads=True))
+        # perform OCR on the layers pdf file   DEPRICATED
+        print('***   Error: File structure is out of date, use latest Pumpkin Outjob file  ***')
+        log_error()    
     # end if
     
     # check for errors and warnings following OCR
-    if not (Altium_OCR.log_error(get=True) and Altium_Excel.log_error(get=True)):
+    if not (Altium_PDF.log_error(get=True) and Altium_Excel.log_error(get=True)):
         log_error()
     # end if
     
-    if not (Altium_OCR.log_warning(get=True) and Altium_Excel.log_warning(get=True)):
+    if not (Altium_PDF.log_warning(get=True) and Altium_Excel.log_warning(get=True)):
         log_warning()
     # end if   
     
@@ -815,7 +812,7 @@ def manage_schematic(starting_dir, with_threads = False):
         
         if os.path.isfile(starting_dir + '\\PDF\\MOD.pdf'):
             # extract the text from a pdf page
-            pdf_text = Altium_OCR.convert_pdf_to_txt(starting_dir + '\\PDF\\MOD.pdf')
+            pdf_text = Altium_PDF.convert_pdf_to_txt(starting_dir + '\\PDF\\MOD.pdf')
             
             # check to see if this document is the Assembly revision document
             if 'ASSY' in pdf_text:
@@ -1299,7 +1296,7 @@ def get_page_number(path, pn, starting_dir):
                                    page. False otherwise
     """        
     # extract the text from a pdf page
-    pdf_text = Altium_OCR.convert_pdf_to_txt(path)
+    pdf_text = Altium_PDF.convert_pdf_to_txt(path)
     
     # check to see if this document is the Assembly revision document
     if 'ASSY' in pdf_text:

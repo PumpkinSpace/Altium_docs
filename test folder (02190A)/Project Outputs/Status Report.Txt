@@ -1,0 +1,10 @@
+Output: Test Point Report
+Type  : Test Points
+From  : PCB Document [BM Dev Cells.PcbDoc]
+   Generated File[Assembly Testpoint Report for BM Dev Cells.csv]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 6:38:39 PM On 23/01/2020

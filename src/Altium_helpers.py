@@ -29,7 +29,6 @@ sys.path.insert(1, 'src\\')
 import shutil
 import datetime
 import Altium_Files
-import Altium_OCR
 
 #
 #
@@ -202,14 +201,13 @@ def get_gerbers_dir(starting_dir):
 #end def
     
         
-def clear_output(starting_dir, exe_OCR):
+def clear_output(starting_dir):
     """
     Function to delete all remnants of previously executed iterations of this
     code to create a clean slate.
 
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).
-    @param[in]    exe_OCR:         Whether or not to use the .exe for OCR (bool).
     @return       (bool)           True  = no errors occurred in this function,
                                    False = errors occurred in this function
     """       
@@ -265,24 +263,6 @@ def clear_output(starting_dir, exe_OCR):
             return False           
         # end try
     # end if
-    
-    # get file list of the ocr directory
-    ocr_dir = Altium_OCR.get_OCR_dir(exe_OCR)
-    ocr_list = os.listdir(ocr_dir)
-    
-    # search through the files for previous ocr inputs and outputs
-    for filename in ocr_list:
-        if filename.endswith('.pdf'):
-            # this is a previous file so delete it
-            try:
-                os.remove(ocr_dir + '//' + filename)
-                
-            except:
-                print '***  Error: Could not remove previous ocr_files  ***\n\n'
-                return False       
-            # end try
-        # end if
-    # end for
     
     # If this code is reached then no errors occurred
     return True

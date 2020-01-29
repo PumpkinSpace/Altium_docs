@@ -17,7 +17,7 @@ are satisfied
 """
 
 __author__ = 'David Wright (david@asteriaec.com)'
-__version__ = '0.1.0' #Versioning: http://www.python.org/dev/peps/pep-0386/
+__version__ = '0.3.0' #Versioning: http://www.python.org/dev/peps/pep-0386/
 
 import subprocess
 import os
@@ -33,8 +33,7 @@ print "Checking dependancies\n"
 
 print "checking the pip installer framework"
 try:
-    import pip
-    pip.main(['install', 'pyopenssl', 'ndg-httpsclient', 'pyasn1'])
+    subprocess.check_call([sys.executable, '-m', 'pip', '--version'])
     print "\tpip is already installed\n"
     
 except:
@@ -60,7 +59,7 @@ try:
 
 except:
     print "\tinstalling xlrd\n"
-    pip.main(['install', 'xlrd'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'xlrd'])
     try:
         import xlrd
         print "\n\tinstall successful\n"
@@ -79,7 +78,7 @@ try:
 
 except:
     print "\tinstalling openpyxl\n"
-    pip.main(['install', 'openpyxl'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'openpyxl'])
     try:
         import openpyxl
         print "\n\tinstallation successful\n"
@@ -109,7 +108,8 @@ try:
     
 except:
     print "\tinstalling gspread\n"
-    pip.main(['install', 'gspread'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'gspread'])
+    
     try:
         import gspread
         print "\n\tinstallation successful\n"
@@ -128,7 +128,7 @@ try:
     
 except:
     print "\tinstalling pydrive\n"
-    pip.main(['install', 'pydrive'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pydrive'])
     try:
         import pydrive
         print "\n\tinstallation successful\n"
@@ -147,7 +147,7 @@ try:
     
 except:
     print "\tinstalling oauth2client\n"
-    pip.main(['install', '--upgrade', 'oauth2client'])
+    subprocess.check_call([sys.executable, '-m', 'pip', '--upgrade', 'oauth2client'])
     try:
         import oauth2client
         print "\n\tinstallation successful\n"
@@ -166,7 +166,7 @@ try:
     
 except:
     print "\tinstalling argparse\n"
-    pip.main(['install', 'argparse'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'argparse'])
     try:
         import argparse
         print "\n\tinstallation successful\n"
@@ -190,73 +190,8 @@ except:
     sys.exit()
 # end try  
 
-print "checking for Tesseract"
-
-try:
-    cmd = subprocess.check_output(['tesseract', '-v'])
-    print "\tTesseract is already installed\n"
-    
-except:
-    print '\tTesseract is not installed or is not on the system PATH'
-    print '\tgo to https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-setup-3.05.01.exe'
-    raw_input()
-# end try
-
-print "checking for ImageMagick"
-
-try:
-    cmd = subprocess.check_output(['magick'])
-    print "\tImageMagick is already installed\n"
-    
-except:
-    print '\tImageMagick is not installed or is not on the system PATH'
-    print '\tgo to https://www.imagemagick.org/download/binaries/ImageMagick-7.0.8-0-Q16-x64-dll.exe'
-    raw_input()
-# end try
-
-print "checking for GhostScript"
-
-try:
-    cmd = subprocess.check_output(['gswin32c', '-h'])
-    print "\tGhostScript is already installed\n"
-    
-except:
-    print '\tGhostScript is not installed or is not on the system PATH'
-    print '\tgo to https://www.ghostscript.com/download/gsdnld.html'
-    raw_input()
-# end try
-
 print 'Dependancy check successful'
 
-#
-# ----------------
-# Test the OCR executable
-
-print '\nTesting OCR\n'
-sys.stdout.flush()
-ocr_dir = os.getcwd() + '\\OCR'
-filename = ocr_dir + '\\Instructions.pdf'
-
-# copy instructions file to OCR directory
-shutil.copy(os.getcwd() + '\\Instructions.pdf', filename)
-
-# perform OCR on it
-cmd = subprocess.Popen(['pypdfocr.exe', filename], cwd=ocr_dir, shell=True)
-cmd.wait()
-
-# cleanup
-try:
-    os.remove(filename)
-    os.remove(ocr_dir + '\\Instructions_ocr.pdf')
-    print "\n\tOCR test was successful"
-    
-except:
-    print '\n\tOCR test was unsuccessful'
-    print '\tplease copy the output from this script and email to david@asteriaec.com'
-    print '\tplease also ensure that there are no .pdf files in the OCR directory'
-    raw_input()
-    sys.exit()
-# end try
 
 #
 # ----------------
@@ -265,7 +200,7 @@ except:
 print '\nGenerating Batch file\n'
 # lines to write to batch file
 batch_lines = ['@echo off',
-               'C:\\Python27\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" False\n',
+               'C:\\Python27\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" \n',
                'timeout 10']
 
 # path of batch file
@@ -280,6 +215,6 @@ with open(batch_file,'w') as batch:
     batch.writelines(batch_lines)
 #end with
 
-shutil.copy(batch_file, os.getcwd() + '\\test folder (01234A)\\Deliverable.bat')
+shutil.copy(batch_file, os.getcwd() + '\\test folder (02190A)\\Deliverable.bat')
 
 print 'Successful'
