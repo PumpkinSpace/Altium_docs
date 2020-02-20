@@ -307,7 +307,7 @@ def manage_Altium_PDFs(starting_dir, num_layers,
         print '\t*** WARNING No SSB0229 file output ***'
         log_warning()
     # end
-    if ("SMB0223" not in file_list):
+    if ("SMB0228" not in file_list):
         print '\t*** WARNING No SMB0223 file output ***'
         log_warning()
     # end

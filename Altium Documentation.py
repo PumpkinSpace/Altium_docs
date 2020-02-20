@@ -17,16 +17,16 @@ if __name__ == '__main__':
     import os 
     import sys
     
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 2:
         #################### Change this for each implementation #######################
         # directory where the Circuit board files are stored
-        starting_dir = 'C:\\Pumpkin\\Altium_docs\\test folder (02190A)'
+        starting_dir = os.path.abspath(os.getcwd())
         
         # should the executable be used to perform OCR, otherwise use the 
         # installed pypdfocr
         exe_OCR = False
         
-        src_path = os.getcwd()+'\\src\\'
+        src_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),'src\\')
         sys.path.insert(1, src_path)
         import Altium_Excel 
         import Altium_GS
@@ -37,8 +37,8 @@ if __name__ == '__main__':
     else:
         # this code is running from the command line
         
-        dir_path = '\\'.join(sys.argv[0].split('\\')[:-1])
-        sys.path.insert(1, dir_path + '\\src\\')
+        dir_path = os.path.join(os.path.abspath(os.path.dirname(__file__)),'src\\')
+        sys.path.insert(1, dir_path)
         import Altium_Excel    
         import Altium_GS
         
@@ -64,6 +64,8 @@ if __name__ == '__main__':
     
     # direct all output to a log file as well
     log_filename = starting_dir + '\\Deliverable_log.txt'
+    print 'log_filename'
+    print starting_dir
     sys.stdout = Altium_helpers.Logger(log_filename)
     
     # go to desired working directory

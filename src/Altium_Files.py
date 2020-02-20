@@ -161,6 +161,12 @@ def get_part_number(starting_dir):
                                    (string).
     @return      (string)          The extracted part number.
     """       
+    if '(' in starting_dir:
+        part_list = staring_dir.split('(')
+        return part_list[1][:-1]
+    else:
+        # Strip out the rest except for the end
+        return os.path.basename(starting_dir)
     
     # strip the part number out and return it.
     part_list = starting_dir.split('(')
