@@ -190,19 +190,23 @@ def set_assy_options(starting_dir, list_0, list_1):
 # end def
     
     
-def construct_assembly_doc(starting_dir):
+def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number):
     """
     Function to build the BOM page of the ASSY Config doc based on the BOMs 
     exported from Altium.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
                                    (string).
+    @param[in]   gerber_dir:       The location of the BOM documents (full path) 
+                                   (string).                             
+    @param[in]   output_pdf_dir:   The Location of the pdf files (full path)
+                                   (string).
+    @param[in]   part_number:      The part number for the design
+                                   (string).
     @return      (datetime)        The modified date of the BOM
     @return      (datetime)        The modified date of the DNP bom
     """       
     
-    # find output directory
-    output_dir = Altium_helpers.get_output_dir(starting_dir)
     
     # if this failed log an error
     if not log_error(get=True):
@@ -216,8 +220,8 @@ def construct_assembly_doc(starting_dir):
     dnp_pn_list = []
     
     # fill the BOM column arrays
-    [bom_doc, bom_date] = get_bom_lists(starting_dir, bom_d_list, bom_pn_list)
-    [dnp_doc, dnp_date] = get_bom_lists(starting_dir, dnp_d_list, dnp_pn_list, 
+    [bom_doc, bom_date] = get_bom_lists(gerber_dir, bom_d_list, bom_pn_list)
+    [dnp_doc, dnp_date] = get_bom_lists(gerber_dir, dnp_d_list, dnp_pn_list, 
                                         DNP=True)
     
     # if this is a test print the lists
@@ -279,7 +283,7 @@ def construct_assembly_doc(starting_dir):
     # end if
     
     # fill the assy config document with these lists.
-    fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc)
+    fill_assy_bom(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dnp_list, dnp_doc)
     
     # extract all information from the ASSY Config document
     assy_data = extract_assy_config(starting_dir)
@@ -499,11 +503,11 @@ def get_assembly_number(specific_number = 'ASSY'):
 # end def
 
 
-def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
+def get_bom_lists(gerber_dir, d_list, pn_list, DNP = False):
     """
     Function to extract the designator and part number lists from a BOM.
 
-    @param[in]   starting_dir:     The Altium project directory (full path) 
+    @param[in]   gerber_dir:       The Altium project directory (full path) 
                                    (string).
     @param[out]  d_list:           The list to add the found designator lists to
                                    (list of lists of strings).
@@ -516,19 +520,17 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
     @return      (mod_date)        The modification date of the BOM.
     """      
     
-    # find output directory
-    output_dir = Altium_helpers.get_output_dir(starting_dir)
-    
     filename = ''
     
     # find the BOM docs.
-    for name in os.listdir(output_dir):
-        if DNP == True and name.startswith('DNP'):
+    for name in os.listdir(gerber_dir):
+        if (DNP == True and name.endswith('.xls') and not name.endswith(').xls')):
             filename = name
+            break
             
-        elif (DNP == False and name.endswith('.xls') and 
-              not name.startswith('DNP')):
+        elif (DNP == False and ('Placed Components Only' in name)):
             filename = name
+            break
         # end if
     # end for  
     
@@ -551,11 +553,11 @@ def get_bom_lists(starting_dir, d_list, pn_list, DNP = False):
     
     try:
         # get the BOM date
-        date = Altium_helpers.mod_date(os.path.getmtime(output_dir + '\\' + filename),
+        date = Altium_helpers.mod_date(os.path.getmtime(gerber_dir + '\\' + filename),
                                        filename)
         
         # open the BOM sheet
-        doc = xlrd.open_workbook(output_dir + '\\' + filename).sheet_by_index(0)
+        doc = xlrd.open_workbook(gerber_dir + '\\' + filename).sheet_by_index(0)
     
     except:
         print '***  Error: could not open .xls file ***'
@@ -599,12 +601,16 @@ def extract_items(cell):
 # end def
 
 
-def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
+def fill_assy_bom(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dnp_list, dnp_doc):
     """
     Function to populate the ASSY Config document with the extracted BOM 
     information.
 
     @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[in]   output_ pdf_dir:  The Location to place the pdf files (full path)
+                                   (string).
+    @param[in]   part_number:      The part number for the design
                                    (string).
     @param[in]   dnp_d_list:       The list of components to place
                                    (list of lists of strings).
@@ -688,14 +694,8 @@ def fill_assy_bom(starting_dir, dnp_d_list, comp_dnp_list, dnp_doc):
         # end if
     # end for
     
-    # get pdf directory
-    pdf_dir = Altium_helpers.get_pdf_dir(starting_dir)
-    
-    # get part numner
-    part_number = Altium_Files.get_part_number(starting_dir)
-    
     # save the file as just the BOM
-    assy_doc.save(pdf_dir + '//' + part_number + ' digikey order.xlsx')
+    assy_doc.save(output_pdf_dir + '//' + part_number + ' digikey order.xlsx')
         
     # close the file
     assy_doc.close()

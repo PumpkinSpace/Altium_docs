@@ -1,0 +1,17 @@
+Script: ExplicitModelSourceInLibs.pas 
+SchLib Components and Linked Model Sources Report...
+========================================================
+Project Name : Supernova Resistors.LibPkg
+SchLib Name  : Supernova Resistors.SchLib
+ 
+ Missing Sch Symbol Link Count : 0
+ Missing Footprint Link Count  : 0
+ 
+ Component Source Lib Name : Supernova Resistors.SchLib
+ Component Lib Reference   : Resistor 0R005 3637 CSM
+ Component Lib Symbol Ref  : Resistor 0R005 3637 CSM
+ Component DesignItemID    : Resistor 0R005 3637 CSM
+ Component Lib Identifier  : Supernova Resistors.SchLib
+ Implementation Model details:
+   ModelName:   3637 CSM Res   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(3:3),(4:4)

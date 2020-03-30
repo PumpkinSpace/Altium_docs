@@ -1,0 +1,3720 @@
+Script: ExplicitModelSourceInLibs.pas 
+SchLib Components and Linked Model Sources Report...
+========================================================
+Project Name : Supernova.LibPkg
+SchLib Name  : Supernova.SchLib
+ 
+ Missing Sch Symbol Link Count : 0
+ Missing Footprint Link Count  : 1
+ 
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SPDT RA toggle switch
+ Component Lib Symbol Ref  : SPDT RA toggle switch
+ Component DesignItemID    : SPDT RA toggle switch
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   Toggle Switch   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SP3T RA toggle switch
+ Component Lib Symbol Ref  : SP3T RA toggle switch
+ Component DesignItemID    : SP3T RA toggle switch
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   Toggle Switch - DPDT   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(6:6),(4:4),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : DPDT RA toggle switch
+ Component Lib Symbol Ref  : DPDT RA toggle switch
+ Component DesignItemID    : DPDT RA toggle switch
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   Toggle Switch - DPDT   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(3:3),(5:5),(4:4),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LMC555CMM/NOPBCT-ND
+ Component Lib Symbol Ref  : LMC555CMM/NOPBCT-ND
+ Component DesignItemID    : LMC555CMM/NOPBCT-ND
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-8   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (1:1),(8:8),(7:7),(6:6),(4:4),(3:3),(2:2),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : IAH12040A007V-007-R
+ Component Lib Symbol Ref  : IAH12040A007V-007-R
+ Component DesignItemID    : IAH12040A007V-007-R
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   IAH   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(10:10),(9:9)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : I6A24014A033V-001-R
+ Component Lib Symbol Ref  : I6A24014A033V-001-R
+ Component DesignItemID    : I6A24014A033V-001-R
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   i6a-11pins   ModelType:   PCBLIB   Description: DC-DC Converter
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(32:32),(33:33),(34:34)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: DC-DC Converter
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LP3874EMP-ADJ/NOPB
+ Component Lib Symbol Ref  : LP3874EMP-ADJ/NOPB
+ Component DesignItemID    : LP3874EMP-ADJ/NOPB
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT233-5   ModelType:   PCBLIB   Description: SOT223, 5-Leads, Body 6.50x6.92mm (avg), Pitch 1.50mm, IPC Medium Density
+   Map: (2:2),(3:3),(4:4),(5:5),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT223, 5-Leads, Body 6.50x6.92mm (avg), Pitch 1.50mm, IPC Medium Density
+    Footprint Height         : 1.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AI-1027-TWT-5V-2-R
+ Component Lib Symbol Ref  : AI-1027-TWT-5V-2-R
+ Component DesignItemID    : AI-1027-TWT-5V-2-R
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   AI-1027-TWT-5V-2-R   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MX25L1606EZUI-12G
+ Component Lib Symbol Ref  : MX25L1606EZUI-12G
+ Component DesignItemID    : MX25L1606EZUI-12G
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON80P400X60_HS-9N   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 4.00x4.00mm, Pitch 0.80mm, Thermal Pad 3.00x2.30mm, IPC Medium Density
+   Map: (1:1),(6:6),(5:5),(2:2),(8:8),(4:4),(3:3),(7:7),(9:9)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 4.00x4.00mm, Pitch 0.80mm, Thermal Pad 3.00x2.30mm, IPC Medium Density
+    Footprint Height         : 0.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MIC5281-3.3YMM-TR
+ Component Lib Symbol Ref  : MIC5281-3.3YMM-TR
+ Component DesignItemID    : MIC5281-3.3YMM-TR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P490X110-8N   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+   Map: (1:1),(2:2),(8:8),(3:3),(6:6),(4:4),(7:7),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX16903SAUE33/V+
+ Component Lib Symbol Ref  : MAX16903SAUE33/V+
+ Component DesignItemID    : MAX16903SAUE33/V+
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSSOP16-EP   ModelType:   PCBLIB   Description: TSOP, 16-Leads, Body 5.00x4.40mm, Pitch 0.65mm, Thermal Pad 3.10x3.10mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(16:16),(15:15),(14:14),(13:13),(12:12),(11:11),(10:10),(9:9),(17:17)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 16-Leads, Body 5.00x4.40mm, Pitch 0.65mm, Thermal Pad 3.10x3.10mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : DSPIC33EP128GS702
+ Component Lib Symbol Ref  : DSPIC33EP128GS702
+ Component DesignItemID    : DSPIC33EP128GS702
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   QFN65P600X600X100_HS-29N   ModelType:   PCBLIB   Description: QFN, 28-Leads, Body 6.00x6.00mm, Pitch 0.65mm, Thermal Pad 4.20x4.20mm, IPC Medium Density
+   Map: (17:17),(18:18),(7:7),(13:13),(14:14),(15:15),(16:16),(21:21),(22:22),(23:23),(12:12),(11:11),(24:24),(27:27),(28:28),(26:26),(8:8),(3:3),(2:2),(5:5),(4:4),(6:6),(19:19),(10:10),(25:25),(9:9),(20:20),(1:1),(29:29)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: QFN, 28-Leads, Body 6.00x6.00mm, Pitch 0.65mm, Thermal Pad 4.20x4.20mm, IPC Medium Density
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ALT4532M-201-T001
+ Component Lib Symbol Ref  : ALT4532M-201-T001
+ Component DesignItemID    : HX0068ANL fixed -> ALT4532M-201-T001
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ALT4532M-201-T001   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(6:6),(3:3),(4:4),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 2.9mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ALT3232M-151-T001
+ Component Lib Symbol Ref  : ALT3232M-151-T001
+ Component DesignItemID    : HX0068ANL fixed -> ALT3232M-151-T001
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ALT3232M-201-T001   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(6:6),(3:3),(4:4),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 2.9mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TO-3 Thermal Pad
+ Component Lib Symbol Ref  : TO-3 Thermal Pad
+ Component DesignItemID    : TO-3 Thermal Pad
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC2G241DCTR
+ Component Lib Symbol Ref  : SN74LVC2G241DCTR
+ Component DesignItemID    : SN74LVC07APWR fixed -> SN74LVC2G241DCTR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P490X110-8N   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+   Map: (8:8),(4:4),(2:2),(1:1),(5:5),(7:7),(6:6),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G386DBVR
+ Component Lib Symbol Ref  : SN74LVC1G386DBVR
+ Component DesignItemID    : SN74LVC1G386DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(4:4),(5:5),(2:2),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G175DBVR
+ Component Lib Symbol Ref  : SN74LVC1G175DBVR
+ Component DesignItemID    : SN74LVC1G175DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(6:6),(4:4),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G132DBVR
+ Component Lib Symbol Ref  : SN74LVC1G132DBVR
+ Component DesignItemID    : SN74LVC1G132DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(1:1),(2:2),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G125DBVR
+ Component Lib Symbol Ref  : SN74LVC1G125DBVR
+ Component DesignItemID    : SN74LVC1G125DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(2:2),(1:1),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SIA923EDJ-T1-GE3
+ Component Lib Symbol Ref  : SIA923EDJ-T1-GE3
+ Component DesignItemID    : SIA923EDJ-T1-GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON65P200X55_HS-7N   ModelType:   PCBLIB   Description: SON, 6-Leads, Body 2.00x2.00mm, Pitch 0.65mm, Thermal Pad 0.67x0.89mm, IPC Medium Density
+   Map: (1:1),(2:2),(7:7),(6:6),(4:4),(5:5),(8:8),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 6-Leads, Body 2.00x2.00mm, Pitch 0.65mm, Thermal Pad 0.67x0.89mm, IPC Medium Density
+    Footprint Height         : 0.55mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PIC10LF322T-E/OT
+ Component Lib Symbol Ref  : PIC10LF322T-E/OT
+ Component DesignItemID    : PIC10LF322T-E/OT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (5:5),(2:2),(1:1),(3:3),(4:4),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : OSD3358-512M-ISM
+ Component Lib Symbol Ref  : OSD3358-512M-ISM
+ Component DesignItemID    : OSD3358-512M-BSM fixed -> OSD3358-512M-ISM
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   BGA_16x16_1p27mm   ModelType:   PCBLIB   Description: BGA_16x16_1p27mm
+   Map: (P16:P16),(N16:N16),(N15:N15),(A7:A7),(A6:A6),(A5:A5),(B5:B5),(C1:C1),(C2:C2),(D1:D1),(D2:D2),(D3:D3),(J16:J16),(K16:K16),(K15:K15),(K14:K14),(K13:K13),(J15:J15),(B7:B7),(A9:A9),(B9:B9),(A8:A8),(B8:B8),(B6:B6),(C6:C6),(C7:C7),(C8:C8),(C9:C9),(D7:D7),(D6:D6),(N13:N13),(M15:M15),(L16:L16),(L15:L15),(L14:L14),(L13:L13),(M14:M14),(E2:E2),(E3:E3),(A12:A12),(T7:T7),(B12:B12),(C12:C12),(C13:C13),(A11:A11),(B11:B11),(B10:B10),(A10:A10),(B13:B13),(A13:A13),(B14:B14),(A14:A14),(C14:C14),(A16:A16),(B15:B15),(A15:A15),(C16:C16),(C15:C15),(B16:B16),(B2:B2),(A1:A1),(B1:B1),(A3:A3),(B3:B3),(A2:A2),(C3:C3),(C4:C4),(C5:C5),(A4:A4),(B4:B4),(T12:T12),(R12:R12),(P12:P12),(T13:T13),(R13:R13),(P13:P13),(T14:T14),(R14:R14),(P14:P14),(T15:T15),(R15:R15),(T16:T16),(N14:N14),(P15:P15),(R16:R16),(P3:P3),(P2:P2),(P1:P1),(R7:R7),(R3:R3),(R2:R2),(R1:R1),(T3:T3),(T2:T2),(T1:T1),(P4:P4),(R4:R4),(T4:T4),(P5:P5),(R5:R5),(T5:T5),(P6:P6),(R6:R6),(T6:T6),(P7:P7),(M1:M1),(N3:N3),(N2:N2),(N1:N1),(H16 :H16 ),(G3:G3),(G2:G2),(G1:G1),(H3:H3),(H2:H2),(H1:H1),(J3:J3),(J2:J2),(J1:J1),(K3:K3),(K2:K2),(K1:K1),(L3:L3),(L2:L2),(L1:L1),(M3:M3),(F1:F1),(F3:F3),(F2:F2),(E1:E1),(H15:H15),(H14:H14),(G16:G16),(G15:G15),(G14:G14),(F14:F14),(F15:F15),(E16 :E16 ),(E14:E14),(D16:D16),(D15:D15),(D14:D14),(E15:E15),(F16:F16),(J14:J14),(D13:D13),(E13:E13),(P10:P10),(R10:R10),(T10:T10),(P9:P9),(R9:R9),(T9:T9),(P8:P8),(R8:R8),(T8:T8),(N7:N7),(N6:N6),(M13:M13),(T11:T11),(N11:N11),(N10:N10),(N4:N4),(N5:N5),(L4:L4),(M4:M4),(D10:D10),(C10:C10),(D11:D11),(C11:C11),(M2:M2),(M16:M16),(E4:E4),(D4:D4),(K6:K6),(K7:K7),(L6:L6),(L7:L7),(F6:F6),(F7:F7),(G6:G6),(G7:G7),(F11:F11),(G11:G11),(K11:K11),(L11:L11),(F8:F8),(G8:G8),(H7:H7),(H8:H8),(J7:J7),(J8:J8),(K8:K8),(L8:L8),(J9:J9),(K9:K9),(L9:L9),(F9:F9),(G9:G9),(F10:F10),(G10:G10),(H10:H10),(H11:H11),(J10:J10),(J11:J11),(K10:K10),(L10:L10),(N12:N12),(P11:P11),(R11:R11),(H9:H9),(D8:D8),(D9:D9),(E5:E5),(E6:E6),(E7:E7),(E8:E8),(E9:E9),(E10:E10),(E11:E11),(E12:E12),(F5:F5),(F12:F12),(G5:G5),(G12:G12),(H4:H4),(H5:H5),(H12:H12),(H13:H13),(J4:J4),(J5:J5),(J12:J12),(J13:J13),(K5:K5),(K12:K12),(L5:L5),(L12:L12),(M5:M5),(M6:M6),(M7:M7),(M8:M8),(M9:M9),(M10:M10),(M11:M11),(M12:M12),(N8:N8),(N9:N9),(F4:F4),(G4:G4),(F13:F13),(G13:G13),(D5:D5),(H6:H6),(J6:J6),(K4:K4),(D12:D12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: BGA_16x16_1p27mm
+    Footprint Height         : 2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MC74HCT595ADTR2G
+ Component Lib Symbol Ref  : MC74HCT595ADTR2G
+ Component DesignItemID    : MC74HCT595ADTR2G
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP-16   ModelType:   PCBLIB   Description: 
+   Map: (15:15),(1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(9:9),(14:14),(11:11),(10:10),(12:12),(13:13),(16:16),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LT1716HS5#TRMPBF
+ Component Lib Symbol Ref  : LT1716HS5#TRMPBF
+ Component DesignItemID    : LT1716HS5#TRMPBF
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(3:3),(5:5),(2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LM2940SX-12/NOPB
+ Component Lib Symbol Ref  : LM2940SX-12/NOPB
+ Component DesignItemID    : LM2940SX-12/NOPB
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   D2PAK-3   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(3:3),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 4.69mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AZ1117IH-ADJTRG1
+ Component Lib Symbol Ref  : AZ1117IH-ADJTRG1
+ Component DesignItemID    : AZ1117IH-ADJTRG1
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT233   ModelType:   PCBLIB   Description: SOT223, 4-Leads, Body 6.45x7.00mm (avg), Pitch 2.30mm, IPC Medium Density
+   Map: (3:3),(2:2),(4:4),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT223, 4-Leads, Body 6.45x7.00mm (avg), Pitch 2.30mm, IPC Medium Density
+    Footprint Height         : 1.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SQJB80EP-T1_GE3
+ Component Lib Symbol Ref  : SQJB80EP-T1_GE3
+ Component DesignItemID    : SQJB80EP-T1_GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PowerPAK SO8L - dual   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+   Map: (5:5),(3:3),(4:4),(8:8),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+    Footprint Height         : 1.12mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SQJ461EP-T1_GE3
+ Component Lib Symbol Ref  : SQJ461EP-T1_GE3
+ Component DesignItemID    : SQJ461EP-T1_GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PowerPAK SO8L   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+   Map: (S:S),(G:G),(D:D)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+    Footprint Height         : 1.12mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC2G74DCTR
+ Component Lib Symbol Ref  : SN74LVC2G74DCTR
+ Component DesignItemID    : SN74LVC2G74DCTR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SM8   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+   Map: (2:2),(1:1),(7:7),(5:5),(8:8),(4:4),(3:3),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.3mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC2G02DCTR
+ Component Lib Symbol Ref  : SN74LVC2G02DCTR
+ Component DesignItemID    : SN74LVC2G02DCTR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SM8   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+   Map: (1:1),(2:2),(7:7),(8:8),(4:4),(5:5),(6:6),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.3mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1T45DBVR
+ Component Lib Symbol Ref  : SN74LVC1T45DBVR
+ Component DesignItemID    : SN74LVC1T45DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(4:4),(1:1),(2:2),(6:6),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G86DBVR
+ Component Lib Symbol Ref  : SN74LVC1G86DBVR
+ Component DesignItemID    : SN74LVC1G86DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(2:2),(4:4),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G32DBVR
+ Component Lib Symbol Ref  : SN74LVC1G32DBVR
+ Component DesignItemID    : SN74LVC1G32DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(2:2),(4:4),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G08DBVR
+ Component Lib Symbol Ref  : SN74LVC1G08DBVR
+ Component DesignItemID    : SN74LVC1G08DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(1:1),(2:2),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G07DBVT
+ Component Lib Symbol Ref  : SN74LVC1G07DBVT
+ Component DesignItemID    : SN74LVC1G07DBVT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(4:4),(2:2),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC1G02DBVR
+ Component Lib Symbol Ref  : SN74LVC1G02DBVR
+ Component DesignItemID    : SN74LVC1G02DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(2:2),(4:4),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SIR638DP-T1-GE3
+ Component Lib Symbol Ref  : SIR638DP-T1-GE3
+ Component DesignItemID    : SIR638DP-T1-GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PowerPAK SO8   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+   Map: (D:D),(S:S),(G:G)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+    Footprint Height         : 1.12mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SIA931DJ-T1-GE3
+ Component Lib Symbol Ref  : SIA931DJ-T1-GE3
+ Component DesignItemID    : SIA931DJ-T1-GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON65P200X55_HS-7N   ModelType:   PCBLIB   Description: SON, 6-Leads, Body 2.00x2.00mm, Pitch 0.65mm, Thermal Pad 0.67x0.89mm, IPC Medium Density
+   Map: (1:1),(2:2),(7:7),(6:6),(4:4),(5:5),(8:8),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 6-Leads, Body 2.00x2.00mm, Pitch 0.65mm, Thermal Pad 0.67x0.89mm, IPC Medium Density
+    Footprint Height         : 0.55mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SI7141DP-T1-GE3
+ Component Lib Symbol Ref  : SI7141DP-T1-GE3
+ Component DesignItemID    : SI7141DP-T1-GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PowerPAK SO8   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+   Map: (S:S),(G:G),(D:D)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 5.15x6.15mm, Pitch 1.27mm, Thermal Pad 3.74x3.66mm, IPC Medium Density
+    Footprint Height         : 1.12mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SI3932DV-T1-GE3
+ Component Lib Symbol Ref  : SI3932DV-T1-GE3
+ Component DesignItemID    : SI3932DV-T1-GE3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (6:6),(5:5),(1:1),(4:4),(2:2),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PIC24EP256MC206
+ Component Lib Symbol Ref  : PIC24EP256MC206
+ Component DesignItemID    : PIC24EP256MC206
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSQFP50P1200X1200X120_HS-65N   ModelType:   PCBLIB   Description: TSQFP, 64-Leads, Body 10.00x10.00mm, Pitch 0.50mm, Thermal Pad 5.41x6.29mm, IPC Medium Density
+   Map: (56:56),(31:31),(64:64),(17:17),(18:18),(32:32),(43:43),(44:44),(46:46),(48:48),(49:49),(60:60),(61:61),(62:62),(63:63),(37:37),(36:36),(50:50),(51:51),(55:55),(52:52),(45:45),(35:35),(34:34),(33:33),(13:13),(14:14),(15:15),(16:16),(21:21),(22:22),(23:23),(12:12),(11:11),(24:24),(27:27),(28:28),(29:29),(30:30),(7:7),(40:40),(39:39),(58:58),(59:59),(54:54),(47:47),(42:42),(53:53),(8:8),(3:3),(2:2),(5:5),(4:4),(6:6),(19:19),(10:10),(26:26),(38:38),(57:57),(41:41),(25:25),(9:9),(20:20),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSQFP, 64-Leads, Body 10.00x10.00mm, Pitch 0.50mm, Thermal Pad 5.41x6.29mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PIC12F1572-E/MS
+ Component Lib Symbol Ref  : PIC12F1572-E/MS
+ Component DesignItemID    : PIC10LF322T-E/OT fixed -> PIC12F1572-E/MS
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P490X110-8N   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+   Map: (1:1),(8:8),(7:7),(6:6),(5:5),(4:4),(3:3),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LT6654BHS6-1.25
+ Component Lib Symbol Ref  : LT6654BHS6-1.25
+ Component DesignItemID    : LT6654BHS6-1.25
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(6:6),(4:4),(1:1),(3:3),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LM5050MK-1/NOPB
+ Component Lib Symbol Ref  : LM5050MK-1/NOPB
+ Component DesignItemID    : LM5050MK-1/NOPB
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(3:3),(1:1),(5:5),(2:2),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : IRF7329PBFCT-ND
+ Component Lib Symbol Ref  : IRF7329PBFCT-ND
+ Component DesignItemID    : IRF7329PBFCT-ND
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC127P600X175-8N   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (3:3),(4:4),(5:5),(6:6),(1:1),(2:2),(7:7),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : APXW005A0X3-SRZ
+ Component Lib Symbol Ref  : APXW005A0X3-SRZ
+ Component DesignItemID    : APXW005A0X3-SRZ
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   APXW005   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(3:3),(4:4),(6:6),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 8.5mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AP7313 1.5V Reg
+ Component Lib Symbol Ref  : AP7313 1.5V Reg
+ Component DesignItemID    : AP7313 1.5V Reg
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ABS07-32.768kHz
+ Component Lib Symbol Ref  : ABS07-32.768kHz
+ Component DesignItemID    : ABM3-12MHz fixed -> ABS07-32.768kHz
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ABS07   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS3838K33DBVR
+ Component Lib Symbol Ref  : TPS3838K33DBVR
+ Component DesignItemID    : TPS3838K33DBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(2:2),(5:5),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS3837K33DBVT
+ Component Lib Symbol Ref  : TPS3837K33DBVT
+ Component DesignItemID    : TPS3837K33DBVT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(2:2),(5:5),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TL4050C25IDBZR
+ Component Lib Symbol Ref  : TL4050C25IDBZR
+ Component DesignItemID    : MAX6350 fixed -> TL4050C25IDBZR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SI8606AC-B-IS1
+ Component Lib Symbol Ref  : SI8606AC-B-IS1
+ Component DesignItemID    : SI8606AC-B-IS1
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-16   ModelType:   PCBLIB   Description: SOIC, 16-Leads, Body 9.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (3:3),(4:4),(14:14),(13:13),(1:1),(16:16),(8:8),(9:9),(6:6),(11:11),(5:5),(12:12),(7:7),(2:2),(10:10),(15:15)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 16-Leads, Body 9.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MIT 220-0102-A
+ Component Lib Symbol Ref  : MIT 220-0102-A
+ Component DesignItemID    : MIT 220-0102-A
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MIC5255-3.3YML
+ Component Lib Symbol Ref  : MIC5255-3.3YML
+ Component DesignItemID    : MIC5255-3.3YML
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON65P200X90_HS-7N   ModelType:   PCBLIB   Description: SON, 6-Leads, Body 2.00x2.00mm, Pitch 0.65mm, Thermal Pad 1.40x0.78mm, IPC Medium Density
+   Map: (3:3),(1:1),(2:2),(5:5),(4:4),(6:6),(7:7)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 6-Leads, Body 2.00x2.00mm, Pitch 0.65mm, Thermal Pad 1.40x0.78mm, IPC Medium Density
+    Footprint Height         : 0.9mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MIC29501-5.0WU
+ Component Lib Symbol Ref  : MIC29501-5.0WU
+ Component DesignItemID    : MIC29501-5.0WU
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   D2PAK-5   ModelType:   PCBLIB   Description: D2-PAK, 6-Pads, Body 7.68x8.69mm (max), IPC Medium Density
+   Map: (2:2),(1:1),(3:3),(4:4),(5:5),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: D2-PAK, 6-Pads, Body 7.68x8.69mm (max), IPC Medium Density
+    Footprint Height         : 4.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC4416EMS#PBF
+ Component Lib Symbol Ref  : LTC4416EMS#PBF
+ Component DesignItemID    : LTC4416EMS#PBF
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP-10   ModelType:   PCBLIB   Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(10:10),(9:9),(8:8),(7:7),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LP38690DTX-5.0
+ Component Lib Symbol Ref  : LP38690DTX-5.0
+ Component DesignItemID    : LP38690DTX-3.3 fixed -> LP38690DTX-5.0
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   DPAK   ModelType:   PCBLIB   Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+    Footprint Height         : 4.69mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LP38690DTX-3.3
+ Component Lib Symbol Ref  : LP38690DTX-3.3
+ Component DesignItemID    : LP38690DTX-3.3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   DPAK   ModelType:   PCBLIB   Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+    Footprint Height         : 4.69mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LP2985AIM5-1.8
+ Component Lib Symbol Ref  : LP2985AIM5-1.8
+ Component DesignItemID    : LP2985AIM5-1.8
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(4:4),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LP2985AIM5-1.5
+ Component Lib Symbol Ref  : LP2985AIM5-1.5
+ Component DesignItemID    : LP2985AIM5-1.5
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(4:4),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : IS21ES08G-JCLI
+ Component Lib Symbol Ref  : IS21ES08G-JCLI
+ Component DesignItemID    :  fixed -> IS21ES08G-JCLI
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   BGA153C50P14X14_1150X1300X100   ModelType:   PCBLIB   Description: BGA, 153-Leads, Body 11.50x13.00mmx1.00mm, Pitch 0.50mm
+   Map: (A1:A1),(A2:A2),(A3:A3),(A4:A4),(A5:A5),(A6:A6),(A7:A7),(A8:A8),(A9:A9),(A10:A10),(A11:A11),(A12:A12),(A13:A13),(A14:A14),(B1:B1),(B2:B2),(B3:B3),(B4:B4),(B5:B5),(B6:B6),(B7:B7),(B8:B8),(B9:B9),(B10:B10),(B11:B11),(B12:B12),(B13:B13),(B14:B14),(C1:C1),(C2:C2),(C3:C3),(C4:C4),(C5:C5),(C6:C6),(C7:C7),(C8:C8),(C9:C9),(C10:C10),(C11:C11),(C12:C12),(C13:C13),(C14:C14),(D1:D1),(D2:D2),(D3:D3),(D4:D4),(D12:D12),(D13:D13),(D14:D14),(E1:E1),(E2:E2),(E3:E3),(E5:E5),(E6:E6),(E7:E7),(E8:E8),(E9:E9),(E10:E10),(E12:E12),(E13:E13),(E14:E14),(F1:F1),(F2:F2),(F3:F3),(F5:F5),(F10:F10),(F12:F12),(F13:F13),(F14:F14),(G1:G1),(G2:G2),(G3:G3),(G5:G5),(G10:G10),(G12:G12),(G13:G13),(G14:G14),(H1:H1),(H2:H2),(H3:H3),(H5:H5),(H10:H10),(H12:H12),(H13:H13),(H14:H14),(J1:J1),(J2:J2),(J3:J3),(J5:J5),(J10:J10),(J12:J12),(J13:J13),(J14:J14),(K1:K1),(K2:K2),(K3:K3),(K5:K5),(K6:K6),(K7:K7),(K8:K8),(K9:K9),(K10:K10),(K12:K12),(K13:K13),(K14:K14),(L1:L1),(L2:L2),(L3:L3),(L12:L12),(L13:L13),(L14:L14),(M1:M1),(M2:M2),(M3:M3),(M4:M4),(M5:M5),(M6:M6),(M7:M7),(M8:M8),(M9:M9),(M10:M10),(M11:M11),(M12:M12),(M13:M13),(M14:M14),(N1:N1),(N2:N2),(N3:N3),(N4:N4),(N5:N5),(N6:N6),(N7:N7),(N8:N8),(N9:N9),(N10:N10),(N12:N12),(N13:N13),(N14:N14),(P1:P1),(P2:P2),(P3:P3),(P4:P4),(P5:P5),(P6:P6),(P7:P7),(P8:P8),(P9:P9),(P10:P10),(P11:P11),(P12:P12),(P13:P13),(P14:P14),(N11:N11)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: BGA, 153-Leads, Body 11.50x13.00mmx1.00mm, Pitch 0.50mm
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : HMHA2801AR2VCT
+ Component Lib Symbol Ref  : HMHA2801AR2VCT
+ Component DesignItemID    : HMHA2801AR2VCT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOP127P660X239-4N   ModelType:   PCBLIB   Description: SOP, 4-Leads, Body 2.50x4.40mm, Pitch 1.27mm, IPC Medium Density
+   Map: (2:2),(1:1),(4:4),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOP, 4-Leads, Body 2.50x4.40mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 2.39mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : VND7140AJ12TR
+ Component Lib Symbol Ref  : VND7140AJ12TR
+ Component DesignItemID    : LTC4415 fixed -> VND7140AJ12TR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOP80P600X170_HS-13N   ModelType:   PCBLIB   Description: SOP, 12-Leads, Body 4.90x3.90mm, Pitch 0.80mm, Thermal Pad 3.50x2.80mm, IPC Medium Density
+   Map: (1:1),(6:6),(4:4),(5:5),(2:2),(10:10),(11:11),(12:12),(7:7),(8:8),(9:9),(3:3),(13:13)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOP, 12-Leads, Body 4.90x3.90mm, Pitch 0.80mm, Thermal Pad 3.50x2.80mm, IPC Medium Density
+    Footprint Height         : 1.7mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+ Implementation Model details:
+   ModelName:   SOP80P600X170_HS-13N - No Vias   ModelType:   PCBLIB   Description: SOP, 12-Leads, Body 4.90x3.90mm, Pitch 0.80mm, Thermal Pad 3.50x2.80mm, IPC Medium Density
+   Map: (1:1),(6:6),(4:4),(5:5),(2:2),(10:10),(11:11),(12:12),(7:7),(8:8),(9:9),(3:3),(13:13)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOP, 12-Leads, Body 4.90x3.90mm, Pitch 0.80mm, Thermal Pad 3.50x2.80mm, IPC Medium Density
+    Footprint Height         : 1.7mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS7A1633DRBT
+ Component Lib Symbol Ref  : TPS7A1633DRBT
+ Component DesignItemID    : TPS7A1633DRBT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON65P300X100_HS-9N   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, Thermal Pad 2.40x1.44mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(8:8),(7:7),(6:6),(5:5),(9:9)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, Thermal Pad 2.40x1.44mm, IPC Medium Density
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TO-3 Heatsink
+ Component Lib Symbol Ref  : TO-3 Heatsink
+ Component DesignItemID    : TO-3 Heatsink
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TLVH431AQDBZR
+ Component Lib Symbol Ref  : TLVH431AQDBZR
+ Component DesignItemID    : TEMD6010FX01 fixed -> TLVH431AQDBZR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(3:3),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : STL120N4LF6AG
+ Component Lib Symbol Ref  : STL120N4LF6AG
+ Component DesignItemID    : STL120N4LF6AG
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PowerFlat   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 5.20x6.40mm, Pitch 1.27mm, Thermal Pad 4.30x3.60mm, IPC Medium Density
+   Map: (D:D),(S:S),(G:G)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 5.20x6.40mm, Pitch 1.27mm, Thermal Pad 4.30x3.60mm, IPC Medium Density
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC07APWR
+ Component Lib Symbol Ref  : SN74LVC07APWR
+ Component DesignItemID    : SN74LVC07APWR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P640X120-14N   ModelType:   PCBLIB   Description: TSOP, 14-Leads, Body 5.00x4.40mm, Pitch 0.65mm, IPC Medium Density
+   Map: (14:14),(7:7),(1:1),(3:3),(5:5),(9:9),(11:11),(13:13),(2:2),(4:4),(6:6),(8:8),(10:10),(12:12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 14-Leads, Body 5.00x4.40mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : Simplex Radio
+ Component Lib Symbol Ref  : Simplex Radio
+ Component DesignItemID    : Simplex Radio
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   Simplex Radio   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(13:13),(14:14),(15:15),(16:16),(F:F)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SI8621AB-B-IS
+ Component Lib Symbol Ref  : SI8621AB-B-IS
+ Component DesignItemID    : SI8621AB-B-IS
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-8   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (2:2),(3:3),(7:7),(6:6),(1:1),(8:8),(4:4),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : OKY-T/5-W5P-C
+ Component Lib Symbol Ref  : OKY-T/5-W5P-C
+ Component DesignItemID    : OKY-T/5-W5P-C
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   OKY-T/5-W5P-C   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(3:3),(5:5),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MIC4416YM4-TR
+ Component Lib Symbol Ref  : MIC4416YM4-TR
+ Component DesignItemID    : MIC4416YM4-TR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT-143   ModelType:   PCBLIB   Description: TSOP, 4-Leads, Body 2.86x1.30mm, Pitch 1.90mm, IPC Medium Density
+   Map: (3:3),(2:2),(1:1),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 4-Leads, Body 2.86x1.30mm, Pitch 1.90mm, IPC Medium Density
+    Footprint Height         : 1.12mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC6994MPS6-1
+ Component Lib Symbol Ref  : LTC6994MPS6-1
+ Component DesignItemID    : LTC6994MPS6-1
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (5:5),(2:2),(6:6),(1:1),(3:3),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC4415 split
+ Component Lib Symbol Ref  : LTC4415 split
+ Component DesignItemID    : LTC4415 split
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP-16   ModelType:   PCBLIB   Description: MSOP-23, 16-Leads, Exposed Die Pad, Body 4.1x3.1mm
+   Map: (5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(1:1),(2:2),(3:3),(4:4),(13:13),(14:14),(15:15),(16:16),(17:17)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: MSOP-23, 16-Leads, Exposed Die Pad, Body 4.1x3.1mm
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LT6703HVHS5-3
+ Component Lib Symbol Ref  : LT6703HVHS5-3
+ Component DesignItemID    : LT6703HVHS5-3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(4:4),(2:2),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LT6014IS8#PBF
+ Component Lib Symbol Ref  : LT6014IS8#PBF
+ Component DesignItemID    : LT6014IS8#PBF
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-8   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (8:8),(4:4),(2:2),(3:3),(1:1),(6:6),(5:5),(7:7)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LP5907MFX-1.2
+ Component Lib Symbol Ref  : LP5907MFX-1.2
+ Component DesignItemID    : LP5907MFX-1.2
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(4:4),(3:3),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LM3480IM3-3.3
+ Component Lib Symbol Ref  : LM3480IM3-3.3
+ Component DesignItemID    : MCP1700T3302 fixed -> LM3480IM3-3.3
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : CD74HC7266M96
+ Component Lib Symbol Ref  : CD74HC7266M96
+ Component DesignItemID    : CD74HC7266M96
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-14   ModelType:   PCBLIB   Description: SOIC, 14-Leads, Body 9.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(14:14),(7:7),(5:5),(6:6),(4:4),(8:8),(9:9),(10:10),(12:12),(13:13),(11:11)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 14-Leads, Body 9.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : CC10-0512SF-E
+ Component Lib Symbol Ref  : CC10-0512SF-E
+ Component DesignItemID    : CC10-0512SF-E
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   CC10   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(4:4),(F:F),(7:7),(6:6),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AstroDev Li-1
+ Component Lib Symbol Ref  : AstroDev Li-1
+ Component DesignItemID    : AstroDev Li-1
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   L-1 radio   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(9:9),(8:8),(7:7),(6:6),(14:14),(13:13),(12:12),(11:11),(10:10),(15:15)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: 
+
+ Implementation Model details:
+   ModelName:   LITHIUM REVB   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(9:9),(8:8),(7:7),(6:6),(14:14),(13:13),(12:12),(11:11),(10:10),(15:15)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : 93LC56BT-I/OT
+ Component Lib Symbol Ref  : 93LC56BT-I/OT
+ Component DesignItemID    : 93LC56BT-I/OT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (5:5),(4:4),(3:3),(1:1),(6:6),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ZXCT1022E5TA
+ Component Lib Symbol Ref  : ZXCT1022E5TA
+ Component DesignItemID    : ZXCT1022E5TA
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(5:5),(3:3),(2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS54061DRBR
+ Component Lib Symbol Ref  : TPS54061DRBR
+ Component DesignItemID    : TPS54061DRBR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON65P300X100_HS-9N   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, Thermal Pad 2.40x1.44mm, IPC Medium Density
+   Map: (1:1),(8:8),(7:7),(2:2),(4:4),(5:5),(3:3),(9:9),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, Thermal Pad 2.40x1.44mm, IPC Medium Density
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS2051BDBVR
+ Component Lib Symbol Ref  : TPS2051BDBVR
+ Component DesignItemID    : LTC4411 fixed -> TPS2051BDBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(3:3),(1:1),(2:2),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TLV76015DBZT
+ Component Lib Symbol Ref  : TLV76015DBZT
+ Component DesignItemID    : TLV76015DBZT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(3:3),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TEMD6010FX01
+ Component Lib Symbol Ref  : TEMD6010FX01
+ Component DesignItemID    : TEMD6010FX01
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TEMD6010FX01   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.05mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : OPA4170AIPWR
+ Component Lib Symbol Ref  : OPA4170AIPWR
+ Component DesignItemID    : OPA4170AIPWR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P640X120-14N   ModelType:   PCBLIB   Description: TSOP, 14-Leads, Body 5.00x4.40mm, Pitch 0.65mm, IPC Medium Density
+   Map: (4:4),(11:11),(2:2),(3:3),(1:1),(6:6),(5:5),(7:7),(9:9),(10:10),(8:8),(13:13),(12:12),(14:14)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 14-Leads, Body 5.00x4.40mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MIC2545A-2YM
+ Component Lib Symbol Ref  : MIC2545A-2YM
+ Component DesignItemID    : MIC2545A-2YM
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-8   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (5:5),(1:1),(4:4),(6:6),(2:2),(3:3),(7:7),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MCP1700T3302
+ Component Lib Symbol Ref  : MCP1700T3302
+ Component DesignItemID    : MCP1700T3302
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX4525LEUB+
+ Component Lib Symbol Ref  : MAX4525LEUB+
+ Component DesignItemID    : MAX4525LEUB+
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP-10   ModelType:   PCBLIB   Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+   Map: (1:1),(3:3),(2:2),(8:8),(7:7),(9:9),(6:6),(10:10),(5:5),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX11617EEE+
+ Component Lib Symbol Ref  : MAX11617EEE+
+ Component DesignItemID    : MAX11617EEE+
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   16 QSOP   ModelType:   PCBLIB   Description: TSOP, 16-Leads, Body 4.89x3.90mm, Pitch 0.64mm, IPC Medium Density
+   Map: (5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(4:4),(3:3),(2:2),(1:1),(16:16),(15:15),(14:14),(13:13)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 16-Leads, Body 4.89x3.90mm, Pitch 0.64mm, IPC Medium Density
+    Footprint Height         : 1.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LF120ABDT-TR
+ Component Lib Symbol Ref  : LF120ABDT-TR
+ Component DesignItemID    : LF120ABDT-TR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   DPAK   ModelType:   PCBLIB   Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+   Map: (1:1),(3:3),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+    Footprint Height         : 4.69mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : KSZ8795CLXIC
+ Component Lib Symbol Ref  : KSZ8795CLXIC
+ Component DesignItemID    : KSZ8795CLXIC
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSQFP40P1200X1200X160-80N   ModelType:   PCBLIB   Description: TSQFP, 80-Leads, Body 10.00x10.00mm, Pitch 0.40mm, IPC Medium Density
+   Map: (5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(65:65),(64:64),(63:63),(62:62),(13:13),(14:14),(15:15),(16:16),(25:25),(24:24),(17:17),(18:18),(19:19),(20:20),(31:31),(28:28),(52:52),(30:30),(45:45),(29:29),(37:37),(43:43),(44:44),(51:51),(80:80),(79:79),(69:69),(72:72),(67:67),(68:68),(23:23),(56:56),(66:66),(54:54),(55:55),(53:53),(1:1),(2:2),(26:26),(34:34),(42:42),(21:21),(78:78),(71:71),(61:61),(4:4),(27:27),(33:33),(47:47),(22:22),(74:74),(75:75),(3:3),(12:12),(48:48),(70:70),(73:73),(76:76),(32:32),(35:35),(36:36),(38:38),(39:39),(40:40),(41:41),(46:46),(49:49),(50:50),(57:57),(58:58),(59:59),(60:60),(77:77)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSQFP, 80-Leads, Body 10.00x10.00mm, Pitch 0.40mm, IPC Medium Density
+    Footprint Height         : 1.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : IRF5806TRPBF
+ Component Lib Symbol Ref  : IRF5806TRPBF
+ Component DesignItemID    : IRF5806TRPBF
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP-6   ModelType:   PCBLIB   Description: 
+   Map: (4:4),(3:3),(1:1),(2:2),(5:5),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : INA195AIDBVR
+ Component Lib Symbol Ref  : INA195AIDBVR
+ Component DesignItemID    : INA195AIDBVR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(4:4),(1:1),(2:2),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : INA170EA/250
+ Component Lib Symbol Ref  : INA170EA/250
+ Component DesignItemID    : INA195AIDBVR fixed -> INA170EA/250
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P490X110-8N   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+   Map: (2:2),(1:1),(6:6),(4:4),(8:8),(3:3),(7:7),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : CRE1S0505S3C
+ Component Lib Symbol Ref  : CRE1S0505S3C
+ Component DesignItemID    : CRE1S0505S3C
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   CRE1S0505S3C   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(4:4),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BQ294705DSGR
+ Component Lib Symbol Ref  : BQ294705DSGR
+ Component DesignItemID    : BQ294705DSGR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON50P200X80_HS-9N   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 2.00x2.00mm, Pitch 0.50mm, Thermal Pad 1.60x0.69mm, IPC Medium Density
+   Map: (8:8),(7:7),(6:6),(4:4),(2:2),(1:1),(5:5),(3:3),(9:9)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 2.00x2.00mm, Pitch 0.50mm, Thermal Pad 1.60x0.69mm, IPC Medium Density
+    Footprint Height         : 0.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AD5263BRUZ20
+ Component Lib Symbol Ref  : AD5263BRUZ20
+ Component DesignItemID    : AD5263BRUZ20
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P640X120-24N   ModelType:   PCBLIB   Description: TSOP, 24-Leads, Body 7.80x4.40mm, Pitch 0.65mm, IPC Medium Density
+   Map: (2:2),(3:3),(1:1),(23:23),(22:22),(24:24),(5:5),(6:6),(4:4),(20:20),(19:19),(21:21),(7:7),(8:8),(10:10),(9:9),(11:11),(12:12),(13:13),(14:14),(16:16),(17:17),(18:18)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 24-Leads, Body 7.80x4.40mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TXB0108DQSR
+ Component Lib Symbol Ref  : TXB0108DQSR
+ Component DesignItemID    : TXB0104PWR fixed -> TXB0108DQSR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON40P200X55-20N   ModelType:   PCBLIB   Description: SON, 20-Leads, Body 4.00x2.00mm, Pitch 0.40mm, IPC Medium Density
+   Map: (5:5),(16:16),(1:1),(2:2),(3:3),(4:4),(20:20),(19:19),(18:18),(17:17),(6:6),(15:15),(7:7),(14:14),(8:8),(13:13),(9:9),(12:12),(10:10),(11:11)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 20-Leads, Body 4.00x2.00mm, Pitch 0.40mm, IPC Medium Density
+    Footprint Height         : 0.55mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SRV05-4L-TP
+ Component Lib Symbol Ref  : SRV05-4L-TP
+ Component DesignItemID    : SRV05-4L-TP
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(4:4),(6:6),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SN74LVC540A
+ Component Lib Symbol Ref  : SN74LVC540A
+ Component DesignItemID    : SN74LVC540A
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOP65P780X200-20N   ModelType:   PCBLIB   Description: SOP, 20-Leads, Body 7.20x5.30mm, Pitch 0.65mm, IPC Medium Density
+   Map: (20:20),(10:10),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(1:1),(19:19),(18:18),(17:17),(16:16),(15:15),(14:14),(13:13),(12:12),(11:11)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOP, 20-Leads, Body 7.20x5.30mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PMBTA45,215
+ Component Lib Symbol Ref  : PMBTA45,215
+ Component DesignItemID    : PMBTA45,215
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : OCXO-131-40
+ Component Lib Symbol Ref  : OCXO-131-40
+ Component DesignItemID    : OCXO-131-40
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   OCXO-131   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(5:5),(3:3),(4:4),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX4701EUE+
+ Component Lib Symbol Ref  : MAX4701EUE+
+ Component DesignItemID    : MAX4701EUE+
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP-16   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(3:3),(2:2),(5:5),(7:7),(6:6),(4:4),(16:16),(8:8),(9:9),(11:11),(10:10),(13:13),(15:15),(14:14),(12:12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX313LEUE+
+ Component Lib Symbol Ref  : MAX313LEUE+
+ Component DesignItemID    : MAX313LEUE+
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP-16   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(16:16),(15:15),(14:14),(9:9),(10:10),(11:11),(8:8),(7:7),(6:6),(13:13),(12:12),(5:5),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX312LEUE+
+ Component Lib Symbol Ref  : MAX312LEUE+
+ Component DesignItemID    : MAX312LEUE+
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP-16   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(16:16),(15:15),(14:14),(9:9),(10:10),(11:11),(8:8),(7:7),(6:6),(13:13),(12:12),(5:5),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC4053EMSE
+ Component Lib Symbol Ref  : LTC4053EMSE
+ Component DesignItemID    :  fixed -> LTC4053EMSE
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP-10 -EP   ModelType:   PCBLIB   Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : IPD50P04P4L
+ Component Lib Symbol Ref  : IPD50P04P4L
+ Component DesignItemID    : IPD50P04P4L
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   DPAK   ModelType:   PCBLIB   Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+    Footprint Height         : 4.69mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BQ34Z653DBT
+ Component Lib Symbol Ref  : BQ34Z653DBT
+ Component DesignItemID    : BQ34Z653DBT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSSOP50P630X120-44N   ModelType:   PCBLIB   Description: TSSOP, 44-Leads, Body 11.15x4.40mm, Pitch 0.50mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(13:13),(14:14),(15:15),(16:16),(17:17),(18:18),(19:19),(20:20),(21:21),(22:22),(23:23),(24:24),(25:25),(26:26),(27:27),(28:28),(29:29),(30:30),(31:31),(32:32),(33:33),(34:34),(35:35),(36:36),(37:37),(38:38),(39:39),(40:40),(41:41),(42:42),(43:43),(44:44)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 44-Leads, Body 11.15x4.40mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BQ34Z651DBT
+ Component Lib Symbol Ref  : BQ34Z651DBT
+ Component DesignItemID    : BQ34Z651DBT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSSOP50P630X120-44N   ModelType:   PCBLIB   Description: TSSOP, 44-Leads, Body 11.15x4.40mm, Pitch 0.50mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(13:13),(14:14),(15:15),(16:16),(17:17),(18:18),(19:19),(20:20),(21:21),(22:22),(23:23),(24:24),(25:25),(26:26),(27:27),(28:28),(29:29),(30:30),(31:31),(32:32),(33:33),(34:34),(35:35),(36:36),(37:37),(38:38),(39:39),(40:40),(41:41),(42:42),(43:43),(44:44)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 44-Leads, Body 11.15x4.40mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BQ29412DCTR
+ Component Lib Symbol Ref  : BQ29412DCTR
+ Component DesignItemID    : BQ29412DCTR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SM8   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+   Map: (8:8),(7:7),(6:6),(4:4),(2:2),(1:1),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.3mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ADP2164 1V8
+ Component Lib Symbol Ref  : ADP2164 1V8
+ Component DesignItemID    : ADP2164 1V8
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   QFN65P400X400X80_HS-17N   ModelType:   PCBLIB   Description: QFN, 16-Leads, Body 4.00x4.00mm, Pitch 0.65mm, Thermal Pad 2.50x2.50mm, IPC Medium Density
+   Map: (5:5),(17:17),(6:6),(7:7),(8:8),(11:11),(10:10),(9:9),(13:13),(12:12),(14:14),(15:15),(16:16),(1:1),(2:2),(3:3),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: QFN, 16-Leads, Body 4.00x4.00mm, Pitch 0.65mm, Thermal Pad 2.50x2.50mm, IPC Medium Density
+    Footprint Height         : 0.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ADG5419BRMZ
+ Component Lib Symbol Ref  : ADG5419BRMZ
+ Component DesignItemID    : ADG5419BRMZ
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P490X110-8N   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+   Map: (1:1),(2:2),(8:8),(3:3),(6:6),(4:4),(7:7),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ABM11-25MHz
+ Component Lib Symbol Ref  : ABM11-25MHz
+ Component DesignItemID    : ABM11-25MHz
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ABM11   ModelType:   PCBLIB   Description: 
+   Map: (F:F),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TXB0104PWR
+ Component Lib Symbol Ref  : TXB0104PWR
+ Component DesignItemID    : TXB0104PWR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSSOP-14   ModelType:   PCBLIB   Description: TSOP, 14-Leads, Body 5.00x4.40mm, Pitch 0.65mm, IPC Medium Density
+   Map: (1:1),(14:14),(2:2),(3:3),(4:4),(5:5),(13:13),(12:12),(11:11),(10:10),(9:9),(8:8),(6:6),(7:7)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 14-Leads, Body 5.00x4.40mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : NVF6P02T3G
+ Component Lib Symbol Ref  : NVF6P02T3G
+ Component DesignItemID    : NVF6P02T3G
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT233   ModelType:   PCBLIB   Description: SOT223, 4-Leads, Body 6.45x7.00mm (avg), Pitch 2.30mm, IPC Medium Density
+   Map: (3:3),(1:1),(4:4),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT223, 4-Leads, Body 6.45x7.00mm (avg), Pitch 2.30mm, IPC Medium Density
+    Footprint Height         : 1.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX890LESA
+ Component Lib Symbol Ref  : MAX890LESA
+ Component DesignItemID    : MAX890LESA
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC127P600X175-8N   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(5:5),(7:7),(6:6),(8:8),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC3417A-2
+ Component Lib Symbol Ref  : LTC3417A-2
+ Component DesignItemID    : LTC3417A-2
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON50P350X80_HS-17N   ModelType:   PCBLIB   Description: SON, 16-Leads, Body 5.00x3.50mm, Pitch 0.50mm, Thermal Pad 4.45x1.65mm, IPC Medium Density
+   Map: (2:2),(8:8),(9:9),(15:15),(1:1),(4:4),(3:3),(14:14),(13:13),(17:17),(16:16),(11:11),(5:5),(7:7),(10:10),(6:6),(12:12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 16-Leads, Body 5.00x3.50mm, Pitch 0.50mm, Thermal Pad 4.45x1.65mm, IPC Medium Density
+    Footprint Height         : 0.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LSM6DS33TR
+ Component Lib Symbol Ref  : LSM6DS33TR
+ Component DesignItemID    : LSM6DS33TR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PQFN50P300X300X86-16N   ModelType:   PCBLIB   Description: PQFN, 16-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+   Map: (14:14),(16:16),(12:12),(8:8),(2:2),(3:3),(5:5),(4:4),(7:7),(1:1),(6:6),(9:9),(10:10),(11:11),(15:15),(13:13)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: PQFN, 16-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 0.86mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : GS Simplex
+ Component Lib Symbol Ref  : GS Simplex
+ Component DesignItemID    : GS Simplex
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   GS Simplex   ModelType:   PCBLIB   Description: 
+   Map: (1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : DMN67D8L-7
+ Component Lib Symbol Ref  : DMN67D8L-7
+ Component DesignItemID    : DMN67D8L-7
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : DMG204020R
+ Component Lib Symbol Ref  : DMG204020R
+ Component DesignItemID    : DMG204020R
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (6:6),(2:2),(1:1),(4:4),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BQ40Z50-R2
+ Component Lib Symbol Ref  : BQ40Z50-R2
+ Component DesignItemID    : BQ40Z50-R2
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   QFN40P400X400X100_HS-33N   ModelType:   PCBLIB   Description: QFN, 32-Leads, Body 4.00x4.00mm, Pitch 0.40mm, Thermal Pad 1.40x1.40mm, IPC Medium Density
+   Map: (28:28),(27:27),(26:26),(30:30),(9:9),(10:10),(11:11),(16:16),(25:25),(18:18),(7:7),(19:19),(17:17),(20:20),(32:32),(6:6),(8:8),(2:2),(3:3),(4:4),(5:5),(31:31),(12:12),(13:13),(14:14),(15:15),(21:21),(22:22),(23:23),(24:24),(29:29),(33:33),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: QFN, 32-Leads, Body 4.00x4.00mm, Pitch 0.40mm, Thermal Pad 1.40x1.40mm, IPC Medium Density
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ADP2164 1V
+ Component Lib Symbol Ref  : ADP2164 1V
+ Component DesignItemID    : ADP2164 1V
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   QFN65P400X400X80_HS-17N   ModelType:   PCBLIB   Description: QFN, 16-Leads, Body 4.00x4.00mm, Pitch 0.65mm, Thermal Pad 2.50x2.50mm, IPC Medium Density
+   Map: (5:5),(17:17),(6:6),(7:7),(8:8),(11:11),(10:10),(9:9),(13:13),(12:12),(14:14),(15:15),(16:16),(1:1),(2:2),(3:3),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: QFN, 16-Leads, Body 4.00x4.00mm, Pitch 0.65mm, Thermal Pad 2.50x2.50mm, IPC Medium Density
+    Footprint Height         : 0.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ADG707BRUZ
+ Component Lib Symbol Ref  : ADG707BRUZ
+ Component DesignItemID    : ADG707BRUZ
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   28-TSSOP   ModelType:   PCBLIB   Description: TSOP, 28-Leads, Body 9.70x4.40mm, Pitch 0.65mm, IPC Medium Density
+   Map: (28:28),(19:19),(20:20),(21:21),(22:22),(23:23),(24:24),(25:25),(26:26),(2:2),(11:11),(10:10),(9:9),(8:8),(7:7),(6:6),(5:5),(4:4),(1:1),(27:27),(12:12),(3:3),(13:13),(14:14),(18:18),(17:17),(16:16),(15:15)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 28-Leads, Body 9.70x4.40mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ABM3-25MHz
+ Component Lib Symbol Ref  : ABM3-25MHz
+ Component DesignItemID    : ABM3-25MHz
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ABM3   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ABM3-24MHz
+ Component Lib Symbol Ref  : ABM3-24MHz
+ Component DesignItemID    : ABM3-25MHz fixed -> ABM3-24MHz
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ABM3   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ABM3-12MHz
+ Component Lib Symbol Ref  : ABM3-12MHz
+ Component DesignItemID    : ABM3-12MHz
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ABM3   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : A40305RNCQ
+ Component Lib Symbol Ref  : A40305RNCQ
+ Component DesignItemID    : A40305RNCQ
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   A40305RNCQ   ModelType:   PCBLIB   Description: 
+   Map: (A:A),(B:B),(C:C),(D:D),(1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SP721ABTG
+ Component Lib Symbol Ref  : SP721ABTG
+ Component DesignItemID    : SP721ABTG
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC127P600X175-8N   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(5:5),(6:6),(7:7),(8:8),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PCA9515DP
+ Component Lib Symbol Ref  : PCA9515DP
+ Component DesignItemID    : PCA9515DP
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP65P490X110-8N   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+   Map: (2:2),(3:3),(8:8),(4:4),(5:5),(7:7),(6:6),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 3.00x3.00mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LT6015IS5
+ Component Lib Symbol Ref  : LT6015IS5
+ Component DesignItemID    : LT6015IS5
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(3:3),(5:5),(2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LIS3MDLTR
+ Component Lib Symbol Ref  : LIS3MDLTR
+ Component DesignItemID    : LIS3MDLTR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   PQFN50P200X200X100-12N   ModelType:   PCBLIB   Description: PQFN, 12-Leads, Body 2.00x2.00mm, Pitch 0.50mm, IPC Medium Density
+   Map: (4:4),(5:5),(2:2),(1:1),(11:11),(10:10),(9:9),(7:7),(6:6),(8:8),(12:12),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: PQFN, 12-Leads, Body 2.00x2.00mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : HX0068ANL
+ Component Lib Symbol Ref  : HX0068ANL
+ Component DesignItemID    : HX0068ANL
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC127P970X208-16N   ModelType:   PCBLIB   Description: SOIC, 16-Leads, Body 12.70x8.81mm, Pitch 1.27mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(5:5),(6:6),(4:4),(9:9),(7:7),(8:8),(10:10),(11:11),(12:12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 16-Leads, Body 12.70x8.81mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 2.09mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : FT230XS-R
+ Component Lib Symbol Ref  : FT230XS-R
+ Component DesignItemID    : FT230XS-R
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   16 QSOP   ModelType:   PCBLIB   Description: TSOP, 16-Leads, Body 4.89x3.90mm, Pitch 0.64mm, IPC Medium Density
+   Map: (10:10),(9:9),(8:8),(11:11),(12:12),(3:3),(5:5),(13:13),(1:1),(4:4),(2:2),(6:6),(15:15),(14:14),(7:7),(16:16)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 16-Leads, Body 4.89x3.90mm, Pitch 0.64mm, IPC Medium Density
+    Footprint Height         : 1.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : FSM1SJMTR
+ Component Lib Symbol Ref  : FSM1SJMTR
+ Component DesignItemID    : FSM1SJMTR
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   FSM1SJMTR   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : FQ1200007
+ Component Lib Symbol Ref  : FQ1200007
+ Component DesignItemID    : FQ1200007
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   FQ Crystal   ModelType:   PCBLIB   Description: 
+   Map: (F:F),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : FDS4435BZ
+ Component Lib Symbol Ref  : FDS4435BZ
+ Component DesignItemID    : FDS4435BZ
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SO-8_N_P-CH   ModelType:   PCBLIB   Description: 8-Pin Small Outline Integrated Circuit 1.27 mm Pitch, IPC Medium Density
+   Map: (G:G),(D:D),(S:S)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 8-Pin Small Outline Integrated Circuit 1.27 mm Pitch, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AT25SF081
+ Component Lib Symbol Ref  : AT25SF081
+ Component DesignItemID    : AT25SF081
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON50P300X60_HS-9N   ModelType:   PCBLIB   Description: SON, 8-Leads, Body 2.00x3.00mm, Pitch 0.50mm, Thermal Pad 1.60x0.20mm, IPC Medium Density
+   Map: (1:1),(6:6),(5:5),(2:2),(8:8),(4:4),(3:3),(7:7),(9:9)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 8-Leads, Body 2.00x3.00mm, Pitch 0.50mm, Thermal Pad 1.60x0.20mm, IPC Medium Density
+    Footprint Height         : 0.6mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS70933
+ Component Lib Symbol Ref  : TPS70933
+ Component DesignItemID    : TPS70933
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(2:2),(4:4),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS22918
+ Component Lib Symbol Ref  : TPS22918
+ Component DesignItemID    : TPS22918
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(5:5),(6:6),(2:2),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS22810
+ Component Lib Symbol Ref  : TPS22810
+ Component DesignItemID    : TPS22810
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(5:5),(6:6),(2:2),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : SI1869DH
+ Component Lib Symbol Ref  : SI1869DH
+ Component DesignItemID    : SI1869DH
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SC-70-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.00x2.10mm, Pitch 0.65mm, IPC Medium Density
+   Map: (4:4),(6:6),(2:2),(1:1),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.00x2.10mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PL133-37
+ Component Lib Symbol Ref  : PL133-37
+ Component DesignItemID    : PL133-37
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(4:4),(6:6),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PE014005
+ Component Lib Symbol Ref  : PE014005
+ Component DesignItemID    : SPDT RA toggle switch fixed -> PE014005
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   K$5C$PE-CO   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(16:16),(5:5),(9:9),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : NC7SZ126
+ Component Lib Symbol Ref  : NC7SZ126
+ Component DesignItemID    : NC7SZ126
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(4:4),(3:3),(5:5),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MMBT6427
+ Component Lib Symbol Ref  : MMBT6427
+ Component DesignItemID    : MMBT6427
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LMZ21701
+ Component Lib Symbol Ref  : LMZ21701
+ Component DesignItemID    : LMZ21701
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   LMZ21701   ModelType:   PCBLIB   Description: 
+   Map: (7:7),(8:8),(1:1),(5:5),(9:9),(3:3),(4:4),(6:6),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LM335ADT
+ Component Lib Symbol Ref  : LM335ADT
+ Component DesignItemID    : LM335ADT
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC127P600X175-8N   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(6:6),(7:7),(5:5),(4:4),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LM26420X
+ Component Lib Symbol Ref  : LM26420X
+ Component DesignItemID    : LM26420X
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SON50P350X80_HS-17N   ModelType:   PCBLIB   Description: SON, 16-Leads, Body 5.00x3.50mm, Pitch 0.50mm, Thermal Pad 4.45x1.65mm, IPC Medium Density
+   Map: (2:2),(11:11),(6:6),(3:3),(16:16),(5:5),(15:15),(4:4),(14:14),(9:9),(7:7),(8:8),(13:13),(10:10),(1:1),(12:12),(17:17)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SON, 16-Leads, Body 5.00x3.50mm, Pitch 0.50mm, Thermal Pad 4.45x1.65mm, IPC Medium Density
+    Footprint Height         : 0.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : HMHAA280
+ Component Lib Symbol Ref  : HMHAA280
+ Component DesignItemID    : HMHA2801AR2VCT fixed -> HMHAA280
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOP127P660X239-4N   ModelType:   PCBLIB   Description: SOP, 4-Leads, Body 2.50x4.40mm, Pitch 1.27mm, IPC Medium Density
+   Map: (2:2),(1:1),(4:4),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOP, 4-Leads, Body 2.50x4.40mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 2.39mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : FT4232HL
+ Component Lib Symbol Ref  : FT4232HL
+ Component DesignItemID    : FT4232HL
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSQFP50P1200X1200X120_HS-65N   ModelType:   PCBLIB   Description: TSQFP, 64-Leads, Body 10.00x10.00mm, Pitch 0.50mm, Thermal Pad 5.41x6.29mm, IPC Medium Density
+   Map: (16:16),(17:17),(18:18),(19:19),(21:21),(22:22),(23:23),(24:24),(26:26),(27:27),(28:28),(29:29),(30:30),(32:32),(33:33),(34:34),(38:38),(39:39),(40:40),(41:41),(43:43),(44:44),(45:45),(46:46),(48:48),(52:52),(53:53),(54:54),(55:55),(57:57),(58:58),(59:59),(42:42),(31:31),(20:20),(37:37),(12:12),(9:9),(4:4),(50:50),(49:49),(7:7),(8:8),(6:6),(14:14),(63:63),(62:62),(61:61),(2:2),(3:3),(13:13),(15:15),(25:25),(35:35),(56:56),(64:64),(47:47),(51:51),(11:11),(5:5),(1:1),(10:10),(60:60),(36:36)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSQFP, 64-Leads, Body 10.00x10.00mm, Pitch 0.50mm, Thermal Pad 5.41x6.29mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : DMP3098L
+ Component Lib Symbol Ref  : DMP3098L
+ Component DesignItemID    : DMP3098L
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : DMN3404L
+ Component Lib Symbol Ref  : DMN3404L
+ Component DesignItemID    : DMN3404L
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(2:2),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : 88E6350R
+ Component Lib Symbol Ref  : 88E6350R
+ Component DesignItemID    : 88E6350R
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSQFP40P1600X1600X120_HS-129N   ModelType:   PCBLIB   Description: TSQFP, 128-Leads, Body 14.00x14.00mm, Pitch 0.40mm, Thermal Pad 5.41x6.29mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(33:33),(34:34),(35:35),(36:36),(37:37),(38:38),(39:39),(40:40),(41:41),(42:42),(43:43),(64:64),(65:65),(66:66),(67:67),(68:68),(69:69),(70:70),(71:71),(72:72),(73:73),(74:74),(75:75),(76:76),(80:80),(81:81),(83:83),(84:84),(85:85),(86:86),(87:87),(88:88),(89:89),(90:90),(91:91),(92:92),(93:93),(94:94),(95:95),(96:96),(97:97),(98:98),(99:99),(100:100),(101:101),(102:102),(103:103),(104:104),(105:105),(106:106),(107:107),(108:108),(109:109),(110:110),(117:117),(118:118),(120:120),(111:111),(112:112),(113:113),(114:114),(115:115),(116:116),(119:119),(121:121),(122:122),(123:123),(124:124),(125:125),(127:127),(128:128),(12:12),(13:13),(14:14),(15:15),(16:16),(17:17),(18:18),(19:19),(20:20),(21:21),(22:22),(23:23),(24:24),(25:25),(26:26),(27:27),(28:28),(29:29),(30:30),(31:31),(32:32),(44:44),(45:45),(47:47),(48:48),(49:49),(50:50),(52:52),(53:53),(46:46),(51:51),(54:54),(55:55),(57:57),(58:58),(59:59),(60:60),(62:62),(63:63),(56:56),(61:61),(77:77),(78:78),(79:79),(82:82),(126:126),(129:129)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSQFP, 128-Leads, Body 14.00x14.00mm, Pitch 0.40mm, Thermal Pad 5.41x6.29mm, IPC Medium Density
+    Footprint Height         : 1.2mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : TPS3813
+ Component Lib Symbol Ref  : TPS3813
+ Component DesignItemID    : TPS3813
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (3:3),(5:5),(1:1),(4:4),(6:6),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : STD1802
+ Component Lib Symbol Ref  : STD1802
+ Component DesignItemID    : STD1802
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   DPAK   ModelType:   PCBLIB   Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+   Map: (2:2),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: D2-PAK/TO-263-AB; 3 Leads (1 Cropped); Body 15.5 (inc. leads) x 10.5 mm (LxW max)
+    Footprint Height         : 4.69mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : PCA9534
+ Component Lib Symbol Ref  : PCA9534
+ Component DesignItemID    : PCA9534
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TSOP-16   ModelType:   PCBLIB   Description: 
+   Map: (4:4),(5:5),(6:6),(7:7),(9:9),(10:10),(11:11),(12:12),(14:14),(15:15),(13:13),(1:1),(2:2),(3:3),(16:16),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MPU6000
+ Component Lib Symbol Ref  : MPU6000
+ Component DesignItemID    : MPU6000
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MPU6000   ModelType:   PCBLIB   Description: QFN, 24-Leads, Body 4.1x4.1mm (max), Pitch 0.50mm, IPC Medium Density
+   Map: (2:2),(3:3),(4:4),(5:5),(14:14),(15:15),(16:16),(17:17),(20:20),(10:10),(13:13),(18:18),(22:22),(1:1),(19:19),(21:21),(23:23),(24:24),(8:8),(11:11),(9:9),(6:6),(7:7),(12:12)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: QFN, 24-Leads, Body 4.1x4.1mm (max), Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 0.95mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MCP4728
+ Component Lib Symbol Ref  : MCP4728
+ Component DesignItemID    : MCP4728
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP-10   ModelType:   PCBLIB   Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+   Map: (2:2),(3:3),(4:4),(5:5),(6:6),(8:8),(9:9),(7:7),(1:1),(10:10)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 10-Leads, Body 3.00x3.00mm, Pitch 0.50mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : MAX6350
+ Component Lib Symbol Ref  : MAX6350
+ Component DesignItemID    : MAX6350
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC-8   ModelType:   PCBLIB   Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+   Map: (4:4),(3:3),(6:6),(2:2),(5:5),(1:1),(7:7),(8:8)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 8-Leads, Body 4.90x3.90mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 1.75mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC4415
+ Component Lib Symbol Ref  : LTC4415
+ Component DesignItemID    : LTC4415
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP-16   ModelType:   PCBLIB   Description: MSOP-23, 16-Leads, Exposed Die Pad, Body 4.1x3.1mm
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(13:13),(14:14),(15:15),(16:16),(17:17)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: MSOP-23, 16-Leads, Exposed Die Pad, Body 4.1x3.1mm
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC4412
+ Component Lib Symbol Ref  : LTC4412
+ Component DesignItemID    : LTC4412
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (1:1),(3:3),(4:4),(5:5),(2:2),(6:6)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC4359
+ Component Lib Symbol Ref  : LTC4359
+ Component DesignItemID    : LTC4359
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SM8   ModelType:   PCBLIB   Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+   Map: (4:4),(5:5),(8:8),(1:1),(6:6),(2:2),(3:3),(7:7)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSOP, 8-Leads, Body 2.95x2.80mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.3mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : LTC3638
+ Component Lib Symbol Ref  : LTC3638
+ Component DesignItemID    : LTC3638
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   MSOP16 (12)   ModelType:   PCBLIB   Description: TSSOP, 16-Leads, Body 4.00x3.00mm, Pitch 0.50mm, Thermal Pad 2.95x1.75mm, IPC Medium Density
+   Map: (1:1),(3:3),(5:5),(6:6),(7:7),(8:8),(16:16),(14:14),(12:12),(11:11),(10:10),(9:9),(17:17)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: TSSOP, 16-Leads, Body 4.00x3.00mm, Pitch 0.50mm, Thermal Pad 2.95x1.75mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : IL0524S
+ Component Lib Symbol Ref  : IL0524S
+ Component DesignItemID    : IL0524S
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   IL0524S   ModelType:   PCBLIB   Description: 
+   Map: (2:2),(1:1),(4:4),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : FMB5551
+ Component Lib Symbol Ref  : FMB5551
+ Component DesignItemID    : FMB5551
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (6:6),(1:1),(5:5),(4:4),(3:3),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ECS-250
+ Component Lib Symbol Ref  : ECS-250
+ Component DesignItemID    : ECS-250
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   ECX-53B   ModelType:   PCBLIB   Description: 
+   Map: (F:F),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : E62-10J
+ Component Lib Symbol Ref  : E62-10J
+ Component DesignItemID    : E62-10J
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   E62-10J   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+ Implementation Model details:
+   ModelName:   Limit Switch Right angle   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BQ24618
+ Component Lib Symbol Ref  : BQ24618
+ Component DesignItemID    : BQ24618
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   QFN-24   ModelType:   PCBLIB   Description: QFN, 24-Leads, Body 4.00x4.00mm, Pitch 0.50mm, Thermal Pad 2.45x2.45mm, IPC Medium Density
+   Map: (1:1),(2:2),(3:3),(4:4),(5:5),(6:6),(24:24),(23:23),(22:22),(21:21),(20:20),(19:19),(18:18),(17:17),(16:16),(15:15),(14:14),(13:13),(7:7),(8:8),(9:9),(10:10),(11:11),(12:12),(25:25)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: QFN, 24-Leads, Body 4.00x4.00mm, Pitch 0.50mm, Thermal Pad 2.45x2.45mm, IPC Medium Density
+    Footprint Height         : 0.8mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : ADM8829
+ Component Lib Symbol Ref  : ADM8829
+ Component DesignItemID    : ADM8829
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-6   ModelType:   PCBLIB   Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (6:6),(3:3),(4:4),(2:2),(1:1),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 6-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : RM3100
+ Component Lib Symbol Ref  : RM3100
+ Component DesignItemID    : RM3100
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   RM3100   ModelType:   PCBLIB   Description: 
+   Map: (1:1),(2:2),(3:3),(4:4),(14:14),(7:7),(5:5),(10:10),(6:6),(12:12),(13:13),(8:8),(9:9),(11:11)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : OEM719
+ Component Lib Symbol Ref  : OEM719
+ Component DesignItemID    : OEM719
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   OEM719   ModelType:   PCBLIB   Description: 
+   Map: (5:5),(12:12),(15:15),(9:9),(7:7),(2:2),(11:11),(14:14),(8:8),(20:20),(17:17),(6:6),(19:19),(3:3),(4:4),(10:10),(13:13),(16:16),(18:18),(F:F),(1:1)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : NCP346
+ Component Lib Symbol Ref  : NCP346
+ Component DesignItemID    : NCP346
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(3:3),(1:1),(5:5),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : HX5062
+ Component Lib Symbol Ref  : HX5062
+ Component DesignItemID    : HX5062
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOIC127P1600X551-24N   ModelType:   PCBLIB   Description: SOIC, 24-Leads, Body 17.53x12.20mm, Pitch 1.27mm, IPC Medium Density
+   Map: (12:12),(11:11),(10:10),(9:9),(8:8),(7:7),(6:6),(5:5),(4:4),(3:3),(2:2),(1:1),(24:24),(23:23),(22:22),(21:21),(20:20),(19:19),(18:18),(17:17),(16:16),(15:15),(14:14),(13:13)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOIC, 24-Leads, Body 17.53x12.20mm, Pitch 1.27mm, IPC Medium Density
+    Footprint Height         : 5.51mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : HX5008
+ Component Lib Symbol Ref  : HX5008
+ Component DesignItemID    : HX5008
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOP99P1870X612-24N   ModelType:   PCBLIB   Description: SOP, 24-Leads, Body 16.92x17.86mm, Pitch 0.99mm, IPC Medium Density
+   Map: (12:12),(11:11),(10:10),(9:9),(8:8),(7:7),(6:6),(5:5),(4:4),(3:3),(2:2),(1:1),(24:24),(23:23),(22:22),(21:21),(20:20),(19:19),(18:18),(17:17),(16:16),(15:15),(14:14),(13:13)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOP, 24-Leads, Body 16.92x17.86mm, Pitch 0.99mm, IPC Medium Density
+    Footprint Height         : 6.13mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : AL8400
+ Component Lib Symbol Ref  : AL8400
+ Component DesignItemID    : AL8400
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT-353   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.00x2.10mm, Pitch 0.65mm, IPC Medium Density
+   Map: (2:2),(1:1),(4:4),(5:5),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.00x2.10mm, Pitch 0.65mm, IPC Medium Density
+    Footprint Height         : 1.1mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : 2N6055
+ Component Lib Symbol Ref  : 2N6055
+ Component DesignItemID    : 2N6055
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   TO-3   ModelType:   PCBLIB   Description: 
+   Map: (3:3),(1:1),(2:2)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : 24C04A
+ Component Lib Symbol Ref  : 24C04A
+ Component DesignItemID    : 24C04A
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-5   ModelType:   PCBLIB   Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (4:4),(1:1),(3:3),(2:2),(5:5)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 5-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : 1920AU
+ Component Lib Symbol Ref  : 1920AU
+ Component DesignItemID    : 1920AU
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : 1231-M
+ Component Lib Symbol Ref  : 1231-M
+ Component DesignItemID    : 1231-M
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : RM100
+ Component Lib Symbol Ref  : RM100
+ Component DesignItemID    : RM100
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   RM100   ModelType:   PCBLIB   Description: 
+   Map: (C:C),(4:4),(3:3),(2:2),(1:1),(5:5),(6:6),(7:7)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: 
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : BSR16
+ Component Lib Symbol Ref  : BSR16
+ Component DesignItemID    : BSR16
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   SOT23-3   ModelType:   PCBLIB   Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+   Map: (2:2),(1:1),(3:3)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SOT23, 3-Leads, Body 2.90x2.45mm, Pitch 0.95mm, IPC Medium Density
+    Footprint Height         : 1.45mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+
+ Component Source Lib Name : Supernova.SchLib
+ Component Lib Reference   : KMR2
+ Component Lib Symbol Ref  : KMR2
+ Component DesignItemID    : KMR2
+ Component Lib Identifier  : Supernova.SchLib
+ Component LibPath was     : <*> now <blank>
+ Implementation Model details:
+   ModelName:   KMR231GLFS   ModelType:   PCBLIB   Description: SW4SMD_63X161LS
+   Map: (1:1),(2:2),(3:3),(4:4)
+ Implementation Data File Link Details:
+   File Location: 
+   Source  PcbLib: C:\Users\Asteria\Dropbox\Pumpkin PCBs\Supernova Libraries\Supernova\Supernova.PcbLib
+   Updated Model Location: Supernova.PcbLib
+Updated Component Footprint Description: SW4SMD_63X161LS
+    Footprint Height         : 0mm
+ Implementation Data File Link Details:
+   File Location: Supernova.PcbLib
+
+
+

@@ -29,6 +29,7 @@ sys.path.insert(1, 'src\\')
 import shutil
 import datetime
 import Altium_Files
+import time
 
 #
 #
@@ -91,16 +92,15 @@ class mod_date:
 # ----------------
 # Public Functions 
 
-def get_output_dir(starting_dir):
+def get_part_number(starting_dir):
     """
-    Function to get the path to the Project outputs directory of an Altium 
-    Project given the path of the project.
+    Function to determine the part number for the folders contained in the 
+    starting directory.
 
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).
-    @return       (string)         The Full path of the Altium project outputs 
-                                   folder for the project being delivered, 
-                                   =None if no folder is found.
+    @return       list of strings: The part number prefix, part number and 
+                                   part revision for the project.
     """    
     
     # get the file list of the starting directory
@@ -108,98 +108,54 @@ def get_output_dir(starting_dir):
     
     # find project Outputs folder
     for filename in root_file_list:
-        if filename.startswith('Project Outputs'):
-            return starting_dir + '\\' + filename
+        if (('.' not in filename) and
+            (filename.startswith('7')) and 
+            (not filename.endswith('PD'))):
+            part_prefix = filename[0:3]
+            part_number = filename[4:9]
+            part_revision = filename[9:11]
+    
+            return [part_prefix, part_number, part_revision]
         # end
-    # end
+    # end    
     
     # if this code was reached, then no folder was found
-    print '***  Error: No Project Outputs Directory Found   ***\n\n'
+    print '***  Error: Folder structure not compliant with current Outjob file   ***\n\n'
     return None
-# end def 
+# end def    
 
-
-def get_Andrews_dir(starting_dir):
+def get_assy_number(starting_dir):
     """
-    Function to get the path to the Andrews Format directory that has been 
-    created to temporarly house all of the files to be delivered while this 
-    module is running. 
-    This function will create said directory if it does not already exist.
+    Function to determine the assembly number for the folders contained in the 
+    starting directory.
 
     @param[in]    starting_dir:    The Altium project directory (full path) 
                                    (string).
-    @return       (string)         The Full path of the Andrews Format folder 
-                                   =None if no folder is found.
-    """   
+    @return       list of strings: The assembly number prefix, assembly number and 
+                                   asssembly revision for the project.
+    """        
     
-    # define the string of the full path to the folder
-    andrews_dir = starting_dir + '\\Andrews Format'
+    # get the file list of the starting directory
+    root_file_list = os.listdir(starting_dir)
     
-    # if the path does not already exist, create it
-    if not os.path.exists(andrews_dir):
-        os.makedirs(andrews_dir)
-    # end if
+    # find project Outputs folder
+    for filename in root_file_list:
+        if (('.' not in filename) and
+            (filename.startswith('7')) and 
+            (filename.endswith('PD'))):
+            assy_prefix = filename[0:3]
+            assy_number = filename[4:9]
+            assy_revision = filename[9:11]
     
-    # return the full path
-    return andrews_dir
-#end def
+            return [assy_prefix, assy_number, assy_revision]
+        # end
+    # end    
+    
+    # if this code was reached, then no folder was found
+    print '***  Error: Folder structure not compliant with current Outjob file   ***\n\n'
+    return None
+# end def   
 
-
-def get_pdf_dir(starting_dir):
-    """
-    Function to get the path to the pdf directory that has been 
-    created to temporarly house all of the pdfs to be delivered while this 
-    module is running. 
-    This function will create said directory if it does not already exist.
-
-    @param[in]    starting_dir:    The Altium project directory (full path) 
-                                   (string).
-    @return       (string)         The Full path of the pdfs folder 
-    """       
-    
-    # get the Andrews directory path
-    andrews_dir = get_Andrews_dir(starting_dir)
-    
-    # define the string for the pdfs folder
-    pdf_dir = andrews_dir+'\\'+'pdfs'
-    
-    # if the path does not yet exist, create it
-    if not os.path.exists(pdf_dir):
-        os.makedirs(pdf_dir)
-    # end if
-    
-    # return the full path
-    return pdf_dir
-# end def
-
-
-def get_gerbers_dir(starting_dir):
-    """
-    Function to get the path to the gerbers directory that has been 
-    created to temporarly house all of the gerbers to be delivered while this 
-    module is running. 
-    This function will create said directory if it does not already exist.
-
-    @param[in]    starting_dir:    The Altium project directory (full path) 
-                                   (string).
-    @return       (string)         The Full path of the gerbers folder 
-    """       
-    
-    # retrieve the path to the Andrews directory
-    andrews_dir = get_Andrews_dir(starting_dir)
-    
-    # define the path fror the gerbers folder
-    gerbers_dir = andrews_dir + '\\Gerbers'
-    
-    # if the path does not already exist, create it
-    if not os.path.exists(gerbers_dir):
-        os.makedirs(gerbers_dir)
-    # end if
-    
-    # return the full path
-    return gerbers_dir
-#end def
-    
         
 def clear_output(starting_dir):
     """
@@ -324,29 +280,57 @@ def check_modified_dates(modified_dates):
     return True
 # end def
 
-def construct_root_archive(starting_dir):
+def construct_root_archive(output_dir, part_number):
     """
     Construct an archive of all of the files to be delivered to Pumpkin.
 
-    @param[in]    starting_dir:    The Altium project directory (full path) 
-                                   (string).   
+    @param[in]   output_dir:          The packaging outputs directory (full path) 
+                                      (string).   
+    @param[in]   part_number:         The part number for the design
+                                      (string).                 
     """    
     print '\n\nConstructing Archive...'
     
-    # get the project part number
-    part_number = Altium_Files.get_part_number(starting_dir)
+    zip_filename = output_dir + '\\' + part_number + '_Folder'
     
-    # get the path to Andrews directory
-    andrews_dir = get_Andrews_dir(starting_dir)
+    # make a folder to put the step file in temporarily
+    temp_dir = output_dir + '\\temp'
+    if os.path.exists(temp_dir):
+        shutil.rmtree(temp_dir)
+    # end
     
-    zip_filename = part_number + '_Folder'
+    # get the list of files in the directory
+    file_list = os.listdir(output_dir)
     
-    # make the .zip archive
-    shutil.make_archive(starting_dir+'\\'+zip_filename, 
-                        'zip', andrews_dir)
+    # create temporary directory in which to place all of the files needed
+    os.makedirs(temp_dir)    
     
-    # remove the left over folder
-    shutil.rmtree(andrews_dir, ignore_errors=True)
+    # copy all files into temp directory
+    for filename in file_list:
+        if '.' in filename:
+            # copy files
+            shutil.copy(output_dir +'\\' + filename, temp_dir + '\\' + filename)
+            
+        else:
+            # copy folders
+            #shutil.copytree(output_dir +'\\' + filename, temp_dir + '\\' + filename)
+            shutil.make_archive(temp_dir +'\\' + filename, 'zip', output_dir +'\\' + filename)
+        # end if        
+    # end for 
+    
+    # make archive
+    shutil.make_archive(zip_filename, 'zip', temp_dir)
+    
+    time.sleep(0.5)
+    
+    try:
+        # delete the temp directory
+        shutil.rmtree(temp_dir)       
+        
+    except:
+        print '*** WARNING: Could not delete temporary output directory ***'
+        log_warning()     
+    # end try    
     
     # indicate completion
     print '*** Directory ' + part_number + '_Folder.zip' + \
