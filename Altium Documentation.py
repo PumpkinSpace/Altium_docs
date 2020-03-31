@@ -159,7 +159,14 @@ if __name__ == '__main__':
             Altium_PDF.log_warning(get=True) and 
             Altium_Files.log_warning(get=True)):
         print('\n*** Warnings were raised so please reveiw ***')
-        input('When the warnings have been reviewed/recitified press ENTER to continue')
+        
+        if sys.version_info[0] < 3:
+            # python 2
+            raw_input('When the warnings have been reviewed/recitified press ENTER to continue')
+            
+        else:
+            input('When the warnings have been reviewed/recitified press ENTER to continue')
+        # end if
     # end if
     
     print("\nUploading of Project information to the Google Drive is disabled")

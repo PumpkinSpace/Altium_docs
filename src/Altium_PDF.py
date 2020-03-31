@@ -38,11 +38,8 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
-try:
-    from cStringIO import StringIO
-    
-except ImportError:
-    from io import StringIO
+from io import StringIO
+from io import BytesIO
 # end try
 
 import multiprocessing
@@ -192,7 +189,7 @@ def convert_pdf_to_txt(path):
     
     # create a PDF resource manager object that stores shared resources
     rsrcmgr = PDFResourceManager()
-    retstr = StringIO()
+    retstr = BytesIO()
     codec = 'utf-8'
     
     # set parameters for analysis
