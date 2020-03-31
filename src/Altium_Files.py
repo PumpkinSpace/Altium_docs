@@ -578,7 +578,7 @@ def manage_schematic(starting_dir, pdf_dir, output_pdf_dir, part_number, with_th
     
     if os.path.isfile(pdf_dir + '\\MOD.pdf'):
         # extract the text from a pdf page
-        pdf_text = Altium_PDF.convert_pdf_to_txt(pdf_dir + '\\MOD.pdf')
+        pdf_text = str(Altium_PDF.convert_pdf_to_txt(pdf_dir + '\\MOD.pdf'))
         
         # check to see if this document is the Assembly revision document
         if 'ASSY' in pdf_text:

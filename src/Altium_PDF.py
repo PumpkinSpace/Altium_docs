@@ -358,7 +358,7 @@ def check_DRC(pdf_dir):
                                            'Design Rules Check.PDF')
         
         # extract text and remove whitespace
-        DRC_text = "".join(convert_pdf_to_txt(pdf_dir+'\\Design Rules Check.PDF').split())        
+        DRC_text = "".join(str(convert_pdf_to_txt(pdf_dir+'\\Design Rules Check.PDF')).split())        
         
     else:
         print('***  Error: Folder structure not compliant with current Outjob file   ***\n\n')
@@ -406,7 +406,7 @@ def check_ERC(pdf_dir):
                                            'Electrical Rules Check.PDF')
         
         # extract text and remove whitespace
-        ERC_text = "".join(convert_pdf_to_txt(pdf_dir+'\\Electrical Rules Check.PDF').split())       
+        ERC_text = "".join(str(convert_pdf_to_txt(pdf_dir+'\\Electrical Rules Check.PDF')).split())       
         
     else:
         print('***  Error: Folder structure not compliant with current Outjob file   ***\n\n')
