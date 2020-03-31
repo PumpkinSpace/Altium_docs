@@ -131,7 +131,7 @@ def upload_zip(starting_dir, prog_dir):
     @param:    prog_dir       The full path that the program is running from
                               (string).
     """    
-    print '\nUploading to google drive...'
+    print('\nUploading to google drive...')
     file_list = os.listdir(starting_dir)
     
     for filename in file_list:
@@ -162,7 +162,7 @@ def upload_zip(starting_dir, prog_dir):
     zip_file.SetContentFile(starting_dir + '\\' + filename)
     zip_file.Upload()
     
-    print 'Complete!\n'
+    print('Complete!\n')
 # end def    
     
 
@@ -179,7 +179,7 @@ def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info)
                               (assembly_info).
     """    
     
-    print 'Updating the google sheet BOM...'
+    print('Updating the google sheet BOM...')
     # determine the scr directory path
     src_dir = prog_dir + '\\src'
     
@@ -190,7 +190,7 @@ def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info)
         gsheet = authorise_google_sheet(src_dir)
     
     except:
-        print '*** Error: Failed to Authorize google credentials, no BOM uploaded\n'
+        print('*** Error: Failed to Authorize google credentials, no BOM uploaded ***\n')
         return None
     # end try
     
@@ -311,7 +311,7 @@ def populate_online_bom(prog_dir, part_number, assy_number, revision, assy_info)
     # upload the data
     bom.update_cells(cells)
                             
-    print 'Complete!\n'
+    print('Complete!\n')
     return True
 #end def
     
@@ -464,7 +464,7 @@ def open_bom(drive, gsheet, new_filename):
     file_list = drive.ListFile({'q': "'1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV' in parents and trashed=false"}).GetList()
     
     # convert this list to a useable dictionary
-    file_dict = {i.get('title').encode('ascii', 'ignore'): i.get('id').encode('ascii', 'ignore') for i in file_list}
+    file_dict = {i.get('title').encode('utf-8', 'ignore').decode(): i.get('id').encode('utf-8', 'ignore').decode() for i in file_list}
     
     # get the modified date of the BOM template
     temp_file = drive.CreateFile({'id': BOM_TEMPLATE_KEY})
@@ -473,7 +473,7 @@ def open_bom(drive, gsheet, new_filename):
     create_new_bom = True
     
     # check to see if the file we want to edit is already there
-    if file_dict.has_key(new_filename):
+    if new_filename in file_dict:
         
         # get the modified date of the BOM and the last modifier
         temp_file = drive.CreateFile({'id': file_dict[new_filename]})
@@ -484,13 +484,13 @@ def open_bom(drive, gsheet, new_filename):
         # or I was not the modifier then update the BOM rather than deleting it
         if ((template_mod_date < bom_mod_date) or (bom_modifier != 'David Wright')):
             # it is so return it opened
-            print '\t Updating the ' + new_filename + ' google sheet'
+            print('\t Updating the ' + new_filename + ' google sheet')
             create_new_bom = False
             return gsheet.open_by_key(file_dict[new_filename])  
         
         else:
             # the file is out of date so delete it
-            print '\t Deleting the out of date ' + new_filename + ' google sheet'
+            print('\t Deleting the out of date ' + new_filename + ' google sheet')
             temp_file.Trash()
         # end if
     # end if
@@ -501,7 +501,7 @@ def open_bom(drive, gsheet, new_filename):
                                                     body={"parents": [{"kind": "drive#fileLink",
                                                                        "id": '1sXLSZtFsRanD2RMn1Q1BLcLsUHGEH7tV'}], 
                                                           'title': new_filename}).execute()    
-        print '\t Creating the ' + new_filename + ' google sheet'
+        print('\t Creating the ' + new_filename + ' google sheet')
         
         # return the new file opened
         return gsheet.open_by_key(new_sheet['id'])

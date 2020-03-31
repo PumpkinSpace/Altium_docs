@@ -96,7 +96,7 @@ if __name__ == '__main__':
             shutil.rmtree(output_dir)
             
         except:
-            print '*** Error: Previous output could not be deleted ***'
+            print('*** Error: Previous output could not be deleted ***')
             sys.exit()
         # end try
     # end if
@@ -158,11 +158,11 @@ if __name__ == '__main__':
             Altium_Excel.log_warning(get=True) and 
             Altium_PDF.log_warning(get=True) and 
             Altium_Files.log_warning(get=True)):
-        print '\n*** Warnings were raised so please reveiw ***'
-        raw_input('When the warnings have been reviewed/recitified press ENTER to continue')
+        print('\n*** Warnings were raised so please reveiw ***')
+        input('When the warnings have been reviewed/recitified press ENTER to continue')
     # end if
     
-    print "\nUploading of Project information to the Google Drive is disabled"
+    print("\nUploading of Project information to the Google Drive is disabled")
     #Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)    
     
     # construct the final zip file and remove un-needed directories
@@ -172,9 +172,9 @@ if __name__ == '__main__':
     if not (Altium_Excel.log_error(get=True) and 
             Altium_PDF.log_error(get=True) and 
             Altium_Files.log_error(get=True)):
-        print '\n*** Errors occurred so please reveiw ***'
+        print('\n*** Errors occurred so please reveiw ***')
     
-    print "\nDeliverable generation is complete"
+    print("\nDeliverable generation is complete")
     
     # close the log file
     sys.stdout.close()

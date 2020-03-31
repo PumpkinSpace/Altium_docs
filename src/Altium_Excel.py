@@ -226,10 +226,10 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     
     # if this is a test print the lists
     if is_test:
-        for i in bom_d_list: print i
-        print '\n'
-        for i in dnp_d_list: print i
-        print '\n'
+        for i in bom_d_list: print (i)
+        print('\n')
+        for i in dnp_d_list: print (i)
+        print('\n')
     # end if
     
     # if getting the BOM lists threw an error then exit
@@ -276,10 +276,10 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     
     # if this is a test then print the lists
     if is_test:
-        for i in comp_dnp_list: print i
-        print '\n'
-        for i in dnp_d_list: print i
-        print '\n'        
+        for i in comp_dnp_list: print (i)
+        print('\n')
+        for i in dnp_d_list: print (i)
+        print('\n')       
     # end if
     
     # fill the assy config document with these lists.
@@ -323,7 +323,7 @@ def copy_assy_config(starting_dir):
                         starting_dir + '\\ASSY Config.xlsx')
     
     except:
-        print '*** Error: could not copy master ASSY Config document ***'
+        print('*** Error: could not copy master ASSY Config document ***')
         log_error()
     # end try
 # end def
@@ -427,7 +427,7 @@ def set_assembly_number(doc):
         set_assembly_number.assy_number = cell_string.split('-')[1]        
         
     else:
-        print "*** Error: no assembly number found in BOM Doc ***"
+        print("*** Error: no assembly number found in BOM Doc ***")
         log_error()
     # end if
     
@@ -438,7 +438,7 @@ def set_assembly_number(doc):
         set_assembly_number.part_number = cell_string.split('-')[1]
         
     else:
-        print "*** Error: no part number found in BOM Doc ***"
+        print("*** Error: no part number found in BOM Doc ***")
         log_error()
     # end if   
     
@@ -454,7 +454,7 @@ def set_assembly_number(doc):
         set_assembly_number.revision = cell_string
         
     else:
-        print "*** Error: no revision found in BOM Doc ***"
+        print("*** Error: no revision found in BOM Doc ***")
         log_error()
     # end if    
 # end def
@@ -471,7 +471,7 @@ def get_assembly_number(specific_number = 'ASSY'):
     
     if (specific_number == 'ASSY'):
         if (set_assembly_number.assy_number == None):
-            print "*** Error: No Assembly Number has been set ***"
+            print("*** Error: No Assembly Number has been set ***")
             log_error()
             
         else:
@@ -480,7 +480,7 @@ def get_assembly_number(specific_number = 'ASSY'):
         
     elif (specific_number == 'PART'):
         if (set_assembly_number.part_number == None):
-            print "*** Error: No Part Number has been set ***"
+            print("*** Error: No Part Number has been set ***")
             log_error()
             
         else:
@@ -489,7 +489,7 @@ def get_assembly_number(specific_number = 'ASSY'):
         
     elif (specific_number == 'REV'):
         if (set_assembly_number.revision == None):
-            print "*** Error: No Revision has been set ***"
+            print("*** Error: No Revision has been set ***")
             log_error()
             
         else:
@@ -497,7 +497,7 @@ def get_assembly_number(specific_number = 'ASSY'):
         # end if  
         
     else:
-        print "*** Error: Invalid input to function ***"
+        print("*** Error: Invalid input to function ***")
         log_error()
     # end if
 # end def
@@ -537,18 +537,18 @@ def get_bom_lists(gerber_dir, d_list, pn_list, DNP = False):
     # no file was found so log the appropraite error
     if filename == '':
         if DNP:
-            print '***  Error: no DNP BOM found ***'
+            print('***  Error: no DNP BOM found ***')
             log_error()
             
         else:
-            print '***  Error: no BOM found ***'
+            print('***  Error: no BOM found ***')
             log_error()   
         # end if
         return None, None
     # end if
     
     if is_test:
-        print filename
+        print(filename)
     # end if
     
     try:
@@ -560,7 +560,7 @@ def get_bom_lists(gerber_dir, d_list, pn_list, DNP = False):
         doc = xlrd.open_workbook(gerber_dir + '\\' + filename).sheet_by_index(0)
     
     except:
-        print '***  Error: could not open .xls file ***'
+        print('***  Error: could not open .xls file ***')
         log_error()    
         return None, None
     # end try
@@ -724,7 +724,7 @@ def open_assy_config(starting_dir, sheet = 'BOM'):
     # end for
     
     if assy_filename == '':
-        print '***  Error: no ASSY Config doc found ***'
+        print('***  Error: no ASSY Config doc found ***')
         
         return None, None, None
     # end if    
@@ -734,7 +734,7 @@ def open_assy_config(starting_dir, sheet = 'BOM'):
         assy_doc = openpyxl.load_workbook(starting_dir + '\\' + assy_filename)
         
     except:
-        print '***  Error: ASSY Config doc could not be opened ***'
+        print('***  Error: ASSY Config doc could not be opened ***')
     
         return None, None, None      
     # end try
@@ -744,7 +744,7 @@ def open_assy_config(starting_dir, sheet = 'BOM'):
         bom_sheet = assy_doc[sheet]
         
     except:
-        print '***  Error: ASSY Config doc is invlaid ***'
+        print('***  Error: ASSY Config doc is invlaid ***')
     
         return None, None, None       
     # end try
@@ -762,7 +762,7 @@ def test():
     construct_assembly_doc('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (01234A)')
     
     if not log_error(get=True):
-        print '*** ERRORS OCCURRED***'
+        print('*** ERRORS OCCURRED***')
 #end def
 
 if __name__ == '__main__':

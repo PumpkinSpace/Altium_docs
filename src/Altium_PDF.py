@@ -29,7 +29,7 @@ import sys
 sys.path.insert(1, 'src\\')
 import shutil
 import subprocess
-import pyPdf
+import PyPDF2
 from functools import partial
 import time
 import Altium_helpers
@@ -38,7 +38,13 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
-from cStringIO import StringIO
+try:
+    from cStringIO import StringIO
+    
+except ImportError:
+    from io import StringIO
+# end try
+
 import multiprocessing
 
 # This program also requires the following installed packages:  
@@ -192,7 +198,7 @@ def convert_pdf_to_txt(path):
     # set parameters for analysis
     laparams = LAParams()
     device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
-    fp = file(path, 'rb')
+    fp = open(path, 'rb')
     interpreter = PDFPageInterpreter(rsrcmgr, device)
     password = ""
     maxpages = 0
@@ -239,7 +245,7 @@ def manage_Altium_PDFs(pdf_dir, output_pdf_dir, num_layers,
     
     file_list = os.listdir(pdf_dir)
     
-    print "Moving PDF documents"
+    print("Moving PDF documents")
     
     layer_count = 0
     
@@ -249,12 +255,12 @@ def manage_Altium_PDFs(pdf_dir, output_pdf_dir, num_layers,
         if filename.startswith("layers."):
             # split the layers file into its pages and write them to the output
             with open(pdf_dir + '\\layers.pdf', "rb") as layers_file:
-                layers_pdf = pyPdf.PdfFileReader(layers_file)                
+                layers_pdf = PyPDF2.PdfFileReader(layers_file)                
 
                 # write each page to a separate pdf file
-                for page in xrange(layers_pdf.numPages):
+                for page in range(layers_pdf.numPages):
                     # open the output stream
-                    output = pyPdf.PdfFileWriter()
+                    output = PyPDF2.PdfFileWriter()
 
                     # add the layers page to the output stream.
                     output.addPage(layers_pdf.getPage(page))
@@ -280,51 +286,51 @@ def manage_Altium_PDFs(pdf_dir, output_pdf_dir, num_layers,
     
     # Generate warnings for pecuiliar outputs
     if (layer_count != num_layers):
-        print '\t*** WARNING wrong number of layers printed ***'
+        print('\t*** WARNING wrong number of layers printed ***')
         log_warning()
     # end
     if ("MECHDWG" not in file_list):
-        print '\t*** WARNING No MECHDWG file output ***'
+        print('\t*** WARNING No MECHDWG file output ***')
         log_warning()
     # end
     if ("ADB0230" not in file_list):
-        print '\t*** WARNING No ADB0230 file output ***'
+        print('\t*** WARNING No ADB0230 file output ***')
         log_warning()
     # end
     if ("ADT0127" not in file_list):
-        print '\t*** WARNING No ADT0127 file output ***'
+        print('\t*** WARNING No ADT0127 file output ***')
         log_warning()
     # end
     if ("SST0126" not in file_list):
-        print '\t*** WARNING No SST0126 file output ***'
+        print('\t*** WARNING No SST0126 file output ***')
         log_warning()
     # end
     if ("SMT0125" not in file_list):
-        print '\t*** WARNING No SMT0125 file output ***'
+        print('\t*** WARNING No SMT0125 file output ***')
         log_warning()
     # end
     if ("SSB0229" not in file_list):
-        print '\t*** WARNING No SSB0229 file output ***'
+        print('\t*** WARNING No SSB0229 file output ***')
         log_warning()
     # end
     if ("SMB0223" not in file_list):
-        print '\t*** WARNING No SMB0223 file output ***'
+        print('\t*** WARNING No SMB0223 file output ***')
         log_warning()
     # end
     if ("DD0124" not in file_list):
-        print '\t*** WARNING No DD0124 file output ***'
+        print('\t*** WARNING No DD0124 file output ***')
         log_warning()
     # end
     if ("SPB0223" not in file_list): 
-        print '\t*** WARNING No SPB0223 file output ***'
+        print('\t*** WARNING No SPB0223 file output ***')
         log_warning()
     # end
     if ("SPT0123" not in file_list):
-        print '\t*** WARNING No SPT0123 file output ***'
+        print('\t*** WARNING No SPT0123 file output ***')
         log_warning()
     # end      
 
-    print 'Complete!\n'
+    print('Complete!\n')
 
     return modified_dates
 # end def  
@@ -336,7 +342,7 @@ def check_DRC(pdf_dir):
     @param:    pdf_dir        The full path of the Altium pdf Folder (string).
     @return:   (mod_date)     The modification date of the Design Rule Check
     """  
-    print '\nChecking the Design Rule Check...'
+    print('\nChecking the Design Rule Check...')
     
     DRC_text = ''
     
@@ -345,7 +351,7 @@ def check_DRC(pdf_dir):
         file_list = os.listdir(pdf_dir)   
         
         if 'Design Rules Check.PDF' not in file_list:
-            print '*** Error: No design rule check has been completed ***'
+            print('*** Error: No design rule check has been completed ***')
             log_error()
             return None
         # end if
@@ -358,21 +364,21 @@ def check_DRC(pdf_dir):
         DRC_text = "".join(convert_pdf_to_txt(pdf_dir+'\\Design Rules Check.PDF').split())        
         
     else:
-        print '***  Error: Folder structure not compliant with current Outjob file   ***\n\n'
+        print('***  Error: Folder structure not compliant with current Outjob file   ***\n\n')
         return None     
     # end if
     
     if 'Warnings0' not in DRC_text:
-        print '*** Warning: Warnings were raised during Altium DRC ***'
+        print('*** Warning: Warnings were raised during Altium DRC ***')
         log_warning()
     # end if
     
     if 'Violations0' not in DRC_text:
-        print '*** Warning: Rule Violations were found during Altium DRC ***'
+        print('*** Warning: Rule Violations were found during Altium DRC ***')
         log_warning()
     # end if
     
-    print 'Complete!'
+    print('Complete!')
     
     return DRC_date
 # end def
@@ -385,7 +391,7 @@ def check_ERC(pdf_dir):
     @param:    pdf_dir        The full path of the Altium pdf Folder (string).
     @return:   (mod_date)     The modification date of the Electrical Rule Check
     """  
-    print '\nChecking the Electrical Rule Check...'
+    print('\nChecking the Electrical Rule Check...')
     DRC_text = ''
     
     if os.path.isdir(pdf_dir):
@@ -393,7 +399,7 @@ def check_ERC(pdf_dir):
         file_list = os.listdir(pdf_dir)   
         
         if 'Electrical Rules Check.PDF' not in file_list:
-            print '*** Error: No electrical rule check has been completed ***'
+            print('*** Error: No electrical rule check has been completed ***')
             log_error()
             return None
         # end if
@@ -406,22 +412,22 @@ def check_ERC(pdf_dir):
         ERC_text = "".join(convert_pdf_to_txt(pdf_dir+'\\Electrical Rules Check.PDF').split())       
         
     else:
-        print '***  Error: Folder structure not compliant with current Outjob file   ***\n\n'
+        print('***  Error: Folder structure not compliant with current Outjob file   ***\n\n')
         log_error()
         return None  
     # end if
     
     if 'Warning' in ERC_text:
-        print '*** Warning: Warnings were raised during Altium ERC ***'
+        print('*** Warning: Warnings were raised during Altium ERC ***')
         log_warning()
     # end if
     
     if 'Error' in ERC_text:
-        print '*** Warning: Rule Violations were found during Altium ERC ***'
+        print('*** Warning: Rule Violations were found during Altium ERC ***')
         log_warning()
     # end if
     
-    print 'Complete!\n'
+    print('Complete!\n')
     
     return ERC_date
 # end def

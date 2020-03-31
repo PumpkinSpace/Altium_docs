@@ -1,6 +1,6 @@
 =========   Deliverable Log   ===========
 Project: 		test folder (02190A)
-Created at: 	2020-03-30 17:17
+Created at: 	2020-03-31 13:23
 
 
 Checking the Design Rule Check...
@@ -34,65 +34,7 @@ Complete!
 Zipping Step File...
 Complete! 
 
-*** WARNING possibly delivering old files ***
-	Design Rules Check.PDF modified on 2020-03-26 at 16:12:44
-	Electrical Rules Check.PDF modified on 2020-03-26 at 16:12:45
-	Battery_Module_Dev_Contacts.SchDoc modified on 2020-03-26 at 16:29:23
-	BM Dev Cells.BomDoc modified on 2020-02-20 at 12:01:26
-	BM Dev Cells.PcbDoc modified on 2020-03-26 at 10:08:54
-	BM Dev Cells.PrjPcb modified on 2020-03-26 at 16:29:23
-	MOD.SchDoc modified on 2020-02-21 at 13:09:21
-	Assembly Testpoint Report for BM Dev Cells.csv modified on 2020-03-26 at 16:11:16
-	Bill of Materials-BM Dev Cells.xls modified on 2020-03-26 at 16:11:16
-	BM Dev Cells-macro.APR_LIB modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.apr modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.DRR modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.EXTREP modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GBL modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GBO modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GBP modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GBS modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GM1 modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GM10 modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GM2 modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GM4 modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GM6 modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GM9 modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GTL modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GTO modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GTP modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.GTS modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.LDP modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.REP modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.RUL modified on 2020-03-26 at 16:11:07
-	BM Dev Cells.TXT modified on 2020-03-26 at 16:11:07
-	Pick Place for BM Dev Cells(Placed Components Only).txt modified on 2020-03-26 at 16:11:07
-	layers.oxps modified on 2020-03-26 at 16:14:06
-	705-02190A0 Schematic.PDF modified on 2020-03-26 at 16:12:42
-	Bill of Materials-BM Dev Cells(Placed Components Only).xls modified on 2020-03-26 at 16:11:06
-	Bill of Materials-BM Dev Cells.xls modified on 2020-03-26 at 16:11:16
-	3D PDF.PDF modified on 2020-03-26 at 16:12:47
-	705-02190A0 Schematic.PDF modified on 2020-03-26 at 16:12:42
-	ADB0230.PDF modified on 2020-03-26 at 16:12:47
-	ADT0127.PDF modified on 2020-03-26 at 16:12:47
-	All Layers.PDF modified on 2020-03-26 at 16:12:53
-	CLT0125.PDF modified on 2020-03-26 at 16:12:54
-	DD0124.PDF modified on 2020-03-26 at 16:12:50
-	Design Rules Check.PDF modified on 2020-03-26 at 16:12:44
-	Electrical Rules Check.PDF modified on 2020-03-26 at 16:12:45
-	layers.PDF modified on 2020-03-26 at 16:12:50
-	MECHDWG.PDF modified on 2020-03-26 at 16:12:43
-	MOD.PDF modified on 2020-03-26 at 16:12:53
-	RBG01.PDF modified on 2020-03-26 at 16:12:54
-	SMB0223.PDF modified on 2020-03-26 at 16:12:49
-	SMT0125.PDF modified on 2020-03-26 at 16:12:48
-	SPB0223.PDF modified on 2020-03-26 at 16:12:49
-	SPT0123.PDF modified on 2020-03-26 at 16:12:48
-	SSB0229.PDF modified on 2020-03-26 at 16:12:49
-	SST0126.PDF modified on 2020-03-26 at 16:12:48
 
-*** Warnings were raised so please reveiw ***
-When the warnings have been reviewed/recitified press ENTER to continue
 Uploading of Project information to the Google Drive is disabled
 
 

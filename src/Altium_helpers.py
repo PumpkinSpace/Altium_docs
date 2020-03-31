@@ -120,7 +120,7 @@ def get_part_number(starting_dir):
     # end    
     
     # if this code was reached, then no folder was found
-    print '***  Error: Folder structure not compliant with current Outjob file   ***\n\n'
+    print('***  Error: Folder structure not compliant with current Outjob file   ***\n\n')
     return None
 # end def    
 
@@ -152,7 +152,7 @@ def get_assy_number(starting_dir):
     # end    
     
     # if this code was reached, then no folder was found
-    print '***  Error: Folder structure not compliant with current Outjob file   ***\n\n'
+    print('***  Error: Folder structure not compliant with current Outjob file   ***\n\n')
     return None
 # end def   
 
@@ -178,8 +178,8 @@ def clear_output(starting_dir):
             shutil.rmtree(andrews_dir)
             
         except:
-            print '***  Error: Could not remove previous ' + \
-                  'Andrews Format Folder  ***\n\n'
+            print('***  Error: Could not remove previous ' + \
+                  'Andrews Format Folder  ***\n\n')
             return False
         # end try
     # end if
@@ -190,7 +190,7 @@ def clear_output(starting_dir):
             os.remove(starting_dir + '\\test.xlsx')
             
         except:
-            print '***  Error: Could not remove previous test.xlsx file  ***\n\n'
+            print('***  Error: Could not remove previous test.xlsx file  ***\n\n')
             return False 
         # end try  
     # end if
@@ -203,7 +203,7 @@ def clear_output(starting_dir):
                 os.remove(starting_dir + '\\' + filename)
                 
             except:
-                print '***  Error: Could not remove previous file  ***\n\n'
+                print('***  Error: Could not remove previous file  ***\n\n')
                 return False 
             # end try                  
         # end if      
@@ -215,7 +215,7 @@ def clear_output(starting_dir):
             shutil.rmtree(starting_dir + '\\step_temp')
             
         except:
-            print '***  Error: Could not remove previous step directory  ***\n\n'
+            print('***  Error: Could not remove previous step directory  ***\n\n')
             return False           
         # end try
     # end if
@@ -263,14 +263,14 @@ def check_modified_dates(modified_dates):
     # detect old files
     if ((max_time - min_time) > 1200):
         # there is more than 10 mins between the oldest and youngest file dates
-        print '*** WARNING possibly delivering old files ***'
+        print('*** WARNING possibly delivering old files ***')
         
         # print all filenames that are old and their dates.
         for date in [d for d in modified_dates if d != None]:
             if (max_time - date.date) > 1200:
                 early_date = datetime.datetime.fromtimestamp(date.date)
                 formatted_date = early_date.strftime('%Y-%m-%d at %H:%M:%S')                
-                print '\t' + date.text + ' modified on ' + formatted_date
+                print('\t' + date.text + ' modified on ' + formatted_date)
             # end if
         # end for
         
@@ -289,7 +289,7 @@ def construct_root_archive(output_dir, part_number):
     @param[in]   part_number:         The part number for the design
                                       (string).                 
     """    
-    print '\n\nConstructing Archive...'
+    print('\n\nConstructing Archive...')
     
     zip_filename = output_dir + '\\' + part_number + '_Folder'
     
@@ -328,13 +328,13 @@ def construct_root_archive(output_dir, part_number):
         shutil.rmtree(temp_dir)       
         
     except:
-        print '*** WARNING: Could not delete temporary output directory ***'
+        print('*** WARNING: Could not delete temporary output directory ***')
         log_warning()     
     # end try    
     
     # indicate completion
-    print '*** Directory ' + part_number + '_Folder.zip' + \
-          ' has been generated successfully ***'
+    print('*** Directory ' + part_number + '_Folder.zip' + \
+          ' has been generated successfully ***')
     
     zip_filename = zip_filename + '.zip'
     return zip_filename

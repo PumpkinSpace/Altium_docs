@@ -29,7 +29,7 @@ sys.path.insert(1, 'src\\')
 import Altium_Excel
 import Altium_helpers
 import shutil
-import pyPdf
+import PyPDF2
 import re
 import Altium_PDF
 import threading
@@ -165,7 +165,7 @@ def move_Altium_files(starting_dir, output_dir):
     @return      (list of mod_dates)  List of the modification dates of the 
                                       Altium files
     """       
-    print 'Moving Altium Files...'
+    print('Moving Altium Files...')
     
     # initialise dates list
     modified_dates = []
@@ -183,7 +183,7 @@ def move_Altium_files(starting_dir, output_dir):
                     shutil.copyfile(starting_dir+'\\'+filename, output_dir+'\\'+filename)  
                     
                 except:
-                    print '*** Error: could not move ' + filename + ' ***'
+                    print('*** Error: could not move ' + filename + ' ***')
                     log_error()
                 # end try
                 
@@ -193,7 +193,7 @@ def move_Altium_files(starting_dir, output_dir):
         # end for
     # end for
     
-    print 'Complete! \n'    
+    print('Complete! \n')    
     
     return modified_dates
 # end def
@@ -213,7 +213,7 @@ def move_gerbers(starting_dir, output_dir, part_number):
                                       Gerbers.
     @return      (int)                The number of layers in the design.
     """    
-    print 'Moving Gerber Files...'
+    print('Moving Gerber Files...')
     
     # initialiase list of modified dates to return
     modified_dates = []
@@ -224,7 +224,7 @@ def move_gerbers(starting_dir, output_dir, part_number):
     # if there are simly too few gerber files to be acceptible
     if len(gerber_file_list) < 10:
         # No gerbers exist
-        print '***   Error: No Gerbers have been generated   ***\n\n'
+        print('***   Error: No Gerbers have been generated   ***\n\n')
         log_error()
         return None, None
     # end 
@@ -245,8 +245,8 @@ def move_gerbers(starting_dir, output_dir, part_number):
             if filename.endswith('G7') or filename.endswith('GP7'):
                 # This indicates that there are more layers than this code was 
                 # developed to handle
-                print '***  Error: Script needs to be extended to ' + \
-                      'handle this many layers   ***\n\n'
+                print('***  Error: Script needs to be extended to ' + \
+                      'handle this many layers   ***\n\n')
                 log_error()
             # end
         # end
@@ -281,7 +281,7 @@ def move_gerbers(starting_dir, output_dir, part_number):
                                     output_dir+'\\'+filename)
                     
                 except:
-                    print '*** Error: could not move ' + filename + ' ***'
+                    print('*** Error: could not move ' + filename + ' ***')
                     log_error()
                 # end try
                 
@@ -298,7 +298,7 @@ def move_gerbers(starting_dir, output_dir, part_number):
     # check that all required gerbers are in the directory
     check_gerber_folder(output_dir)
     
-    print 'Complete! \n'  
+    print('Complete! \n')  
     
     return modified_dates, layers
 # end def
@@ -380,7 +380,7 @@ def zip_step_file(starting_dir, output_dir, part_number):
     @return      (datetime)           Modification date of the step file.
     """      
     
-    print 'Zipping Step File...'
+    print('Zipping Step File...')
     
     # completion flags
     step_file_found = False
@@ -422,7 +422,7 @@ def zip_step_file(starting_dir, output_dir, part_number):
                 shutil.rmtree(step_dir)       
                 
             except:
-                print '*** WARNING: Could not delete temporary step directory ***'
+                print('*** WARNING: Could not delete temporary step directory ***')
                 log_warning()     
             # end try
             
@@ -431,11 +431,11 @@ def zip_step_file(starting_dir, output_dir, part_number):
     # end for
     
     if not step_file_found:
-        print '*** WARNING: No step file found ***'
+        print('*** WARNING: No step file found ***')
         log_warning()
     # end if
             
-    print 'Complete! \n'
+    print('Complete! \n')
     
     return modified_date
 # end def
@@ -478,7 +478,7 @@ def move_xps(starting_dir, output_dir, part_number):
     # end for
     
     if xps_file == '':
-        print '*** Error: no .xps file found ***'
+        print('*** Error: no .xps file found ***')
         log_error()
         return None
     # end if
@@ -508,7 +508,7 @@ def manage_schematic(starting_dir, pdf_dir, output_pdf_dir, part_number, with_th
     @param[in]   with_threads:        Use threads for this process (bool).
     @return      (mod_date)           Modification dates of the schematic.
     """     
-    print 'Finding Schematic Document...'
+    print('Finding Schematic Document...')
     
     # initialise the return value
     modified_date = None
@@ -542,19 +542,19 @@ def manage_schematic(starting_dir, pdf_dir, output_pdf_dir, part_number, with_th
         return None
     # end if
         
-    print '\tReading the Schematic file...'
+    print('\tReading the Schematic file...')
     
     # open pdf file and split into pages
     try:
         with open(pdf_dir + '\\'+pdf_filename, "rb") as schematic_file:
-            schematic = pyPdf.PdfFileReader(schematic_file)
+            schematic = PyPDF2.PdfFileReader(schematic_file)
             
             # write each page to a separate pdf file
-            for page in xrange(schematic.numPages):
+            for page in range(schematic.numPages):
                 # reinitialise the reader
-                schematic = pyPdf.PdfFileReader(schematic_file)
+                schematic = PyPDF2.PdfFileReader(schematic_file)
                 # add page to the output stream
-                output = pyPdf.PdfFileWriter()
+                output = PyPDF2.PdfFileWriter()
                 output.addPage(schematic.getPage(page))
                 # format the filename 
                 file_name = output_pdf_dir + '\\' + part_number + '-' + str(page+1) + '.pdf'
@@ -572,9 +572,9 @@ def manage_schematic(starting_dir, pdf_dir, output_pdf_dir, part_number, with_th
         return None        
     # end try
     
-    print '\tComplete!'
+    print('\tComplete!')
         
-    print '\tExtracting Modification Information...'
+    print('\tExtracting Modification Information...')
     
     if os.path.isfile(pdf_dir + '\\MOD.pdf'):
         # extract the text from a pdf page
@@ -588,14 +588,14 @@ def manage_schematic(starting_dir, pdf_dir, output_pdf_dir, part_number, with_th
         # end if
     # end if
     
-    print '\tComplete!'
+    print('\tComplete!')
     
     if not found_mod_doc(get=True):
         print('***   Warning: No Modification information found in schematic   ***')
         Altium_Excel.set_assy_options(starting_dir, [], [])
         log_warning()
     # end if    
-    print 'Complete! \n'    
+    print('Complete! \n')
     
     return modified_date
 # end def
@@ -636,7 +636,7 @@ def move_bom(starting_dir):
     @return      (list of datetimes)  List of the modification dates of the 
                                       BOM
     """     
-    print 'Moving BOM...'
+    print('Moving BOM...')
     
     # success flag
     no_bom = True
@@ -676,7 +676,7 @@ def move_bom(starting_dir):
         log_error()
     # end
     
-    print 'Complete! \n'
+    print('Complete! \n')
     
     return modified_dates
 # end def
@@ -708,7 +708,7 @@ def check_gerber_folder(gerber_dir):
         # end for
         
         if not ext_found:
-            print '*** Error: no ' + ext + ' file output to gerbers ***'
+            print('*** Error: no ' + ext + ' file output to gerbers ***')
             log_error()
         # end if
     # end for
@@ -728,12 +728,12 @@ def check_gerber_folder(gerber_dir):
     # end for
     
     if not readme_found:
-        print '*** Error: no readme file output to gerbers ***'
+        print('*** Error: no readme file output to gerbers ***')
         log_error()
     # end if
     
     if not pick_found:
-        print '*** Error: no pick and place file output to gerbers ***'
+        print('*** Error: no pick and place file output to gerbers ***')
         log_error()
     # end if    
 # end def
@@ -747,7 +747,7 @@ def create_readme(output_dir, layers):
                                       (full path) (string).
     @param[in]   layers:              The number of layers in the PCB (int).
     """     
-    print '\tGenerating Readme File...'
+    print('\tGenerating Readme File...')
     
     # list to store new lines in
     new_readme_lines = []
@@ -850,11 +850,11 @@ def create_readme(output_dir, layers):
         readme_file.close()    
         
     except:
-        print '*** could not write readme file ***'
+        print('*** could not write readme file ***')
         log_error()
     # end try
     
-    print '\tComplete!'
+    print('\tComplete!')
 # end def
 
 
@@ -910,11 +910,11 @@ def get_page_number(path, pn, starting_dir):
     # end if
     
     if page_number == '':
-        print '*** Error: No page number could be found ***'
+        print('*** Error: No page number could be found ***')
         log_error()
         
     elif not page_number.isdigit():
-        print '*** Error: ' + page_number + ' is not a valid page number ***'
+        print('*** Error: ' + page_number + ' is not a valid page number ***')
         log_error()
     # end if
     
@@ -937,7 +937,7 @@ def extract_assy_info(pdf_text, starting_dir):
     
     # if there are not the expected 3 blocks, throw an error
     if len(assy_blocks) != 3:
-        print "*** Warning, too many ASSY_REV blocks. ***"
+        print("*** Warning, too many ASSY_REV blocks. ***")
         log_warning()
     # end if
     
@@ -945,7 +945,7 @@ def extract_assy_info(pdf_text, starting_dir):
     list_1 = assy_blocks[2].split(';')[:-1]
     
     if list_1 == []:
-        print "*** Warning, ASSY_Config information is empty ***"
+        print("*** Warning, ASSY_Config information is empty ***")
         log_warning()
         return None        
     # end if
@@ -960,7 +960,7 @@ def extract_assy_info(pdf_text, starting_dir):
     
     # if the lists are not the same length post a warning
     if len(list_0) != len(list_1):
-        print "*** Warning, missmatched ASSY_REV blocks ***"
+        print("*** Warning, missmatched ASSY_REV blocks ***")
         log_warning()
         return None
     # end if        
