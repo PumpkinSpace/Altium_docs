@@ -91,15 +91,24 @@ if __name__ == '__main__':
     output_altium_dir = output_dir + '\\Altium Files'
     
     # remove previous deliverables folder for this revision
-    if os.path.isdir(output_dir):
+    while os.path.isdir(output_dir):
         try:
             shutil.rmtree(output_dir)
             
-        except:
+        except Exception as e:
+            print(e)
             print('*** Error: Previous output could not be deleted ***')
-            sys.exit()
+            if sys.version_info[0] < 3:
+                # python 2
+                raw_input('Press ENTER to retry')
+                
+            else:
+                input('Press ENTER to retry')
+            # end if            
         # end try
-    # end if
+        
+        time.sleep(0.1)
+    # end while
     
     # make the output directories
     os.mkdir(output_dir)
@@ -170,7 +179,7 @@ if __name__ == '__main__':
     # end if
     
     print("\nUploading of Project information to the Google Drive is disabled")
-    #Altium_GS.upload_zip(starting_dir, Altium_Excel.set_directory.path)    
+    #Altium_GS.upload_files(output_dir, Altium_Excel.set_directory.path)    
     
     # construct the final zip file and remove un-needed directories
     zip_filename = Altium_helpers.construct_root_archive(output_dir, (part_number + part_revision))    

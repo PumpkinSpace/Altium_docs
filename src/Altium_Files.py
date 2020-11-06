@@ -43,7 +43,7 @@ import signal
 
 # desired file extensions
 altium_ext = ['Outjob', 'PrjPcb', 'PrjPcbStructure', 'BomDoc', \
-              'PcbDoc', 'SchDoc', 'Harness']
+              'PcbDoc', 'SchDoc', 'Harness', 'PrjPCB']
 
 # rejected file extensions
 bad_gerber_ext = ['zip', 'ods', 'xlsx', 'Report.Txt', '2.txt', \
@@ -272,6 +272,17 @@ def move_gerbers(starting_dir, output_dir, part_number):
                     # get it's modification date
                     modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir + '\\' +\
                                                            filename), filename))    
+                
+                elif ('SMD Assembly' in filename):
+                    # this is the file for SMD assembly.
+                    # copy the bom to the deliverable
+                    shutil.copyfile(starting_dir + '\\' + filename, \
+                                                    output_dir + '\\' + \
+                                                            part_number + '_SMD_BOM.xls')
+                
+                    # get it's modification date
+                    modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir + '\\' +\
+                                                                                                   filename), filename))             
                 # end if
             
             else:

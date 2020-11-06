@@ -123,16 +123,16 @@ class assembly_info:
 # -------
 # Public Functions
 
-def upload_zip(starting_dir, prog_dir):
+def upload_files(output_dir, prog_dir):
     """
     Uploads the generated .zip file to the google dirve folder.
 
-    @param:    starting_dir   The full path of the Altium Folder (string).
+    @param:    output_dir     The full path of output package (string).
     @param:    prog_dir       The full path that the program is running from
                               (string).
     """    
     print('\nUploading to google drive...')
-    file_list = os.listdir(starting_dir)
+    file_list = os.listdir(output_dir)
     
     for filename in file_list:
         if filename.endswith('Folder.zip'):
@@ -143,7 +143,7 @@ def upload_zip(starting_dir, prog_dir):
     # authorize google drive API
     drive = authorise_google_drive(prog_dir + '\\src')    
     
-    # get the list of all the files in the BOM folder
+    # get the list of all the files in deliverables folder
     file_list = drive.ListFile({'q': "'1vDTz6N-1QbUlkbb7QrFj082YUpkIRZFL' in parents and trashed=false"}).GetList()
     
     # convert this list to a useable dictionary

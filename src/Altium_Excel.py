@@ -54,17 +54,18 @@ no_border = Border(left=Side(style=None),
 
 BOM_cols =  {'Designator': 0,
              'DNP': 1,
-             'Description' : 2,
-             'Quantity': 3,
-             'Manufacturer': 4,
-             'Manufacturer_pn': 5,
-             'Supplier': 6,
-             'Supplier_pn': 7,
-             'Sub_Manufacturer': 8, 
-             'Sub_Manufacturer_pn' : 9,
-             'Sub_Supplier' : 10,
-             'Sub_Supplier_pn': 11,
-             'Subtotal': 12}
+             'Reference' : 2,
+             'Description' : 3,
+             'Quantity': 4,
+             'Manufacturer': 5,
+             'Manufacturer_pn': 6,
+             'Supplier': 7,
+             'Supplier_pn': 8,
+             'Sub_Manufacturer': 9, 
+             'Sub_Manufacturer_pn' : 10,
+             'Sub_Supplier' : 11,
+             'Sub_Supplier_pn': 12,
+             'Subtotal': 13}
 
 bom_d_col = 0
 bom_dnp_col = 1
@@ -72,7 +73,7 @@ bom_pn_col = 5
 bom_header_rows = 6
 bom_comment_col = 2
 
-is_test = False
+is_test = True
 
 #
 # ----------------
@@ -216,19 +217,19 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     # initialise BOM column arrays
     bom_d_list = []
     bom_pn_list = []
-    dnp_d_list = []
-    dnp_pn_list = []
+    all_d_list = []
+    all_pn_list = []
     
     # fill the BOM column arrays
     [bom_doc, bom_date] = get_bom_lists(gerber_dir, bom_d_list, bom_pn_list)
-    [dnp_doc, dnp_date] = get_bom_lists(gerber_dir, dnp_d_list, dnp_pn_list, 
+    [dnp_doc, dnp_date] = get_bom_lists(gerber_dir, all_d_list, all_pn_list, 
                                         DNP=True)
     
     # if this is a test print the lists
     if is_test:
         for i in bom_d_list: print (i)
         print('\n')
-        for i in dnp_d_list: print (i)
+        for i in all_d_list: print (i)
         print('\n')
     # end if
     
@@ -241,31 +242,31 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     comp_dnp_list = []
     
     # iternate through the part numbers in the total list
-    for index in range(0,len(dnp_pn_list)):
-        if dnp_pn_list[index] not in bom_pn_list:
+    for index in range(0,len(all_pn_list)):
+        if all_pn_list[index] not in bom_pn_list:
             # if the part number is not present in the list of only placed
             # then move all such parts to the DNP list
-            comp_dnp_list.append(dnp_d_list[index])
+            comp_dnp_list.append(all_d_list[index])
             
             # empty the placed list
-            dnp_d_list[index] = []
+            all_d_list[index] = []
             
         else:
             # the part number is present in the placed list so check every designator
             designator_list = []
             
             # find the designator list in the other BOM
-            bom_index = bom_pn_list.index(dnp_pn_list[index])
+            bom_index = bom_pn_list.index(all_pn_list[index])
             
             # check each designator
-            for designator in dnp_d_list[index]:
+            for designator in all_d_list[index]:
                 # compare to the other list
                 if designator not in bom_d_list[bom_index]:
                     # it is not found so add the componant to the dnp list
                     designator_list.append(designator)
                     
                     # remove the designator from this list
-                    dnp_d_list[index].remove(designator)
+                    all_d_list[index].remove(designator)
                 # end if
             # end for
             
@@ -278,12 +279,12 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     if is_test:
         for i in comp_dnp_list: print (i)
         print('\n')
-        for i in dnp_d_list: print (i)
+        for i in all_d_list: print (i)
         print('\n')       
     # end if
     
     # fill the assy config document with these lists.
-    fill_assy_bom(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dnp_list, dnp_doc)
+    fill_assy_bom(starting_dir, output_pdf_dir, part_number, all_d_list, comp_dnp_list, dnp_doc)
     
     # extract all information from the ASSY Config document
     assy_data = extract_assy_config(starting_dir)
@@ -651,21 +652,39 @@ def fill_assy_bom(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dn
                     # add the designators to place
                     bom_sheet.cell(i+1,j+1).value = ', '.join(dnp_d_list[i-6])
                     
-                elif ((j == BOM_cols['DNP']) and (i < dnp_doc.nrows-1)):
+                elif ((j == BOM_cols['DNP']) and (i < dnp_doc.nrows)):
                     # add the designators not to place
                     bom_sheet.cell(i+1,j+1).value = ', '.join(comp_dnp_list[i-6])   
                     
-                elif ((j == BOM_cols['Description']) and (i < dnp_doc.nrows-1)):
+                elif ((j == BOM_cols['Description']) and (i < dnp_doc.nrows)):
                     # tidy up comments
                     bom_sheet.cell(i+1,j+1).value = dnp_doc.cell_value(i,j)   
                     
-                    comment_list = bom_sheet.cell(i+1,j+1).value.split(',')
+                    try:
+                        comment_list = bom_sheet.cell(i+1,j+1).value.split(',')
+                    except AttributeError as err:
+                        print(bom_sheet.cell(i+1,j+1).value)
+                        raise err
+                    # end try
                     
                     if (len(comment_list) > 1):
                         # there is more than one type of comment for this part
                         # so pick one
                         bom_sheet.cell(i+1,j+1).value = comment_list[-1].strip()
                     # end if
+                    
+                elif ((j == BOM_cols['Quantity']) and (i < dnp_doc.nrows)):
+                    # determine the number of components to actually place
+                    placed_count = len(dnp_d_list[i-6])
+                    # write that quantity in the box
+                    bom_sheet.cell(i+1,j+1).value = placed_count
+                    
+                elif ((j == BOM_cols['Reference']) and (i < dnp_doc.nrows)):
+                    # the customer reference is the part number followed by the 
+                    # designator list
+                    
+                    ref_string = part_number + ': ' + ', '.join(dnp_d_list[i-6])
+                    bom_sheet.cell(i+1,j+1).value = ref_string
                     
                 else:
                     # copy the part info from the BOM

@@ -15,9 +15,9 @@ LifeCycleDefinitionGUID=
 RevisionNamingSchemeGUID=
 
 [OutputGroup1]
-Name=
+Name=Pumpkin Outjob_old.OutJob
 Description=
-TargetOutputMedium=STEP File
+TargetOutputMedium=fabrication and Assembly Outputs
 VariantName=[No Variations]
 VariantScope=0
 CurrentConfigurationName=
@@ -52,7 +52,7 @@ OutputName2=Bill of Materials
 OutputCategory2=Report
 OutputDocumentPath2=[ActiveBOM Document]
 OutputVariantName2=Placed Components Only
-OutputEnabled2=0
+OutputEnabled2=1
 OutputEnabled2_OutputMedium1=1
 OutputEnabled2_OutputMedium2=0
 OutputEnabled2_OutputMedium3=0
@@ -62,7 +62,7 @@ PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 Configuration2_Name1=ColumnNameFormat
 Configuration2_Item1=CaptionAsName
 Configuration2_Name2=General
-Configuration2_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=True|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Users\Public\Documents\Altium\AD18\Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1416|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration2_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=True|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1416|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration2_Name3=GroupOrder
 Configuration2_Item3=Manufacturer Part Number 1=True
 Configuration2_Name4=OutputConfigurationParameter1
@@ -82,7 +82,7 @@ OutputName3=Export STEP
 OutputCategory3=Export
 OutputDocumentPath3=
 OutputVariantName3=
-OutputEnabled3=1
+OutputEnabled3=0
 OutputEnabled3_OutputMedium1=0
 OutputEnabled3_OutputMedium2=1
 OutputEnabled3_OutputMedium3=0
@@ -95,7 +95,7 @@ OutputName4=Gerber Files
 OutputCategory4=Fabrication
 OutputDocumentPath4=
 OutputVariantName4=
-OutputEnabled4=0
+OutputEnabled4=1
 OutputEnabled4_OutputMedium1=2
 OutputEnabled4_OutputMedium2=0
 OutputEnabled4_OutputMedium3=0
@@ -108,7 +108,7 @@ OutputName5=NC Drill Files
 OutputCategory5=Fabrication
 OutputDocumentPath5=
 OutputVariantName5=
-OutputEnabled5=0
+OutputEnabled5=1
 OutputEnabled5_OutputMedium1=3
 OutputEnabled5_OutputMedium2=0
 OutputEnabled5_OutputMedium3=0
@@ -146,7 +146,7 @@ OutputName7=Generates pick and place files
 OutputCategory7=Assembly
 OutputDocumentPath7=
 OutputVariantName7=Placed Components Only
-OutputEnabled7=0
+OutputEnabled7=1
 OutputEnabled7_OutputMedium1=4
 OutputEnabled7_OutputMedium2=0
 OutputEnabled7_OutputMedium3=0
@@ -159,7 +159,7 @@ OutputName8=Bill of Materials
 OutputCategory8=Report
 OutputDocumentPath8=[ActiveBOM Document]
 OutputVariantName8=
-OutputEnabled8=0
+OutputEnabled8=1
 OutputEnabled8_OutputMedium1=5
 OutputEnabled8_OutputMedium2=0
 OutputEnabled8_OutputMedium3=0
@@ -169,7 +169,7 @@ PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 Configuration8_Name1=ColumnNameFormat
 Configuration8_Item1=CaptionAsName
 Configuration8_Name2=General
-Configuration8_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Users\Public\Documents\Altium\AD18\Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration8_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration8_Name3=GroupOrder
 Configuration8_Item3=Manufacturer Part Number 1=True
 Configuration8_Name4=OutputConfigurationParameter1
@@ -217,7 +217,7 @@ OutputName11=Test Point Report
 OutputCategory11=Assembly
 OutputDocumentPath11=
 OutputVariantName11=
-OutputEnabled11=0
+OutputEnabled11=1
 OutputEnabled11_OutputMedium1=6
 OutputEnabled11_OutputMedium2=0
 OutputEnabled11_OutputMedium3=0
@@ -512,7 +512,7 @@ Configuration24_Name1=OutputConfigurationParameter1
 Configuration24_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ShowOpenEnds=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
 
 [PublishSettings]
-OutputFilePath1=C:\Users\Asteria\Dropbox\Pumpkin PCBs\RS3 Motherboard (02199B0)\.\705-02199B0\
+OutputFilePath1=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Radio Host Module 2 (01847A0)\.\705-01847A0\
 ReleaseManaged1=0
 OutputBasePath1=.\
 OutputPathMedia1==PartNumber + ProjectRevision
@@ -525,7 +525,7 @@ OutputFileNameMulti1=
 UseOutputNameForMulti1=1
 OutputFileNameSpecial1=
 OpenOutput1=0
-OutputFilePath2=C:\Users\Asteria\Dropbox\Pumpkin PCBs\RS3 Motherboard (02199B0)\.\705-02199B0_step\
+OutputFilePath2=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Radio Host Module 1 (01794B0)\.\
 ReleaseManaged2=0
 OutputBasePath2=.\
 OutputPathMedia2=
@@ -567,7 +567,7 @@ PDFACompliance4=Disabled
 PDFVersion4=Default
 
 [GeneratedFilesSettings]
-RelativeOutputPath1=C:\Users\Asteria\Dropbox\Pumpkin PCBs\RS3 Motherboard (02199B0)\.\705-02199B0\
+RelativeOutputPath1=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Radio Host Module 2 (01847A0)\.\705-01847A0\
 OpenOutputs1=0
 AddToProject1=1
 TimestampFolder1=0
@@ -577,7 +577,7 @@ OpenGerberOutput1=0
 OpenNCDrillOutput1=0
 OpenIPCOutput1=0
 EnableReload1=0
-RelativeOutputPath2=C:\Users\Asteria\Dropbox\Pumpkin PCBs\RS3 Motherboard (02199B0)\.\705-02199B0_step\
+RelativeOutputPath2=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Radio Host Module 1 (01794B0)\.\
 OpenOutputs2=0
 AddToProject2=1
 TimestampFolder2=0
