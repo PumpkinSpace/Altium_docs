@@ -73,7 +73,7 @@ bom_pn_col = 5
 bom_header_rows = 6
 bom_comment_col = 2
 
-is_test = True
+is_test = False
 
 #
 # ----------------
@@ -525,7 +525,7 @@ def get_bom_lists(gerber_dir, d_list, pn_list, DNP = False):
     
     # find the BOM docs.
     for name in os.listdir(gerber_dir):
-        if (DNP == True and name.endswith('.xls') and not name.endswith(').xls')):
+        if (DNP == True and name.endswith('(All).xls')):
             filename = name
             break
             

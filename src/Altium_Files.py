@@ -733,7 +733,7 @@ def check_gerber_folder(gerber_dir):
         if 'README' in filename:
             readme_found = True
             
-        elif 'Pick Place' in filename:
+        elif 'Pick and Place' in filename:
             pick_found = True
         # end if
     # end for
