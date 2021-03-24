@@ -39,6 +39,9 @@ import time
 class Logger(object):
     def __init__(self, filename):
         self.terminal = sys.stdout
+        if os.path.isfile(filename):
+            os.remove(filename)
+        # end if
         self.log = open(filename, "w")
         # write a header to the log file
         self.log.write("=========   Deliverable Log   ===========\n")

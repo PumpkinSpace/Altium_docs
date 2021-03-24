@@ -1,0 +1,23 @@
+------------------------------------------------------------------------------------------
+Gerber File Extension Report For: 705-02190A0 Gerber.GBR   24/03/2021  8:18:43 PM
+------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------
+Layer Extension     Layer Description                      
+------------------------------------------------------------------------------------------
+.GTO                Top Overlay                             
+.GTP                Top Paste                               
+.GTS                Top Solder                              
+.GTL                TOP Copper                              
+.GBL                BOT Copper                              
+.GBS                Bottom Solder                           
+.GBP                Bottom Paste                            
+.GBO                Bottom Overlay                          
+.GM1                Board                                   
+.GM2                Fab Notes                               
+.GM4                Rigid PCB Outline                       
+.GM6                Panel Outline                           
+.GM9                Flex PCB Outline                        
+.GM10               Route Tool Path                         
+------------------------------------------------------------------------------------------

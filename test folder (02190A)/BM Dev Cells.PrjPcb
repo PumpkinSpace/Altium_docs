@@ -1,4 +1,4 @@
-[Design]
+﻿[Design]
 Version=1.0
 HierarchyMode=4
 ChannelRoomNamingStyle=0
@@ -23,11 +23,14 @@ DefaultPcbPcad=0
 ReorderDocumentsOnCompile=1
 NameNetsHierarchically=0
 PowerPortNamesTakePriority=0
+AutoSheetNumbering=0
+AutoCrossReferences=0
 PushECOToAnnotationFile=1
 DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
+IsProjectConflictPreventionWarningsEnabled=1
 OutputPath=Project Outputs for BM Dev Cells
 LogFolderPath=
 ManagedProjectGUID=
@@ -106,7 +109,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document5]
-DocumentPath=..\..\..\..\..\Pumpkin\Altium_docs\Altium Templates\Pumpkin Outjob.OutJob
+DocumentPath=..\Altium Templates\Pumpkin Outjob.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -127,143 +130,255 @@ UniqueID=C56614D5-813A-4857-92DA-AAAB22553FD2
 Description=Placed Components Only
 AllowFabrication=0
 ParameterCount=0
-VariationCount=15
-Variation1=Designator=R100|UniqueId=\VAWJTPIC\SAQKFIMJ|Kind=1|AlternatePart= 
-Variation2=Designator=JP3|UniqueId=\LJOYPPJO\HRRQOMFF|Kind=1|AlternatePart= 
-Variation3=Designator=TS5|UniqueId=\MWFASWIY\HRSADVDB|Kind=1|AlternatePart= 
-Variation4=Designator=TS7|UniqueId=\MWFASWIY\ERGNBNHW|Kind=1|AlternatePart= 
-Variation5=Designator=TS8|UniqueId=\MWFASWIY\FDQCYSOS|Kind=1|AlternatePart= 
-Variation6=Designator=TS6|UniqueId=\MWFASWIY\KAJXOUQO|Kind=1|AlternatePart= 
-Variation7=Designator=R50|UniqueId=\AJXDJUDP\JQCGWHQD|Kind=1|AlternatePart= 
-Variation8=Designator=JP8|UniqueId=\SOFFTOSI\UNRHIIWG|Kind=1|AlternatePart= 
-Variation9=Designator=JP10|UniqueId=\LJOYPPJO\EKHPAYRV|Kind=1|AlternatePart= 
-Variation10=Designator=R18|UniqueId=\SOFFTOSI\OHYTSKEY|Kind=1|AlternatePart= 
-Variation11=Designator=R53|UniqueId=\LJOYPPJO\DIHVCUPL|Kind=1|AlternatePart= 
-Variation12=Designator=R52|UniqueId=\LJOYPPJO\VHXGMYKF|Kind=1|AlternatePart= 
-Variation13=Designator=R65|UniqueId=\LJOYPPJO\HWCAKIVL|Kind=1|AlternatePart= 
-Variation14=Designator=R73|UniqueId=\LJOYPPJO\NXLKYJIW|Kind=1|AlternatePart= 
-Variation15=Designator=R76|UniqueId=\LJOYPPJO\XAEEMQLB|Kind=1|AlternatePart= 
+VariationCount=7
+Variation1=Designator=JP3|UniqueId=\ZYXUPUCW|Kind=1|AlternatePart= 
+Variation2=Designator=JP10|UniqueId=\NACLIGXC|Kind=1|AlternatePart= 
+Variation3=Designator=R53|UniqueId=\DIHVCUPL|Kind=1|AlternatePart= 
+Variation4=Designator=R52|UniqueId=\VHXGMYKF|Kind=1|AlternatePart= 
+Variation5=Designator=R65|UniqueId=\HWCAKIVL|Kind=1|AlternatePart= 
+Variation6=Designator=R73|UniqueId=\NXLKYJIW|Kind=1|AlternatePart= 
+Variation7=Designator=R76|UniqueId=\XAEEMQLB|Kind=1|AlternatePart= 
+ParamVariationCount=0
+
+[ProjectVariant2]
+UniqueID=50B1946A-B5BF-4436-BEA7-77F521B818E2
+Description=SMD Assembly
+AllowFabrication=0
+ParameterCount=0
+VariationCount=0
 ParamVariationCount=0
 
 [GeneratedDocument1]
-DocumentPath=.\705-02190A0\Assembly Testpoint Report for BM Dev Cells.csv
+DocumentPath=705-02190A0\705-02190A0 Bill of Materials (All).xls
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=705-02190A0\Bill of Materials-BM Dev Cells(Placed Components Only).xls
+DocumentPath=705-02190A0\705-02190A0 Bill of Materials (Placed Components Only).xls
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=705-02190A0\Bill of Materials-BM Dev Cells.xls
+DocumentPath=705-02190A0\705-02190A0 Bill of Materials (SMD Assembly).xls
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=.\705-02190A0\BM Dev Cells.DRR
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=.\705-02190A0\BM Dev Cells.EXTREP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=.\705-02190A0\BM Dev Cells.GBL
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=.\705-02190A0\BM Dev Cells.GBO
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=.\705-02190A0\BM Dev Cells.GBP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=.\705-02190A0\BM Dev Cells.GBS
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=.\705-02190A0\BM Dev Cells.GM1
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM2
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=.\705-02190A0\BM Dev Cells.GM2
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM4
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=.\705-02190A0\BM Dev Cells.GM4
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM6
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=.\705-02190A0\BM Dev Cells.GM6
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM9
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=.\705-02190A0\BM Dev Cells.GM9
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM10
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=.\705-02190A0\BM Dev Cells.GM10
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=.\705-02190A0\BM Dev Cells.GTL
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=.\705-02190A0\BM Dev Cells.GTO
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=.\705-02190A0\BM Dev Cells.GTP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=.\705-02190A0\BM Dev Cells.GTS
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.REP
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=.\705-02190A0\BM Dev Cells.LDP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=.\705-02190A0\BM Dev Cells.REP
+DocumentPath=.\705-02190A0\705-02190A0 NC Drill.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=.\705-02190A0\BM Dev Cells.RUL
+DocumentPath=.\705-02190A0\705-02190A0 NC Drill.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=.\705-02190A0_step\BM Dev Cells.step
+DocumentPath=.\705-02190A0\705-02190A0 NC Drill.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=.\705-02190A0\BM Dev Cells.TXT
+DocumentPath=.\705-02190A0\705-02190A0 Pick and Place (Placed Components Only).txt
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=.\705-02190A0\Pick Place for BM Dev Cells(Placed Components Only).txt
+DocumentPath=.\705-02190A0\705-02190A0 Pick and Place (SMD Assembly).txt
+DItemRevisionGUID=
+
+[GeneratedDocument26]
+DocumentPath=.\705-02190A0\705-02190A0 Test Point Report.csv
+DItemRevisionGUID=
+
+[GeneratedDocument27]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (All).xls
+DItemRevisionGUID=
+
+[GeneratedDocument28]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (Placed Components Only).xls
+DItemRevisionGUID=
+
+[GeneratedDocument29]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (SMD Assembly).xls
+DItemRevisionGUID=
+
+[GeneratedDocument30]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument31]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument32]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument33]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument34]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument35]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument36]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GM2
+DItemRevisionGUID=
+
+[GeneratedDocument37]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GM4
+DItemRevisionGUID=
+
+[GeneratedDocument38]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GM6
+DItemRevisionGUID=
+
+[GeneratedDocument39]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GM9
+DItemRevisionGUID=
+
+[GeneratedDocument40]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GM10
+DItemRevisionGUID=
+
+[GeneratedDocument41]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument42]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument43]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument44]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument45]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.REP
+DItemRevisionGUID=
+
+[GeneratedDocument46]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Gerber.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument47]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 NC Drill.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument48]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 NC Drill.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument49]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 NC Drill.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument50]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Pick and Place (Placed Components Only).txt
+DItemRevisionGUID=
+
+[GeneratedDocument51]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Pick and Place (SMD Assembly).txt
+DItemRevisionGUID=
+
+[GeneratedDocument52]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\705-02311B1\705-02311B1 Test Point Report.csv
+DItemRevisionGUID=
+
+[GeneratedDocument53]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\.\BM Dev Cells(Placed Components Only).step
 DItemRevisionGUID=
 
 [Parameter1]
+Name=AssemblyNumber
+Value=710-02191
+
+[Parameter2]
 Name=AssemblyRevision
 Value=A0
 
-[Parameter2]
-Name=ProjectTitle
-Value=Battery Module Development Board Cells
-
 [Parameter3]
-Name=ProjectRevision
-Value=A0
-
-[Parameter4]
 Name=PartNumber
 Value=705-02190
 
+[Parameter4]
+Name=ProjectRevision
+Value=A0
+
 [Parameter5]
-Name=AssemblyNumber
-Value=710-02191
+Name=ProjectTitle
+Value=Battery Module Development Board Cells
 
 [Configuration1]
 Name=Default Configuration
@@ -824,78 +939,6 @@ OutputDocumentPath17=
 OutputVariantName17=
 OutputDefault17=0
 PageOptions17=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType18=Text Print
-OutputName18=Text Print
-OutputDocumentPath18=
-OutputVariantName18=
-OutputDefault18=0
-PageOptions18=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType19=Text Print
-OutputName19=Text Print
-OutputDocumentPath19=
-OutputVariantName19=
-OutputDefault19=0
-PageOptions19=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType20=Text Print
-OutputName20=Text Print
-OutputDocumentPath20=
-OutputVariantName20=
-OutputDefault20=0
-PageOptions20=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType21=Text Print
-OutputName21=Text Print
-OutputDocumentPath21=
-OutputVariantName21=
-OutputDefault21=0
-PageOptions21=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType22=Text Print
-OutputName22=Text Print
-OutputDocumentPath22=
-OutputVariantName22=
-OutputDefault22=0
-PageOptions22=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType23=Text Print
-OutputName23=Text Print
-OutputDocumentPath23=
-OutputVariantName23=
-OutputDefault23=0
-PageOptions23=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType24=Text Print
-OutputName24=Text Print
-OutputDocumentPath24=
-OutputVariantName24=
-OutputDefault24=0
-PageOptions24=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType25=Text Print
-OutputName25=Text Print
-OutputDocumentPath25=
-OutputVariantName25=
-OutputDefault25=0
-PageOptions25=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType26=Text Print
-OutputName26=Text Print
-OutputDocumentPath26=
-OutputVariantName26=
-OutputDefault26=0
-PageOptions26=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType27=Text Print
-OutputName27=Text Print
-OutputDocumentPath27=
-OutputVariantName27=
-OutputDefault27=0
-PageOptions27=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType28=Text Print
-OutputName28=Text Print
-OutputDocumentPath28=
-OutputVariantName28=
-OutputDefault28=0
-PageOptions28=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
-OutputType29=Text Print
-OutputName29=Text Print
-OutputDocumentPath29=
-OutputVariantName29=
-OutputDefault29=0
-PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 
 [OutputGroup8]
 Name=Validation Outputs
@@ -1357,6 +1400,9 @@ Type119=3
 MultiChannelAlternate=2
 AlternateItemFail=3
 Type122=2
+Type123=1
+Type124=1
+Type125=1
 
 [ERC Connection Matrix]
 L1=NNNNNNNNNNNWNNNWW
@@ -2070,12 +2116,12 @@ ComponentUpdate86=1
 ComponentIsDeviceSheet86=0
 
 [Comparison Options]
-ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
-ComparisonOptions1=Kind=Net Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
-ComparisonOptions2=Kind=Component Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
-ComparisonOptions3=Kind=Rule|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
-ComparisonOptions4=Kind=Differential Pair|MinPercent=50|MinMatch=1|ShowMatch=0|Confirm=0|UseName=0|InclAllRules=0
-ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
+ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
+ComparisonOptions1=Kind=Net Class|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
+ComparisonOptions2=Kind=Component Class|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
+ComparisonOptions3=Kind=Rule|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
+ComparisonOptions4=Kind=Differential Pair|MinPercent=50|MinMatch=1|ShowMatch=0|UseName=0|InclAllRules=0
+ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=-1|UseName=-1|InclAllRules=0
 
 [SmartPDF]
 PageOptions=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1

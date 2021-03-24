@@ -32,5 +32,6 @@ Layer 2			Bottom of board (solder side)
 .RUL			Altium .RUL file
 .TXT			Altium Drill file				      ASCII
 .apr    		Aperture file           			Gerber
+.txt                       Altium Pick and Place file                      ASCII
 .xls			BOM File					      ASCII
 README2.TXT       This file                       		ASCII

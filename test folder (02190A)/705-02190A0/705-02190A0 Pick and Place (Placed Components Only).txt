@@ -1,0 +1,32 @@
+Altium Designer Pick and Place Locations
+C:\Pumpkin\Altium_docs\test folder (02190A)\.\705-02190A0\705-02190A0 Pick and Place (Placed Components Only).txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       24/03/21
+Time:       20:18
+Revision:   2de23e57d79c1603468afd8dd0dc62851dd491dd
+Variant:    Placed Components Only
+Units used: mil
+
+Designator Comment             Layer       Footprint           Center-X(mil) Center-Y(mil) Rotation Description                    
+VC0        Hook                BottomLayer Hook                3870.079      -866.142      344      "Testpoint Hook"               
+VC1        Hook                BottomLayer Hook                3870.079      -433.071      344      "Testpoint Hook"               
+VC2        Hook                BottomLayer Hook                3870.079      0.000         344      "Testpoint Hook"               
+VC3        Hook                BottomLayer Hook                3870.079      433.071       344      "Testpoint Hook"               
+VC4        Hook                BottomLayer Hook                3870.079      866.142       344      "Testpoint Hook"               
+TP59       Testpoint           TopLayer    Testpoint           -236.220      -1220.472     90       Testpoint                      
+TP58       Testpoint           TopLayer    Testpoint           -236.220      -511.811      90       Testpoint                      
+TP45       Testpoint           TopLayer    Testpoint           -236.220      -1043.307     90       Testpoint                      
+TP44       Testpoint           TopLayer    Testpoint           -236.220      -866.142      90       Testpoint                      
+TP43       Testpoint           TopLayer    Testpoint           -236.220      -688.976      90       Testpoint                      
+JP4        TSW-102-08-L-S-RA   BottomLayer HDR1X2HTH           -236.220      571.654       90       "Header 2x1 RA TH"             
+JP2        TSW-102-08-L-S-RA   BottomLayer HDR1X2HTH           -236.220      1162.205      90       "Header 2x1 RA TH"             
+B4         1043                BottomLayer 1043                1411.000      1299.213      90       "Battery 18650 Holder"         
+B3         1043                BottomLayer 1043_-_non-polar    1410.984      433.071       270      "Battery 18650 Holder"         
+B2         1043                BottomLayer 1043_-_non-polar    1410.984      -433.071      90       "Battery 18650 Holder"         
+B1         1043                BottomLayer 1043                1410.984      -1299.213     270      "Battery 18650 Holder"         
+H3         MTMM-102-02-S-D-196 TopLayer    MTMM-102-02-S-D-196 -236.220      -236.220      360      "Header 2x2 TH thru-board 2mm" 
+H1         MTMM-103-03-S-D-243 TopLayer    MTMM-103-03-S-D-243 -236.220      196.850       360      "Header 3x2 TH thru-board 2mm" 
+H2         MTMM-103-03-S-D-243 TopLayer    MTMM-103-03-S-D-243 -236.220      -39.370       360      "Header 3x2 TH thru-board 2mm" 
