@@ -28,9 +28,7 @@ import os
 import sys
 sys.path.insert(1, 'src\\')
 import shutil
-import subprocess
 import PyPDF2
-from functools import partial
 import time
 import Altium_helpers
 import pdfminer
@@ -41,20 +39,6 @@ from pdfminer.pdfpage import PDFPage
 from io import StringIO
 from io import BytesIO
 # end try
-
-import multiprocessing
-
-# This program also requires the following installed packages:  
-# pypdfocr 
-# imagemagik
-# Pillow
-# reportlab
-# watchdog
-# pypdf2
-# ghostscript
-#import reportlab
-#import watchdog
-#import PyPDF2
 
 #
 # ----------------

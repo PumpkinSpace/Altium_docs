@@ -32,10 +32,7 @@ import shutil
 import PyPDF2
 import re
 import Altium_PDF
-import threading
-import multiprocessing
 import time
-import signal
 
 #
 # -------

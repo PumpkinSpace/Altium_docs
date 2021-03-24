@@ -1,16 +1,16 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: 705-02190A0 Gerber.GBR   24/03/2021  8:18:43 PM
+Gerber File Extension Report For: 705-02190A0 Gerber.GBR   25/03/2021  7:11:46 AM
 ------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------
 Layer Extension     Layer Description                      
 ------------------------------------------------------------------------------------------
+.GTL                TOP Copper                              
+.GBL                BOT Copper                              
 .GTO                Top Overlay                             
 .GTP                Top Paste                               
 .GTS                Top Solder                              
-.GTL                TOP Copper                              
-.GBL                BOT Copper                              
 .GBS                Bottom Solder                           
 .GBP                Bottom Paste                            
 .GBO                Bottom Overlay                          
