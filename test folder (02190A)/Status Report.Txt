@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 1:45:50 PM On 15/04/2021
+
+Output: Export STEP
+Type  : ExportSTEP
+From  : Variant [Placed Components Only] of PCB Document [01606C.PcbDoc]
+   Generated File[01606C(Placed Components Only).step]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 1:45:50 PM On 15/04/2021
