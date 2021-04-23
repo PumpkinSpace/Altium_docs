@@ -1,6 +1,13 @@
 #Altium Library histories
 **/History
 
+# Test Folder outputs
+test*folder*(02190A)/
+#test*folder*(02190A)/705-02190A0
+#test*folder*(02190A)/710-02191A0PD
+#test*folder*(02190A)/rA0_A0
+#*.step
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
