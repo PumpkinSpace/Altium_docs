@@ -89,7 +89,7 @@ OutputEnabled3_OutputMedium3=0
 OutputEnabled3_OutputMedium4=0
 OutputDefault3=0
 Configuration3_Name1=OutputConfigurationParameter1
-Configuration3_Item1=Record=ExportSTEPView|ExportComponentOptions=0|ExportModelsOption=2|ExportHolesOption=0|CanSelectPrimitives=False|IncludeMechanicalPadHoles=True|IncludeElectricalPadHoles=True|IncludeFreePadHoles=True|ExportFoldedBoard=True|ExportFoldedBoardRate=0|ComponentSuffixType=0|ComponentSuffix= |ExportCopperOption=0|ExportCopperLayer=0|ExportPadAndViaBarrelsOnly=False|IgnoreBoardCopperLayerColors=False|DocumentPath=D:\Asteria\Downloads\New folder\01606C0_Folder\Altium Files\01606B1.PcbDoc
+Configuration3_Item1=Record=ExportSTEPView|ExportComponentOptions=0|ExportModelsOption=2|ExportHolesOption=0|CanSelectPrimitives=False|IncludeMechanicalPadHoles=True|IncludeElectricalPadHoles=True|IncludeFreePadHoles=True|ExportFoldedBoard=True|ExportFoldedBoardRate=0|ComponentSuffixType=0|ComponentSuffix= |ExportCopperOption=0|ExportCopperLayer=0|ExportPadAndViaBarrelsOnly=False|IgnoreBoardCopperLayerColors=False|ExportAsSinglePart=False|IncludeCoverLayer=True|SkipFreeBodies=True|SkipHidden=False|DocumentPath=C:\Users\Asteria\Dropbox\Pumpkin PCBs\DASA Motherboard (01740D0)\01740D0.PcbDoc
 OutputType4=Gerber
 OutputName4=Gerber
 OutputCategory4=Fabrication
@@ -601,7 +601,7 @@ Configuration28_Name1=OutputConfigurationParameter1
 Configuration28_Item1=Record=PickPlaceView|Units=Imperial|GenerateCSVFormat=False|GenerateTextFormat=True|DocumentPath=D:\Asteria\Downloads\New folder\01606C0_Folder\Altium Files\01606B1.PcbDoc
 
 [PublishSettings]
-OutputFilePath1=D:\Asteria\Downloads\New folder\02152B0_Folder\Altium Files\.\705-02152B0\
+OutputFilePath1=C:\Users\Asteria\Dropbox\Pumpkin PCBs\DASA Motherboard (01740D0)\.\705-01740D0\
 ReleaseManaged1=0
 OutputBasePath1=.\
 OutputPathMedia1==PartNumber + ProjectRevision
@@ -614,7 +614,7 @@ OutputFileNameMulti1==PartNumber + ProjectRevision + ' ' + OutputName
 UseOutputNameForMulti1=0
 OutputFileNameSpecial1=
 OpenOutput1=0
-OutputFilePath2=D:\Asteria\Downloads\New folder\02152B0_Folder\Altium Files\.\
+OutputFilePath2=C:\Users\Asteria\Dropbox\Pumpkin PCBs\DASA Motherboard (01740D0)\.\
 ReleaseManaged2=0
 OutputBasePath2=.\
 OutputPathMedia2=
@@ -656,7 +656,7 @@ PDFACompliance4=Disabled
 PDFVersion4=Default
 
 [GeneratedFilesSettings]
-RelativeOutputPath1=D:\Asteria\Downloads\New folder\02152B0_Folder\Altium Files\.\705-02152B0\
+RelativeOutputPath1=C:\Users\Asteria\Dropbox\Pumpkin PCBs\DASA Motherboard (01740D0)\.\705-01740D0\
 OpenOutputs1=0
 AddToProject1=1
 TimestampFolder1=0
@@ -666,7 +666,7 @@ OpenGerberOutput1=0
 OpenNCDrillOutput1=0
 OpenIPCOutput1=0
 EnableReload1=0
-RelativeOutputPath2=D:\Asteria\Downloads\New folder\02152B0_Folder\Altium Files\.\
+RelativeOutputPath2=C:\Users\Asteria\Dropbox\Pumpkin PCBs\DASA Motherboard (01740D0)\.\
 OpenOutputs2=0
 AddToProject2=1
 TimestampFolder2=0
