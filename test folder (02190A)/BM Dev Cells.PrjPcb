@@ -31,7 +31,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=1
-OutputPath=
+OutputPath=Project Outputs for BM Dev Cells
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -145,7 +145,14 @@ UniqueID=50B1946A-B5BF-4436-BEA7-77F521B818E2
 Description=SMD Assembly
 AllowFabrication=0
 ParameterCount=0
-VariationCount=0
+VariationCount=7
+Variation1=Designator=JP10|UniqueId=\NACLIGXC|Kind=1|AlternatePart= 
+Variation2=Designator=R73|UniqueId=\NXLKYJIW|Kind=1|AlternatePart= 
+Variation3=Designator=R65|UniqueId=\HWCAKIVL|Kind=1|AlternatePart= 
+Variation4=Designator=R53|UniqueId=\DIHVCUPL|Kind=1|AlternatePart= 
+Variation5=Designator=R76|UniqueId=\XAEEMQLB|Kind=1|AlternatePart= 
+Variation6=Designator=R52|UniqueId=\VHXGMYKF|Kind=1|AlternatePart= 
+Variation7=Designator=JP3|UniqueId=\ZYXUPUCW|Kind=1|AlternatePart= 
 ParamVariationCount=0
 
 [GeneratedDocument1]
@@ -165,199 +172,287 @@ DocumentPath=705-02190A0\705-02190A0 Gerber.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GBL
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GBO
+DocumentPath=705-02190A0\705-02190A0 Gerber.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GBP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GBS
+DocumentPath=705-02190A0\705-02190A0 Gerber.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GM1
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GM2
+DocumentPath=705-02190A0\705-02190A0 Gerber.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GM4
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GM6
+DocumentPath=705-02190A0\705-02190A0 Gerber.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GM9
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GM10
+DocumentPath=705-02190A0\705-02190A0 Gerber.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GTL
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GTO
+DocumentPath=705-02190A0\705-02190A0 Gerber.GM2
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GTP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM2
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=705-02190A0\705-02190A0 Gerber.GTS
+DocumentPath=705-02190A0\705-02190A0 Gerber.GM4
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=705-02190A0\705-02190A0 Gerber.REP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM4
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=705-02190A0\705-02190A0 Gerber.RUL
+DocumentPath=705-02190A0\705-02190A0 Gerber.GM6
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=705-02190A0\705-02190A0 NC Drill.DRR
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM6
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=705-02190A0\705-02190A0 NC Drill.LDP
+DocumentPath=705-02190A0\705-02190A0 Gerber.GM9
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=705-02190A0\705-02190A0 NC Drill.TXT
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM9
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=705-02190A0\705-02190A0 Pick and Place (Placed Components Only).txt
+DocumentPath=705-02190A0\705-02190A0 Gerber.GM10
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=705-02190A0\705-02190A0 Pick and Place (SMD Assembly).txt
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GM10
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=705-02190A0\705-02190A0 Test Point Report.csv
+DocumentPath=705-02190A0\705-02190A0 Gerber.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (All).xls
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (Placed Components Only).xls
+DocumentPath=705-02190A0\705-02190A0 Gerber.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (SMD Assembly).xls
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument30]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.EXTREP
+DocumentPath=705-02190A0\705-02190A0 Gerber.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument31]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBL
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument32]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBO
+DocumentPath=705-02190A0\705-02190A0 Gerber.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument33]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBP
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument34]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBS
+DocumentPath=705-02190A0\705-02190A0 Gerber.REP
 DItemRevisionGUID=
 
 [GeneratedDocument35]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM1
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.REP
 DItemRevisionGUID=
 
 [GeneratedDocument36]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM2
+DocumentPath=705-02190A0\705-02190A0 Gerber.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument37]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM4
+DocumentPath=.\705-02190A0\705-02190A0 Gerber.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument38]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM6
+DocumentPath=705-02190A0\705-02190A0 NC Drill.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument39]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM9
+DocumentPath=.\705-02190A0\705-02190A0 NC Drill.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument40]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM10
+DocumentPath=705-02190A0\705-02190A0 NC Drill.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument41]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTL
+DocumentPath=.\705-02190A0\705-02190A0 NC Drill.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument42]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTO
+DocumentPath=705-02190A0\705-02190A0 NC Drill.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument43]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTP
+DocumentPath=.\705-02190A0\705-02190A0 NC Drill.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument44]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTS
+DocumentPath=705-02190A0\705-02190A0 Pick and Place (Placed Components Only).txt
 DItemRevisionGUID=
 
 [GeneratedDocument45]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.REP
+DocumentPath=.\705-02190A0\705-02190A0 Pick and Place (Placed Components Only).txt
 DItemRevisionGUID=
 
 [GeneratedDocument46]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.RUL
+DocumentPath=705-02190A0\705-02190A0 Pick and Place (SMD Assembly).txt
 DItemRevisionGUID=
 
 [GeneratedDocument47]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 NC Drill.DRR
+DocumentPath=.\705-02190A0\705-02190A0 Pick and Place (SMD Assembly).txt
 DItemRevisionGUID=
 
 [GeneratedDocument48]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 NC Drill.LDP
+DocumentPath=705-02190A0\705-02190A0 Test Point Report.csv
 DItemRevisionGUID=
 
 [GeneratedDocument49]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 NC Drill.TXT
+DocumentPath=.\705-02190A0\705-02190A0 Test Point Report.csv
 DItemRevisionGUID=
 
 [GeneratedDocument50]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Pick and Place (Placed Components Only).txt
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (All).xls
 DItemRevisionGUID=
 
 [GeneratedDocument51]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Pick and Place (SMD Assembly).txt
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (Placed Components Only).xls
 DItemRevisionGUID=
 
 [GeneratedDocument52]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Test Point Report.csv
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Bill of Materials (SMD Assembly).xls
 DItemRevisionGUID=
 
 [GeneratedDocument53]
-DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\BM Dev Cells(Placed Components Only).step
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument54]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument55]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument56]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument57]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument58]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument59]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM2
+DItemRevisionGUID=
+
+[GeneratedDocument60]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM4
+DItemRevisionGUID=
+
+[GeneratedDocument61]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM6
+DItemRevisionGUID=
+
+[GeneratedDocument62]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM9
+DItemRevisionGUID=
+
+[GeneratedDocument63]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GM10
+DItemRevisionGUID=
+
+[GeneratedDocument64]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument65]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument66]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument67]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument68]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.REP
+DItemRevisionGUID=
+
+[GeneratedDocument69]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Gerber.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument70]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 NC Drill.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument71]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 NC Drill.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument72]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 NC Drill.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument73]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Pick and Place (Placed Components Only).txt
+DItemRevisionGUID=
+
+[GeneratedDocument74]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Pick and Place (SMD Assembly).txt
+DItemRevisionGUID=
+
+[GeneratedDocument75]
+DocumentPath=..\..\..\Users\Asteria\Dropbox\Pumpkin PCBs\28V Bus Breakout Module (02311B1)\705-02311B1\705-02311B1 Test Point Report.csv
 DItemRevisionGUID=
 
 [Parameter1]
@@ -427,7 +522,7 @@ SCH_HasExpandLogicalToPhysicalSheets=-1
 SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for BM Dev Cells
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -831,6 +926,18 @@ OutputName6=Report Project Hierarchy
 OutputDocumentPath6=
 OutputVariantName6=[No Variations]
 OutputDefault6=0
+OutputType7=BOM_ReportCompare
+OutputName7=BOM Compare
+OutputDocumentPath7=
+OutputVariantName7=[No Variations]
+OutputDefault7=0
+PageOptions7=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+OutputType8=Export Comments
+OutputName8=Export Comments
+OutputDocumentPath8=
+OutputVariantName8=[No Variations]
+OutputDefault8=0
+PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 
 [OutputGroup7]
 Name=Other Outputs
@@ -1044,6 +1151,36 @@ OutputName11=Export STEP
 OutputDocumentPath11=
 OutputVariantName11=
 OutputDefault11=0
+OutputType12=Ansoft Neutral
+OutputName12=Ansoft Neutral (AutoPCB)
+OutputDocumentPath12=
+OutputVariantName12=
+OutputDefault12=0
+OutputType13=HyperLynx
+OutputName13=HyperLynx (AutoPCB)
+OutputDocumentPath13=
+OutputVariantName13=
+OutputDefault13=0
+OutputType14=Orcad v7 Capture Design
+OutputName14=Orcad v7 Capture Design (AutoSCH)
+OutputDocumentPath14=
+OutputVariantName14=
+OutputDefault14=0
+OutputType15=P-CAD ASCII
+OutputName15=P-CAD ASCII (AutoPCB)
+OutputDocumentPath15=
+OutputVariantName15=
+OutputDefault15=0
+OutputType16=P-CAD V16 Schematic Design
+OutputName16=P-CAD V16 Schematic Design (AutoSCH)
+OutputDocumentPath16=
+OutputVariantName16=
+OutputDefault16=0
+OutputType17=SiSoft
+OutputName17=SiSoft (AutoPCB)
+OutputDocumentPath17=
+OutputVariantName17=
+OutputDefault17=0
 
 [OutputGroup10]
 Name=PostProcess Outputs
