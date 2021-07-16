@@ -337,7 +337,7 @@ def move_documents(starting_dir, pdf_dir, output_pdf_dir, gerber_dir, part_numbe
     modified_dates = [manage_schematic(starting_dir, pdf_dir, output_pdf_dir, part_number, with_threads = True)]
     
     # construct the assembly doc
-    modified_dates.extend(Altium_Excel.construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number))
+    modified_dates.append(Altium_Excel.construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number))
     
     # get the file list for the starting directory
     root_file_list = os.listdir(starting_dir)

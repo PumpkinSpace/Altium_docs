@@ -50,28 +50,56 @@ no_border = Border(left=Side(style=None),
                    top=Side(style=None), 
                    bottom=Side(style=None))
 
-# define BOM layaout constants
+# define BOM layout constants
 
-BOM_cols =  {'Designator': 0,
-             'DNP': 1,
-             'Reference' : 2,
-             'Description' : 3,
-             'Quantity': 4,
-             'Manufacturer': 5,
-             'Manufacturer_pn': 6,
-             'Supplier': 7,
-             'Supplier_pn': 8,
-             'Sub_Manufacturer': 9, 
-             'Sub_Manufacturer_pn' : 10,
-             'Sub_Supplier' : 11,
-             'Sub_Supplier_pn': 12,
-             'Subtotal': 13}
+BOM_titles = ['Designator', 'DNP Designators', 'Customer Reference', 'Description', 
+              'Quantity', 'Fitted', 'Manufacturer 1', 'Manufacturer Part Number 1',
+              'Supplier 1', 'Supplier Part Number 1', 'Manufacturer 2', 
+              'Manufacturer Part Number 2', 'Supplier 2', 'Supplier Part Number 2',
+              'Supplier Subtotal 1']
 
-bom_d_col = 0
-bom_dnp_col = 1
-bom_pn_col = 5
+class Component:
+    def __init__(self, info_list, title_list):
+        """
+        Function to create a component object for the BOM line item in question.
+    
+        @param[in]    info_list:      The list of propertied for this component.
+        @param[in]    title_list:     The list of times from the BOM
+        @attribute    property_dict:  A dictionary of all of the properties of this component
+        @attribute    part_number:    The part number for this component - used for sorting
+        @attribute    Fitted:         Boolean - are these components fitted
+        """            
+        
+        # initialise the dictionary
+        self.property_dict = {}     
+        
+        # iterate through the list of titles desired
+        for title in BOM_titles:
+            # iterate through the list of titles provided in the file
+            for i in range(len(title_list)):
+                # if it is the title we're looking for
+                if (title_list[i] == title):
+                    # save that data
+                    self.property_dict[title] = info_list[i]
+                    break;
+                # end if
+            # end for
+        # end for
+        
+        # extract the aprt number for use sorting later
+        self.part_number = self.property_dict['Manufacturer Part Number 1']
+        
+        # determine if these parts are fitted or not
+        if (self.property_dict['Fitted'] == 'Fitted'):
+            self.fitted = True
+        else:
+            self.fitted = False
+        # end if
+
+    # end def
+# end class
+                
 bom_header_rows = 6
-bom_comment_col = 2
 
 is_test = False
 
@@ -191,7 +219,7 @@ def set_assy_options(starting_dir, list_0, list_1):
 # end def
     
     
-def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number):
+def construct_assembly_doc_old(starting_dir, gerber_dir, output_pdf_dir, part_number):
     """
     Function to build the BOM page of the ASSY Config doc based on the BOMs 
     exported from Altium.
@@ -207,7 +235,6 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     @return      (datetime)        The modified date of the BOM
     @return      (datetime)        The modified date of the DNP bom
     """       
-    
     
     # if this failed log an error
     if not log_error(get=True):
@@ -303,6 +330,50 @@ def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number
     return bom_date, dnp_date
 #end def
 
+def construct_assembly_doc(starting_dir, gerber_dir, output_pdf_dir, part_number):
+    """
+    Function to build the BOM page of the ASSY Config doc based on the BOMs 
+    exported from Altium.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[in]   gerber_dir:       The location of the BOM documents (full path) 
+                                   (string).                             
+    @param[in]   output_pdf_dir:   The Location of the pdf files (full path)
+                                   (string).
+    @param[in]   part_number:      The part number for the design
+                                   (string).
+    @return      (datetime)        The modified date of the BOM
+    """       
+    
+    # if this failed log an error
+    if not log_error(get=True):
+        return None, None
+    # end if
+
+    # populate an array of component objects
+    [bom_doc, bom_date, component_list] = get_bom_array(gerber_dir)
+    
+    # fill the assy config document with these lists.
+    fill_assy_bom(starting_dir, output_pdf_dir, part_number, component_list, bom_doc)
+    
+    # extract all information from the ASSY Config document
+    assy_data = extract_assy_config(starting_dir)
+    
+    # use that data to fill the online BOM
+    if Altium_GS.populate_online_bom(set_directory.path, 
+                                     get_assembly_number('PART'),
+                                     get_assembly_number('ASSY'),
+                                     get_assembly_number('REV'),
+                                     assy_data) == None:
+        log_error()
+    #end if
+        
+    
+    # return the modified dates
+    return bom_date
+#end def
+
 
 def copy_assy_config(starting_dir):
     """
@@ -352,33 +423,39 @@ def extract_assy_config(starting_dir):
         return None
     # end if
     
+    # extract the list of titles
+    title_list = []
+    for column in range(bom_sheet.max_column):
+        title_list.append(extract_items(bom_sheet.cell(bom_header_rows,column+1)))
+    # end for    
+    
     # extract all information from the BOM
     for i in range(bom_header_rows+1,bom_sheet.max_row+1):
-        if bom_sheet.cell(i,BOM_cols['Designator']+1).value != None:
-            output_data.designators.append(bom_sheet.cell(i,BOM_cols['Designator']+1).value.split(', '))
+        if bom_sheet.cell(i,title_list.index('Designator')+1).value != None:
+            output_data.designators.append(bom_sheet.cell(i,title_list.index('Designator')+1).value.split(', '))
             
         else:
             output_data.designators.append([])
         # end if
         
-        if bom_sheet.cell(i,BOM_cols['DNP']+1).value != None:
-            output_data.dnp_designators.append(bom_sheet.cell(i,BOM_cols['DNP']+1).value.split(', '))
+        if bom_sheet.cell(i,title_list.index('DNP Designators')+1).value != None:
+            output_data.dnp_designators.append(bom_sheet.cell(i,title_list.index('DNP Designators')+1).value.split(', '))
             
         else:
             output_data.dnp_designators.append([])
         # end if
         
-        output_data.descriptions.append(bom_sheet.cell(i,BOM_cols['Description']+1).value)
-        output_data.quantities.append(bom_sheet.cell(i,BOM_cols['Quantity']+1).value)
-        output_data.manufacturers.append(bom_sheet.cell(i,BOM_cols['Manufacturer']+1).value)
-        output_data.sub_manufacturer.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer']+1).value)
-        output_data.manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Manufacturer_pn']+1).value)
-        output_data.sub_manufacturer_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Manufacturer_pn']+1).value)
-        output_data.sub_supplier_pns.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier_pn']+1).value)
-        output_data.sub_suppliers.append(bom_sheet.cell(i,BOM_cols['Sub_Supplier']+1).value)
-        output_data.suppliers.append(bom_sheet.cell(i,BOM_cols['Supplier']+1).value)
-        output_data.supplier_pns.append(bom_sheet.cell(i,BOM_cols['Supplier_pn']+1).value)
-        output_data.subtotals.append(bom_sheet.cell(i,BOM_cols['Subtotal']+1).value)
+        output_data.descriptions.append(bom_sheet.cell(i,title_list.index('Description')+1).value)
+        output_data.quantities.append(bom_sheet.cell(i,title_list.index('Quantity')+1).value)
+        output_data.manufacturers.append(bom_sheet.cell(i,title_list.index('Manufacturer 1')+1).value)
+        output_data.sub_manufacturer.append(bom_sheet.cell(i,title_list.index('Manufacturer 2')+1).value)
+        output_data.manufacturer_pns.append(bom_sheet.cell(i,title_list.index('Manufacturer Part Number 1')+1).value)
+        output_data.sub_manufacturer_pns.append(bom_sheet.cell(i,title_list.index('Manufacturer Part Number 2')+1).value)
+        output_data.sub_supplier_pns.append(bom_sheet.cell(i,title_list.index('Supplier Part Number 2')+1).value)
+        output_data.sub_suppliers.append(bom_sheet.cell(i,title_list.index('Supplier 2')+1).value)
+        output_data.suppliers.append(bom_sheet.cell(i,title_list.index('Supplier 1')+1).value)
+        output_data.supplier_pns.append(bom_sheet.cell(i,title_list.index('Supplier Part Number 1')+1).value)
+        output_data.subtotals.append(bom_sheet.cell(i,title_list.index('Supplier Subtotal 1')+1).value)
     # end for
     
     # close the file
@@ -503,6 +580,124 @@ def get_assembly_number(specific_number = 'ASSY'):
     # end if
 # end def
 
+def get_bom_array(gerber_dir):
+    """
+    Function to extract the designator and part number lists from a BOM.
+
+    @param[in]   gerber_dir:       The Altium project directory (full path) 
+                                   (string).
+    @return      (worksheet)       The BOM sheet that was opened.
+    @return      (mod_date)        The modification date of the BOM.
+    @return      (component array) All the components that were found. 
+    """      
+    
+    filename = ''
+    
+    # find the BOM doc.
+    for name in os.listdir(gerber_dir):
+        if (('Placed Components Only' in name) and ('xls' in name)):
+            filename = name
+            break
+        # end if
+    # end for  
+    
+    # no file was found so log the appropraite error
+    if filename == '':
+        print('***  Error: no BOM found ***')
+        log_error()   
+        return None, None, None
+    # end if
+    
+    if is_test:
+        print(filename)
+    # end if
+    
+    try:
+        # get the BOM date
+        date = Altium_helpers.mod_date(os.path.getmtime(gerber_dir + '\\' + filename),
+                                       filename)
+        
+        # open the BOM sheet
+        doc = xlrd.open_workbook(gerber_dir + '\\' + filename).sheet_by_index(0)
+    
+    except:
+        print('***  Error: could not open .xls file ***')
+        log_error()    
+        return None, None, None
+    # end try
+    
+    # extract the list of titles
+    title_list = []
+    for column in range(doc.ncols):
+        title_list.append(extract_items(doc.cell(bom_header_rows-1,column)))
+    # end for
+    
+    component_list = []
+                    
+    # extract the required information
+    for row in range(bom_header_rows, doc.nrows):
+        # find the part number in the BOM Doc.
+        property_list = []
+        # load all the items in the row into the list
+        for i in range(doc.ncols):
+            property_list.append(extract_items(doc.cell(row,i)))
+        # end for
+        
+        # create the object
+        comp_obj = Component(property_list, title_list)
+        #determine its part number
+        pn = comp_obj.part_number
+        
+        if (pn == ''):
+            print('***  Manufacturer part Number missing  ***')
+            log_error()    
+            return None, None, None
+        # end if
+        
+        # detect if its already in the array
+        for existing_comp in component_list:
+            if existing_comp.part_number == pn:
+                # it is already in the array so match up the fitted parts
+                if ((comp_obj.fitted == 0) and (existing_comp.fitted == 1)):
+                    # the new object is DNP
+                    existing_comp.property_dict['DNP Designators'] = comp_obj.property_dict['Designator']
+                    comp_obj = None
+                
+                elif ((comp_obj.fitted == 1) and (existing_comp.fitted == 0)):
+                    # the existing object is DNP
+                    existing_comp.property_dict['Designator'] = comp_obj.property_dict['Designator']   
+                    comp_obj = None
+                    
+                elif ((comp_obj.fitted == 1) and (existing_comp.fitted == 1)):
+                    # both are fitted
+                    existing_comp.property_dict['Designator'] = existing_comp.property_dict['Designator'] + ', ' + comp_obj.property_dict['Designator']   
+                    comp_obj = None                    
+                else:
+                    # both are DNP
+                    existing_comp.property_dict['DNP Designators'] = existing_comp.property_dict['DNP Designators'] + ', ' + comp_obj.property_dict['Designator']   
+                    comp_obj = None                  
+                # end if
+            # end if
+        # end for
+        
+        if comp_obj != None:
+            # there was no duplicate
+            if (comp_obj.fitted == 0):
+                # the part is DNP
+                comp_obj.property_dict['DNP Designators'] = comp_obj.property_dict['Designator']
+                comp_obj.property_dict['Designator'] = ''
+            # end if
+            component_list.append(comp_obj)
+        # end if
+    # end for     
+                
+    # end for   
+    
+    set_assembly_number(doc)
+
+    # return information
+    return doc, date, component_list
+# end def
 
 def get_bom_lists(gerber_dir, d_list, pn_list, DNP = False):
     """
@@ -583,8 +778,7 @@ def get_bom_lists(gerber_dir, d_list, pn_list, DNP = False):
     return doc, date
 # end def
 
-
-def extract_items(cell):
+def extract_items_old(cell):
     """
     Function to extract text from a worksheet cell.
 
@@ -601,8 +795,23 @@ def extract_items(cell):
     return cell_list
 # end def
 
+def extract_items(cell):
+    """
+    Function to extract text from a worksheet cell.
 
-def fill_assy_bom(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dnp_list, dnp_doc):
+    @param[in]   cell:              The cell to get the data from (cell).
+    @return      (strings)          The extracted information.
+    """      
+    # extract the text
+    cell_string = cell.value
+    #cell_string = repr(cell).strip('text:u\'')
+    
+    # return the list
+    return cell_string
+# end def
+
+
+def fill_assy_bom_old(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dnp_list, dnp_doc):
     """
     Function to populate the ASSY Config document with the extracted BOM 
     information.
@@ -720,6 +929,89 @@ def fill_assy_bom(starting_dir, output_pdf_dir, part_number, dnp_d_list, comp_dn
     assy_doc.close()
 # end def
 
+def fill_assy_bom(starting_dir, output_pdf_dir, part_number, component_array, bom_doc):
+    """
+    Function to populate the ASSY Config document with the extracted BOM 
+    information.
+
+    @param[in]   starting_dir:     The Altium project directory (full path) 
+                                   (string).
+    @param[in]   output_ pdf_dir:  The Location to place the pdf files (full path)
+                                   (string).
+    @param[in]   part_number:      The part number for the design
+                                   (string).
+    @param[in]   component_array:  The list of all the components (list)
+    @param[in]   bom_doc:          The BOM that provides all the other 
+                                   information (worksheet)
+    """ 
+    
+    # open the ASSY Config document and extract the BOM sheet
+    [assy_filename, assy_doc, bom_sheet] = open_assy_config(starting_dir, 'BOM')    
+    
+    # check that what was requested was returned
+    if bom_sheet == None:
+        log_error()
+        return None
+    # end if
+    
+    # empty bom and remove borders to reset it to empty state
+    for i in range(1,bom_sheet.max_row+1):
+        for j in range(1,bom_sheet.max_column+1):
+            # empty the cell
+            bom_sheet.cell(i,j).value = ''
+            
+            # remove borders
+            if i > bom_header_rows:
+                bom_sheet.cell(i,j).border = no_border
+            #end if
+        # end for
+    # end for
+    
+    # full replace the header rows of the BOM 
+    for i in range(0,bom_header_rows):
+        for j in range(0,(bom_doc.ncols-1)):   
+            # copy the BOM info from the BOM
+            bom_sheet.cell(i+1,j+1).value = bom_doc.cell_value(i,j)   
+        # end for
+    # end for
+    
+    
+    # full replace all cells in the BOM data area
+    for j in range(0,(bom_doc.ncols-1)):
+        # get the header associated with this column
+        col_title = extract_items(bom_sheet.cell(bom_header_rows,j+1))
+        
+        # load all the data into that column from the component array
+        for i in range(0,len(component_array)):
+            if (col_title == 'Customer Reference'):
+                ref_string = part_number + ': ' + component_array[i].property_dict['Designator']
+                bom_sheet.cell(bom_header_rows+i+1,j+1).value = ref_string 
+            
+            else:
+                bom_sheet.cell(bom_header_rows+i+1,j+1).value = component_array[i].property_dict[col_title]
+            # end if
+        # end for
+    # end for
+    
+    # save the file
+    assy_doc.active = 0
+    assy_doc.save(starting_dir + '\\' + assy_filename)
+    
+    # extract just the BOM
+    for sheet in assy_doc.sheetnames:
+        if sheet != 'BOM':
+            sheet_doc = assy_doc[sheet]
+            assy_doc.remove(sheet_doc)
+        # end if
+    # end for
+    
+    # save the file as just the BOM
+    assy_doc.save(output_pdf_dir + '//' + part_number + ' digikey order.xlsx')
+        
+    # close the file
+    assy_doc.close()
+# end def
+
 
 def open_assy_config(starting_dir, sheet = 'BOM'):
     """
@@ -777,8 +1069,11 @@ def test():
     """
     Test code for this module.
     """
-    Altium_helpers.clear_output('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (01234A)', True)
-    construct_assembly_doc('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (01234A)')
+    Altium_helpers.clear_output('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (02190A)')
+    construct_assembly_doc('\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (02190A)', 
+                           '\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (02190A)\\705-02190A0',
+                           '\\'.join(os.getcwd().split('\\')[:-1]) + '\\test folder (02190A)\\710-02191A0PD',
+                           '705-02190A')
     
     if not log_error(get=True):
         print('*** ERRORS OCCURRED***')
