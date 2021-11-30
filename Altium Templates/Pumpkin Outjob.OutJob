@@ -21,7 +21,7 @@ TargetOutputMedium=fabrication and Assembly Outputs
 VariantName=[No Variations]
 VariantScope=0
 CurrentConfigurationName=
-TargetPrinter=Canon MG3500 series Printer WS
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium1=fabrication and Assembly Outputs
 OutputMedium1_Type=GeneratedFiles
@@ -597,6 +597,36 @@ OutputEnabled28_OutputMedium4=0
 OutputDefault28=0
 Configuration28_Name1=OutputConfigurationParameter1
 Configuration28_Item1=Record=PickPlaceView|Units=Imperial|GenerateCSVFormat=False|GenerateTextFormat=True|DocumentPath=D:\Asteria\Downloads\New folder\01606C0_Folder\Altium Files\01606B1.PcbDoc
+OutputType29=BOM_PartType
+OutputName29=Bill of Materials (Supply)
+OutputCategory29=Report
+OutputDocumentPath29=[ActiveBOM Document]
+OutputVariantName29=
+OutputEnabled29=0
+OutputEnabled29_OutputMedium1=0
+OutputEnabled29_OutputMedium2=0
+OutputEnabled29_OutputMedium3=0
+OutputEnabled29_OutputMedium4=0
+OutputDefault29=0
+PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=0|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+Configuration29_Name1=ColumnNameFormat
+Configuration29_Item1=CaptionAsName
+Configuration29_Name2=General
+Configuration29_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=True|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=True|BomSetName=
+Configuration29_Name3=GroupOrder
+Configuration29_Item3=Manufacturer Part Number 1=True
+Configuration29_Name4=OutputConfigurationParameter1
+Configuration29_Item4=??
+Configuration29_Name5=SortOrder
+Configuration29_Item5=Designator=Up|Comment=Up
+Configuration29_Name6=VisibleOrder
+Configuration29_Item6=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100
+Configuration29_Name7=VisibleOrder_Base
+Configuration29_Item7=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100
+Configuration29_Name8=VisibleOrder_Consolidated
+Configuration29_Item8=Line #=100|Comment=100|Description=100|Designator=100|Quantity=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Quantity@Placed Components Only=100|Price@Placed Components Only=100
+Configuration29_Name9=VisibleOrder_Flat
+Configuration29_Item9=Line #=100|Comment=100|Description=100|Designator=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139
 
 [PublishSettings]
 OutputFilePath1=C:\Users\Asteria\Dropbox\Pumpkin PCBs\Power Distribution Board (02313A0)\.\705-02313A0\
