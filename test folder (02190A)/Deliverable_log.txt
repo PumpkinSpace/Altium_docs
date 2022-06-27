@@ -1,0 +1,103 @@
+=========   Deliverable Log   ===========
+Project: 		test folder (02190A)
+Created at: 	2022-01-31 09:38
+
+
+Checking the Design Rule Check...
+Complete!
+
+Checking the Electrical Rule Check...
+Complete!
+
+Moving Altium Files...
+Complete! 
+
+Moving Gerber Files...
+	Generating Readme File...
+	Complete!
+Complete! 
+
+Finding Schematic Document...
+	Reading the Schematic file...
+	Complete!
+	Extracting Modification Information...
+	Complete!
+Complete! 
+
+Updating the google sheet BOM...
+	 Updating the 02190/02191A0 google sheet
+Complete!
+
+Moving PDF documents
+Complete!
+
+Zipping Step File...
+*** WARNING: No step file found ***
+Complete! 
+
+*** WARNING possibly delivering old files ***
+	Design Rules Check.PDF modified on 2021-07-15 at 20:38:29
+	Electrical Rules Check.PDF modified on 2021-07-15 at 20:38:31
+	Battery_Module_Dev_Contacts.SchDoc modified on 2020-03-26 at 16:29:23
+	BM Dev Cells.BomDoc modified on 2021-07-16 at 17:42:14
+	BM Dev Cells.PcbDoc modified on 2020-03-26 at 10:08:54
+	BM Dev Cells.PrjPcb modified on 2021-07-21 at 09:22:28
+	MOD.SchDoc modified on 2021-03-25 at 08:25:41
+	705-02190A0 Bill of Materials (SMD Assembly).xls modified on 2021-07-16 at 17:40:25
+	705-02190A0 Gerber-macro.APR_LIB modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.apr modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.EXTREP modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.GBL modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GBO modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GBP modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GBS modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GM1 modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GM10 modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.GM2 modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.GM4 modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.GM6 modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.GM9 modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.GTL modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GTO modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GTP modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.GTS modified on 2021-07-16 at 17:40:26
+	705-02190A0 Gerber.REP modified on 2021-07-16 at 17:40:27
+	705-02190A0 Gerber.RUL modified on 2021-07-16 at 17:40:27
+	705-02190A0 NC Drill.DRR modified on 2021-07-16 at 17:40:27
+	705-02190A0 NC Drill.LDP modified on 2021-07-16 at 17:40:27
+	705-02190A0 NC Drill.TXT modified on 2021-07-16 at 17:40:27
+	705-02190A0 Pick and Place (Placed Components Only).txt modified on 2021-07-16 at 17:40:28
+	705-02190A0 Pick and Place (SMD Assembly).txt modified on 2021-07-16 at 17:40:27
+	705-02190A0 Test Point Report.csv modified on 2021-07-16 at 17:40:28
+	layers.oxps modified on 2021-03-25 at 07:13:22
+	705-02190A0 Schematic.PDF modified on 2021-07-15 at 20:38:13
+	705-02190A0 Bill of Materials (Placed Components Only).xls modified on 2021-07-16 at 17:40:02
+	3D PDF.PDF modified on 2021-07-15 at 20:38:20
+	705-02190A digikey order.xlsx modified on 2021-07-16 at 17:41:25
+	705-02190A0 Schematic.PDF modified on 2021-07-15 at 20:38:13
+	ADB0230.PDF modified on 2021-07-15 at 20:38:21
+	ADT0127.PDF modified on 2021-07-15 at 20:38:21
+	All Layers.PDF modified on 2021-07-15 at 20:38:27
+	CLT0125.PDF modified on 2021-07-15 at 20:38:27
+	DD0124.PDF modified on 2021-07-15 at 20:38:23
+	Design Rules Check.PDF modified on 2021-07-15 at 20:38:29
+	Electrical Rules Check.PDF modified on 2021-07-15 at 20:38:31
+	layers.PDF modified on 2021-07-15 at 20:38:24
+	MECHDWG.PDF modified on 2021-07-15 at 20:38:16
+	MOD.PDF modified on 2021-07-15 at 20:38:27
+	SMB0223.PDF modified on 2021-07-15 at 20:38:22
+	SMT0125.PDF modified on 2021-07-15 at 20:38:22
+	SPB0223.PDF modified on 2021-07-15 at 20:38:23
+	SPT0123.PDF modified on 2021-07-15 at 20:38:21
+	SSB0229.PDF modified on 2021-07-15 at 20:38:23
+	SST0126.PDF modified on 2021-07-15 at 20:38:22
+
+*** Warnings were raised so please reveiw ***
+When the warnings have been reviewed/recitified press ENTER to continue
+Uploading of Project information to the Google Drive is disabled
+
+
+Constructing Archive...
+*** Directory 02190A0_Folder.zip has been generated successfully ***
+
+Deliverable generation is complete

@@ -17,7 +17,7 @@ are satisfied
 """
 
 __author__ = 'David Wright (david@asteriaec.com)'
-__version__ = '0.3.0' #Versioning: http://www.python.org/dev/peps/pep-0386/
+__version__ = '0.3.1' #Versioning: http://www.python.org/dev/peps/pep-0386/
 
 import subprocess
 import os
@@ -38,7 +38,7 @@ try:
     
 except:
     print("\tinstalling pip")
-    inst = subprocess.Popen(['C:\\Python27\python.exe', os.getcwd() + '\\src\\get-pip.py'])
+    inst = subprocess.Popen(['C:\\Python\python.exe', os.getcwd() + '\\src\\get-pip.py'])
     inst.wait()
     try:
         import pip
@@ -214,8 +214,8 @@ print('Dependancy check successful')
 
 print('\nGenerating Batch file\n')
 # lines to write to batch file
-batch_lines = ['@echo off',
-               'C:\\Python27\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" False\n',
+batch_lines = ['@echo off\n',
+               'C:\\Python\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" False\n',
                'Pause']
 
 # path of batch file

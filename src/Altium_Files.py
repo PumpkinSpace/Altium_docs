@@ -43,12 +43,12 @@ altium_ext = ['Outjob', 'PrjPcb', 'PrjPcbStructure', 'BomDoc', \
               'PcbDoc', 'SchDoc', 'Harness', 'PrjPCB']
 
 # rejected file extensions
-bad_gerber_ext = ['zip', 'ods', 'xlsx', 'Report.Txt', '2.txt', \
+bad_gerber_ext = ['zip', 'ods', 'xlsx', 'Report.Txt', '2.txt', 'ini', \
                   '4.txt', '6.txt', '8.txt', 'drc', 'html', '~lock', '_Previews']
 
 # file extensions that represent layers
 layer_gerber_list = ['.GTL', '.GBL', '.G1', '.G2', '.G3', '.G4', '.G5', \
-                     '.G6', '.GP1', '.GP2', '.GP3', '.GP4', '.GP5', '.GP6']
+                     '.G6', '.G7', '.G8', '.GP1', '.GP2', '.GP3', '.GP4', '.GP5', '.GP6', 'GP7', 'GP8']
 
 required_gerber_list = ['.apr', '.DRR', '.EXTREP', '.GBL', '.GBO', '.GBP', '.GBS',
                         '.GM1', '.GTL', '.GTO', '.GTP', '.GTS', '.LDP', '.RUL',
@@ -239,7 +239,7 @@ def move_gerbers(starting_dir, output_dir, part_number):
                 # is a valid gerber layer
                 layers+=1
     
-            if filename.endswith('G7') or filename.endswith('GP7'):
+            if filename.endswith('G9') or filename.endswith('GP9'):
                 # This indicates that there are more layers than this code was 
                 # developed to handle
                 print('***  Error: Script needs to be extended to ' + \
