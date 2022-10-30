@@ -62,21 +62,19 @@ PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 Configuration2_Name1=ColumnNameFormat
 Configuration2_Item1=CaptionAsName
 Configuration2_Name2=General
-Configuration2_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=True|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1416|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration2_Item2=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=True|NotFitted=True|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing and fitted.xlt|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1416|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration2_Name3=GroupOrder
 Configuration2_Item3=Manufacturer Part Number 1=True
 Configuration2_Name4=OutputConfigurationParameter1
 Configuration2_Item4=dEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=5|NumberOfUnits=2|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Imperial|ZeroesMode=SuppressTrailingZeroes|DocumentPath=[ActiveBOM Document]
-Configuration2_Name5=SortOrder
-Configuration2_Item5=Designator=Up|Comment=Up
-Configuration2_Name6=VisibleOrder
-Configuration2_Item6=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100
-Configuration2_Name7=VisibleOrder_Base
-Configuration2_Item7=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100
-Configuration2_Name8=VisibleOrder_Consolidated
-Configuration2_Item8=Line #=100|Comment=100|Description=100|Designator=100|Quantity=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Quantity@Placed Components Only=100|Price@Placed Components Only=100
-Configuration2_Name9=VisibleOrder_Flat
-Configuration2_Item9=Line #=100|Comment=100|Description=100|Designator=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139
+Configuration2_Name5=VisibleOrder
+Configuration2_Item5=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100|Fitted=100
+Configuration2_Name6=VisibleOrder_Base
+Configuration2_Item6=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100|Fitted=100
+Configuration2_Name7=VisibleOrder_Consolidated
+Configuration2_Item7=Line #=100|Comment=100|Description=100|Designator=100|Quantity=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Quantity@Placed Components Only=100|Price@Placed Components Only=100
+Configuration2_Name8=VisibleOrder_Flat
+Configuration2_Item8=Line #=100|Comment=100|Description=100|Designator=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139
 OutputType3=ExportSTEP
 OutputName3=Export STEP
 OutputCategory3=Export
@@ -169,7 +167,7 @@ PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 Configuration8_Name1=ColumnNameFormat
 Configuration8_Item1=CaptionAsName
 Configuration8_Name2=General
-Configuration8_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration8_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing and fitted.xlt|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration8_Name3=GroupOrder
 Configuration8_Item3=Manufacturer Part Number 1=True
 Configuration8_Name4=OutputConfigurationParameter1
@@ -525,21 +523,19 @@ PageOptions25=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 Configuration25_Name1=ColumnNameFormat
 Configuration25_Item1=CaptionAsName
 Configuration25_Name2=General
-Configuration25_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing.xlt|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
+Configuration25_Item2=OpenExported=False|AddToProject=False|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=True|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Pumpkin\Altium_docs\Altium Templates\Pumpkin BOM Template with pricing and fitted.xlt|TemplateVaultGuid=|TemplateItemGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1435|FormHeight=661|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=2|SuppliersPerSolution=1|ViewType=0|UseDirectApi=False|BomSetName=
 Configuration25_Name3=GroupOrder
 Configuration25_Item3=Manufacturer Part Number 1=True
 Configuration25_Name4=OutputConfigurationParameter1
 Configuration25_Item4=??
-Configuration25_Name5=SortOrder
-Configuration25_Item5=Designator=Up|Comment=Up
-Configuration25_Name6=VisibleOrder
-Configuration25_Item6=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100
-Configuration25_Name7=VisibleOrder_Base
-Configuration25_Item7=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100
-Configuration25_Name8=VisibleOrder_Consolidated
-Configuration25_Item8=Line #=100|Comment=100|Description=100|Designator=100|Quantity=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Quantity@Placed Components Only=100|Price@Placed Components Only=100
-Configuration25_Name9=VisibleOrder_Flat
-Configuration25_Item9=Line #=100|Comment=100|Description=100|Designator=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139
+Configuration25_Name5=VisibleOrder
+Configuration25_Item5=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100|Fitted=100
+Configuration25_Name6=VisibleOrder_Base
+Configuration25_Item6=Line #=71|Comment=130|Description=99|Designator=97|Quantity=84|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Supplier 2=100|Supplier Part Number 2=100|Manufacturer 2=100|Manufacturer Part Number 2=100|Fitted=100
+Configuration25_Name7=VisibleOrder_Consolidated
+Configuration25_Item7=Line #=100|Comment=100|Description=100|Designator=100|Quantity=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139|Quantity@Placed Components Only=100|Price@Placed Components Only=100
+Configuration25_Name8=VisibleOrder_Flat
+Configuration25_Item8=Line #=100|Comment=100|Description=100|Designator=100|Manufacturer 1=119|Manufacturer Part Number 1=186|Manufacturer Lifecycle 1=164|Supplier 1=92|Supplier Part Number 1=159|Supplier Unit Price 1=144|Supplier Subtotal 1=139
 OutputType26=Pick Place
 OutputName26=Pick and Place (Placed Components Only)
 OutputCategory26=Assembly
@@ -555,7 +551,7 @@ Configuration26_Name1=OutputConfigurationParameter1
 Configuration26_Item1=Record=PickPlaceView|Units=Imperial|GenerateCSVFormat=False|GenerateTextFormat=True|DocumentPath=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Payload Interface Module REVD (01293D0)\PIM_REVD.PcbDoc
 
 [PublishSettings]
-OutputFilePath1=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Radio Host Module 2 (01847A0)\.\705-01847A0\
+OutputFilePath1=Y:\Shared drives\Asteria - Engineering\Pumpkin\Pumpkin Circuit Boards\Bus Interface Module REVC (01272C0)\.\705-01272C0\
 ReleaseManaged1=0
 OutputBasePath1=.\
 OutputPathMedia1==PartNumber + ProjectRevision
@@ -568,7 +564,7 @@ OutputFileNameMulti1==PartNumber + ProjectRevision + ' ' + OutputName
 UseOutputNameForMulti1=0
 OutputFileNameSpecial1=
 OpenOutput1=0
-OutputFilePath2=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Payload Interface Module REVD (01293D0)\.\
+OutputFilePath2=Y:\Shared drives\Asteria - Engineering\Pumpkin\Pumpkin Circuit Boards\Bus Interface Module REVC (01272C0)\.\
 ReleaseManaged2=0
 OutputBasePath2=.\
 OutputPathMedia2=
@@ -610,7 +606,7 @@ PDFACompliance4=Disabled
 PDFVersion4=Default
 
 [GeneratedFilesSettings]
-RelativeOutputPath1=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Radio Host Module 2 (01847A0)\.\705-01847A0\
+RelativeOutputPath1=Y:\Shared drives\Asteria - Engineering\Pumpkin\Pumpkin Circuit Boards\Bus Interface Module REVC (01272C0)\.\705-01272C0\
 OpenOutputs1=0
 AddToProject1=1
 TimestampFolder1=0
@@ -620,7 +616,7 @@ OpenGerberOutput1=0
 OpenNCDrillOutput1=0
 OpenIPCOutput1=0
 EnableReload1=0
-RelativeOutputPath2=D:\Asteria\Documents\Pumpkin\Pumpkin Circuit Boards\Payload Interface Module REVD (01293D0)\.\
+RelativeOutputPath2=Y:\Shared drives\Asteria - Engineering\Pumpkin\Pumpkin Circuit Boards\Bus Interface Module REVC (01272C0)\.\
 OpenOutputs2=0
 AddToProject2=1
 TimestampFolder2=0
