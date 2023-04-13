@@ -97,7 +97,7 @@ try:
     
 except:
     print("\tinstalling PyPDF2\n")
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'PyPDF2'])
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'PyPDF2==2.12.1'])
     try:
         from PyPDF2 import PdfFileReader
         print("\n\tinstallation successful\n")
