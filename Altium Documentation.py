@@ -157,7 +157,7 @@ if __name__ == '__main__':
                                                       layers))
     
     # zip the step file
-    modified_dates.append(Altium_Files.zip_step_file(starting_dir, output_dir, part_number))
+    modified_dates.extend(Altium_Files.zip_step_file(starting_dir, output_dir, part_number))
     
     # find the oldest and newest files used.
     no_warnings = Altium_helpers.check_modified_dates(modified_dates)

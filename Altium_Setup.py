@@ -215,7 +215,7 @@ print('Dependancy check successful')
 print('\nGenerating Batch file\n')
 # lines to write to batch file
 batch_lines = ['@echo off\n',
-               'C:\\Python\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" False\n',
+               sys.exec_prefix + '\python.exe \"' + os.getcwd() + '\\Altium Documentation.py\" \"%CD%\" False\n',
                'Pause']
 
 # path of batch file

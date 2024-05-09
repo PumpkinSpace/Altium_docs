@@ -1,3 +1,3 @@
 @echo off
-C:\Python\python.exe "c:\Pumpkin\Pumpkin_Altium_Docs\Altium Documentation.py" "%CD%" False
+C:\Python\Python38\python.exe "C:\Pumpkin\Altium_docs\Altium Documentation.py" "%CD%" False
 Pause

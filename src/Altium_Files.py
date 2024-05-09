@@ -392,10 +392,21 @@ def zip_step_file(starting_dir, output_dir, part_number):
     
     # completion flags
     step_file_found = False
-    modified_date = None
+    x_t_file_found = False
+    both_files_processed = False
+    modified_dates = []
     
     # get the file list of the starting directory
     root_file_list = os.listdir(starting_dir)
+
+    # make a folder to put the step file in temporarily
+    step_dir = starting_dir + '\\step_temp'
+    if os.path.exists(step_dir):
+        shutil.rmtree(step_dir)
+    # end
+    
+    # create temporary directory in which to place all of the files needed
+    os.makedirs(step_dir)    
     
     # search for step file
     for filename in root_file_list:
@@ -403,49 +414,59 @@ def zip_step_file(starting_dir, output_dir, part_number):
             # step file has been found
             
             # get it's modification date
-            modified_date = Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
-                                                    filename)
+            modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
+                                                    filename))
             
             # Shrinking the step file would happen here....
-            
-            # make a folder to put the step file in temporarily
-            step_dir = starting_dir + '\\step_temp'
-            if os.path.exists(step_dir):
-                shutil.rmtree(step_dir)
-            # end
-            
-            # create temporary directory in which to place all of the files needed
-            os.makedirs(step_dir)    
-            
+
             # copy file into temp directory
             shutil.copy(starting_dir+'\\'+filename, step_dir +'\\'+part_number+'.step')
             
-            # make archive
-            shutil.make_archive(output_dir+'\\'+part_number+'_step', 'zip', step_dir)
-            
-            time.sleep(0.5)
-            
-            try:
-                # delete the temp directory
-                shutil.rmtree(step_dir)       
-                
-            except:
-                print('*** WARNING: Could not delete temporary step directory ***')
-                log_warning()     
-            # end try
-            
             step_file_found = True
         # end if
+        if filename.endswith('.x_t'):
+            # step file has been found
+            
+            # get it's modification date
+            modified_dates.append(Altium_helpers.mod_date(os.path.getmtime(starting_dir+'\\'+filename), 
+                                                    filename))
+            
+            # Shrinking the step file would happen here....
+
+            # copy file into temp directory
+            shutil.copy(starting_dir+'\\'+filename, step_dir +'\\'+part_number+'.x_t')
+            
+            x_t_file_found = True
+        # end if
     # end for
+
+    # make archive
+    shutil.make_archive(output_dir+'\\'+part_number+'_3D', 'zip', step_dir)
+    
+    time.sleep(0.5)
+    
+    try:
+        # delete the temp directory
+        shutil.rmtree(step_dir)       
+        
+    except:
+        print('*** WARNING: Could not delete temporary step directory ***')
+        log_warning()     
+    # end try
     
     if not step_file_found:
+        print('*** WARNING: No step file found ***')
+        log_warning()
+    # end if
+
+    if not x_t_file_found:
         print('*** WARNING: No step file found ***')
         log_warning()
     # end if
             
     print('Complete! \n')
     
-    return modified_date
+    return modified_dates
 # end def
 
 
