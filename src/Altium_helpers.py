@@ -293,8 +293,12 @@ def construct_root_archive(output_dir, part_number):
                                       (string).                 
     """    
     print('\n\nConstructing Archive...')
+
+    now = datetime.datetime.now()
+    dt_string = now.strftime("%Y%m%d_%H%M_")
     
-    zip_filename = output_dir + '\\' + part_number + '_Folder'
+    #zip_filename = output_dir + '\\' + part_number + '_Folder'
+    zip_filename = output_dir + '\\' + dt_string + part_number + '_Folder'
     
     # make a folder to put the step file in temporarily
     temp_dir = output_dir + '\\temp'

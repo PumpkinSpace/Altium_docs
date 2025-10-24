@@ -973,7 +973,7 @@ def extract_assy_info(pdf_text, starting_dir):
     # split the third block into it's parts
     list_1 = assy_blocks[2].split(';')[:-1]
     
-    if list_1 == []:
+    if ((list_1 == []) or (list_1 == [''])):
         print("*** Warning, ASSY_Config information is empty ***")
         log_warning()
         return None        
